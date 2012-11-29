@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dcc-schema xmlns="http://www.blueprint-epigenome.eu/dcc/schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blueprint-epigenome.eu/dcc/schema bp-schema.xsd">
+<dcc-schema xmlns="http://www.blueprint-epigenome.eu/dcc/schema" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blueprint-epigenome.eu/dcc/schema bp-schema.xsd">
     <cv-declarations>
         <cv name="B5">
             <cv-file>appendix_B5.tsv</cv-file> 
@@ -25,6 +25,15 @@
             <e v="0">Not tested</e>
             <e v="-1">Validated</e>
         </cv>
+        <cv name="junctionType">
+            <e v="1">Canonical</e>
+            <e v="2">Non-canonical</e>
+            <e v="3">U12</e>
+        </cv>
+        <cv name="sex">
+            <e v="1">male</e>
+            <e v="2">female</e>
+        </cv>
     </cv-declarations>
     <pattern-declarations></pattern-declarations>
     <collection-domain>
@@ -36,7 +45,13 @@
         <collection name="cdata" path="clinical-data" />
     </collection-domain>
     <concept-types>
-        <concept-type name="clinical-data" destination="cdata" />
+        <concept-type name="clinical-data" destination="cdata">
+            <column name="notes">
+                <description>Any additional non-identifying information can be included here.</description>
+                <column-type item-type="string" column-kind="optional" />
+            </column>
+        </concept-type>
+        
         <concept-type name="abstract-experiment-metadata" destination="metadata">
             <column name="analysis_id">
                 <description>Unique identifier for the analysis performed for a particular set of samples</description>
@@ -105,6 +120,7 @@
                 </concept-type>
             </subtypes>
         </concept-type>
+        
         <concept-type name="abstract-experiment-primary" destination="primary">
             <column name="chromosome">
                 <description>Name of the chromosome containing the experimentally detected feature (mutation, variation, expression, ...)</description>
@@ -160,19 +176,26 @@
             </subtypes>
         </concept-type>
     </concept-types>
+    
     <filename-format name="blueprint-dcc"></filename-format>
+    
     <concept-domain domain="cngv" fullname="Copy Number Germline Variations" filename-format="blueprint-dcc">
-        <concept name="m" fullname="Copy Number Germline Variations [cngv] – Metadata File [m]" basetype="comparative-ngs-experiment-metadata">
+        <concept name="m" fullname="Copy Number Germline Variations - Metadata File" basetype="comparative-ngs-experiment-metadata">
+            <description>Copy Number Germline Variations [cngv] – Metadata File [m]</description>
+            
             <column name="variation_calling_algorithm">
                 <description>Name of variation calling algorithm and URL to written protocol</description>
                 <column-type item-type="complex" column-kind="required" complex-seps=";" complex-template="name;url" />
             </column>
             <subconcepts>
-                <concept name="p" fullname="Copy Number Germline Variations [cngv] – Primary Analysis File [p]" basetype="expression-experiment-primary">
+                <concept name="p" fullname="Copy Number Germline Variations – Primary Analysis File" basetype="expression-experiment-primary">
+                    <description>Copy Number Germline Variations [cngv] – Primary Analysis File [p]</description>
+                    
                     <column name="variation_id">
                         <description>Unique identifier for the variation</description>
                         <column-type item-type="string" column-kind="idref"></column-type>
                     </column>
+                    
                     <column name="variation_type">
                         <description>Type of variation</description>
                         <column-type item-type="string" column-kind="required" cv="cngv_p__variation_type" />
@@ -211,10 +234,334 @@
                         <description>Indicate if the variation is annotated in the database of Genomic Variations</description>
                         <column-type item-type="boolean" column-kind="optional"></column-type>
                     </column>
-                    
-                    
                 </concept>
             </subconcepts>
         </concept>
     </concept-domain>
+    
+    <concept-domain domain="exp" fullname="Gene Expression" filename-format="blueprint-dcc">
+        <concept name="m" fullname="Expression - Metadata File" basetype="abstract-experiment-metadata">
+            <description>Expression [exp] – Metadata File [m]</description>
+            
+            <subconcepts>
+                <concept name="g" fullname="Expression - Gene File" basetype="gene-expression-experiment-primary">
+                    <description>Expression [exp] – Gene File [g]</description>
+                    
+                    <column name="gene_stable_id">
+                        <description>For annotated gene, use Ensembl gene ID. Otherwise, use assemblyBuild_chr_start_end where assemblyBuild is hg18 or hg19.</description>
+                        <column-type item-type="string" column-kind="idref" />
+                    </column>
+                    
+                    <column name="normalized_expression_level">
+                        <description>Normalized value of expression level if analyzed by microarray platforms</description>
+                        <column-type item-type="decimal" column-kind="optional" />
+                    </column>
+                    <column name="fold_change">
+                        <description>Expressed fold change if differential expression is measured</description>
+                        <column-type item-type="decimal" column-kind="optional" />
+                    </column>
+                    <column name="reference_sample">
+                        <description>ID of the reference analyzed sample if differential expression is measured</description>
+                        <column-type item-type="string" column-kind="optional" />
+                    </column>
+                    <column name="is_annotated">
+                        <description>Indicate if the expressed fragment is annotated in Ensembl</description>
+                        <column-type item-type="boolean" column-kind="required"></column-type>
+                    </column>
+                    <column name="probeset_id">
+                        <description>ID of the probeset used in microarray if analyzed by microarray platform</description>
+                        <column-type item-type="string" column-kind="optional" />
+                    </column>
+                </concept>
+            </subconcepts>
+        </concept>
+    </concept-domain>
+    
+    <concept-domain domain="jcn" fullname="Exon Junction" filename-format="blueprint-dcc">
+        <concept name="m" fullname="Exon Junction - Metadata File" basetype="abstract-experiment-metadata">
+            <description>Exon Junction [jcn] – Metadata File [m]</description>
+            
+            <subconcepts>
+                <concept name="p" fullname="Exon Junction - Primary Analysis File" basetype="expression-experiment-primary">
+                    <description>Exon Junction [jcn] – Primary Analysis File [p]</description>
+                    
+                    <column name="junction_id">
+                        <description>For known exons, use exonID1_exonID2 where exonID1 and exonID2 are Ensembl IDs of the 5' and 3' exons, respectively. For novel or putative exons,use assemblyBuild_exon1chr_exon1end_exon2chr_exon2start where assemblyBuild is hg18 or hg19; exon1chr and exon2chr are the chromosomes of the 5' and 3' exons, respectively; exon1end is the end position of the 5' exon; exon2start is the start position of the 3' exon.</description>
+                        <column-type item-type="string" column-kind="idref" />
+                    </column>
+                    
+                    <column name="gene1_stable_id">
+                        <description>Stable ID of the gene containing the 5' exon at the junction. For annotated gene, use Ensembl gene ID. For putative and novel gene, use assemblyBuild_chr_start_end where assemblyBuild can be hg18 or hg19.</description>
+                        <column-type item-type="string" column-kind="required" />
+                    </column>
+                    <column name="gene2_stable_id">
+                        <description>In the case of a fusion gene, provide the Stable ID of the gene containing the 3' exon at the junction. For annotated genes, use Ensembl gene ID. For putative and novel genes, use assemblyBuild_chr_start_end where assemblyBuild can be hg18 or hg19.</description>
+                        <column-type item-type="string" column-kind="optional" />
+                    </column>
+                    <column name="exon1_chromosome">
+                        <description>Name of the chromosome containing the 5' exon (#)</description>
+                        <column-type item-type="integer" column-kind="required" cv="B6" />
+                    </column>
+                    <column name="exon1_number_bases">
+                        <description>Number of bases from 5' exon</description>
+                        <column-type item-type="integer" column-kind="required"></column-type>
+                    </column>
+                    <column name="exon1_end">
+                        <description>End position of the 5' exon on the chromosome</description>
+                        <column-type item-type="integer" column-kind="required" />
+                    </column>
+                    <column name="exon1_strand">
+                        <description>Chromosome strand of the 5' exon</description>
+                        <column-type item-type="integer" column-kind="optional" cv="strand" />
+                    </column>
+                    <column name="exon2_chromosome">
+                        <description>Name of the chromosome containing the 3' exon (#)</description>
+                        <column-type item-type="integer" column-kind="required" cv="B6" />
+                    </column>
+                    <column name="exon2_number_bases">
+                        <description>Number of bases from 3' exon</description>
+                        <column-type item-type="integer" column-kind="required" />
+                    </column>
+                    <column name="exon2_start">
+                        <description>Start position of the 3' exon on the chromosome</description>
+                        <column-type item-type="integer" column-kind="required" />
+                    </column>
+                    <column name="exon2_strand">
+                        <description>Chromsome strand of the 3' exon</description>
+                        <column-type item-type="integer" column-kind="optional" cv="strand" />
+                    </column>
+                    
+                    <column name="is_fusion_gene">
+                        <description>Indicate if the function is the result of a fusion gene</description>
+                        <column-type item-type="boolean" column-kind="optional" />
+                    </column>
+                    <column name="is_novel_splice_form">
+                        <description>Indicate if the splice form is novel</description>
+                        <column-type item-type="boolean" column-kind="optional" />
+                    </column>
+                    <column name="junction_seq">
+                        <description>Provide junction sequence if either is_fusion_gene or is_novel_splice_form is true</description>
+                        <column-type item-type="string" column-kind="optional" />
+                    </column>
+                    <column name="junction_type">
+                        <description>Type of junction</description>
+                        <column-type item-type="integer" column-kind="optional" cv="junctionType" />
+                    </column>
+                    <column name="junction_read_count">
+                        <description>Count of sequencing reads that span across exons</description>
+                        <column-type item-type="integer" column-kind="required" />
+                    </column>
+                </concept>
+            </subconcepts>
+        </concept>
+    </concept-domain>
+    
+    <concept-domain domain="cdata" fullname="Clinical Data Submission File Specifications" filename-format="blueprint-dcc">
+        <concept name="donor" fullname="Donor Data File" basetype="clinical-data">
+            <description>Donor Data File [donor] (required)</description>
+            <description>This submission file describes a donor from which one or more specimens were obtained.</description>
+            
+            <column name="donor_id">
+                <description><xhtml:i>Unique identifier</xhtml:i> for the donor; assigned by data provider.</description>
+                <column-type item-type="string" column-kind="idref" />
+            </column>
+            
+            <column name="donor_sex">
+                <description>Donor biological sex.</description>
+                <annotation key="values">"Other" has been removed from the controlled vocabulary due to identifiability concerns.</annotation>
+                <column-type item-type="integer" column-kind="required" cv="sex" />
+            </column>
+            <column name="donor_region_of_residence">
+                <description>Country, and optionally state or province code, but not city.</description>
+                <annotation key="values"><xhtml:a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO3166-1-alpha-2</xhtml:a> or <xhtml:a href="http://en.wikipedia.org/wiki/ISO_3166-2">ISO3166-2</xhtml:a> codes, eg: "CA" or "CA-ON"</annotation>
+                <column-type item-type="string" column-kind="required" />
+            </column>
+            <column name="donor_vital_status">
+                <description>Donor's last known vital status</description>
+                <column-type item-type="integer" column-kind="optional">
+                    <cv>
+                        <e v="1">alive</e>
+                        <e v="2">deceased</e>
+                    </cv>
+                </column-type>
+            </column>
+            <column name="donor_age_at_diagnosis">
+                <description>Age at primary diagnosis</description>
+                <annotation key="values">Use "90" for patients >=90</annotation>
+                <column-type item-type="integer" column-kind="required" />
+            </column>
+            <column name="donor_diagnosis_do">
+                <description>Disease Ontology code</description>
+                <annotation key="values"><xhtml:a href="http://diseaseontology.sourceforge.net/">Disease Ontology</xhtml:a> code</annotation>
+                <column-type item-type="string" column-kind="required" />
+            </column>
+            
+            <subconcepts>
+                <concept name="family" fullname="Donor Family History" basetype="clinical-data">
+                    <description>Donor Family History [family] (optional)</description>
+                    <description>This file describes the family history of the donor.</description>
+                    
+                    <column name="relationship_type">
+                        <description>Relationship to the donor</description>
+                        <column-type item-type="integer" column-kind="required">
+                            <cv>
+                                <e v="1">sibling</e>
+                                <e v="2">parent</e>
+                                <e v="3">grandparent</e>
+                                <e v="4">uncle/aunt</e>
+                                <e v="5">cousin</e>
+                                <e v="6">other</e>
+                            </cv>
+                        </column-type>
+                    </column>
+                    <column name="relationship_type_other">
+                        <description>If "other" answered in previous column, specify the relationship type here</description>
+                        <column-type item-type="string" column-kind="required" />
+                    </column>
+                    <column name="relationship_sex">
+                        <description>Biological sex of related individual</description>
+                        <column-type item-type="integer" column-kind="required" cv="sex" />
+                    </column>
+                    <column name="relationship_age">
+                        <description>Age of relative at primary diagnosis (years)</description>
+                        <annotation key="values">Use 90 for ages >= 90 years.</annotation>
+                        <column-type item-type="integer" column-kind="required" />
+                    </column>
+                    <column name="relationship_diagnosis_do">
+                        <description>Disease Ontology code for the relative's diagnosis status</description>
+                        <column-type item-type="string" column-kind="required" />
+                    </column>
+                    <column name="relationship_diagnosis">
+                        <description>Diagnosis (disease or healthy status)</description>
+                        <annotation key="values">e.g. "breast cancer"</annotation>
+                        <column-type item-type="string" column-kind="required" />
+                    </column>
+                    
+                </concept>
+            </subconcepts>
+            
+        </concept>
+        <concept name="specimen" fullname="Specimen Data File" basetype="clinical-data">
+            <description>Specimen Data File [specimen] (required)</description>
+            <description>This submission file describes a specimen from which one or more samples were derived. Use additional rows for more than one specimen from the same patient. If more than one specimen was extracted during the same procedure, each gets a distinct ID.</description>
+            
+            <column name="specimen_id">
+                <description>Unique identifier for the specimen assigned by data provider.</description>
+                <column-type item-type="string" column-kind="idref" />
+            </column>
+            <column name="specimen_type">
+                <description>Controlled vocabulary description of specimen type.</description>
+                <column-type item-type="integer" column-kind="required">
+                    <cv>
+                        <e v="1">primary tumour</e>
+                        <e v="2">tumour local recurrence</e>
+                        <e v="3">tumour metastasis to local lymph node</e>
+                        <e v="4">tumour metastasis to distant location</e>
+                        <e v="5">peripheral blood</e>
+                        <e v="6">bone marrow</e>
+                        <e v="7">lymph node</e>
+                        <e v="8">normal control (tissue adjacent to primary)</e>
+                        <e v="9">normal control (blood)</e>
+                        <e v="10">normal control (other)</e>
+                        <e v="11">disease tissue (other)</e>
+                    </cv>
+                </column-type>
+            </column>
+            <column name="specimen_type_other">
+                <description>Free text description of site of specimen if "normal control (other)" or "disease tissue (other)" was specified in specimen_type field.</description>
+                <column-type item-type="string" column-kind="optional" />
+            </column>
+            <column name="specimen_processing">
+                <description>Description of technique used to process specimen</description>
+                <column-type item-type="string" column-kind="required">
+                    <cv>
+                        <e v="1">cryopreservation in liquid nitrogen (dead tissue)</e>
+                        <e v="2">cryopreservation in dry ice (dead tissue)</e>
+                        <e v="3">cryopreservation of live cells in liquid nitrogen</e>
+                        <e v="4">cryopreservation, other</e>
+                        <e v="5">formalin fixed, unbuffered</e>
+                        <e v="6">formalin fixed, buffered</e>
+                        <e v="7">formalin fixed &amp; paraffin embedded</e>
+                        <e v="8">fresh</e>
+                        <e v="9">other technique</e>
+                    </cv>
+                </column-type>
+            </column>
+            <column name="specimen_processing_other">
+                <description>If "other" specified for specimen_processing, may indicate technique here.</description>
+                <column-type item-type="string" column-kind="optional"></column-type>
+            </column>
+            <column name="specimen_storage">
+                <description>Description of how specimen was stored. For specimens that were extracted freshly or immediately cultured, answer (1) "NA".</description>
+                <column-type item-type="string" column-kind="required">
+                    <cv>
+                        <e v="1">frozen, liquid nitrogen</e>
+                        <e v="2">frozen, -70 freezer</e>
+                        <e v="3">frozen, vapor phase</e>
+                        <e v="4">RNA later frozen</e>
+                        <e v="5">paraffin block</e>
+                        <e v="6">cut slide</e>
+                        <e v="7">other</e>
+                    </cv>
+                </column-type>
+            </column>
+            <column name="specimen_storage_other">
+                <description>If "other" specified for specimen_storage, may indicate technique here.</description>
+                <column-type item-type="string" column-kind="optional" />
+            </column>
+            <column name="specimen_biobank">
+                <description>If the specimen was obtained from a biobank, provide the biobank name here</description>
+                <column-type item-type="string" column-kind="optional" />
+            </column>
+            <column name="specimen_biobank_id">
+                <description>If the specimen was obtained from a biobank, provide the biobank accession number here.</description>
+                <column-type item-type="string" column-kind="optional" />
+            </column>
+            <column name="specimen_available">
+                <description>Whether additional tissue is available for followup studies.</description>
+                <column-type item-type="boolean" column-kind="optional" />
+            </column>
+            
+            <subconcepts>
+                <concept name="sample" fullname="Analyzed Sample Data File" basetype="clinical-data">
+                    <description>Analyzed Sample Data File [sample] (required)</description>
+                    <description>This submission file describes an analyzed sample on which molecular characterization was performed. It includes both control samples and tumour samples.</description>
+                    
+                    <column name="analyzed_sample_id">
+                        <description><xhtml:i>Unique identifier</xhtml:i> for the sample assigned by data provider</description>
+                        <column-type item-type="string" column-kind="idref"></column-type>
+                    </column>
+                    <column name="analyzed_sample_type">
+                        <description>Controlled vocabulary description of sample type</description>
+                        <column-type item-type="integer" column-kind="required">
+                            <cv>
+                                <e v="1">Normal blood</e>
+                                <e v="2">Leukemic blood</e>
+                                <e v="3">Normal control adjacent to primary</e>
+                                <e v="4">Normal control from non-tumour site</e>
+                                <e v="5">Control from cell line derived from normal tissue</e>
+                                <e v="6">Normal mouse host</e>
+                                <e v="7">Primary tumour</e>
+                                <e v="8">Mouse xenograft derived from tumour</e>
+                                <e v="9">Cell line derived from tumour</e>
+                                <e v="10">Cell line derived from xenograft</e>
+                                <e v="11">Other (specify)</e>
+                            </cv>
+                        </column-type>
+                    </column>
+                    <column name="analyzed_sample_type_other">
+                        <description>Free text description of site of sample if "other" was specified in <xhtml:i>sample_type</xhtml:i> field</description>
+                        <column-type item-type="string" column-kind="optional" />
+                    </column>
+                    <column name="analyzed_sample_interval">
+                        <description>Interval from specimen acquisition to sample use in an analytic procedure (e.g. DNA extraction), in days</description>
+                        <column-type item-type="integer" column-kind="optional" />
+                    </column>
+                </concept>
+            </subconcepts>
+            <related-to concept="donor"/>
+        </concept>
+    </concept-domain>
+    
+    
 </dcc-schema>
