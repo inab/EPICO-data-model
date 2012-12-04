@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dcc-schema xmlns="http://www.blueprint-epigenome.eu/dcc/schema" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blueprint-epigenome.eu/dcc/schema bp-schema.xsd">
+<dcc-schema
+        project="BLUEPRINT"
+        schemaVer="0.2.0"
+        xmlns="http://www.blueprint-epigenome.eu/dcc/schema"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.blueprint-epigenome.eu/dcc/schema bp-schema.xsd"
+>
+    <annotation key="author">José María Fernández</annotation>
+    <annotation key="EnsemblVer">68</annotation>
+    <annotation key="cvKey">Key</annotation>
+    <annotation key="cvDesc">Description</annotation>
     <cv-declarations>
         <cv name="B5">
             <cv-file>appendix_B5.tsv</cv-file> 
