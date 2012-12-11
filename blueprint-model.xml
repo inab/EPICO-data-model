@@ -689,9 +689,11 @@
                         <description>Type of DNA *-lation (Methylation, Hydroxy-Methylation, Formylation, etc...)</description>
                         <column-type item-type="string" column-kind="required">
                             <cv>
-                                <e v="me">Methylation</e>
-                                <e v="hy">Hydroxy-Methylation</e>
-                                <e v="fo">Formylation</e>
+                                <e v="m">Methylation (cytosine)</e>
+                                <e v="hm">Hydroxy-Methylation (cytosine)</e>
+                                <e v="hmU">Hydroxy-Methylation (uracil)</e>
+                                <e v="f">Formylation (cytosine)</e>
+                                <e v="ca">Carboxylation (cytosine)</e>
                             </cv>
                         </column-type>
                     </column>
