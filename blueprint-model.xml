@@ -11,7 +11,7 @@
     <annotation key="EnsemblVer">68</annotation>
     <annotation key="cvKey">Key</annotation>
     <annotation key="cvDesc">Description</annotation>
-    <cv-declarations>
+    <cv-declarations dir="cv">
         <cv name="B5">
             <cv-file>appendix_B5.tsv</cv-file> 
         </cv>
