@@ -11,7 +11,37 @@
     <annotation key="EnsemblVer">68</annotation>
     <annotation key="cvKey">Key</annotation>
     <annotation key="cvDesc">Description</annotation>
-    <cv-declarations dir="cv">
+    
+    <collection-domain>
+        <!-- Metadata from experiments is being stored here -->
+        <collection name="metadata" path="metadata">
+            <index unique="true">
+                <attr name="analysys_id" />
+                <attr name="analyzed_sample_id" />
+            </index>
+        </collection>
+        <!-- Primary and secondary data from experiments is being stored here -->
+        <collection name="primary" path="primary">
+            <index unique="false">
+                <attr name="chromosome" />
+                <attr name="chromosome_start" />
+                <attr name="chromosome_end" />
+            </index>
+            <index unique="false">
+                <attr name="analysys_id" />
+                <attr name="analyzed_sample_id" />
+                <attr name="control_sample_id" />
+            </index>
+        </collection>
+        <!-- All the clinical data documents are stored here -->
+        <collection name="cdata" path="clinical-data" />
+        <collection name="CV" path="CV" />
+    </collection-domain>
+    
+    <cv-declarations dir="cv" collection="CV">
+        <cv name="B1">
+            <cv-file>appendix_B1.tsv</cv-file>
+        </cv>
         <cv name="B5">
             <cv-file>appendix_B5.tsv</cv-file> 
         </cv>
@@ -46,15 +76,11 @@
             <e v="2">female</e>
         </cv>
     </cv-declarations>
-    <pattern-declarations></pattern-declarations>
-    <collection-domain>
-        <!-- Metadata from experiments is being stored here -->
-        <collection name="metadata" path="metadata" />
-        <!-- Primary and secondary data from experiments is being stored here -->
-        <collection name="primary" path="primary" />
-        <!-- All the clinical data documents are stored here -->
-        <collection name="cdata" path="clinical-data" />
-    </collection-domain>
+    
+    <pattern-declarations>
+        <pattern name="ISODATE" match="[1-9][0-9][0-9][0-9]((1[0-2])|(0[1-9]))(([0-2][0-9])|(3[0-1]))"/>
+    </pattern-declarations>
+    
     <concept-types>
         <concept-type name="clinical-data" collection="cdata">
             <column name="notes">
@@ -187,7 +213,7 @@
             </subtypes>
         </concept-type>
         
-        <concept-type name="generic-secondary" is-virtual="true" key="sec">
+        <concept-type name="generic-secondary" key="sec">
             <column name="ensembl_version">
                 <description>Version of Ensembl gene build used for annotation</description>
                 <column-type item-type="integer" column-kind="required" />
@@ -204,7 +230,7 @@
         </concept-type>
     </concept-types>
     
-    <filename-format name="blueprint-dcc"></filename-format>
+    <filename-format name="blueprint-dcc">$domain-$concept--@B1-\ISODATE--\string.txt</filename-format>
     
     <concept-domain domain="cngv" fullname="Copy Number Germline Variations" filename-format="blueprint-dcc">
         <concept name="m" fullname="Copy Number Germline Variations - Metadata File" basetype="comparative-ngs-experiment-metadata">
