@@ -230,7 +230,7 @@
         </concept-type>
     </concept-types>
     
-    <filename-format name="blueprint-dcc">$domain-$concept--@B1-\ISODATE--\string.txt</filename-format>
+    <filename-format name="blueprint-dcc">$$domain-$$concept--@B1-\ISODATE--%string.txt</filename-format>
     
     <concept-domain domain="cngv" fullname="Copy Number Germline Variations" filename-format="blueprint-dcc">
         <concept name="m" fullname="Copy Number Germline Variations - Metadata File" basetype="comparative-ngs-experiment-metadata">
