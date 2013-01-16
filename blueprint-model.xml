@@ -54,7 +54,7 @@
         <cv name="B12">
             <cv-file>appendix_B12.tsv</cv-file> 
         </cv>
-        <cv name="cngv_p__variation_type">
+        <cv name="cngvPVariationType">
             <cv-file>cngv_p__variation_type.tsv</cv-file>
         </cv>
         <cv name="strand">
@@ -252,7 +252,7 @@
                     
                     <column name="variation_type">
                         <description>Type of variation</description>
-                        <column-type item-type="string" column-kind="required" cv="cngv_p__variation_type" />
+                        <column-type item-type="string" column-kind="required" cv="cngvPVariationType" />
                     </column>
                     <column name="chromosome_start_range">
                         <description>Number of bases around chromosome_start that may contain the start position</description>
