@@ -24,11 +24,6 @@
         <!-- Primary and secondary data from experiments is being stored here -->
         <collection name="primary" path="primary">
             <index unique="false">
-                <attr name="chromosome" />
-                <attr name="chromosome_start" />
-                <attr name="chromosome_end" />
-            </index>
-            <index unique="false">
                 <attr name="analysys_id" />
                 <attr name="analyzed_sample_id" />
                 <attr name="control_sample_id" />
@@ -188,6 +183,13 @@
                 <description>Optional field to leave notes</description>
                 <column-type item-type="string" column-kind="optional" />
             </column>
+            
+            <index unique="false">
+                <attr name="chromosome" />
+                <attr name="chromosome_start" />
+                <attr name="chromosome_end" />
+            </index>
+            
             <subtypes>
                 <concept-type name="expression-experiment-primary">
                     <column name="quality_score">
