@@ -13,6 +13,9 @@
     <annotation key="cvKey">Key</annotation>
     <annotation key="cvDesc">Description</annotation>
     
+    <!-- Next annotation is specific of our PDF document generator -->
+    <annotation key="overviewDoc">overview.latex</annotation>
+    
     <collection-domain>
         <!-- Metadata from experiments is being stored here -->
         <collection name="metadata" path="metadata">
