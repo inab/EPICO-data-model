@@ -33,7 +33,7 @@ Submitted clinical or experimental data files must be from any one of these cate
 	\item \hyperref[fea:cngv]{Copy Number Variations}%
 	\item \hyperref[fea:exp]{Gene Expression}%
 	\item \hyperref[fea:jcn]{Exon Junctions}%
-	\item \hyperref[fea:meth]{DNA Methylation and Hydroxy-Methylation}%
+	\item \hyperref[fea:dlat]{DNA Methylation and Hydroxy-Methylation}%
 	\item \hyperref[fea:pdna]{Protein-DNA interactions}%
 	\item \hyperref[fea:rreg]{Regulatory regions}%
 \end{itemize}
@@ -91,7 +91,7 @@ The file name components are mapped in the next way:
 	& \hyperref[fea:cngv]{Copy Number Variations} & cngv \\
 	& \hyperref[fea:exp]{Gene Expression} & exp \\
 	& \hyperref[fea:jcn]{Exon Junctions} & jcn \\
-	& \hyperref[fea:meth]{DNA Methylation and Hydroxy-Methylation} & meth \\
+	& \hyperref[fea:dlat]{DNA Methylation and Hydroxy-Methylation} & meth \\
 	& \hyperref[fea:pdna]{Protein-DNA interactions} & pdna \\
 	& \hyperref[fea:rreg]{Regulatory regions} & rreg \\ \arrayrulecolor{DarkOrange}\hline
 	\textit{institutionCode} & Institution submitting data & CV Table ?? \\ \arrayrulecolor{DarkOrange}\hline

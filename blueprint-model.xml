@@ -57,20 +57,24 @@
             <cv-file>cngv_p__variation_type.tsv</cv-file>
         </cv>
         <cv name="strand">
+            <annotation key="disposition">inline</annotation>
             <e v="-1">-1</e>
             <e v="1">1</e>
         </cv>
         <cv name="validationStatus">
+            <annotation key="disposition">inline</annotation>
             <e v="-1">Not valid</e>
             <e v="0">Not tested</e>
             <e v="-1">Validated</e>
         </cv>
         <cv name="junctionType">
+            <annotation key="disposition">inline</annotation>
             <e v="1">Canonical</e>
             <e v="2">Non-canonical</e>
             <e v="3">U12</e>
         </cv>
         <cv name="sex">
+            <annotation key="disposition">inline</annotation>
             <e v="1">male</e>
             <e v="2">female</e>
         </cv>
@@ -107,19 +111,19 @@
             </column>
             <column name="experimental_protocol">
                 <description>Name of experimental protocol and URL to written protocol</description>
-                <column-type item-type="complex" column-kind="optional" complex-seps=";" complex-template="name;url" />
+                <column-type item-type="compound" column-kind="optional" compound-seps=";" compound-template="name;url" />
             </column>
             <column name="base_calling_algorithm">
                 <description>Name of base calling algorithm and URL to written protocol</description>
-                <column-type item-type="complex" column-kind="required" complex-seps=";" complex-template="name;url" />
+                <column-type item-type="compound" column-kind="required" compound-seps=";" compound-template="name;url" />
             </column>
             <column name="alignment_algorithm">
                 <description>Name of alignment algorithm and URL to written protocol</description>
-                <column-type item-type="complex" column-kind="required" complex-seps=";" complex-template="name;url" />
+                <column-type item-type="compound" column-kind="required" compound-seps=";" compound-template="name;url" />
             </column>
             <column name="other_analysis_algorithm">
                 <description>Names of other analysis algorithms. Separate multiple algorithms by commas.</description>
-                <column-type item-type="complex" column-kind="optional" complex-seps=";" complex-template="name;url" array-seps="," />
+                <column-type item-type="compound" column-kind="optional" compound-seps=";" compound-template="name;url" array-seps="," />
             </column>
             <column name="seq_coverage">
                 <description>Sequence coverage if analyzed by sequencing platforms</description>
@@ -131,7 +135,7 @@
             </column>
             <column name="raw_data_accession">
                 <description>Accession and URL for referencing the raw data at the public repository</description>
-                <column-type item-type="complex" column-kind="optional" complex-seps=";" complex-template="accession;url" />
+                <column-type item-type="compound" column-kind="optional" compound-seps=";" compound-template="accession;url" />
             </column>
             <column name="note">
                 <description>Optional field to leave notes</description>
@@ -145,7 +149,7 @@
                     </column>
                     <column name="normalization_algorithm">
                         <description>Name of normalization algorithm and URL to written protocol</description>
-                        <column-type item-type="complex" column-kind="required" complex-seps=";" complex-template="name;url" />
+                        <column-type item-type="compound" column-kind="required" compound-seps=";" compound-template="name;url" />
                     </column>
                 </concept-type>
                 <concept-type name="comparative-ngs-experiment-metadata">
@@ -450,7 +454,7 @@
             
             <column name="variation_calling_algorithm">
                 <description>Name of variation calling algorithm and URL to written protocol</description>
-                <column-type item-type="complex" column-kind="required" complex-seps=";" complex-template="name;url" />
+                <column-type item-type="compound" column-kind="required" compound-seps=";" compound-template="name;url" />
             </column>
             
             <subconcepts>
@@ -658,7 +662,7 @@
                     </column>
                     <column name="rank">
                         <description>Kind of used ranking and its value, in the form "rank;value". As it can hold more than one value, they are separated by bars</description>
-                        <column-type item-type="complex" column-kind="optional" complex-seps=";" complex-template="rank;value" array-seps="|" />
+                        <column-type item-type="compound" column-kind="optional" compound-seps=";" compound-template="rank;value" array-seps="|" />
                     </column>
                     
                     <subconcepts>
@@ -705,7 +709,7 @@
             
             <column name="methylation_calling_algorithm">
                 <description>Name of variation calling algorithm and URL to written protocol</description>
-                <column-type item-type="complex" column-kind="optional" complex-seps=";" complex-template="name;url" />
+                <column-type item-type="compound" column-kind="optional" compound-seps=";" compound-template="name;url" />
             </column>
             
             <subconcepts>
