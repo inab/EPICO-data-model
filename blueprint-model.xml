@@ -65,7 +65,7 @@
             <annotation key="disposition">inline</annotation>
             <e v="-1">Not valid</e>
             <e v="0">Not tested</e>
-            <e v="-1">Validated</e>
+            <e v="1">Validated</e>
         </cv>
         <cv name="junctionType">
             <annotation key="disposition">inline</annotation>
