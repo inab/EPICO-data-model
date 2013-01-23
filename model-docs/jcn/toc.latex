@@ -1,4 +1,4 @@
-\section{Exon Junction}\label{fea:jcn}
+%\section{Exon Junction}\label{fea:jcn}
 
 The following diagram, based on the one from ICGC DCC manual, illustrates how junction\_id should be generated, how junction\_read\_count, exon1\_number\_bases and exon2\_number\_bases are calculated:
 
