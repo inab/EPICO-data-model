@@ -734,6 +734,19 @@
                         </column-type>
                     </column>
                     
+                    <column name="total_reads">
+                        <description>Total number of reads over this position/segment, either identifying or not a cytosine, for sequencing platforms. Mean reads depth for other technologies</description>
+                        <column-type item-type="decimal" column-kind="required" />
+                    </column>
+                    <column name="c_total_reads">
+                        <description>Reads which has identified this position as a cytosine</description>
+                        <column-type item-type="decimal" column-kind="required" />
+                    </column>
+                    <column name="d_lated_reads">
+                        <description>Reads which has identified this position as a DNA *lated cytosine</description>
+                        <column-type item-type="decimal" column-kind="required" />
+                    </column>
+                    
                     <!-- TO BE FINISHED / REVISED -->
                     <column name="beta_value">
                         <description>DNA *-lation beta value for interrogated site</description>
