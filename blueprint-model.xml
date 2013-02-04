@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dcc-schema
         project="BLUEPRINT"
-        schemaVer="0.2.0"
+        schemaVer="0.2.1"
         docsDir="model-docs"
         xmlns="http://www.blueprint-epigenome.eu/dcc/schema"
         xmlns:xhtml="http://www.w3.org/1999/xhtml"
@@ -255,13 +255,14 @@
             <column name="donor_sex">
                 <description>Donor biological sex.</description>
                 <annotation key="values">"Other" has been removed from the controlled vocabulary due to identifiability concerns.</annotation>
-                <column-type item-type="integer" column-kind="required" cv="sex" />
+                <column-type item-type="integer" column-kind="desirable" cv="sex" />
             </column>
             <column name="donor_region_of_residence">
                 <description>Country, and optionally state or province code, but not city.</description>
                 <annotation key="values"><xhtml:a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO3166-1-alpha-2</xhtml:a> or <xhtml:a href="http://en.wikipedia.org/wiki/ISO_3166-2">ISO3166-2</xhtml:a> codes, eg: "CA" or "CA-ON"</annotation>
                 <column-type item-type="string" column-kind="required" />
             </column>
+            <!--
             <column name="donor_vital_status">
                 <description>Donor's last known vital status</description>
                 <column-type item-type="integer" column-kind="optional">
@@ -281,6 +282,7 @@
                 <annotation key="values"><xhtml:a href="http://diseaseontology.sourceforge.net/">Disease Ontology</xhtml:a> code</annotation>
                 <column-type item-type="string" column-kind="required" />
             </column>
+            -->
             
             <subconcepts>
                 <concept name="family" fullname="Donor Family History" basetype="clinical-data">
@@ -352,6 +354,15 @@
                     </cv>
                 </column-type>
             </column>
+            <column name="donor_min_age_at_specimen_acquisition">
+                <description>Donor minimal age when the specimen was acquired, in ISO-8601 duration (basic format)</description>
+                <column-type item-type="duration" column-kind="required" />
+            </column>
+            <column name="donor_max_age_at_specimen_acquisition">
+                <description>Donor max age when the specimen was acquired. If it is '#DE#', then it is the same value as "donor_min_age_at_specimen_acquisition"</description>
+                <column-type item-type="duration" column-kind="desirable" default="#DE"/>
+            </column>
+            
             <column name="specimen_type_other">
                 <description>Free text description of site of specimen if "normal control (other)" or "disease tissue (other)" was specified in specimen_type field.</description>
                 <column-type item-type="string" column-kind="optional" />
