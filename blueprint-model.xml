@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dcc-schema
         project="BLUEPRINT"
-        schemaVer="0.2.1"
+        schemaVer="0.2.2"
         docsDir="model-docs"
         xmlns="http://www.blueprint-epigenome.eu/dcc/schema"
         xmlns:xhtml="http://www.w3.org/1999/xhtml"
@@ -38,6 +38,20 @@
     </collection-domain>
     
     <cv-declarations dir="cv" collection="CV">
+        <cv name="EnsemblGenes">
+            <description>Valid Ensembl Genes identifiers</description>
+            <annotation key="version">68</annotation>
+            <cv-uri format="EnsemblMySQLDump">ftp://ftp.ensembl.org/pub/release-68/mysql/homo_sapiens_core_68_37/gene.txt.gz</cv-uri>
+        </cv>
+        <cv name="EnsemblTranscripts">
+            <description>Valid Ensembl Genes identifiers</description>
+            <annotation key="version">68</annotation>
+            <cv-uri format="EnsemblMySQLDump">ftp://ftp.ensembl.org/pub/release-68/mysql/homo_sapiens_core_68_37/transcript.txt.gz</cv-uri>
+        </cv>
+        <cv name="CellOntology">
+            <description>The Cell Ontology is designed as a structured controlled vocabulary for cell types</description>
+            <cv-uri format="obo">http://cell-ontology.googlecode.com/svn/releases/2013-01-31/cl.obo</cv-uri>
+        </cv>
         <cv name="B1">
             <cv-file>appendix_B1.tsv</cv-file>
         </cv>
@@ -79,6 +93,13 @@
             <e v="2">female</e>
         </cv>
     </cv-declarations>
+    
+    <null-values>
+        <e v="#FF#"><![CDATA[Data not supplied at this time <i>(for future fill)</i>]]></e>
+        <e v="#NA#">Not applicable for the context of the surrounding knowledge</e>
+        <e v="#VO#">Data verified to be unknown (void, undef, null)</e>
+        <e v="#DE#">Data derived from other field</e>
+    </null-values>
     
     <pattern-declarations>
         <pattern name="ISODATE" match="[1-9][0-9][0-9][0-9]((1[0-2])|(0[1-9]))(([0-2][0-9])|(3[0-1]))"/>
@@ -230,7 +251,7 @@
             </column>
             <column name="gene_affected">
                 <description>Gene affected. Use Ensembl gene id, separated by | when there is more than one. If no gene is affected, don't put an entry</description>
-                <column-type item-type="string" column-kind="required" array-seps="|" />
+                <column-type item-type="string" column-kind="required" array-seps="|" cv="EnsemblGenes"/>
             </column>
             <column name="note">
                 <description>Optional field to leave notes</description>
@@ -360,7 +381,9 @@
             </column>
             <column name="donor_max_age_at_specimen_acquisition">
                 <description>Donor max age when the specimen was acquired. If it is '#DE#', then it is the same value as "donor_min_age_at_specimen_acquisition"</description>
-                <column-type item-type="duration" column-kind="desirable" default="#DE"/>
+                <column-type item-type="duration" column-kind="desirable" default="$$donor_min_age_at_specimen_acquisition">
+                    <null>#DE#</null>
+                </column-type>
             </column>
             
             <column name="specimen_type_other">
@@ -449,6 +472,11 @@
                         <description>Free text description of site of sample if "other" was specified in <xhtml:i>sample_type</xhtml:i> field</description>
                         <column-type item-type="string" column-kind="optional" />
                     </column>
+                    <column name="purified_cell_type">
+                        <description>Purified cell type for the sample</description>
+                        <column-type item-type="string" column-kind="required" cv="CellOntology" />
+                    </column>
+                    
                     <column name="analyzed_sample_interval">
                         <description>Interval from specimen acquisition to sample use in an analytic procedure (e.g. DNA extraction), in days</description>
                         <column-type item-type="integer" column-kind="optional" />
@@ -682,7 +710,7 @@
                             
                             <column name="transcript_affected">
                                 <description>Transcript on the protein-DNA interaction area. Use Ensembl transcript id. Separate multiple transcripts with vertical bars in the form of trasncriptA|trasncriptB|trasncriptC</description>
-                                <column-type item-type="string" column-kind="optional" array-seps="|"></column-type>
+                                <column-type item-type="string" column-kind="optional" array-seps="|" cv="EnsemblTranscripts"></column-type>
                             </column>
                         </concept>
                     </subconcepts>
