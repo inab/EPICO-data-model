@@ -95,6 +95,8 @@
     </cv-declarations>
     
     <null-values>
+        <annotation key="default">#DE#</annotation>
+        
         <e v="#FF#"><![CDATA[Data not supplied at this time <i>(for future fill)</i>]]></e>
         <e v="#NA#">Not applicable for the context of the surrounding knowledge</e>
         <e v="#VO#">Data verified to be unknown (void, undef, null)</e>
