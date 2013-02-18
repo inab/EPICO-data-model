@@ -41,16 +41,35 @@
         <cv name="EnsemblGenes">
             <description>Valid Ensembl Genes identifiers</description>
             <annotation key="version">68</annotation>
-            <cv-uri format="EnsemblMySQLDump">ftp://ftp.ensembl.org/pub/release-68/mysql/homo_sapiens_core_68_37/gene.txt.gz</cv-uri>
+            <cv-uri format="EnsemblMySQLDump" doc="http://jul2012.archive.ensembl.org/Homo_sapiens/Info/Index">ftp://ftp.ensembl.org/pub/release-68/mysql/homo_sapiens_core_68_37/gene.txt.gz</cv-uri>
         </cv>
         <cv name="EnsemblTranscripts">
             <description>Valid Ensembl Genes identifiers</description>
             <annotation key="version">68</annotation>
-            <cv-uri format="EnsemblMySQLDump">ftp://ftp.ensembl.org/pub/release-68/mysql/homo_sapiens_core_68_37/transcript.txt.gz</cv-uri>
+            
+            <cv-uri format="EnsemblMySQLDump" doc="http://jul2012.archive.ensembl.org/Homo_sapiens/Info/Index">ftp://ftp.ensembl.org/pub/release-68/mysql/homo_sapiens_core_68_37/transcript.txt.gz</cv-uri>
         </cv>
         <cv name="CellOntology">
             <description>The Cell Ontology is designed as a structured controlled vocabulary for cell types</description>
-            <cv-uri format="obo">http://cell-ontology.googlecode.com/svn/releases/2013-01-31/cl.obo</cv-uri>
+            
+            <cv-uri format="obo" doc="http://cellontology.org/">http://cell-ontology.googlecode.com/svn/releases/2013-01-31/cl.obo</cv-uri>
+        </cv>
+        <cv name="ISO3166">
+            <description><![CDATA[ISO 3166 is the International Standard for country codes and codes for their subdivisions. The purpose of ISO 3166 is to establish internationally recognised codes for the representation of names of countries, territories or areas of geographical interest, and their subdivisions.
+            http://en.wikipedia.org/wiki/ISO_3166-2]]></description>
+            
+            <cv-uri format="ISO_3166-1" doc="http://www.iso.org/iso/country_codes.htm">http://www.iso.org/iso/home/standards/country_codes/country_names_and_code_elements_xml.htm</cv-uri>
+            <cv-uri doc="http://en.wikipedia.org/wiki/ISO_3166-2" />
+            
+            <term-alias name="ALIAS:EAL">
+                <description>East Anglia: United Kingdom region composed of the administrative counties of Norfolk to the north, Suffolk to the south, Cambridgeshire and Essex to the west.</description>
+                
+                <e v="GB-CAM" />
+                <e v="GB-ESS" />
+                <e v="GB-HRT" />
+                <e v="GB-NFK" />
+                <e v="GB-SFK" />
+            </term-alias>
         </cv>
         <cv name="B1">
             <cv-file>appendix_B1.tsv</cv-file>
@@ -72,8 +91,8 @@
         </cv>
         <cv name="strand">
             <annotation key="disposition">inline</annotation>
-            <e v="-1">-1</e>
-            <e v="1">1</e>
+            <e v="-1">Reverse strand</e>
+            <e v="1">Forward strand</e>
         </cv>
         <cv name="validationStatus">
             <annotation key="disposition">inline</annotation>
@@ -283,7 +302,7 @@
             <column name="donor_region_of_residence">
                 <description>Country, and optionally state or province code, but not city.</description>
                 <annotation key="values"><xhtml:a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO3166-1-alpha-2</xhtml:a> or <xhtml:a href="http://en.wikipedia.org/wiki/ISO_3166-2">ISO3166-2</xhtml:a> codes, eg: "CA" or "CA-ON"</annotation>
-                <column-type item-type="string" column-kind="required" />
+                <column-type item-type="string" column-kind="required" cv="ISO3166" array-seps="," />
             </column>
             <!--
             <column name="donor_vital_status">
@@ -374,6 +393,7 @@
                         <e v="9">normal control (blood)</e>
                         <e v="10">normal control (other)</e>
                         <e v="11">disease tissue (other)</e>
+                        <e v="12">cord blood</e>
                     </cv>
                 </column-type>
             </column>
