@@ -102,7 +102,6 @@ The file name components are mapped in the next way:
 	& \hyperref[fea:pdna]{Protein-DNA interactions} & pdna \\
 	& \hyperref[fea:rreg]{Regulatory regions} & rreg \\
 	\arrayrulecolor{DarkOrange}\hline
-	\textit{institutionCode} & Institution submitting data & CV Table \ref{cv:B1} \\ \arrayrulecolor{DarkOrange}\hline
 	\multirow{8}{*}{\textit{fileType}} & Metadata file & m \\
 	& Primary data file & p \\
 	& Secondary data file & s \\
@@ -111,6 +110,7 @@ The file name components are mapped in the next way:
 	& Specimen file & specimen \\
 	& Sample file & sample \\
 	& Donor's Family file & family \\ \arrayrulecolor{DarkOrange}\hline
+	\textit{institutionCode} & Institution submitting data & CV Table \ref{cv:B1} \\ \arrayrulecolor{DarkOrange}\hline
 	\textit{dateFileCreated} & The date on which the file is created & \textit{YYYYMMDD} (\href{http://en.wikipedia.org/wiki/ISO_8601#Calendar_dates}{ISO-8601}) \\ \arrayrulecolor{DarkOrange}\hline
 	\textit{freeField} & An alphanumeric field (max length of 16 characters) where submitters can put internal codes, file sequence numbers, etc... & \textit{e.g.: mysample, 0B1845J} \\ \arrayrulecolor{DarkOrange}\hline
 \end{tabular}
@@ -163,10 +163,10 @@ an:001:000124	sample:001:000092	dlat:001:abebdZZZZZ	4	...	#FF#
 \end{Verbatim}
 
 All the declared columns for each file type must be set. Data columns are labeled as identifier
-or reference, (idref, I), required (R), desirable (D) or optional (O). Data providers (i.e. submitters)
+or reference (\textbf{I}), required (\textbf{R}), desirable (\textbf{D}) or optional (\textbf{O}). Data providers (i.e. submitters)
 must put all the efforts in order to provide values for the idref and required data columns.
 The exception for this rule are the desirable fields, required fields which can be unknown on the
-first submission, but in that case the fields these exceptions are properly documented.
+first submissions, but in that case the fields these exceptions are properly documented.
 
 There are several possible reasons why a column value (either desirable or optional) has not
 been provided. Next reserved codes must be used to describe the reason:
@@ -174,15 +174,15 @@ been provided. Next reserved codes must be used to describe the reason:
 \begin{center}
 \begin{tabular}{!{\color{DarkOrange}\vrule}r!{\color{DarkOrange}\vrule}l!{\color{DarkOrange}\vrule}}
 	\multicolumn{1}{c}{\cellcolor{DarkOrange}\textcolor{white}{\textbf{Code}}} & \multicolumn{1}{c}{\cellcolor{DarkOrange}\textcolor{white}{\textbf{Meaning}}} \\
-	\#FF\# & Data not supplied at this time \textit{(for future fill)} \\
-	\#NA\# & Not applicable for the context of the surrounding knowledge \\
-	\#VO\# & Data verified to be unknown (void, undef, null) \\
-	\#DE\# & Data derived from other field \\ \arrayrulecolor{DarkOrange}\hline
+	\texttt{\#FF\#} & Data not supplied at this time \textit{(for future fill)} \\
+	\texttt{\#NA\#} & Not applicable for the context of the surrounding knowledge \\
+	\texttt{\#VO\#} & Data verified to be unknown (void, undef, null) \\
+	\texttt{\#DE\#} & Data derived from a required or idref field \\ \arrayrulecolor{DarkOrange}\hline
 \end{tabular}
 \end{center}
 
 Some data columns described in this submission manual contain values used as identifiers
-on BLUEPRINT DCC (e.g. analysis\_id, regulatory\_region\_id, ...). As such, these identifiers
+on BLUEPRINT DCC (e.g. \texttt{analysis\_id}, \texttt{regulatory\_region\_id}, ...). As such, these identifiers
 should uniquely identify the entity they are referring (an analysis, a regulatory region, ...),
 and the identifier's value should be globally unique within a center's data submission. Also,
 these identifiers should be consistent along the different data submissions and releases. If
