@@ -1,4 +1,4 @@
-%\def{\DCCdomains}{{cdata},{Clinical data}; {cngv},{Copy Number Variations};
+%\def{\DCCdomains}{{sdata},{Sample Tracking data}; {cngv},{Copy Number Variations};
 %{exp},{Gene Expression};{jcn},{Exon Junctions};
 %{dlat},{DNA *-lation (Methylation, Hydroxy-Methylation, Formylation, etc...)};
 %{pdna},{Protein-DNA interactions};
@@ -29,14 +29,14 @@ repositories (eg: sequencing reads to EBI EGA) and then populate in your submiss
 	}
 }
 
-\section{Preparing Clinical Data and Analyzed Contents for their submission}
+\section{Preparing Sample Tracking Data and Analyzed Contents for their submission}
 
-Submitted clinical or experimental data files must be from any one of these categories:
+Submitted experimental data files must be from any one of these categories:
 \begin{itemize}%
 	\setlength{\itemsep}{0pt}%
 	\setlength{\parskip}{0pt}%
-	\item \hyperref[fea:cdata]{Clinical data}%
-	\item \hyperref[fea:cngv]{Copy Number Variations}%
+	\item \hyperref[fea:sdata]{Sample Tracking}%
+%	\item \hyperref[fea:cngv]{Copy Number Variations}%
 	\item \hyperref[fea:exp]{Gene Expression}%
 	\item \hyperref[fea:jcn]{Exon Junctions}%
 	\item \hyperref[fea:dlat]{DNA *-lation (Methylation, Hydroxy-Methylation, Formylation, etc...)}%
@@ -44,7 +44,7 @@ Submitted clinical or experimental data files must be from any one of these cate
 	\item \hyperref[fea:rreg]{Regulatory regions}%
 \end{itemize}
 
-BLUEPRINT DCC is hosting both clinical data and analyzed contents. Contents must be sent following
+BLUEPRINT DCC is hosting both sample tracking data and analyzed contents. Contents must be sent following
 the textual tabular formats defined below. Files with those contents must also follow the BLUEPRINT
 DCC file naming convention.
 
@@ -77,7 +77,7 @@ all the metadata entries from the analyzed contents to be stored in BLUEPRINT DC
 the original raw data.
 
 \subsection{File Naming Conventions}
-Submitted files, containing either clinical data or analyzed experiment contents, must follow next
+Submitted files, containing either sample tracking data or analyzed experiment contents, must follow next
 file naming convention
 
 \begin{Verbatim}[frame=single,samepage=true,rulecolor=\color{DarkOrange}]
@@ -93,9 +93,9 @@ The file name components are mapped in the next way:
 \begin{center}
 \begin{tabular}{!{\color{DarkOrange}\vrule}l!{\color{DarkOrange}\vrule}p{0.5\textwidth}!{\color{DarkOrange}\vrule}l!{\color{DarkOrange}\vrule}}
 	\multicolumn{1}{c}{\cellcolor{DarkOrange}\textcolor{white}{\textbf{Components}}} & \multicolumn{1}{c}{\cellcolor{DarkOrange}\textcolor{white}{\textbf{Description}}} & \multicolumn{1}{c}{\cellcolor{DarkOrange}\textcolor{white}{\textbf{Key}}} \\
-	\multirow{7}{*}{\textit{featureType}}
-	& \hyperref[fea:cdata]{Clinical data} & cdata \\
-	& \hyperref[fea:cngv]{Copy Number Variations} & cngv \\
+	\multirow{6}{*}{\textit{featureType}}
+	& \hyperref[fea:sdata]{Sample Tracking data} & sdata \\
+%	& \hyperref[fea:cngv]{Copy Number Variations} & cngv \\
 	& \hyperref[fea:exp]{Gene Expression} & exp \\
 	& \hyperref[fea:jcn]{Exon Junctions} & jcn \\
 	& \hyperref[fea:dlat]{DNA *-lation (Methylation, Hydroxy-Methylation, Formylation, etc...)} & dlat \\
@@ -116,7 +116,7 @@ The file name components are mapped in the next way:
 \end{tabular}
 \end{center}
 
-Different file types of the same feature type are interrelated, because the data they are storing is intertwined. Specific relations are defined on the documentation of each feature type and their file types. For instance, information stored in a primary data file is related and depends on the data from its corresponding metadata file, and the same happens to secondary data files and primary data files. Metadata file contents are related to clinical data sample files.
+Different file types of the same feature type are interrelated, because the data they are storing is intertwined. Specific relations are defined on the documentation of each feature type and their file types. For instance, information stored in a primary data file is related and depends on the data from its corresponding metadata file, and the same happens to secondary data files and primary data files. Metadata file contents are related to sample tracking data sample files.
 
 \subsection{Tabular File Structure}
 The submitted analyzed contents are kept in tab-delimited text files. General comments may be added to the
@@ -199,14 +199,14 @@ archive. Either the tar archive or its embedded contents should be submitted com
 using \href{http://en.wikipedia.org/wiki/Gzip}{gzip}, \href{http://en.wikipedia.org/wiki/Bzip2}{bzip2}
 or \href{http://en.wikipedia.org/wiki/Xz}{xz} formats.
 
-The following steps are involved in submitting your project's data files to DCC:
-\begin{enumerate}
-	\item Contact xxx and notify the DCC of your intent to submit data.
-	\item The DCC will provide an SFTP or Aspera account for uploading your data to the DCC's secure server xxx.
-	\item Prepare an archive containing the set of data files (along with their signed digests) comprising your submission.
-	\item Generate a signed digest of the archive your are going to upload, which is also going to be uploaded.
-	\item Login into your SFTP or Aspera account and upload both the data archive and its signed digest.
-	\item Notify the DCC of your successful upload, so they can start the internal validation and processing.
-\end{enumerate}
+%The following steps are involved in submitting your project's data files to DCC:
+%\begin{enumerate}
+%	\item Contact xxx and notify the DCC of your intent to submit data.
+%	\item The DCC will provide an SFTP or Aspera account for uploading your data to the DCC's secure server xxx.
+%	\item Prepare an archive containing the set of data files (along with their signed digests) comprising your submission.
+%	\item Generate a signed digest of the archive your are going to upload, which is also going to be uploaded.
+%	\item Login into your SFTP or Aspera account and upload both the data archive and its signed digest.
+%	\item Notify the DCC of your successful upload, so they can start the internal validation and processing.
+%\end{enumerate}
 
-{\color{red}\textit{To be finished/defined}}
+{\color{red}\textbf{\textit{To be finished/defined}}}

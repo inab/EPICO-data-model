@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dcc-schema
         project="BLUEPRINT"
-        schemaVer="0.2.3.1"
+        schemaVer="0.2.3"
         docsDir="model-docs"
         xmlns="http://www.blueprint-epigenome.eu/dcc/schema"
         xmlns:xhtml="http://www.w3.org/1999/xhtml"
@@ -32,8 +32,8 @@
                 <attr name="control_sample_id" />
             </index>
         </collection>
-        <!-- All the sample tracking data documents are stored here -->
-        <collection name="sdata" path="sample-tracking-data" />
+        <!-- All the clinical data documents are stored here -->
+        <collection name="cdata" path="clinical-data" />
         <collection name="CV" path="CV" />
     </collection-domain>
     
@@ -133,7 +133,7 @@
     </pattern-declarations>
     
     <concept-types>
-        <concept-type name="sample-tracking-data" collection="sdata">
+        <concept-type name="clinical-data" collection="cdata">
             <column name="notes">
                 <description>Any additional non-identifying information can be included here.</description>
                 <column-type item-type="string" column-kind="optional" />
@@ -310,8 +310,8 @@
     
     <filename-format name="blueprint-dcc">$$domain-$$concept--@B1-\ISODATE--%string.txt</filename-format>
     
-    <concept-domain domain="sdata" fullname="Sample Tracking Submission File Specifications" filename-format="blueprint-dcc">
-        <concept name="donor" fullname="Donor Data File" basetype="sample-tracking-data">
+    <concept-domain domain="cdata" fullname="Clinical Data Submission File Specifications" filename-format="blueprint-dcc">
+        <concept name="donor" fullname="Donor Data File" basetype="clinical-data">
             <description>Donor Data File [donor] (required)</description>
             <description>This submission file describes a donor from which one or more specimens were obtained.</description>
             
@@ -354,7 +354,7 @@
 
             <!--
             <subconcepts>
-                <concept name="family" fullname="Donor Family History" basetype="sample-tracking-data">
+                <concept name="family" fullname="Donor Family History" basetype="clinical-data">
                     <description>Donor Family History [family] (optional)</description>
                     <description>This file describes the family history of the donor.</description>
                     
@@ -398,7 +398,7 @@
             -->
         </concept>
         
-        <concept name="specimen" fullname="Specimen Data File" basetype="sample-tracking-data">
+        <concept name="specimen" fullname="Specimen Data File" basetype="clinical-data">
             <description>Specimen Data File [specimen] (required)</description>
             <description>This submission file describes a specimen from which one or more samples were derived. Use additional rows for more than one specimen from the same patient. If more than one specimen was extracted during the same procedure, each gets a distinct ID.</description>
             
@@ -492,9 +492,9 @@
             </column>
             
             <subconcepts>
-                <concept name="sample" fullname="Analyzed Sample Data File" basetype="sample-tracking-data">
+                <concept name="sample" fullname="Analyzed Sample Data File" basetype="clinical-data">
                     <description>Analyzed Sample Data File [sample] (required)</description>
-                    <description>This submission file describes an analyzed sample on which molecular characterization was performed. It includes both control samples (from healthy people) and samples from ill people.</description>
+                    <description>This submission file describes an analyzed sample on which molecular characterization was performed. It includes both control samples and tumour samples.</description>
                     
                     <column name="analyzed_sample_id">
                         <description><xhtml:i>Unique identifier</xhtml:i> for the sample assigned by data provider</description>
@@ -537,7 +537,6 @@
         </concept>
     </concept-domain>
     
-    <!--
     <concept-domain domain="cngv" fullname="Copy Number Germline Variations" filename-format="blueprint-dcc">
         <concept name="m" fullname="Copy Number Germline Variations - Metadata File" basetype="comparative-ngs-experiment-metadata">
             <description>Copy Number Germline Variations [cngv] – Metadata File [m]</description>
@@ -598,7 +597,6 @@
             </subconcepts>
         </concept>
     </concept-domain>
-    -->
     
     <concept-domain domain="exp" fullname="Gene Expression" filename-format="blueprint-dcc">
         <concept name="m" fullname="Expression - Metadata File" basetype="abstract-experiment-metadata">
