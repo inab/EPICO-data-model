@@ -17,7 +17,7 @@ There are four major steps in the data submission process:
 
 \noindent\colorbox{Gold}{
 	\parbox{\dimexpr\linewidth-2\fboxsep}{
-All submitted data must be based on \textbf{Human reference genome assembly GRCh37} and \textbf{Ensembl gene set version \EnsemblVer{}}
+All submitted data must be based on \textbf{Human reference genome assembly GRCh37} and \textbf{GENCODE \ANNOTGENCODEVer{}} (which uses \textbf{EnsEMBL gene set version \ANNOTEnsemblVer{}})
 	}
 }
 
