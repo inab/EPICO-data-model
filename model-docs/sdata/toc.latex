@@ -2,14 +2,14 @@
 
 \textbf{Overview}
 
-There are three \textbf{required} sample and tissue annotation submission files, and one \textbf{optional} template file:
+There are three \textbf{required} sample and tissue annotation submission files, and one \textbf{optional} template file.
 
-\begin{figure*}[!h]
-\centering
+%\begin{figure*}[!h]
+%\centering
 
-\includegraphics[width=0.85\textwidth]{sample-tracking-data.pdf}
-\caption{Sample Tracking Data Sub-Schema}
-\end{figure*}
+%\includegraphics[width=0.85\textwidth]{sample-tracking-data.pdf}
+%\caption{Sample Tracking Data Sub-Schema}
+%\end{figure*}
 
 \textbf{Core Sample Tracking Data Files}
 \begin{enumerate}

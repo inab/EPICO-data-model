@@ -10,10 +10,10 @@ The following diagram, based on the one from ICGC DCC manual, illustrates how ju
 \end{figure*}
 
 
-\begin{figure*}[!h]
-\centering
-
-\includegraphics[width=0.5\textwidth]{exon_junction.pdf}
-\caption{Exon Junction Sub-Schema}
-\end{figure*}
+%\begin{figure*}[!h]
+%\centering
+%
+%\includegraphics[width=0.5\textwidth]{exon_junction.pdf}
+%\caption{Exon Junction Sub-Schema}
+%\end{figure*}
 
