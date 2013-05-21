@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dcc-schema
         project="BLUEPRINT"
-        schemaVer="0.2.3.4"
+        schemaVer="0.2.3.98"
         docsDir="model-docs"
         xmlns="http://www.blueprint-epigenome.eu/dcc/schema"
         xmlns:xhtml="http://www.w3.org/1999/xhtml"
@@ -13,6 +13,7 @@
     <annotation key="EnsemblVer">70</annotation>
     <annotation key="cvKey">Key</annotation>
     <annotation key="cvDesc">Description</annotation>
+    <annotation key="defaultColor"><color>rgb(183,201,227)</color></annotation>
     
     <!-- Next annotation is specific of our PDF document generator -->
     <annotation key="overviewDoc">overview.latex</annotation>
@@ -322,6 +323,8 @@
         <concept name="donor" fullname="Donor Data File" basetype="sample-tracking-data">
             <description>Donor Data File [donor] (required)</description>
             <description>This submission file describes a donor from which one or more specimens were obtained.</description>
+            <annotation key="altname">Donor</annotation>
+            <annotation key="color"><color>rgb(255,153,0)</color></annotation>
             
             <column name="donor_id">
                 <description><xhtml:i>Unique identifier</xhtml:i> for the donor; assigned by data provider.</description>
@@ -365,7 +368,9 @@
                 <concept name="family" fullname="Donor Family History" basetype="sample-tracking-data">
                     <description>Donor Family History [family] (optional)</description>
                     <description>This file describes the family history of the donor.</description>
-                    
+            <annotation key="altname">Family</annotation>
+            <annotation key="color"><color>rgb(255,153,0)</color></annotation>
+            
                     <column name="relationship_type">
                         <description>Relationship to the donor</description>
                         <column-type item-type="integer" column-kind="required">
@@ -409,6 +414,8 @@
         <concept name="specimen" fullname="Specimen Data File" basetype="sample-tracking-data">
             <description>Specimen Data File [specimen] (required)</description>
             <description>This submission file describes a specimen from which one or more samples were derived. Use additional rows for more than one specimen from the same patient. If more than one specimen was extracted during the same procedure, each gets a distinct ID.</description>
+            <annotation key="altname">Specimen</annotation>
+            <annotation key="color"><color>rgb(255,153,0)</color></annotation>
             
             <column name="specimen_id">
                 <description>Unique identifier for the specimen assigned by data provider.</description>
@@ -499,49 +506,52 @@
                 <column-type item-type="boolean" column-kind="optional" />
             </column>
             
-            <subconcepts>
-                <concept name="sample" fullname="Analyzed Sample Data File" basetype="sample-tracking-data">
-                    <description>Analyzed Sample Data File [sample] (required)</description>
-                    <description>This submission file describes an analyzed sample on which molecular characterization was performed. It includes both control samples (from healthy people) and samples from ill people.</description>
-                    
-                    <column name="analyzed_sample_id">
-                        <description><xhtml:i>Unique identifier</xhtml:i> for the sample assigned by data provider</description>
-                        <column-type item-type="string" column-kind="idref"></column-type>
-                    </column>
-                    <column name="analyzed_sample_type">
-                        <description>Controlled vocabulary description of sample type</description>
-                        <column-type item-type="string" column-kind="required">
-                            <cv>
-                                <e v="n_blood">Normal blood</e>
-                                <e v="l_blood">Leukemic blood</e>
-                                <e v="3">Normal control adjacent to primary</e>
-                                <e v="4">Normal control from non-tumour site</e>
-                                <e v="5">Control from cell line derived from normal tissue</e>
-                                <e v="6">Normal mouse host</e>
-                                <e v="7">Primary tumour</e>
-                                <e v="8">Mouse xenograft derived from tumour</e>
-                                <e v="9">Cell line derived from tumour</e>
-                                <e v="10">Cell line derived from xenograft</e>
-                                <e v="11">Other (specify)</e>
-                            </cv>
-                        </column-type>
-                    </column>
-                    <column name="analyzed_sample_type_other">
-                        <description>Free text description of site of sample if "other" was specified in <xhtml:i>sample_type</xhtml:i> field</description>
-                        <column-type item-type="string" column-kind="optional" />
-                    </column>
-                    <column name="purified_cell_type">
-                        <description>Purified cell type for the sample</description>
-                        <column-type item-type="string" column-kind="required" cv="CellOntology" />
-                    </column>
-                    
-                    <column name="analyzed_sample_interval">
-                        <description>Interval from specimen acquisition to sample use in an analytic procedure (e.g. DNA extraction), in days</description>
-                        <column-type item-type="integer" column-kind="optional" />
-                    </column>
-                </concept>
-            </subconcepts>
             <related-to concept="donor"/>
+        </concept>
+        
+        <concept name="sample" fullname="Analyzed Sample Data File" basetype="sample-tracking-data">
+            <description>Analyzed Sample Data File [sample] (required)</description>
+            <description>This submission file describes an analyzed sample on which molecular characterization was performed. It includes both control samples (from healthy people) and samples from ill people.</description>
+            <annotation key="altname">Sample</annotation>
+            <annotation key="color"><color>rgb(255,153,0)</color></annotation>
+            
+            <column name="analyzed_sample_id">
+                <description><xhtml:i>Unique identifier</xhtml:i> for the sample assigned by data provider</description>
+                <column-type item-type="string" column-kind="idref"></column-type>
+            </column>
+            <column name="analyzed_sample_type">
+                <description>Controlled vocabulary description of sample type</description>
+                <column-type item-type="string" column-kind="required">
+                    <cv>
+                        <e v="n_blood">Normal blood</e>
+                        <e v="l_blood">Leukemic blood</e>
+                        <e v="3">Normal control adjacent to primary</e>
+                        <e v="4">Normal control from non-tumour site</e>
+                        <e v="5">Control from cell line derived from normal tissue</e>
+                        <e v="6">Normal mouse host</e>
+                        <e v="7">Primary tumour</e>
+                        <e v="8">Mouse xenograft derived from tumour</e>
+                        <e v="9">Cell line derived from tumour</e>
+                        <e v="10">Cell line derived from xenograft</e>
+                        <e v="11">Other (specify)</e>
+                    </cv>
+                </column-type>
+            </column>
+            <column name="analyzed_sample_type_other">
+                <description>Free text description of site of sample if "other" was specified in <xhtml:i>sample_type</xhtml:i> field</description>
+                <column-type item-type="string" column-kind="optional" />
+            </column>
+            <column name="purified_cell_type">
+                <description>Purified cell type for the sample</description>
+                <column-type item-type="string" column-kind="required" cv="CellOntology" />
+            </column>
+            
+            <column name="analyzed_sample_interval">
+                <description>Interval from specimen acquisition to sample use in an analytic procedure (e.g. DNA extraction), in days</description>
+                <column-type item-type="integer" column-kind="optional" />
+            </column>
+            
+            <related-to concept="specimen"/>
         </concept>
     </concept-domain>
     
@@ -549,6 +559,7 @@
     <concept-domain domain="cngv" fullname="Copy Number Germline Variations" filename-format="blueprint-dcc">
         <concept name="m" fullname="Copy Number Germline Variations - Metadata File" basetype="comparative-ngs-experiment-metadata">
             <description>Copy Number Germline Variations [cngv] – Metadata File [m]</description>
+            <annotation key="altname"></annotation>
             
             <column name="variation_calling_algorithm">
                 <description>Name of variation calling algorithm and URL to written protocol</description>
@@ -558,6 +569,7 @@
             <subconcepts>
                 <concept name="p" fullname="Copy Number Germline Variations – Primary Analysis File" basetype="expression-experiment-primary">
                     <description>Copy Number Germline Variations [cngv] – Primary Analysis File [p]</description>
+            <annotation key="altname"></annotation>
                     
                     <column name="variation_id">
                         <description>Unique identifier for the variation</description>
@@ -611,10 +623,12 @@
     <concept-domain domain="exp" fullname="Gene Expression" filename-format="blueprint-dcc">
         <concept name="m" fullname="Expression - Metadata File" basetype="abstract-experiment-metadata">
             <description>Expression [exp] – Metadata File [m]</description>
+            <annotation key="altname">Gene Expression Metadata</annotation>
             
             <subconcepts>
                 <concept name="g" fullname="Expression - Gene File" basetype="gene-expression-experiment-primary">
                     <description>Expression [exp] – Gene File [g]</description>
+                    <annotation key="altname">Gene Expression</annotation>
                     
                     <column name="gene_stable_id">
                         <description>For annotated gene, use Ensembl gene ID. Otherwise, use assemblyBuild_chr_start_end where assemblyBuild is hg19.</description>
@@ -625,10 +639,12 @@
                         <description>Normalized value of expression level if analyzed by microarray platforms</description>
                         <column-type item-type="decimal" column-kind="optional" />
                     </column>
+                    <!--
                     <column name="fold_change">
                         <description>Expressed fold change if differential expression is measured</description>
                         <column-type item-type="decimal" column-kind="optional" />
                     </column>
+                    -->
                     <column name="reference_sample">
                         <description>ID of the reference analyzed sample if differential expression is measured</description>
                         <column-type item-type="string" column-kind="optional" />
@@ -649,10 +665,12 @@
     <concept-domain domain="jcn" fullname="Exon Junction" filename-format="blueprint-dcc">
         <concept name="m" fullname="Exon Junction - Metadata File" basetype="abstract-experiment-metadata">
             <description>Exon Junction [jcn] – Metadata File [m]</description>
+            <annotation key="altname">Exon Junction Metadata</annotation>
             
             <subconcepts>
                 <concept name="p" fullname="Exon Junction - Primary Analysis File" basetype="expression-experiment-primary">
                     <description>Exon Junction [jcn] – Primary Analysis File [p]</description>
+                    <annotation key="altname">Exon Junction Primary</annotation>
                     
                     <column name="junction_id">
                         <description>For known exons, use exonID1_exonID2 where exonID1 and exonID2 are Ensembl IDs of the 5' and 3' exons, respectively. For novel or putative exons,use assemblyBuild_exon1chr_exon1end_exon2chr_exon2start where assemblyBuild is hg18 or hg19; exon1chr and exon2chr are the chromosomes of the 5' and 3' exons, respectively; exon1end is the end position of the 5' exon; exon2start is the start position of the 3' exon.</description>
@@ -726,21 +744,23 @@
     </concept-domain>
     
     <concept-domain domain="pdna" fullname="Protein-DNA interactions" filename-format="blueprint-dcc">
-        <concept name="m" fullname="Protein-DNA interaction - Metadata File" basetype="comparative-ngs-experiment-metadata">
+        <concept name="m" fullname="Protein-DNA interactions - Metadata File" basetype="comparative-ngs-experiment-metadata">
             <description>Protein-DNA [pdna] – Metadata File [m]</description>
+            <annotation key="altname">Protein-DNA Interactions Metadata</annotation>
             
             <column name="NSC">
-                <description>Normalized strand-cross correlation of the analysis</description>
+                <description>Normalized strand cross-correlation of the analysis (see <xhtml:a href="http://encodeproject.org/ENCODE/qualityMetrics.html"><xhtml:i>ENCODE quality metrics</xhtml:i></xhtml:a>)</description>
                 <column-type item-type="decimal" column-kind="optional" />
             </column>
             <column name="RSC">
-                <description>Relative strand-cross correlation of the analysis</description>
+                <description>Relative strand cross-correlation of the analysis (see <xhtml:a href="http://encodeproject.org/ENCODE/qualityMetrics.html"><xhtml:i>ENCODE quality metrics</xhtml:i></xhtml:a>)</description>
                 <column-type item-type="decimal" column-kind="optional" />
             </column>
             
             <subconcepts>
-                <concept name="p" fullname="Protein-DNA interaction - Primary Analysis File" basetype="abstract-experiment-primary">
+                <concept name="p" fullname="Protein-DNA interactions - Primary Analysis File" basetype="abstract-experiment-primary">
                     <description>Protein-DNA [pdna] – Primary Analysis File [p]</description>
+                    <annotation key="altname">Protein-DNA Interactions Primary</annotation>
                     
                     <column name="protein_dna_interaction_id">
                         <description>Unique identifier for the protein-DNA interaction</description>
@@ -775,8 +795,9 @@
                     </column>
                     
                     <subconcepts>
-                        <concept name="s" fullname="Protein-DNA interaction - Secondary Analysis File" basetype="generic-secondary">
+                        <concept name="s" fullname="Protein-DNA interactions - Secondary Analysis File" basetype="generic-secondary">
                             <description>Protein-DNA [pdna] – Secondary Analysis File [s]</description>
+                            <annotation key="altname">Protein-DNA Interactions Secondary</annotation>
                             
                             <column name="transcript_affected">
                                 <description>Transcript on the protein-DNA interaction area. Use Ensembl transcript id. Separate multiple transcripts with vertical bars in the form of trasncriptA|trasncriptB|trasncriptC</description>
@@ -792,10 +813,12 @@
     <concept-domain domain="rreg" fullname="Regulatory Regions" filename-format="blueprint-dcc">
         <concept name="m" fullname="Regulatory regions - Metadata File" basetype="comparative-ngs-experiment-metadata">
             <description>Regulatory regions [rreg] – Metadata File [m]</description>
+            <annotation key="altname">Regulatory Regions Metadata</annotation>
             
             <subconcepts>
                 <concept name="p" fullname="Regulatory regions - Primary Analysis File" basetype="gene-expression-experiment-primary">
                     <description>Regulatory regions [rreg] – Primary Analysis File [p]</description>
+                    <annotation key="altname">Regulatory Regions Primary</annotation>
                     
                     <column name="regulatory_region_id">
                         <description>Unique identifier for the identified regulatory region</description>
@@ -805,6 +828,7 @@
                     <subconcepts>
                         <concept name="s" fullname="Regulatory regions - Secondary Analysis File" basetype="generic-secondary">
                             <description>Regulatory regions [rreg] – Secondary Analysis File [s]</description>
+                            <annotation key="altname">Regulatory Regions Secondary</annotation>
                         </concept>
                     </subconcepts>
                 </concept>
@@ -815,6 +839,7 @@
     <concept-domain domain="dlat" fullname="DNA *-lation (Methylation, Hydroxy-Methylation, Formylation, etc...)" filename-format="blueprint-dcc">
         <concept name="m" fullname="DNA *-lation - Metadata File" basetype="comparative-ngs-experiment-metadata">
             <description>DNA *-lation [dlat] - Metadata File [m]</description>
+            <annotation key="altname">DNA *-lation Metadata</annotation>
             
             <column name="methylation_calling_algorithm">
                 <description>Name of variation calling algorithm and URL to written protocol</description>
@@ -824,6 +849,7 @@
             <subconcepts>
                 <concept name="p" fullname="DNA *-lation - Primary Analysis File" basetype="abstract-experiment-primary">
                     <description>DNA *-lation [dlat] - Primary Analysis File [p]</description>
+                    <annotation key="altname">DNA *-lation Primary</annotation>
                     
                     <column name="d_lated_fragment_id">
                         <description>Unique identifier for the methylated fragment, in the form d'*lationType|chromosome_chromosomeStart_chromosomeEnd</description>
@@ -873,6 +899,7 @@
                     <subconcepts>
                         <concept name="s" fullname="DNA *-lation - Secondary Analysis File" basetype="generic-secondary">
                             <description>DNA *-lation [dlat] - Secondary Analysis File [s]</description>
+                            <annotation key="altname">DNA *-lation Secondary</annotation>
                         </concept>
                     </subconcepts>
                 </concept>
