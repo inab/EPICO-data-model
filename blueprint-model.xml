@@ -24,6 +24,7 @@
             <index unique="true">
                 <attr name="analysys_id" />
                 <attr name="analyzed_sample_id" />
+                <attr name="control_sample_id" />
             </index>
         </collection>
         <!-- Primary and secondary data from experiments is being stored here -->
@@ -31,7 +32,6 @@
             <index unique="false">
                 <attr name="analysys_id" />
                 <attr name="analyzed_sample_id" />
-                <attr name="control_sample_id" />
             </index>
         </collection>
         <!-- All the sample tracking data documents are stored here -->
@@ -147,10 +147,12 @@
                 <description>Unique identifier for the analysis performed for a particular set of samples</description>
                 <column-type item-type="string" column-kind="idref" />
             </column>
+            <!--
             <column name="analyzed_sample_id">
                 <description>Unique identifier for the analyzed sample</description>
                 <column-type item-type="string" column-kind="idref" />
             </column>
+            -->
             <column name="experimental_group_id">
                 <description>Identifier of the experimental group who did the experimental analysis</description>
                 <column-type item-type="string" column-kind="required" cv="B1"></column-type>
@@ -230,10 +232,12 @@
                     </column>
                 </concept-type>
                 <concept-type name="comparative-ngs-experiment-metadata">
+                    <!--
                     <column name="control_sample_id">
                         <description>Unique identifier for the analyzed control/matched sample</description>
                         <column-type item-type="string" column-kind="required" />
                     </column>
+                    -->
                 </concept-type>
             </subtypes>
         </concept-type>
@@ -296,6 +300,36 @@
                             </column>
                         </concept-type>
                     </subtypes>
+                </concept-type>
+                
+                <concept-type name="dlat-experiment-primary">
+                    <column name="d_lated_fragment_id">
+                        <description>Unique identifier for the methylated fragment, in the form d'*lationType|chromosome_chromosomeStart_chromosomeEnd</description>
+                        <column-type item-type="string" column-kind="idref" />
+                    </column>
+                    
+                    <column name="total_reads">
+                        <description>Total number of reads over this position/segment, either identifying or not a cytosine, for sequencing platforms. Mean reads depth for other technologies</description>
+                        <column-type item-type="decimal" column-kind="required" />
+                    </column>
+                    <column name="c_total_reads">
+                        <description>Reads which has identified this position as a cytosine</description>
+                        <column-type item-type="decimal" column-kind="required" />
+                    </column>
+                    <column name="d_lated_reads">
+                        <description>Reads which has identified this position as a DNA *lated cytosine</description>
+                        <column-type item-type="decimal" column-kind="required" />
+                    </column>
+                    
+                    <!-- TO BE FINISHED / REVISED -->
+                    <column name="quality_score">
+                        <description>Quality score for the DNA *-lation call</description>
+                        <column-type item-type="decimal" column-kind="optional" />
+                    </column>
+                    <column name="probability">
+                        <description>Probability of the DNA *-lation call</description>
+                        <column-type item-type="decimal" column-kind="optional" />
+                    </column>
                 </concept-type>
             </subtypes>
         </concept-type>
@@ -515,7 +549,7 @@
             <annotation key="altname">Sample</annotation>
             <annotation key="color"><color>rgb(255,153,0)</color></annotation>
             
-            <column name="analyzed_sample_id">
+            <column name="sample_id">
                 <description><xhtml:i>Unique identifier</xhtml:i> for the sample assigned by data provider</description>
                 <column-type item-type="string" column-kind="idref"></column-type>
             </column>
@@ -616,6 +650,8 @@
                     </column>
                 </concept>
             </subconcepts>
+            <related-to concept="sample" domain="sdata" prefix="analyzed_"/>
+            <related-to concept="sample" domain="sdata" prefix="control_"/>
         </concept>
     </concept-domain>
     -->
@@ -659,6 +695,7 @@
                     </column>
                 </concept>
             </subconcepts>
+            <related-to concept="sample" domain="sdata" prefix="analyzed_"/>
         </concept>
     </concept-domain>
     
@@ -740,6 +777,7 @@
                     </column>
                 </concept>
             </subconcepts>
+            <related-to concept="sample" domain="sdata" prefix="analyzed_"/>
         </concept>
     </concept-domain>
     
@@ -807,6 +845,8 @@
                     </subconcepts>
                 </concept>
             </subconcepts>
+            <related-to concept="sample" domain="sdata" prefix="analyzed_"/>
+            <related-to concept="sample" domain="sdata" prefix="control_"/>
         </concept>
     </concept-domain>
     
@@ -833,6 +873,8 @@
                     </subconcepts>
                 </concept>
             </subconcepts>
+            <related-to concept="sample" domain="sdata" prefix="analyzed_"/>
+            <related-to concept="sample" domain="sdata" prefix="control_"/>
         </concept>
     </concept-domain>
     
@@ -847,14 +889,9 @@
             </column>
             
             <subconcepts>
-                <concept name="p" fullname="DNA *-lation - Primary Analysis File" basetype="abstract-experiment-primary">
-                    <description>DNA *-lation [dlat] - Primary Analysis File [p]</description>
-                    <annotation key="altname">DNA *-lation Primary</annotation>
-                    
-                    <column name="d_lated_fragment_id">
-                        <description>Unique identifier for the methylated fragment, in the form d'*lationType|chromosome_chromosomeStart_chromosomeEnd</description>
-                        <column-type item-type="string" column-kind="idref" />
-                    </column>
+                <concept name="n" fullname="DNA *-lation - Single Nucleotide File" basetype="dlat-experiment-primary">
+                    <description>DNA *-lation [dlat] - Single Nucleotide File [n]</description>
+                    <annotation key="altname">DNA *-lation Single Nucleotide</annotation>
                     
                     <column name="d_lation_type">
                         <description>Type of DNA *-lation (Methylation, Hydroxy-Methylation, Formylation, etc...)</description>
@@ -867,43 +904,33 @@
                                 <e v="ca">Carboxylation (cytosine)</e>
                             </cv>
                         </column-type>
+                        
                     </column>
+                    <column name="methylation">
+                        <description>DNA *-lation beta value (or average methylation) for interrogated site</description>
+                        <column-type item-type="decimal" column-kind="optional" />
+                    </column>
+                </concept>
+                
+                <concept name="mr" fullname="DNA *-lation - Methylated Region (CpGs, HMR) File" basetype="dlat-experiment-primary">
+                    <description>DNA *-lation [dlat] - Methylated Region File [mr] for CpGs and hypo/hyper-methylated regions</description>
+                    <annotation key="altname">DNA *-lation MR</annotation>
                     
-                    <column name="total_reads">
-                        <description>Total number of reads over this position/segment, either identifying or not a cytosine, for sequencing platforms. Mean reads depth for other technologies</description>
-                        <column-type item-type="decimal" column-kind="required" />
-                    </column>
-                    <column name="c_total_reads">
-                        <description>Reads which has identified this position as a cytosine</description>
-                        <column-type item-type="decimal" column-kind="required" />
-                    </column>
-                    <column name="d_lated_reads">
-                        <description>Reads which has identified this position as a DNA *lated cytosine</description>
-                        <column-type item-type="decimal" column-kind="required" />
-                    </column>
-                    
-                    <!-- TO BE FINISHED / REVISED -->
                     <column name="beta_value">
-                        <description>DNA *-lation beta value for interrogated site</description>
-                        <column-type item-type="decimal" column-kind="optional" />
-                    </column>
-                    <column name="quality_score">
-                        <description>Quality score for the DNA *-lation call</description>
-                        <column-type item-type="decimal" column-kind="optional" />
-                    </column>
-                    <column name="probability">
-                        <description>Probability of the DNA *-lation call</description>
+                        <description>DNA *-lation beta value (or average methylation or ) for interrogated site</description>
                         <column-type item-type="decimal" column-kind="optional" />
                     </column>
                     
                     <subconcepts>
-                        <concept name="s" fullname="DNA *-lation - Secondary Analysis File" basetype="generic-secondary">
-                            <description>DNA *-lation [dlat] - Secondary Analysis File [s]</description>
-                            <annotation key="altname">DNA *-lation Secondary</annotation>
+                        <concept name="s" fullname="DNA *-lation - Annotation File" basetype="generic-secondary">
+                            <description>DNA *-lation [dlat] - Annotation File [s]</description>
+                            <annotation key="altname">DNA *-lation Annotation</annotation>
                         </concept>
                     </subconcepts>
                 </concept>
             </subconcepts>
+            <related-to concept="sample" domain="sdata" prefix="analyzed_"/>
+            <related-to concept="sample" domain="sdata" prefix="control_"/>
         </concept>
     </concept-domain>
 </dcc-schema>

@@ -7,3 +7,10 @@
 %\caption{DNA Methylation , Hydroxy-Methylation, Formylation, etc... Sub-Schema}
 %\end{figure*}
 
+\begin{figure*}[!h]
+\centering
+
+\includegraphics[width=1.0\textwidth]{dlat_explanation.pdf}
+\caption{Cytosine, CpG and DMR explanation}
+\end{figure*}
+
