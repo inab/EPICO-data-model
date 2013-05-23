@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dcc-schema
         project="BLUEPRINT"
-        schemaVer="0.2.3.98"
+        schemaVer="0.2.3.98.1"
         docsDir="model-docs"
         xmlns="http://www.blueprint-epigenome.eu/dcc/schema"
         xmlns:xhtml="http://www.w3.org/1999/xhtml"
@@ -255,10 +255,7 @@
                 <description>End position of the mutation/variation on the chromosome</description>
                 <column-type item-type="integer" column-kind="required" />
             </column>
-            <column name="chromosome_strand">
-                <description>Strand where it was detected the mutation/variation on the chromosome</description>
-                <column-type item-type="integer" column-kind="optional" cv="strand" />
-            </column>
+            
             <column name="validation_status">
                 <description>Indicate if the mutation/variation has been validated</description>
                 <column-type item-type="integer" column-kind="required" cv="validationStatus" />
@@ -279,25 +276,34 @@
             </index>
             
             <subtypes>
-                <concept-type name="expression-experiment-primary">
-                    <column name="quality_score">
-                        <description>Average quality score for the mutation/variation call</description>
-                        <column-type item-type="decimal" column-kind="optional"></column-type>
+                <concept-type name="abstract-experiment-primary-stranded">
+                    <column name="chromosome_strand">
+                        <description>Strand where it was detected the mutation/variation on the chromosome</description>
+                        <column-type item-type="integer" column-kind="optional" cv="strand" />
                     </column>
-                    <column name="probability">
-                        <description>Probability of the mutation/variation call</description>
-                        <column-type item-type="decimal" column-kind="optional" />
-                    </column>
+                    
                     <subtypes>
-                        <concept-type name="gene-expression-experiment-primary">
-                            <column name="normalized_read_count">
-                                <description>Normalized count of sequencing reads if analyzed by sequencing platforms</description>
-                                <column-type item-type="decimal" column-kind="required" />
+                        <concept-type name="expression-experiment-primary">
+                            <column name="quality_score">
+                                <description>Average quality score for the mutation/variation call</description>
+                                <column-type item-type="decimal" column-kind="optional"></column-type>
                             </column>
-                            <column name="raw_read_count">
-                                <description>Raw count of sequencing reads if analyzed by sequencing platforms</description>
-                                <column-type item-type="integer" column-kind="required" />
+                            <column name="probability">
+                                <description>Probability of the mutation/variation call</description>
+                                <column-type item-type="decimal" column-kind="optional" />
                             </column>
+                            <subtypes>
+                                <concept-type name="gene-expression-experiment-primary">
+                                    <column name="normalized_read_count">
+                                        <description>Normalized count of sequencing reads if analyzed by sequencing platforms</description>
+                                        <column-type item-type="decimal" column-kind="required" />
+                                    </column>
+                                    <column name="raw_read_count">
+                                        <description>Raw count of sequencing reads if analyzed by sequencing platforms</description>
+                                        <column-type item-type="integer" column-kind="required" />
+                                    </column>
+                                </concept-type>
+                            </subtypes>
                         </concept-type>
                     </subtypes>
                 </concept-type>
@@ -893,6 +899,10 @@
                     <description>DNA *-lation [dlat] - Single Nucleotide File [n]</description>
                     <annotation key="altname">DNA *-lation Single Nucleotide</annotation>
                     
+                    <column name="chromosome_strand">
+                        <description>Strand where it was detected the mutation/variation on the chromosome</description>
+                        <column-type item-type="integer" column-kind="optional" cv="strand" />
+                    </column>
                     <column name="d_lation_type">
                         <description>Type of DNA *-lation (Methylation, Hydroxy-Methylation, Formylation, etc...)</description>
                         <column-type item-type="string" column-kind="required">
@@ -915,6 +925,18 @@
                 <concept name="mr" fullname="DNA *-lation - Methylated Region (CpGs, HMR) File" basetype="dlat-experiment-primary">
                     <description>DNA *-lation [dlat] - Methylated Region File [mr] for CpGs and hypo/hyper-methylated regions</description>
                     <annotation key="altname">DNA *-lation MR</annotation>
+                    
+                    <column name="mr_type">
+                        <description>The type of methylated region site</description>
+                        <column-type item-type="string" column-kind="required">
+                            <cv>
+                                <e v="cpg">CpG dinucleotide</e>
+                                <e v="hyper">Hyper-methylated region</e>
+                                <e v="hypo">Hypo-methylated region</e>
+                            </cv>
+                        </column-type>
+                    </column>
+                    
                     
                     <column name="beta_value">
                         <description>DNA *-lation beta value (or average methylation or ) for interrogated site</description>
