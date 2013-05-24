@@ -123,15 +123,15 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.979899"
-     inkscape:cx="328.65475"
+     inkscape:cx="329.6649"
      inkscape:cy="130.53296"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1600"
-     inkscape:window-height="876"
-     inkscape:window-x="0"
-     inkscape:window-y="0"
+     inkscape:window-width="1920"
+     inkscape:window-height="1147"
+     inkscape:window-x="-4"
+     inkscape:window-y="-1"
      inkscape:window-maximized="1"
      fit-margin-top="0"
      fit-margin-left="0"
@@ -145,7 +145,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -393,12 +393,12 @@
          id="tspan4926-6-7"
          x="439.38986"
          y="425.07904"
-         style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;text-align:center;text-anchor:middle;font-family:Arial Narrow;-inkscape-font-specification:Arial Narrow Condensed">DMR</tspan><tspan
+         style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;text-align:center;text-anchor:middle;font-family:Arial Narrow;-inkscape-font-specification:Arial Narrow Condensed">HMR</tspan><tspan
          sodipodi:role="line"
          x="439.38986"
          y="438.96414"
          style="font-size:10px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;text-align:center;text-anchor:middle;font-family:Arial Narrow;-inkscape-font-specification:Arial Narrow Condensed"
-         id="tspan3088">(differentially methylated region)</tspan></text>
+         id="tspan3088">(hyper/hypo-methylated region)</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Rugby;-inkscape-font-specification:Rugby"
@@ -449,7 +449,7 @@
          x="574.4635"
          y="675.47235"
          style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-family:Arial Narrow;-inkscape-font-specification:Arial Narrow Condensed"
-         id="tspan3140">the DMR coverage</tspan></text>
+         id="tspan3140">the HMR coverage</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Rugby;-inkscape-font-specification:Rugby"
