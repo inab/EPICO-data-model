@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dcc-schema
         project="BLUEPRINT"
-        schemaVer="0.2.3.98.1"
+        schemaVer="0.2.3.98.2"
         docsDir="model-docs"
         xmlns="http://www.blueprint-epigenome.eu/dcc/schema"
         xmlns:xhtml="http://www.w3.org/1999/xhtml"
@@ -147,6 +147,7 @@
                 <description>Unique identifier for the analysis performed for a particular set of samples</description>
                 <column-type item-type="string" column-kind="idref" />
             </column>
+            
             <!--
             <column name="analyzed_sample_id">
                 <description>Unique identifier for the analyzed sample</description>
@@ -360,7 +361,9 @@
     <filename-format name="blueprint-dcc">$$domain-$$concept--@B1-\ISODATE--%string.txt</filename-format>
     
     <concept-domain domain="sdata" fullname="Sample Tracking Submission File Specifications" filename-format="blueprint-dcc">
-        <concept name="donor" fullname="Donor Data File" basetype="sample-tracking-data">
+        <concept name="donor" fullname="Donor Data File">
+            <base-concept-type name="sample-tracking-data"/>
+            
             <description>Donor Data File [donor] (required)</description>
             <description>This submission file describes a donor from which one or more specimens were obtained.</description>
             <annotation key="altname">Donor</annotation>
@@ -404,7 +407,7 @@
             -->
 
             <!--
-            <subconcepts>
+            <weak-concepts>
                 <concept name="family" fullname="Donor Family History" basetype="sample-tracking-data">
                     <description>Donor Family History [family] (optional)</description>
                     <description>This file describes the family history of the donor.</description>
@@ -447,11 +450,13 @@
                         <column-type item-type="string" column-kind="required" />
                     </column>
                 </concept>
-            </subconcepts>
+            </weak-concepts>
             -->
         </concept>
         
-        <concept name="specimen" fullname="Specimen Data File" basetype="sample-tracking-data">
+        <concept name="specimen" fullname="Specimen Data File">
+            <base-concept-type name="sample-tracking-data"/>
+            
             <description>Specimen Data File [specimen] (required)</description>
             <description>This submission file describes a specimen from which one or more samples were derived. Use additional rows for more than one specimen from the same patient. If more than one specimen was extracted during the same procedure, each gets a distinct ID.</description>
             <annotation key="altname">Specimen</annotation>
@@ -549,7 +554,9 @@
             <related-to concept="donor"/>
         </concept>
         
-        <concept name="sample" fullname="Analyzed Sample Data File" basetype="sample-tracking-data">
+        <concept name="sample" fullname="Analyzed Sample Data File">
+            <base-concept-type name="sample-tracking-data"/>
+            
             <description>Analyzed Sample Data File [sample] (required)</description>
             <description>This submission file describes an analyzed sample on which molecular characterization was performed. It includes both control samples (from healthy people) and samples from ill people.</description>
             <annotation key="altname">Sample</annotation>
@@ -606,7 +613,7 @@
                 <column-type item-type="compound" column-kind="required" compound-seps=";" compound-template="name;url" />
             </column>
             
-            <subconcepts>
+            <weak-concepts>
                 <concept name="p" fullname="Copy Number Germline Variations – Primary Analysis File" basetype="expression-experiment-primary">
                     <description>Copy Number Germline Variations [cngv] – Primary Analysis File [p]</description>
             <annotation key="altname"></annotation>
@@ -655,7 +662,7 @@
                         <column-type item-type="boolean" column-kind="optional"></column-type>
                     </column>
                 </concept>
-            </subconcepts>
+            </weak-concepts>
             <related-to concept="sample" domain="sdata" prefix="analyzed_"/>
             <related-to concept="sample" domain="sdata" prefix="control_"/>
         </concept>
@@ -663,12 +670,16 @@
     -->
     
     <concept-domain domain="exp" fullname="Gene Expression" filename-format="blueprint-dcc">
-        <concept name="m" fullname="Expression - Metadata File" basetype="abstract-experiment-metadata">
+        <concept name="m" fullname="Expression - Metadata File">
+            <base-concept-type name="abstract-experiment-metadata"/>
+            
             <description>Expression [exp] – Metadata File [m]</description>
             <annotation key="altname">Gene Expression Metadata</annotation>
             
-            <subconcepts>
-                <concept name="g" fullname="Expression - Gene File" basetype="gene-expression-experiment-primary">
+            <weak-concepts>
+                <concept name="g" fullname="Expression - Gene File">
+                    <base-concept-type name="gene-expression-experiment-primary"/>
+                    
                     <description>Expression [exp] – Gene File [g]</description>
                     <annotation key="altname">Gene Expression</annotation>
                     
@@ -700,18 +711,22 @@
                         <column-type item-type="string" column-kind="optional" />
                     </column>
                 </concept>
-            </subconcepts>
+            </weak-concepts>
             <related-to concept="sample" domain="sdata" prefix="analyzed_"/>
         </concept>
     </concept-domain>
     
     <concept-domain domain="jcn" fullname="Exon Junction" filename-format="blueprint-dcc">
-        <concept name="m" fullname="Exon Junction - Metadata File" basetype="abstract-experiment-metadata">
+        <concept name="m" fullname="Exon Junction - Metadata File">
+            <base-concept-type name="abstract-experiment-metadata"/>
+            
             <description>Exon Junction [jcn] – Metadata File [m]</description>
             <annotation key="altname">Exon Junction Metadata</annotation>
             
-            <subconcepts>
-                <concept name="p" fullname="Exon Junction - Primary Analysis File" basetype="expression-experiment-primary">
+            <weak-concepts>
+                <concept name="p" fullname="Exon Junction - Primary Analysis File">
+                    <base-concept-type name="expression-experiment-primary"/>
+                    
                     <description>Exon Junction [jcn] – Primary Analysis File [p]</description>
                     <annotation key="altname">Exon Junction Primary</annotation>
                     
@@ -782,13 +797,15 @@
                         <column-type item-type="integer" column-kind="required" />
                     </column>
                 </concept>
-            </subconcepts>
+            </weak-concepts>
             <related-to concept="sample" domain="sdata" prefix="analyzed_"/>
         </concept>
     </concept-domain>
     
     <concept-domain domain="pdna" fullname="Protein-DNA interactions" filename-format="blueprint-dcc">
-        <concept name="m" fullname="Protein-DNA interactions - Metadata File" basetype="comparative-ngs-experiment-metadata">
+        <concept name="m" fullname="Protein-DNA interactions - Metadata File">
+            <base-concept-type name="comparative-ngs-experiment-metadata"/>
+            
             <description>Protein-DNA [pdna] – Metadata File [m]</description>
             <annotation key="altname">Protein-DNA Interactions Metadata</annotation>
             
@@ -801,8 +818,10 @@
                 <column-type item-type="decimal" column-kind="optional" />
             </column>
             
-            <subconcepts>
-                <concept name="p" fullname="Protein-DNA interactions - Primary Analysis File" basetype="abstract-experiment-primary">
+            <weak-concepts>
+                <concept name="p" fullname="Protein-DNA interactions - Primary Analysis File">
+                    <base-concept-type name="abstract-experiment-primary"/>
+                    
                     <description>Protein-DNA [pdna] – Primary Analysis File [p]</description>
                     <annotation key="altname">Protein-DNA Interactions Primary</annotation>
                     
@@ -838,8 +857,10 @@
                         <column-type item-type="compound" column-kind="optional" compound-seps=":" compound-template="rank:value" array-seps=";" />
                     </column>
                     
-                    <subconcepts>
-                        <concept name="s" fullname="Protein-DNA interactions - Secondary Analysis File" basetype="generic-secondary">
+                    <weak-concepts>
+                        <concept name="s" fullname="Protein-DNA interactions - Secondary Analysis File">
+                            <base-concept-type name="generic-secondary"/>
+                            
                             <description>Protein-DNA [pdna] – Secondary Analysis File [s]</description>
                             <annotation key="altname">Protein-DNA Interactions Secondary</annotation>
                             
@@ -848,21 +869,25 @@
                                 <column-type item-type="string" column-kind="optional" array-seps="|" cv="EnsemblTranscripts"></column-type>
                             </column>
                         </concept>
-                    </subconcepts>
+                    </weak-concepts>
                 </concept>
-            </subconcepts>
+            </weak-concepts>
             <related-to concept="sample" domain="sdata" prefix="analyzed_"/>
             <related-to concept="sample" domain="sdata" prefix="control_"/>
         </concept>
     </concept-domain>
     
     <concept-domain domain="rreg" fullname="Regulatory Regions" filename-format="blueprint-dcc">
-        <concept name="m" fullname="Regulatory regions - Metadata File" basetype="comparative-ngs-experiment-metadata">
+        <concept name="m" fullname="Regulatory regions - Metadata File">
+            <base-concept-type name="comparative-ngs-experiment-metadata"/>
+            
             <description>Regulatory regions [rreg] – Metadata File [m]</description>
             <annotation key="altname">Regulatory Regions Metadata</annotation>
             
-            <subconcepts>
-                <concept name="p" fullname="Regulatory regions - Primary Analysis File" basetype="gene-expression-experiment-primary">
+            <weak-concepts>
+                <concept name="p" fullname="Regulatory regions - Primary Analysis File">
+                    <base-concept-type name="gene-expression-experiment-primary"/>
+                    
                     <description>Regulatory regions [rreg] – Primary Analysis File [p]</description>
                     <annotation key="altname">Regulatory Regions Primary</annotation>
                     
@@ -871,21 +896,25 @@
                         <column-type item-type="string" column-kind="idref" />
                     </column>
                     
-                    <subconcepts>
-                        <concept name="s" fullname="Regulatory regions - Secondary Analysis File" basetype="generic-secondary">
+                    <weak-concepts>
+                        <concept name="s" fullname="Regulatory regions - Secondary Analysis File">
+                            <base-concept-type name="generic-secondary"/>
+                            
                             <description>Regulatory regions [rreg] – Secondary Analysis File [s]</description>
                             <annotation key="altname">Regulatory Regions Secondary</annotation>
                         </concept>
-                    </subconcepts>
+                    </weak-concepts>
                 </concept>
-            </subconcepts>
+            </weak-concepts>
             <related-to concept="sample" domain="sdata" prefix="analyzed_"/>
-            <related-to concept="sample" domain="sdata" prefix="control_"/>
+            <related-to concept="sample" domain="sdata" prefix="control_" partial-participation="true"/>
         </concept>
     </concept-domain>
     
     <concept-domain domain="dlat" fullname="DNA *-lation (Methylation, Hydroxy-Methylation, Formylation, etc...)" filename-format="blueprint-dcc">
-        <concept name="m" fullname="DNA *-lation - Metadata File" basetype="comparative-ngs-experiment-metadata">
+        <concept name="m" fullname="DNA *-lation - Metadata File">
+            <base-concept-type name="comparative-ngs-experiment-metadata"/>
+            
             <description>DNA *-lation [dlat] - Metadata File [m]</description>
             <annotation key="altname">DNA *-lation Metadata</annotation>
             
@@ -894,8 +923,22 @@
                 <column-type item-type="compound" column-kind="optional" compound-seps=";" compound-template="name;url" />
             </column>
             
-            <subconcepts>
-                <concept name="n" fullname="DNA *-lation - Single Nucleotide File" basetype="dlat-experiment-primary">
+            <column name="mr_type">
+                <description>The type of methylated region site</description>
+                <column-type item-type="string" column-kind="required">
+                    <cv>
+                        <e v="c">Single nucleotide *-lation</e>
+                        <e v="cpg">CpG dinucleotide</e>
+                        <e v="hyper">Hyper-methylated region</e>
+                        <e v="hypo">Hypo-methylated region</e>
+                    </cv>
+                </column-type>
+            </column>
+            
+            <weak-concepts>
+                <concept name="n" fullname="DNA *-lation - Single Nucleotide File">
+                    <base-concept-type name="dlat-experiment-primary"/>
+                    
                     <description>DNA *-lation [dlat] - Single Nucleotide File [n]</description>
                     <annotation key="altname">DNA *-lation Single Nucleotide</annotation>
                     
@@ -922,37 +965,30 @@
                     </column>
                 </concept>
                 
-                <concept name="mr" fullname="DNA *-lation - Methylated Region (CpGs, HMR) File" basetype="dlat-experiment-primary">
+                <concept name="mr" fullname="DNA *-lation - Methylated Region (CpGs, HMR) File">
+                    <base-concept-type name="dlat-experiment-primary"/>
+                    
                     <description>DNA *-lation [dlat] - Methylated Region File [mr] for CpGs and hypo/hyper-methylated regions</description>
                     <annotation key="altname">DNA *-lation MR</annotation>
-                    
-                    <column name="mr_type">
-                        <description>The type of methylated region site</description>
-                        <column-type item-type="string" column-kind="required">
-                            <cv>
-                                <e v="cpg">CpG dinucleotide</e>
-                                <e v="hyper">Hyper-methylated region</e>
-                                <e v="hypo">Hypo-methylated region</e>
-                            </cv>
-                        </column-type>
-                    </column>
-                    
                     
                     <column name="beta_value">
                         <description>DNA *-lation beta value (or average methylation or ) for interrogated site</description>
                         <column-type item-type="decimal" column-kind="optional" />
                     </column>
                     
-                    <subconcepts>
-                        <concept name="s" fullname="DNA *-lation - Annotation File" basetype="generic-secondary">
+                    <weak-concepts>
+                        <concept name="s" fullname="DNA *-lation - Annotation File">
+                            <base-concept-type name="generic-secondary"/>
+                            
                             <description>DNA *-lation [dlat] - Annotation File [s]</description>
                             <annotation key="altname">DNA *-lation Annotation</annotation>
                         </concept>
-                    </subconcepts>
+                    </weak-concepts>
                 </concept>
-            </subconcepts>
+            </weak-concepts>
             <related-to concept="sample" domain="sdata" prefix="analyzed_"/>
-            <related-to concept="sample" domain="sdata" prefix="control_"/>
+            <related-to concept="sample" domain="sdata" prefix="control_" partial-participation="true"/>
+            <related-to concept="m" prefix="base_" arity="M" partial-participation="true"/>
         </concept>
     </concept-domain>
 </dcc-schema>
