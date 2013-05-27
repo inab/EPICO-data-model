@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dcc-schema
         project="BLUEPRINT"
-        schemaVer="0.2.3.98.2"
+        schemaVer="0.2.3.99"
         docsDir="model-docs"
         xmlns="http://www.blueprint-epigenome.eu/dcc/schema"
         xmlns:xhtml="http://www.w3.org/1999/xhtml"
@@ -675,6 +675,7 @@
             
             <description>Expression [exp] – Metadata File [m]</description>
             <annotation key="altname">Gene Expression Metadata</annotation>
+            <annotation key="color"><color>#FFF455</color></annotation>
             
             <weak-concepts>
                 <concept name="g" fullname="Expression - Gene File">
@@ -682,6 +683,7 @@
                     
                     <description>Expression [exp] – Gene File [g]</description>
                     <annotation key="altname">Gene Expression</annotation>
+                    <annotation key="color"><color>#FFF455</color></annotation>
                     
                     <column name="gene_stable_id">
                         <description>For annotated gene, use Ensembl gene ID. Otherwise, use assemblyBuild_chr_start_end where assemblyBuild is hg19.</description>
@@ -722,6 +724,7 @@
             
             <description>Exon Junction [jcn] – Metadata File [m]</description>
             <annotation key="altname">Exon Junction Metadata</annotation>
+            <annotation key="color"><color>#D9A152</color></annotation>
             
             <weak-concepts>
                 <concept name="p" fullname="Exon Junction - Primary Analysis File">
@@ -729,6 +732,7 @@
                     
                     <description>Exon Junction [jcn] – Primary Analysis File [p]</description>
                     <annotation key="altname">Exon Junction Primary</annotation>
+                    <annotation key="color"><color>#D9A152</color></annotation>
                     
                     <column name="junction_id">
                         <description>For known exons, use exonID1_exonID2 where exonID1 and exonID2 are Ensembl IDs of the 5' and 3' exons, respectively. For novel or putative exons,use assemblyBuild_exon1chr_exon1end_exon2chr_exon2start where assemblyBuild is hg18 or hg19; exon1chr and exon2chr are the chromosomes of the 5' and 3' exons, respectively; exon1end is the end position of the 5' exon; exon2start is the start position of the 3' exon.</description>
@@ -808,6 +812,7 @@
             
             <description>Protein-DNA [pdna] – Metadata File [m]</description>
             <annotation key="altname">Protein-DNA Interactions Metadata</annotation>
+            <annotation key="color"><color>#63BFED</color></annotation>
             
             <column name="NSC">
                 <description>Normalized strand cross-correlation of the analysis (see <xhtml:a href="http://encodeproject.org/ENCODE/qualityMetrics.html"><xhtml:i>ENCODE quality metrics</xhtml:i></xhtml:a>)</description>
@@ -824,6 +829,7 @@
                     
                     <description>Protein-DNA [pdna] – Primary Analysis File [p]</description>
                     <annotation key="altname">Protein-DNA Interactions Primary</annotation>
+                    <annotation key="color"><color>#63BFED</color></annotation>
                     
                     <column name="protein_dna_interaction_id">
                         <description>Unique identifier for the protein-DNA interaction</description>
@@ -863,6 +869,7 @@
                             
                             <description>Protein-DNA [pdna] – Secondary Analysis File [s]</description>
                             <annotation key="altname">Protein-DNA Interactions Secondary</annotation>
+                            <annotation key="color"><color>#63BFED</color></annotation>
                             
                             <column name="transcript_affected">
                                 <description>Transcript on the protein-DNA interaction area. Use Ensembl transcript id. Separate multiple transcripts with vertical bars in the form of trasncriptA|trasncriptB|trasncriptC</description>
@@ -873,7 +880,7 @@
                 </concept>
             </weak-concepts>
             <related-to concept="sample" domain="sdata" prefix="analyzed_"/>
-            <related-to concept="sample" domain="sdata" prefix="control_"/>
+            <related-to concept="sample" domain="sdata" prefix="control_" partial-participation="true"/>
         </concept>
     </concept-domain>
     
@@ -883,6 +890,7 @@
             
             <description>Regulatory regions [rreg] – Metadata File [m]</description>
             <annotation key="altname">Regulatory Regions Metadata</annotation>
+            <annotation key="color"><color>#CCBDFF</color></annotation>
             
             <weak-concepts>
                 <concept name="p" fullname="Regulatory regions - Primary Analysis File">
@@ -890,6 +898,7 @@
                     
                     <description>Regulatory regions [rreg] – Primary Analysis File [p]</description>
                     <annotation key="altname">Regulatory Regions Primary</annotation>
+                    <annotation key="color"><color>#CCBDFF</color></annotation>
                     
                     <column name="regulatory_region_id">
                         <description>Unique identifier for the identified regulatory region</description>
@@ -902,6 +911,7 @@
                             
                             <description>Regulatory regions [rreg] – Secondary Analysis File [s]</description>
                             <annotation key="altname">Regulatory Regions Secondary</annotation>
+                            <annotation key="color"><color>#CCBDFF</color></annotation>
                         </concept>
                     </weak-concepts>
                 </concept>
@@ -917,6 +927,7 @@
             
             <description>DNA *-lation [dlat] - Metadata File [m]</description>
             <annotation key="altname">DNA *-lation Metadata</annotation>
+            <annotation key="color"><color>#A3ED03</color></annotation>
             
             <column name="methylation_calling_algorithm">
                 <description>Name of variation calling algorithm and URL to written protocol</description>
@@ -941,6 +952,7 @@
                     
                     <description>DNA *-lation [dlat] - Single Nucleotide File [n]</description>
                     <annotation key="altname">DNA *-lation Single Nucleotide</annotation>
+                    <annotation key="color"><color>#A3ED03</color></annotation>
                     
                     <column name="chromosome_strand">
                         <description>Strand where it was detected the mutation/variation on the chromosome</description>
@@ -970,6 +982,7 @@
                     
                     <description>DNA *-lation [dlat] - Methylated Region File [mr] for CpGs and hypo/hyper-methylated regions</description>
                     <annotation key="altname">DNA *-lation MR</annotation>
+                    <annotation key="color"><color>#A3ED03</color></annotation>
                     
                     <column name="beta_value">
                         <description>DNA *-lation beta value (or average methylation or ) for interrogated site</description>
@@ -982,6 +995,7 @@
                             
                             <description>DNA *-lation [dlat] - Annotation File [s]</description>
                             <annotation key="altname">DNA *-lation Annotation</annotation>
+                            <annotation key="color"><color>#A3ED03</color></annotation>
                         </concept>
                     </weak-concepts>
                 </concept>
