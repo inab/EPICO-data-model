@@ -47,13 +47,17 @@ Submitted experimental data files must be from any one of these categories:
 BLUEPRINT DCC is hosting both sample tracking data and analyzed contents. Contents must be sent following
 the textual tabular formats defined below. Files with those contents must also follow the BLUEPRINT
 DCC file naming convention.
-
-\begin{figure*}[!h]
-\centering
-
-\includegraphics[width=1.0\textwidth]{general-schema.pdf}
-\caption{Overview of BLUEPRINT data model}
-\end{figure*}
+%
+%
+%% This is what must be done to center landscape figures
+%\begin{landscape}
+%\parbox[c][\textwidth][s]{\linewidth}{%
+%\vfill
+%\includegraphics[width=\linewidth]{general-schema.pdf}
+%\captionof{figure}{Overview of BLUEPRINT data model}
+%\vfill
+%}
+%\end{landscape}
 
 Each submitter must have a unique signing key, provided by DACO and DCC. Each file in a submitted archive
 must be accompanied by its SHA1 \textbf{uncompressed} content digest file, digitally signed
