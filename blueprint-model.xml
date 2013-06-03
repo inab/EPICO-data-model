@@ -142,21 +142,10 @@
             </column>
         </concept-type>
         
-        <concept-type name="abstract-experiment-metadata" collection="metadata">
+        <concept-type name="abstract-analysis-metadata" collection="metadata">
             <column name="analysis_id">
                 <description>Unique identifier for the analysis performed for a particular set of samples</description>
                 <column-type item-type="string" column-kind="idref" />
-            </column>
-            
-            <!--
-            <column name="analyzed_sample_id">
-                <description>Unique identifier for the analyzed sample</description>
-                <column-type item-type="string" column-kind="idref" />
-            </column>
-            -->
-            <column name="experimental_group_id">
-                <description>Identifier of the experimental group who did the experimental analysis</description>
-                <column-type item-type="string" column-kind="required" cv="B1"></column-type>
             </column>
             <column name="analysis_group_id">
                 <description>Identifier of the analysis group (i.e. the one who prepared/run the pipeline)</description>
@@ -172,8 +161,6 @@
                     </cv>
                 </column-type>
             </column>
-            
-            
             <column name="assembly_version">
                 <description>Version of reference genome assembly</description>
                 <column-type item-type="integer" column-kind="required" cv="B10" />
@@ -182,21 +169,6 @@
                 <description>The versions of (some of) the programs used for the analysis</description>
                 <column-type item-type="compound" column-kind="desirable" compound-template="program:version" compound-seps=":" array-seps=";"></column-type>
             </column>
-            
-            <column name="platform">
-                <description>Platform or technology used in the detection phase</description>
-                <column-type item-type="integer" column-kind="required" cv="B5" />
-            </column>
-            <column name="experimental_protocol">
-                <description>Name of experimental protocol and URL to written protocol</description>
-                <column-type item-type="compound" column-kind="optional" compound-seps=";" compound-template="name;url" />
-            </column>
-            <!--
-            <column name="base_calling_algorithm">
-                <description>Name of base calling algorithm and URL to written protocol</description>
-                <column-type item-type="compound" column-kind="required" compound-seps=";" compound-template="name;url" />
-            </column>
-            -->
             <column name="alignment_algorithm">
                 <description>Name of alignment algorithm and URL to written protocol</description>
                 <column-type item-type="compound" column-kind="required" compound-seps=";" compound-template="name;url" />
@@ -221,27 +193,58 @@
                 <description>Optional field to leave notes</description>
                 <column-type item-type="string" column-kind="optional" />
             </column>
+            
             <subtypes>
-                <concept-type name="gene-expression-experiment-metadata">
-                    <column name="gene_build_version">
-                        <description>Version of Ensembl gene build used for annotation (or the version of Ensembl gene build integrated into used GENCODE build)</description>
-                        <column-type item-type="integer" column-kind="required" />
-                    </column>
-                    <column name="normalization_algorithm">
-                        <description>Name of normalization algorithm and URL to written protocol</description>
-                        <column-type item-type="compound" column-kind="required" compound-seps=";" compound-template="name;url" />
-                    </column>
-                </concept-type>
-                <concept-type name="comparative-ngs-experiment-metadata">
+                <concept-type name="abstract-experimental-metadata">
                     <!--
-                    <column name="control_sample_id">
-                        <description>Unique identifier for the analyzed control/matched sample</description>
-                        <column-type item-type="string" column-kind="required" />
-                    </column>
+                        <column name="analyzed_sample_id">
+                        <description>Unique identifier for the analyzed sample</description>
+                        <column-type item-type="string" column-kind="idref" />
+                        </column>
                     -->
+                    <column name="experimental_group_id">
+                        <description>Identifier of the experimental group who did the experimental analysis</description>
+                        <column-type item-type="string" column-kind="required" cv="B1"></column-type>
+                    </column>
+                    
+                    <column name="platform">
+                        <description>Platform or technology used in the detection phase</description>
+                        <column-type item-type="integer" column-kind="required" cv="B5" />
+                    </column>
+                    <column name="experimental_protocol">
+                        <description>Name of experimental protocol and URL to written protocol</description>
+                        <column-type item-type="compound" column-kind="optional" compound-seps=";" compound-template="name;url" />
+                    </column>
+                    <!--
+                        <column name="base_calling_algorithm">
+                        <description>Name of base calling algorithm and URL to written protocol</description>
+                        <column-type item-type="compound" column-kind="required" compound-seps=";" compound-template="name;url" />
+                        </column>
+                    -->
+                    <subtypes>
+                        <concept-type name="gene-expression-experiment-metadata">
+                            <column name="gene_build_version">
+                                <description>Version of Ensembl gene build used for annotation (or the version of Ensembl gene build integrated into used GENCODE build)</description>
+                                <column-type item-type="integer" column-kind="required" />
+                            </column>
+                            <column name="normalization_algorithm">
+                                <description>Name of normalization algorithm and URL to written protocol</description>
+                                <column-type item-type="compound" column-kind="required" compound-seps=";" compound-template="name;url" />
+                            </column>
+                        </concept-type>
+                        <concept-type name="comparative-ngs-experiment-metadata">
+                            <!--
+                                <column name="control_sample_id">
+                                <description>Unique identifier for the analyzed control/matched sample</description>
+                                <column-type item-type="string" column-kind="required" />
+                                </column>
+                            -->
+                        </concept-type>
+                    </subtypes>
                 </concept-type>
             </subtypes>
         </concept-type>
+        
         
         <concept-type name="abstract-experiment-primary" collection="primary">
             <column name="chromosome">
@@ -310,11 +313,6 @@
                 </concept-type>
                 
                 <concept-type name="dlat-experiment-primary">
-                    <column name="d_lated_fragment_id">
-                        <description>Unique identifier for the methylated fragment, in the form d'*lationType|chromosome_chromosomeStart_chromosomeEnd</description>
-                        <column-type item-type="string" column-kind="idref" />
-                    </column>
-                    
                     <column name="total_reads">
                         <description>Total number of reads over this position/segment, either identifying or not a cytosine, for sequencing platforms. Mean reads depth for other technologies</description>
                         <column-type item-type="decimal" column-kind="required" />
@@ -341,6 +339,20 @@
             </subtypes>
         </concept-type>
         
+        <concept-type name="dlat-identifier" collection="primary">
+            <column name="d_lated_fragment_id">
+                <description>Unique identifier for the methylated fragment, in the form d'*lationType|chromosome_chromosomeStart_chromosomeEnd</description>
+                <column-type item-type="string" column-kind="idref" />
+            </column>
+        </concept-type>
+
+        <concept-type name="rank" collection="primary">
+            <column name="rank">
+                <description>Kind of used ranking and its value, in the form "rank;value". As it can hold more than one value, they are separated by bars</description>
+                <column-type item-type="compound" column-kind="optional" compound-seps=":" compound-template="rank:value" array-seps=";" />
+            </column>
+        </concept-type>
+
         <concept-type name="generic-secondary" key="sec">
             <column name="ensembl_version">
                 <description>Version of Ensembl gene build used for annotation (or the version of Ensembl gene build integrated into used GENCODE build)</description>
@@ -602,6 +614,26 @@
         </concept>
     </concept-domain>
     
+    <concept-domain domain="abstract" fullname="Abstract concept domain name" filename-format="blueprint-dcc" is-abstract="true">
+        <concept name="AnalysisMetadata" fullname="AnalysisMetadata">
+            <base-concept-type name="abstract-experimental-metadata"/>
+            
+            <annotation key="altname">AnalysisMetadata</annotation>
+            <annotation key="color"><color>#A3ED03</color></annotation>
+            
+            <related-to concept="sample" domain="sdata" prefix="analyzed_"/>
+            <related-to concept="AnalysisMetadata" prefix="base_" arity="M" partial-participation="true" inheritable="true"/>
+        </concept>
+        <concept name="ComparativeAnalysisMetadata" fullname="ComparativeAnalysisMetadata">
+            <extends concept="AnalysisMetadata"/>
+            
+            <annotation key="altname">ComparativeAnalysisMetadata</annotation>
+            
+            <related-to concept="sample" domain="sdata" prefix="control_" partial-participation="true"/>
+        </concept>
+    </concept-domain>
+    
+    
     <!--
     <concept-domain domain="cngv" fullname="Copy Number Germline Variations" filename-format="blueprint-dcc">
         <concept name="m" fullname="Copy Number Germline Variations - Metadata File" basetype="comparative-ngs-experiment-metadata">
@@ -671,7 +703,7 @@
     
     <concept-domain domain="exp" fullname="Gene Expression" filename-format="blueprint-dcc">
         <concept name="m" fullname="Expression - Metadata File">
-            <base-concept-type name="abstract-experiment-metadata"/>
+            <extends concept="AnalysisMetadata" domain="abstract"/>
             
             <description>Expression [exp] – Metadata File [m]</description>
             <annotation key="altname">Gene Expression Metadata</annotation>
@@ -714,13 +746,12 @@
                     </column>
                 </concept>
             </weak-concepts>
-            <related-to concept="sample" domain="sdata" prefix="analyzed_"/>
         </concept>
     </concept-domain>
     
     <concept-domain domain="jcn" fullname="Exon Junction" filename-format="blueprint-dcc">
         <concept name="m" fullname="Exon Junction - Metadata File">
-            <base-concept-type name="abstract-experiment-metadata"/>
+            <extends concept="AnalysisMetadata" domain="abstract"/>
             
             <description>Exon Junction [jcn] – Metadata File [m]</description>
             <annotation key="altname">Exon Junction Metadata</annotation>
@@ -802,13 +833,12 @@
                     </column>
                 </concept>
             </weak-concepts>
-            <related-to concept="sample" domain="sdata" prefix="analyzed_"/>
         </concept>
     </concept-domain>
     
     <concept-domain domain="pdna" fullname="Protein-DNA interactions" filename-format="blueprint-dcc">
         <concept name="m" fullname="Protein-DNA interactions - Metadata File">
-            <base-concept-type name="comparative-ngs-experiment-metadata"/>
+            <extends concept="ComparativeAnalysisMetadata" domain="abstract"/>
             
             <description>Protein-DNA [pdna] – Metadata File [m]</description>
             <annotation key="altname">Protein-DNA Interactions Metadata</annotation>
@@ -826,6 +856,7 @@
             <weak-concepts>
                 <concept name="p" fullname="Protein-DNA interactions - Primary Analysis File">
                     <base-concept-type name="abstract-experiment-primary"/>
+                    <base-concept-type name="rank"/>
                     
                     <description>Protein-DNA [pdna] – Primary Analysis File [p]</description>
                     <annotation key="altname">Protein-DNA Interactions Primary</annotation>
@@ -858,10 +889,6 @@
                         <description>Irreproducible discovery rate</description>
                         <column-type item-type="decimal" column-kind="desirable"></column-type>
                     </column>
-                    <column name="rank">
-                        <description>Kind of used ranking and its value, in the form "rank;value". As it can hold more than one value, they are separated by bars</description>
-                        <column-type item-type="compound" column-kind="optional" compound-seps=":" compound-template="rank:value" array-seps=";" />
-                    </column>
                     
                     <weak-concepts>
                         <concept name="s" fullname="Protein-DNA interactions - Secondary Analysis File">
@@ -879,14 +906,12 @@
                     </weak-concepts>
                 </concept>
             </weak-concepts>
-            <related-to concept="sample" domain="sdata" prefix="analyzed_"/>
-            <related-to concept="sample" domain="sdata" prefix="control_" partial-participation="true"/>
         </concept>
     </concept-domain>
     
     <concept-domain domain="rreg" fullname="Regulatory Regions" filename-format="blueprint-dcc">
         <concept name="m" fullname="Regulatory regions - Metadata File">
-            <base-concept-type name="comparative-ngs-experiment-metadata"/>
+            <extends concept="ComparativeAnalysisMetadata" domain="abstract"/>
             
             <description>Regulatory regions [rreg] – Metadata File [m]</description>
             <annotation key="altname">Regulatory Regions Metadata</annotation>
@@ -916,14 +941,12 @@
                     </weak-concepts>
                 </concept>
             </weak-concepts>
-            <related-to concept="sample" domain="sdata" prefix="analyzed_"/>
-            <related-to concept="sample" domain="sdata" prefix="control_" partial-participation="true"/>
         </concept>
     </concept-domain>
     
     <concept-domain domain="dlat" fullname="DNA *-lation (Methylation, Hydroxy-Methylation, Formylation, etc...)" filename-format="blueprint-dcc">
         <concept name="m" fullname="DNA *-lation - Metadata File">
-            <base-concept-type name="comparative-ngs-experiment-metadata"/>
+            <extends concept="ComparativeAnalysisMetadata" domain="abstract"/>
             
             <description>DNA *-lation [dlat] - Metadata File [m]</description>
             <annotation key="altname">DNA *-lation Metadata</annotation>
@@ -948,6 +971,7 @@
             
             <weak-concepts>
                 <concept name="n" fullname="DNA *-lation - Single Nucleotide File">
+                    <base-concept-type name="dlat-identifier"/>
                     <base-concept-type name="dlat-experiment-primary"/>
                     
                     <description>DNA *-lation [dlat] - Single Nucleotide File [n]</description>
@@ -979,6 +1003,7 @@
                 
                 <concept name="mr" fullname="DNA *-lation - Methylated Region (CpGs, HMR) File">
                     <base-concept-type name="dlat-experiment-primary"/>
+                    <base-concept-type name="dlat-identifier"/>
                     
                     <description>DNA *-lation [dlat] - Methylated Region File [mr] for CpGs and hypo/hyper-methylated regions</description>
                     <annotation key="altname">DNA *-lation MR</annotation>
@@ -1000,9 +1025,60 @@
                     </weak-concepts>
                 </concept>
             </weak-concepts>
-            <related-to concept="sample" domain="sdata" prefix="analyzed_"/>
-            <related-to concept="sample" domain="sdata" prefix="control_" partial-participation="true"/>
-            <related-to concept="m" prefix="base_" arity="M" partial-participation="true"/>
+        </concept>
+        <concept name="dm" fullname="DNA differential *-lation - Metadata File">
+            <base-concept-type name="abstract-analysis-metadata"/>
+            
+            <description>DNA differential *-lation [dlat] - Metadata File [dm]</description>
+            <annotation key="altname">DNA *-lation Metadata</annotation>
+            <annotation key="color"><color>#A3ED03</color></annotation>
+            
+            <weak-concepts>
+                <concept name="dmr" fullname="DNA *-lation - Differentially Methylated Region (DMR) File">
+                    <base-concept-type name="dlat-identifier"/>
+                    <base-concept-type name="abstract-experiment-primary"/>
+                    <base-concept-type name="rank"/>
+                    
+                    <description>DNA *-lation [dlat] - Differentially Methylated Region File [dmr]</description>
+                    <annotation key="altname">DNA *-lation DMR</annotation>
+                    <annotation key="color"><color>#A3ED03</color></annotation>
+                    
+                    <column name="n_cpgs">
+                        <description>Number of CpGs in the DMR</description>
+                        <column-type item-type="integer" column-kind="required" />
+                    </column>
+                    <column name="n_sig_cpgs">
+                        <description>Number of significant CpGs in the DMR (z_score &gt; 3 or &lt; -3)</description>
+                        <column-type item-type="integer" column-kind="required" />
+                    </column>
+                    <column name="hyper_role">
+                        <description>Which participant had the hypermethylation role in the comparison?</description>
+                        <column-type item-type="string" column-kind="required">
+                            <cv>
+                                <e v="A">The hyper methylation role was given to participant A</e>
+                                <e v="B">The hyper methylation role was given to participant B</e>
+                            </cv>
+                        </column-type>
+                    </column>
+                    <column name="abs_avg_diff">
+                        <description>Average of absolute methylation difference for the DMR</description>
+                        <column-type item-type="decimal" column-kind="required"></column-type>
+                    </column>
+                    <column name="rel_avg_diff">
+                        <description>Average of relative methylation difference for the DMR</description>
+                        <column-type item-type="decimal" column-kind="required"></column-type>
+                    </column>
+                    <column name="cpg_start">
+                        <description>The coordinates of the CpGs used for the calculation of this differentially methylated region</description>
+                        <column-type item-type="integer" column-kind="required" array-seps=","/>
+                    </column>
+                </concept>
+            </weak-concepts>
+            
+            
+            <!-- These are the participant methylation analysis -->
+            <related-to concept="m" arity="M" prefix="part_a_"/>
+            <related-to concept="m" arity="M" prefix="part_b_"/>
         </concept>
     </concept-domain>
 </dcc-schema>
