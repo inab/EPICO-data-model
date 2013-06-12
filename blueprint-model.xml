@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dcc-schema
         project="BLUEPRINT"
-        schemaVer="0.2.3.99.1"
+        schemaVer="0.2.3.99.2"
         docsDir="model-docs"
         xmlns="http://www.blueprint-epigenome.eu/dcc/schema"
         xmlns:xhtml="http://www.w3.org/1999/xhtml"
@@ -67,7 +67,7 @@
             <cv-file format="obo">cl.obo</cv-file>
         </cv>
         <cv name="ISO3166">
-            <description><![CDATA[ISO 3166 is the International Standard for country codes and codes for their subdivisions. The purpose of ISO 3166 is to establish internationally recognised codes for the representation of names of countries, territories or areas of geographical interest, and their subdivisions. A complementary classification, related to ISO 3166 is UN M.49 (Standard Country and Area Codes Classifications]]></description>
+            <description><![CDATA[ISO 3166 is the International Standard for country codes and codes for their subdivisions. The purpose of ISO 3166 is to establish internationally recognised codes for the representation of names of countries, territories or areas of geographical interest, and their subdivisions. A complementary classification, related to ISO 3166 is UN M.49 (Standard Country and Area Codes Classifications)]]></description>
             <annotation key="file">ISO 3166-1, ISO 3166-2 and UN M.49</annotation>
             
             <cv-uri format="ISO_3166-1" doc="http://www.iso.org/iso/country_codes.htm">http://www.iso.org/iso/home/standards/country_codes/country_names_and_code_elements_txt.htm</cv-uri>
@@ -164,6 +164,9 @@
         <concept-type name="abstract-analysis-metadata" collection="metadata">
             <column name="analysis_id">
                 <description>Unique identifier for the analysis performed for a particular set of samples</description>
+                <annotation key="ordering">
+                    <ordering-hints><block>top</block></ordering-hints>
+                </annotation>
                 <column-type item-type="string" column-kind="idref" />
             </column>
             <column name="analysis_group_id">
@@ -302,10 +305,16 @@
         <concept-type name="abstract-experiment-primary" collection="primary">
             <column name="validation_status">
                 <description>Indicate if the mutation/variation has been validated</description>
+                <annotation key="ordering">
+                    <ordering-hints><block>bottom</block></ordering-hints>
+                </annotation>
                 <column-type item-type="integer" column-kind="required" cv="validationStatus" />
             </column>
             <column name="validation_platform">
                 <description>Platform or technology used in validation</description>
+                <annotation key="ordering">
+                    <ordering-hints><block>bottom</block></ordering-hints>
+                </annotation>
                 <column-type item-type="integer" column-kind="optional" cv="B5"></column-type>
             </column>
             <column name="note">
@@ -528,6 +537,10 @@
                     </cv>
                 </column-type>
             </column>
+            <column name="specimen_type_other">
+                <description>Free text description of site of specimen if "normal control (other)" or "disease tissue (other)" was specified in specimen_type field.</description>
+                <column-type item-type="string" column-kind="optional" />
+            </column>
             <column name="donor_min_age_at_specimen_acquisition">
                 <description>Donor minimal age when the specimen was acquired, in ISO-8601 duration (basic format)</description>
                 <column-type item-type="duration" column-kind="required" />
@@ -539,10 +552,6 @@
                 </column-type>
             </column>
             
-            <column name="specimen_type_other">
-                <description>Free text description of site of specimen if "normal control (other)" or "disease tissue (other)" was specified in specimen_type field.</description>
-                <column-type item-type="string" column-kind="optional" />
-            </column>
             <column name="specimen_processing">
                 <description>Description of technique used to process specimen</description>
                 <column-type item-type="string" column-kind="required">
@@ -609,6 +618,10 @@
                 <description><xhtml:i>Unique identifier</xhtml:i> for the sample assigned by data provider</description>
                 <column-type item-type="string" column-kind="idref"></column-type>
             </column>
+            <column name="purified_cell_type">
+                <description>Purified cell type for the sample</description>
+                <column-type item-type="string" column-kind="required" cv="CellOntology" />
+            </column>
             <column name="analyzed_sample_type">
                 <description>Controlled vocabulary description of sample type</description>
                 <column-type item-type="string" column-kind="required">
@@ -631,10 +644,6 @@
                 <description>Free text description of site of sample if "other" was specified in <xhtml:i>sample_type</xhtml:i> field</description>
                 <column-type item-type="string" column-kind="optional" />
             </column>
-            <column name="purified_cell_type">
-                <description>Purified cell type for the sample</description>
-                <column-type item-type="string" column-kind="required" cv="CellOntology" />
-            </column>
             
             <column name="analyzed_sample_interval">
                 <description>Interval from specimen acquisition to sample use in an analytic procedure (e.g. DNA extraction), in days</description>
@@ -652,7 +661,13 @@
             <annotation key="altname">AnalysisMetadata</annotation>
             <annotation key="color"><color>#A3ED03</color></annotation>
             
-            <related-to concept="sample" domain="sdata" prefix="analyzed_"/>
+            <related-to concept="sample" domain="sdata" prefix="analyzed_">
+                <annotation key="ordering">
+                    <ordering-hints>
+                        <block>top</block>
+                    </ordering-hints>
+                </annotation>
+            </related-to>
             <related-to concept="AnalysisMetadata" prefix="base_" arity="M" partial-participation="true" inheritable="true"/>
         </concept>
         <concept name="ComparativeAnalysisMetadata" fullname="ComparativeAnalysisMetadata">
@@ -660,7 +675,13 @@
             
             <annotation key="altname">ComparativeAnalysisMetadata</annotation>
             
-            <related-to concept="sample" domain="sdata" prefix="control_" partial-participation="true"/>
+            <related-to concept="sample" domain="sdata" prefix="control_" partial-participation="true">
+                <annotation key="ordering">
+                    <ordering-hints>
+                        <block>top</block>
+                    </ordering-hints>
+                </annotation>
+            </related-to>
         </concept>
     </concept-domain>
     
@@ -742,9 +763,9 @@
             
             <weak-concepts>
                 <concept name="g" fullname="Expression - Gene File">
-                    <base-concept-type name="gene-expression-experiment-primary"/>
                     <base-concept-type name="abstract-coordinate-range"/>
                     <base-concept-type name="abstract-strand"/>
+                    <base-concept-type name="gene-expression-experiment-primary"/>
                     
                     <description>Expression [exp] – Gene File [g]</description>
                     <annotation key="altname">Gene Expression</annotation>
@@ -792,9 +813,9 @@
             
             <weak-concepts>
                 <concept name="p" fullname="Exon Junction - Primary Analysis File">
-                    <base-concept-type name="expression-experiment-primary"/>
                     <base-concept-type name="abstract-coordinate-range"/>
                     <base-concept-type name="abstract-strand"/>
+                    <base-concept-type name="expression-experiment-primary"/>
                     
                     <description>Exon Junction [jcn] – Primary Analysis File [p]</description>
                     <annotation key="altname">Exon Junction Primary</annotation>
@@ -948,8 +969,6 @@
     <concept-domain domain="rreg" fullname="Regulatory Regions" filename-format="blueprint-dcc">
         <concept name="m" fullname="Regulatory regions - Metadata File">
             <extends concept="ComparativeAnalysisMetadata" domain="abstract"/>
-            <base-concept-type name="abstract-coordinate-range"/>
-            <base-concept-type name="abstract-strand"/>
             
             <description>Regulatory regions [rreg] – Metadata File [m]</description>
             <annotation key="altname">Regulatory Regions Metadata</annotation>
@@ -957,6 +976,8 @@
             
             <weak-concepts>
                 <concept name="p" fullname="Regulatory regions - Primary Analysis File">
+                    <base-concept-type name="abstract-coordinate-range"/>
+                    <base-concept-type name="abstract-strand"/>
                     <base-concept-type name="gene-expression-experiment-primary"/>
                     
                     <description>Regulatory regions [rreg] – Primary Analysis File [p]</description>
@@ -1020,6 +1041,9 @@
                     
                     <column name="d_lation_type">
                         <description>Type of DNA *-lation (Methylation, Hydroxy-Methylation, Formylation, etc...)</description>
+                        <annotation key="ordering">
+                            <ordering-hints><block>top</block></ordering-hints>
+                        </annotation>
                         <column-type item-type="string" column-kind="required">
                             <cv>
                                 <e v="m">Methylation (cytosine)</e>
