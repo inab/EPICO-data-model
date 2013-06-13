@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dcc-schema
         project="BLUEPRINT"
-        schemaVer="0.2.3.99.2"
+        schemaVer="0.2.3.99.3"
         docsDir="model-docs"
         xmlns="http://www.blueprint-epigenome.eu/dcc/schema"
         xmlns:xhtml="http://www.w3.org/1999/xhtml"
@@ -977,8 +977,7 @@
             <weak-concepts>
                 <concept name="p" fullname="Regulatory regions - Primary Analysis File">
                     <base-concept-type name="abstract-coordinate-range"/>
-                    <base-concept-type name="abstract-strand"/>
-                    <base-concept-type name="gene-expression-experiment-primary"/>
+                    <base-concept-type name="abstract-experiment-primary"/>
                     
                     <description>Regulatory regions [rreg] – Primary Analysis File [p]</description>
                     <annotation key="altname">Regulatory Regions Primary</annotation>
@@ -988,16 +987,10 @@
                         <description>Unique identifier for the identified regulatory region</description>
                         <column-type item-type="string" column-kind="idref" />
                     </column>
-                    
-                    <weak-concepts>
-                        <concept name="s" fullname="Regulatory regions - Secondary Analysis File">
-                            <base-concept-type name="generic-secondary"/>
-                            
-                            <description>Regulatory regions [rreg] – Secondary Analysis File [s]</description>
-                            <annotation key="altname">Regulatory Regions Secondary</annotation>
-                            <annotation key="color"><color>#CCBDFF</color></annotation>
-                        </concept>
-                    </weak-concepts>
+                    <column name="z_score">
+                        <description>Combined z-score of the 250bp window for each tag</description>
+                        <column-type item-type="decimal" column-kind="required"></column-type>
+                    </column>
                 </concept>
             </weak-concepts>
         </concept>
