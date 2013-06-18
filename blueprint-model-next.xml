@@ -84,6 +84,7 @@
                 Contains the integration of ISO-3166-2 data and ISO-3166-1-alpha2 and ISO-3166-1-alpha3 codes
                 http://www.commondatahub.com/live/geography/state_province_region/iso_3166_2_state_codes
             -->
+            <cv-file format="obo">ISO3166.obo</cv-file>
             
             <term-alias name="ALIAS:EAL">
                 <description>East Anglia: United Kingdom region composed of the administrative counties of Norfolk to the north, Suffolk to the south, Cambridgeshire and Essex to the west.</description>
