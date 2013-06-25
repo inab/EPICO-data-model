@@ -96,14 +96,13 @@ if(scalar(@ARGV)==4 || scalar(@ARGV)==1) {
 	$ISO3166CV->validateAndEnactAncestors(1);
 	
 	print "Writing to $outputFile\n";
-	my $O;
 	my $comments = <<CEOF;
 Generated using $0 from
 	$cldrXMLFile
 	$iso3166_1_file
 	$iso3166_2_file
 CEOF
-	if(open($O,'>',$outputFile)) {
+	if(open(my $O,'>',$outputFile)) {
 		$ISO3166CV->OBOserialize($O,$comments);
 		close($O);
 	}

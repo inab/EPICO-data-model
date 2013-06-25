@@ -47,6 +47,7 @@
             <annotation key="version">70</annotation>
             
             <cv-uri format="EnsemblMySQLDump" doc="http://jan2013.archive.ensembl.org/Homo_sapiens/Info/Index">ftp://ftp.ensembl.org/pub/release-70/mysql/homo_sapiens_core_70_37/gene.txt.gz</cv-uri>
+            <cv-file format="obo">ENSG.obo</cv-file>
         </cv>
         <cv name="EnsemblTranscripts">
             <description>Valid Ensembl Transcript identifiers</description>
@@ -55,6 +56,7 @@
             <annotation key="version">70</annotation>
             
             <cv-uri format="EnsemblMySQLDump" doc="http://jan2013.archive.ensembl.org/Homo_sapiens/Info/Index">ftp://ftp.ensembl.org/pub/release-70/mysql/homo_sapiens_core_70_37/transcript.txt.gz</cv-uri>
+            <cv-file format="obo">ENST.obo</cv-file>
         </cv>
         <cv name="CellOntology">
             <description>The Cell Ontology is designed as a structured controlled vocabulary for cell types</description>
