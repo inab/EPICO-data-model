@@ -160,7 +160,7 @@
                 <annotation key="ordering">
                     <ordering-hints><block>bottom</block></ordering-hints>
                 </annotation>
-                <column-type item-type="string" column-kind="optional" />
+                <column-type item-type="text" column-kind="optional" />
             </column>
         </concept-type>
         
@@ -214,12 +214,12 @@
                 <description>Accession and URL for referencing the raw data at the public repository</description>
                 <column-type item-type="compound" column-kind="optional" compound-seps=";" compound-template="accession;url" />
             </column>
-            <column name="note">
+            <column name="notes">
                 <description>Optional field to leave notes</description>
                 <annotation key="ordering">
                     <ordering-hints><block>bottom</block></ordering-hints>
                 </annotation>
-                <column-type item-type="string" column-kind="optional" />
+                <column-type item-type="text" column-kind="optional" />
             </column>
             
             <subtypes>
@@ -320,12 +320,12 @@
                 </annotation>
                 <column-type item-type="integer" column-kind="optional" cv="B5"></column-type>
             </column>
-            <column name="note">
+            <column name="notes">
                 <description>Optional field to leave notes</description>
                 <annotation key="ordering">
                     <ordering-hints><block>bottom</block></ordering-hints>
                 </annotation>
-                <column-type item-type="string" column-kind="optional" />
+                <column-type item-type="text" column-kind="optional" />
             </column>
             
             <subtypes>
@@ -402,12 +402,12 @@
                 <description>Gene affected. Use Ensembl gene id, separated by | when there is more than one. If no gene is affected, don't put an entry</description>
                 <column-type item-type="string" column-kind="required" array-seps="|" cv="EnsemblGenes"/>
             </column>
-            <column name="note">
+            <column name="notes">
                 <description>Optional field to leave notes</description>
                 <annotation key="ordering">
                     <ordering-hints><block>bottom</block></ordering-hints>
                 </annotation>
-                <column-type item-type="string" column-kind="optional"></column-type>
+                <column-type item-type="text" column-kind="optional"></column-type>
             </column>
             
         </concept-type>
