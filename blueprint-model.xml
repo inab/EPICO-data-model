@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dcc-schema
         project="BLUEPRINT"
-        schemaVer="0.2.3.99.3"
+        schemaVer="0.2.99.4"
         docsDir="model-docs"
         xmlns="http://www.blueprint-epigenome.eu/dcc/schema"
         xmlns:xhtml="http://www.w3.org/1999/xhtml"
@@ -47,6 +47,7 @@
             <annotation key="version">70</annotation>
             
             <cv-uri format="EnsemblMySQLDump" doc="http://jan2013.archive.ensembl.org/Homo_sapiens/Info/Index">ftp://ftp.ensembl.org/pub/release-70/mysql/homo_sapiens_core_70_37/gene.txt.gz</cv-uri>
+            <cv-file format="obo">ENSG.obo</cv-file>
         </cv>
         <cv name="EnsemblTranscripts">
             <description>Valid Ensembl Transcript identifiers</description>
@@ -55,6 +56,7 @@
             <annotation key="version">70</annotation>
             
             <cv-uri format="EnsemblMySQLDump" doc="http://jan2013.archive.ensembl.org/Homo_sapiens/Info/Index">ftp://ftp.ensembl.org/pub/release-70/mysql/homo_sapiens_core_70_37/transcript.txt.gz</cv-uri>
+            <cv-file format="obo">ENST.obo</cv-file>
         </cv>
         <cv name="CellOntology">
             <description>The Cell Ontology is designed as a structured controlled vocabulary for cell types</description>
@@ -84,6 +86,7 @@
                 Contains the integration of ISO-3166-2 data and ISO-3166-1-alpha2 and ISO-3166-1-alpha3 codes
                 http://www.commondatahub.com/live/geography/state_province_region/iso_3166_2_state_codes
             -->
+            <cv-file format="obo">ISO3166.obo</cv-file>
             
             <term-alias name="ALIAS:EAL">
                 <description>East Anglia: United Kingdom region composed of the administrative counties of Norfolk to the north, Suffolk to the south, Cambridgeshire and Essex to the west.</description>
@@ -157,7 +160,7 @@
                 <annotation key="ordering">
                     <ordering-hints><block>bottom</block></ordering-hints>
                 </annotation>
-                <column-type item-type="string" column-kind="optional" />
+                <column-type item-type="text" column-kind="optional" />
             </column>
         </concept-type>
         
@@ -211,12 +214,12 @@
                 <description>Accession and URL for referencing the raw data at the public repository</description>
                 <column-type item-type="compound" column-kind="optional" compound-seps=";" compound-template="accession;url" />
             </column>
-            <column name="note">
+            <column name="notes">
                 <description>Optional field to leave notes</description>
                 <annotation key="ordering">
                     <ordering-hints><block>bottom</block></ordering-hints>
                 </annotation>
-                <column-type item-type="string" column-kind="optional" />
+                <column-type item-type="text" column-kind="optional" />
             </column>
             
             <subtypes>
@@ -317,12 +320,12 @@
                 </annotation>
                 <column-type item-type="integer" column-kind="optional" cv="B5"></column-type>
             </column>
-            <column name="note">
+            <column name="notes">
                 <description>Optional field to leave notes</description>
                 <annotation key="ordering">
                     <ordering-hints><block>bottom</block></ordering-hints>
                 </annotation>
-                <column-type item-type="string" column-kind="optional" />
+                <column-type item-type="text" column-kind="optional" />
             </column>
             
             <subtypes>
@@ -378,14 +381,14 @@
         
         <concept-type name="dlat-identifier" collection="primary">
             <column name="d_lated_fragment_id">
-                <description>Unique identifier for the methylated fragment, in the form d'*lationType|chromosome_chromosomeStart_chromosomeEnd</description>
+                <description>Unique identifier for the methylated fragment, in the form <xhtml:tt>d'*lationType|chromosome_chromosomeStart_chromosomeEnd</xhtml:tt></description>
                 <column-type item-type="string" column-kind="idref" />
             </column>
         </concept-type>
 
         <concept-type name="rank" collection="primary">
             <column name="rank">
-                <description>Kind of used ranking and its value, in the form "rank;value". As it can hold more than one value, they are separated by bars</description>
+                <description>Kind of used ranking and its value, in the form "<xhtml:tt>rank:value</xhtml:tt>". As it can hold more than one value, they are separated by semicolons</description>
                 <column-type item-type="compound" column-kind="optional" compound-seps=":" compound-template="rank:value" array-seps=";" />
             </column>
         </concept-type>
@@ -399,12 +402,12 @@
                 <description>Gene affected. Use Ensembl gene id, separated by | when there is more than one. If no gene is affected, don't put an entry</description>
                 <column-type item-type="string" column-kind="required" array-seps="|" cv="EnsemblGenes"/>
             </column>
-            <column name="note">
+            <column name="notes">
                 <description>Optional field to leave notes</description>
                 <annotation key="ordering">
                     <ordering-hints><block>bottom</block></ordering-hints>
                 </annotation>
-                <column-type item-type="string" column-kind="optional"></column-type>
+                <column-type item-type="text" column-kind="optional"></column-type>
             </column>
             
         </concept-type>
@@ -538,15 +541,15 @@
                 </column-type>
             </column>
             <column name="specimen_type_other">
-                <description>Free text description of site of specimen if "normal control (other)" or "disease tissue (other)" was specified in specimen_type field.</description>
+                <description>Free text description of site of specimen if "normal control (other)" or "disease tissue (other)" was specified in <xhtml:b><xhtml:tt>specimen_type</xhtml:tt></xhtml:b> field.</description>
                 <column-type item-type="string" column-kind="optional" />
             </column>
             <column name="donor_min_age_at_specimen_acquisition">
-                <description>Donor minimal age when the specimen was acquired, in ISO-8601 duration (basic format)</description>
+                <description>Donor minimal age when the specimen was acquired, in <xhtml:a href="https://en.wikipedia.org/wiki/ISO_8601#Durations">ISO-8601 duration (basic format)</xhtml:a></description>
                 <column-type item-type="duration" column-kind="required" />
             </column>
             <column name="donor_max_age_at_specimen_acquisition">
-                <description>Donor max age when the specimen was acquired. If it is '#DE#', then it is the same value as "donor_min_age_at_specimen_acquisition"</description>
+                <description>Donor max age when the specimen was acquired. If it is '<xhtml:b>#DE#</xhtml:b>', then it is the same value as "<xhtml:b><xhtml:tt>donor_min_age_at_specimen_acquisition</xhtml:tt></xhtml:b>"</description>
                 <column-type item-type="duration" column-kind="desirable" default="$$donor_min_age_at_specimen_acquisition">
                     <null>#DE#</null>
                 </column-type>
@@ -772,7 +775,7 @@
                     <annotation key="color"><color>#FFF455</color></annotation>
                     
                     <column name="gene_stable_id">
-                        <description>For annotated gene, use Ensembl gene ID. Otherwise, use assemblyBuild_chr_start_end where assemblyBuild is hg19.</description>
+                        <description>For annotated gene, use Ensembl gene ID. Otherwise, use <xhtml:tt>assemblyBuild_chr_start_end</xhtml:tt> where <xhtml:tt>assemblyBuild</xhtml:tt> is hg19.</description>
                         <column-type item-type="string" column-kind="idref" />
                     </column>
                     
@@ -791,7 +794,7 @@
                         <column-type item-type="string" column-kind="optional" />
                     </column>
                     <column name="is_annotated">
-                        <description>If it is true, it indicate if the expressed fragment is annotated in GENCODE/Ensembl (i.e. gene_stable_id contains a Ensembl Gene Identifier)</description>
+                        <description>If it is true, it indicate if the expressed fragment is annotated in GENCODE/Ensembl (i.e. <xhtml:b><xhtml:tt>gene_stable_id</xhtml:tt></xhtml:b> contains a Ensembl Gene Identifier)</description>
                         <column-type item-type="boolean" column-kind="required"></column-type>
                     </column>
                     <column name="probeset_id">
@@ -822,16 +825,16 @@
                     <annotation key="color"><color>#D9A152</color></annotation>
                     
                     <column name="junction_id">
-                        <description>For known exons, use exonID1_exonID2 where exonID1 and exonID2 are Ensembl IDs of the 5' and 3' exons, respectively. For novel or putative exons,use assemblyBuild_exon1chr_exon1end_exon2chr_exon2start where assemblyBuild is hg18 or hg19; exon1chr and exon2chr are the chromosomes of the 5' and 3' exons, respectively; exon1end is the end position of the 5' exon; exon2start is the start position of the 3' exon.</description>
+                        <description>For known exons, use <xhtml:tt>exonID1_exonID2</xhtml:tt> where <xhtml:tt>exonID1</xhtml:tt> and <xhtml:tt>exonID2</xhtml:tt> are Ensembl IDs of the 5' and 3' exons, respectively. For novel or putative exons, use <xhtml:tt>assemblyBuild_exon1chr_exon1end_exon2chr_exon2start</xhtml:tt> where <xhtml:tt>assemblyBuild</xhtml:tt> is hg18 or hg19; <xhtml:tt>exon1chr</xhtml:tt> and <xhtml:tt>exon2chr</xhtml:tt> are the chromosomes of the 5' and 3' exons, respectively; <xhtml:tt>exon1end</xhtml:tt> is the end position of the 5' exon; <xhtml:tt>exon2start</xhtml:tt> is the start position of the 3' exon.</description>
                         <column-type item-type="string" column-kind="idref" />
                     </column>
                     
                     <column name="gene1_stable_id">
-                        <description>Stable ID of the gene containing the 5' exon at the junction. For GENCODE/Ensembl annotated gene, use Ensembl gene ID. For putative and novel gene, use assemblyBuild_chr_start_end where assemblyBuild can be hg18 or hg19.</description>
+                        <description>Stable ID of the gene containing the 5' exon at the junction. For GENCODE/Ensembl annotated gene, use Ensembl gene ID. For putative and novel gene, use <xhtml:tt>assemblyBuild_chr_start_end</xhtml:tt> where <xhtml:tt>assemblyBuild</xhtml:tt> can be hg18 or hg19.</description>
                         <column-type item-type="string" column-kind="required" />
                     </column>
                     <column name="gene2_stable_id">
-                        <description>In the case of a fusion gene, provide the Stable ID of the gene containing the 3' exon at the junction. For GENCODE/Ensembl annotated genes, use Ensembl gene ID. For putative and novel genes, use assemblyBuild_chr_start_end where assemblyBuild can be hg18 or hg19.</description>
+                        <description>In the case of a fusion gene, provide the Stable ID of the gene containing the 3' exon at the junction. For GENCODE/Ensembl annotated genes, use Ensembl gene ID. For putative and novel genes, use <xhtml:tt>assemblyBuild_chr_start_end</xhtml:tt> where <xhtml:tt>assemblyBuild</xhtml:tt> can be hg18 or hg19.</description>
                         <column-type item-type="string" column-kind="optional" />
                     </column>
                     <column name="exon1_chromosome">
@@ -876,7 +879,7 @@
                         <column-type item-type="boolean" column-kind="optional" />
                     </column>
                     <column name="junction_seq">
-                        <description>Provide junction sequence if either is_fusion_gene or is_novel_splice_form is true</description>
+                        <description>Provide junction sequence if either <xhtml:b><xhtml:tt>is_fusion_gene</xhtml:tt></xhtml:b> or <xhtml:b><xhtml:tt>is_novel_splice_form</xhtml:tt></xhtml:b> is <xhtml:b>true</xhtml:b></description>
                         <column-type item-type="string" column-kind="optional" />
                     </column>
                     <column name="junction_type">
@@ -956,7 +959,7 @@
                             <annotation key="color"><color>#63BFED</color></annotation>
                             
                             <column name="transcript_affected">
-                                <description>Transcript on the protein-DNA interaction area. Use Ensembl transcript id. Separate multiple transcripts with vertical bars in the form of trasncriptA|trasncriptB|trasncriptC</description>
+                                <description>Transcript on the protein-DNA interaction area. Use Ensembl transcript id. Separate multiple transcripts with vertical bars in the form of <xhtml:tt>trasncriptA|trasncriptB|trasncriptC</xhtml:tt></description>
                                 <column-type item-type="string" column-kind="optional" array-seps="|" cv="EnsemblTranscripts"></column-type>
                             </column>
                         </concept>
@@ -1103,7 +1106,7 @@
                         <column-type item-type="integer" column-kind="required" />
                     </column>
                     <column name="n_sig_cpgs">
-                        <description>Number of significant CpGs in the DMR (z_score &gt; 3 or &lt; -3)</description>
+                        <description>Number of significant CpGs in the DMR (<xhtml:b><xhtml:tt>z_score</xhtml:tt></xhtml:b> &gt; 3 or &lt; -3)</description>
                         <column-type item-type="integer" column-kind="required" />
                     </column>
                     <column name="hyper_role">
