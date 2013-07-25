@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dcc-schema
         project="BLUEPRINT"
-        schemaVer="0.2.99.4"
+        schemaVer="0.2.99.5"
         docsDir="model-docs"
         xmlns="http://www.blueprint-epigenome.eu/dcc/schema"
         xmlns:xhtml="http://www.w3.org/1999/xhtml"
@@ -180,9 +180,10 @@
                 <description>The status of the analysis over the associated raw data</description>
                 <column-type item-type="integer" column-kind="required">
                     <cv>
-                        <e v="0">Raw data available at the EGA, but not more</e>
-                        <e v="1">Raw data available at the EGA, analysis in process</e>
-                        <e v="2">Analysis results obtained (analysis finished)</e>
+                        <e v="-1">Withdrawn</e>
+                        <e v="0">Only raw data available</e>
+                        <e v="1">Raw data available (analysis in process)</e>
+                        <e v="2">Raw and analysis data available (analysis finished)</e>
                     </cv>
                 </column-type>
             </column>
@@ -671,7 +672,6 @@
                     </ordering-hints>
                 </annotation>
             </related-to>
-            <related-to concept="AnalysisMetadata" prefix="base_" arity="M" partial-participation="true" inheritable="true"/>
         </concept>
         <concept name="ComparativeAnalysisMetadata" fullname="ComparativeAnalysisMetadata">
             <extends concept="AnalysisMetadata"/>
@@ -686,6 +686,13 @@
                 </annotation>
             </related-to>
         </concept>
+	<concept name="ComparativeBasedAnalysisMetadata" fullname="ComparativeBasedAnalysisMetadata">
+            <extends concept="ComparativeAnalysisMetadata"/>
+            
+            <annotation key="altname">ComparativeBasedAnalysisMetadata</annotation>
+            
+            <related-to concept="ComparativeBasedAnalysisMetadata" prefix="base_" arity="M" partial-participation="true" inheritable="true"/>
+	</concept>
     </concept-domain>
     
     
@@ -1001,7 +1008,7 @@
     
     <concept-domain domain="dlat" fullname="DNA *-lation (Methylation, Hydroxy-Methylation, Formylation, etc...)" filename-format="blueprint-dcc">
         <concept name="m" fullname="DNA *-lation - Metadata File">
-            <extends concept="ComparativeAnalysisMetadata" domain="abstract"/>
+            <extends concept="ComparativeBasedAnalysisMetadata" domain="abstract"/>
             
             <description>DNA *-lation [dlat] - Metadata File [m]</description>
             <annotation key="altname">DNA *-lation Metadata</annotation>

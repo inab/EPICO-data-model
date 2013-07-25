@@ -180,9 +180,10 @@
                 <description>The status of the analysis over the associated raw data</description>
                 <column-type item-type="integer" column-kind="required">
                     <cv>
-                        <e v="0">Raw data available at the EGA, but not more</e>
-                        <e v="1">Raw data available at the EGA, analysis in process</e>
-                        <e v="2">Analysis results obtained (analysis finished)</e>
+                        <e v="-1">Withdrawn</e>
+                        <e v="0">Only raw data available</e>
+                        <e v="1">Raw data available (analysis in process)</e>
+                        <e v="2">Raw and analysis data available (analysis finished)</e>
                     </cv>
                 </column-type>
             </column>
