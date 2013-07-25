@@ -671,7 +671,6 @@
                     </ordering-hints>
                 </annotation>
             </related-to>
-            <related-to concept="AnalysisMetadata" prefix="base_" arity="M" partial-participation="true" inheritable="true"/>
         </concept>
         <concept name="ComparativeAnalysisMetadata" fullname="ComparativeAnalysisMetadata">
             <extends concept="AnalysisMetadata"/>
@@ -686,6 +685,13 @@
                 </annotation>
             </related-to>
         </concept>
+	<concept name="ComparativeBasedAnalysisMetadata" fullname="ComparativeBasedAnalysisMetadata">
+            <extends concept="ComparativeAnalysisMetadata"/>
+            
+            <annotation key="altname">ComparativeBasedAnalysisMetadata</annotation>
+            
+            <related-to concept="ComparativeBasedAnalysisMetadata" prefix="base_" arity="M" partial-participation="true" inheritable="true"/>
+	</concept>
     </concept-domain>
     
     
@@ -1001,7 +1007,7 @@
     
     <concept-domain domain="dlat" fullname="DNA *-lation (Methylation, Hydroxy-Methylation, Formylation, etc...)" filename-format="blueprint-dcc">
         <concept name="m" fullname="DNA *-lation - Metadata File">
-            <extends concept="ComparativeAnalysisMetadata" domain="abstract"/>
+            <extends concept="ComparativeBasedAnalysisMetadata" domain="abstract"/>
             
             <description>DNA *-lation [dlat] - Metadata File [m]</description>
             <annotation key="altname">DNA *-lation Metadata</annotation>
