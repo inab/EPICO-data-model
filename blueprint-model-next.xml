@@ -146,12 +146,24 @@
         <e v="#FF#"><![CDATA[Data not supplied at this time <i>(for future fill)</i>]]></e>
         <e v="#NA#">Not applicable for the context of the surrounding knowledge</e>
         <e v="#VO#">Data verified to be unknown (void, undef, null)</e>
-        <e v="#DE#">Data derived from other field</e>
+        <e v="#DE#">Data derived from other field or default value</e>
     </null-values>
     
     <pattern-declarations>
         <pattern name="ISODATE" match="[1-9][0-9][0-9][0-9]((1[0-2])|(0[1-9]))(([0-2][0-9])|(3[0-1]))"/>
     </pattern-declarations>
+    
+    <compound-types>
+        <compound-type name="name-url-ctype">
+            <column name="name">
+                <column-type item-type="string" column-kind="required"/>
+            </column>
+            <sep>;</sep>
+            <column name="url">
+                <column-type item-type="string" column-kind="required"/>
+            </column>
+        </compound-type>
+    </compound-types>
     
     <concept-types>
         <concept-type name="sample-tracking-data" collection="sdata">
@@ -193,15 +205,26 @@
             </column>
             <column name="program_versions">
                 <description>The versions of (some of) the programs used for the analysis</description>
-                <column-type item-type="compound" column-kind="desirable" compound-template="program:version" compound-seps=":" array-seps=";"></column-type>
+                <column-type item-type="compound" column-kind="desirable" array-seps=";">
+                    <compound-type>
+                        <!-- TODO: Restrict program and version, so they cannot contain : or ; -->
+                        <column name="program">
+                            <column-type item-type="string" column-kind="required"></column-type>
+                        </column>
+                        <sep>:</sep>
+                        <column name="version">
+                            <column-type item-type="string" column-kind="required"></column-type>
+                        </column>
+                    </compound-type>
+                </column-type>
             </column>
             <column name="alignment_algorithm">
                 <description>Name of alignment algorithm and URL to written protocol</description>
-                <column-type item-type="compound" column-kind="required" compound-seps=";" compound-template="name;url" />
+                <column-type item-type="compound" column-kind="required" compound-type="name-url-ctype" />
             </column>
             <column name="other_analysis_algorithm">
                 <description>Names of other analysis algorithms. Separate multiple algorithms by commas.</description>
-                <column-type item-type="compound" column-kind="optional" compound-seps=";" compound-template="name;url" array-seps="," />
+                <column-type item-type="compound" column-kind="optional" compound-type="name-url-ctype" array-seps="," />
             </column>
             <column name="seq_coverage">
                 <description>Sequence coverage if analyzed by sequencing platforms</description>
@@ -213,7 +236,17 @@
             </column>
             <column name="raw_data_accession">
                 <description>Accession and URL for referencing the raw data at the public repository</description>
-                <column-type item-type="compound" column-kind="optional" compound-seps=";" compound-template="accession;url" />
+                <column-type item-type="compound" column-kind="optional">
+                    <compound-type>
+                        <column name="accession">
+                            <column-type item-type="string" column-kind="required" />
+                        </column>
+                        <sep>;</sep>
+                        <column name="url">
+                            <column-type item-type="string" column-kind="required" />
+                        </column>
+                    </compound-type>
+                </column-type>
             </column>
             <column name="notes">
                 <description>Optional field to leave notes</description>
@@ -242,12 +275,12 @@
                     </column>
                     <column name="experimental_protocol">
                         <description>Name of experimental protocol and URL to written protocol</description>
-                        <column-type item-type="compound" column-kind="optional" compound-seps=";" compound-template="name;url" />
+                        <column-type item-type="compound" column-kind="optional" compound-type="name-url-ctype" />
                     </column>
                     <!--
                         <column name="base_calling_algorithm">
                         <description>Name of base calling algorithm and URL to written protocol</description>
-                        <column-type item-type="compound" column-kind="required" compound-seps=";" compound-template="name;url" />
+                        <column-type item-type="compound" column-kind="required" compound-type="name-url-ctype" />
                         </column>
                     -->
                     <subtypes>
@@ -258,7 +291,7 @@
                             </column>
                             <column name="normalization_algorithm">
                                 <description>Name of normalization algorithm and URL to written protocol</description>
-                                <column-type item-type="compound" column-kind="required" compound-seps=";" compound-template="name;url" />
+                                <column-type item-type="compound" column-kind="required" compound-type="name-url-ctype" />
                             </column>
                         </concept-type>
                         <concept-type name="comparative-ngs-experiment-metadata">
@@ -390,7 +423,17 @@
         <concept-type name="rank" collection="primary">
             <column name="rank">
                 <description>Kind of used ranking and its value, in the form "<xhtml:tt>rank:value</xhtml:tt>". As it can hold more than one value, they are separated by semicolons</description>
-                <column-type item-type="compound" column-kind="optional" compound-seps=":" compound-template="rank:value" array-seps=";" />
+                <column-type item-type="compound" column-kind="optional" array-seps=";">
+                    <compound-type>
+                        <column name="rank">
+                            <column-type item-type="string" column-kind="required"></column-type>
+                        </column>
+                        <sep>:</sep>
+                        <column name="value">
+                            <column-type item-type="decimal" column-kind="required"></column-type>
+                        </column>
+                    </compound-type>
+                </column-type>
             </column>
         </concept-type>
 
@@ -550,7 +593,7 @@
                 <column-type item-type="duration" column-kind="required" />
             </column>
             <column name="donor_max_age_at_specimen_acquisition">
-                <description>Donor max age when the specimen was acquired. If it is '<xhtml:b>#DE#</xhtml:b>', then it is the same value as "<xhtml:b><xhtml:tt>donor_min_age_at_specimen_acquisition</xhtml:tt></xhtml:b>"</description>
+                <description>Donor max age when the specimen was acquired.</description>
                 <column-type item-type="duration" column-kind="desirable" default="$$donor_min_age_at_specimen_acquisition">
                     <null>#DE#</null>
                 </column-type>
@@ -645,7 +688,7 @@
                 </column-type>
             </column>
             <column name="analyzed_sample_type_other">
-                <description>Free text description of site of sample if "other" was specified in <xhtml:i>sample_type</xhtml:i> field</description>
+                <description>Free text description of site of sample if "other" was specified in <xhtml:i>analyzed_sample_type</xhtml:i> field</description>
                 <column-type item-type="string" column-kind="optional" />
             </column>
             
@@ -1016,7 +1059,7 @@
             
             <column name="methylation_calling_algorithm">
                 <description>Name of variation calling algorithm and URL to written protocol</description>
-                <column-type item-type="compound" column-kind="optional" compound-seps=";" compound-template="name;url" />
+                <column-type item-type="compound" column-kind="optional" compound-type="name-url-ctype" />
             </column>
             
             <column name="mr_type">
