@@ -43,3 +43,25 @@ individual donors, except by the submitting group. IDs are assigned by each subm
 group, and must be unique within all the data submitted by that group (i.e. no
 duplicate IDs allowed). The DCC will prevent collisions between similar IDs submitted
 by different groups by including the project source column by default in all BioMart queries.
+
+\textbf{Mapping with IHEC metadata}
+As BLUEPRINT is integrated into IHEC (\href{http://www.ihec-epigenome.org/}{International Human Epigenome Consortium}), many of the fields from the sample related concepts have been mapped to IHEC metadata fields. The fields which have not been (yet) mapped from Level 0 SAMPLES Data are:
+
+\begin{itemize}
+	\item \texttt{\textbf{MOLECULE}}
+	\item \texttt{\textbf{BIOMATERIAL\_TYPE}}
+\end{itemize}
+
+The fields from Level 0 Data which are not going to be mapped, because they are not appliable to BLUEPRINT
+(project is not working with cellular lines) are:
+\begin{itemize}
+	\item \texttt{\textbf{LINE}}
+	\item \texttt{\textbf{LINEAGE}}
+	\item \texttt{\textbf{DIFFERENTIATION\_STAGE}}
+	\item \texttt{\textbf{DIFFERENTIATION\_METHOD}}
+	\item \texttt{\textbf{PASSAGE}} and \texttt{\textbf{PASSAGE\_IF\_EXPANDED}}
+	\item \texttt{\textbf{MEDIUM}}
+	\item \texttt{\textbf{BATCH}}
+\end{itemize}
+
+

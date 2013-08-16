@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dcc-schema
         project="BLUEPRINT"
-        schemaVer="0.2.99.5"
+        schemaVer="0.2.99.6.2"
         docsDir="model-docs"
         xmlns="http://www.blueprint-epigenome.eu/dcc/schema"
         xmlns:xhtml="http://www.w3.org/1999/xhtml"
@@ -146,12 +146,24 @@
         <e v="#FF#"><![CDATA[Data not supplied at this time <i>(for future fill)</i>]]></e>
         <e v="#NA#">Not applicable for the context of the surrounding knowledge</e>
         <e v="#VO#">Data verified to be unknown (void, undef, null)</e>
-        <e v="#DE#">Data derived from other field</e>
+        <e v="#DE#">Data derived from other field or default value</e>
     </null-values>
     
     <pattern-declarations>
         <pattern name="ISODATE" match="[1-9][0-9][0-9][0-9]((1[0-2])|(0[1-9]))(([0-2][0-9])|(3[0-1]))"/>
     </pattern-declarations>
+    
+    <compound-types>
+        <compound-type name="name-url-ctype">
+            <column name="name">
+                <column-type item-type="string" column-kind="required"/>
+            </column>
+            <sep>;</sep>
+            <column name="url">
+                <column-type item-type="string" column-kind="required"/>
+            </column>
+        </compound-type>
+    </compound-types>
     
     <concept-types>
         <concept-type name="sample-tracking-data" collection="sdata">
@@ -162,6 +174,45 @@
                 </annotation>
                 <column-type item-type="text" column-kind="optional" />
             </column>
+        </concept-type>
+        
+        <concept-type name="experiment-template" collection="sdata">
+            <column name="experiment_id">
+                <description>Unique identifier for the experiment performed on a sample</description>
+                <annotation key="ordering">
+                    <ordering-hints><block>top</block></ordering-hints>
+                </annotation>
+                <column-type item-type="string" column-kind="idref" />
+            </column>
+            <column name="experiment_type">
+                <description>The type of experiment (it is later subclassified)</description>
+                <annotation key="values">It corresponds with IHEC Level 0 <xhtml:b>EXPERIMENT_TYPE</xhtml:b> (Chromatin Accessibility, WGBS, MeDIP-Seq, MRE-Seq, Chip-Seq Input, Chip-Seq, mRNA-seq, smRNA-Seq)</annotation>
+                <column-type item-type="string" column-kind="required" />
+            </column>
+            <column name="features">
+                <description>The known features/experimental conditions about the experiment</description>
+                <column-type item-type="compound" column-kind="required" array-seps=";">
+                    <compound-type>
+                        <column name="feature">
+                            <column-type item-type="string" column-kind="required" />
+                        </column>
+                        <sep>=</sep>
+                        <column name="value">
+                            <column-type item-type="text" column-kind="required" />
+                        </column>
+                    </compound-type>
+                </column-type>
+            </column>
+            
+            <subtypes>
+                <concept-type name="experiment-extraction-template">
+                    <column name="extraction_protocol">
+                        <description>The protocol used to isolate the extracted material</description>
+                        <annotation key="values">It corresponds with IHEC Level 0 <xhtml:b>EXTRACTION_PROTOCOL</xhtml:b> (Chromatin Accessibility, WGBS, MeDIP-Seq, Chip-Seq Input, Chip-Seq, mRNA-seq, smRNA-Seq)</annotation>
+                        <column-type item-type="text" column-kind="required" />
+                    </column>
+                </concept-type>
+            </subtypes>
         </concept-type>
         
         <concept-type name="abstract-analysis-metadata" collection="metadata">
@@ -193,15 +244,26 @@
             </column>
             <column name="program_versions">
                 <description>The versions of (some of) the programs used for the analysis</description>
-                <column-type item-type="compound" column-kind="desirable" compound-template="program:version" compound-seps=":" array-seps=";"></column-type>
+                <column-type item-type="compound" column-kind="desirable" array-seps=";">
+                    <compound-type>
+                        <!-- TODO: Restrict program and version, so they cannot contain : or ; -->
+                        <column name="program">
+                            <column-type item-type="string" column-kind="required"></column-type>
+                        </column>
+                        <sep>:</sep>
+                        <column name="version">
+                            <column-type item-type="string" column-kind="required"></column-type>
+                        </column>
+                    </compound-type>
+                </column-type>
             </column>
             <column name="alignment_algorithm">
                 <description>Name of alignment algorithm and URL to written protocol</description>
-                <column-type item-type="compound" column-kind="required" compound-seps=";" compound-template="name;url" />
+                <column-type item-type="compound" column-kind="required" compound-type="name-url-ctype" />
             </column>
             <column name="other_analysis_algorithm">
                 <description>Names of other analysis algorithms. Separate multiple algorithms by commas.</description>
-                <column-type item-type="compound" column-kind="optional" compound-seps=";" compound-template="name;url" array-seps="," />
+                <column-type item-type="compound" column-kind="optional" compound-type="name-url-ctype" array-seps="," />
             </column>
             <column name="seq_coverage">
                 <description>Sequence coverage if analyzed by sequencing platforms</description>
@@ -213,7 +275,17 @@
             </column>
             <column name="raw_data_accession">
                 <description>Accession and URL for referencing the raw data at the public repository</description>
-                <column-type item-type="compound" column-kind="optional" compound-seps=";" compound-template="accession;url" />
+                <column-type item-type="compound" column-kind="optional">
+                    <compound-type>
+                        <column name="accession">
+                            <column-type item-type="string" column-kind="required" />
+                        </column>
+                        <sep>;</sep>
+                        <column name="url">
+                            <column-type item-type="string" column-kind="required" />
+                        </column>
+                    </compound-type>
+                </column-type>
             </column>
             <column name="notes">
                 <description>Optional field to leave notes</description>
@@ -242,12 +314,12 @@
                     </column>
                     <column name="experimental_protocol">
                         <description>Name of experimental protocol and URL to written protocol</description>
-                        <column-type item-type="compound" column-kind="optional" compound-seps=";" compound-template="name;url" />
+                        <column-type item-type="compound" column-kind="optional" compound-type="name-url-ctype" />
                     </column>
                     <!--
                         <column name="base_calling_algorithm">
                         <description>Name of base calling algorithm and URL to written protocol</description>
-                        <column-type item-type="compound" column-kind="required" compound-seps=";" compound-template="name;url" />
+                        <column-type item-type="compound" column-kind="required" compound-type="name-url-ctype" />
                         </column>
                     -->
                     <subtypes>
@@ -258,7 +330,7 @@
                             </column>
                             <column name="normalization_algorithm">
                                 <description>Name of normalization algorithm and URL to written protocol</description>
-                                <column-type item-type="compound" column-kind="required" compound-seps=";" compound-template="name;url" />
+                                <column-type item-type="compound" column-kind="required" compound-type="name-url-ctype" />
                             </column>
                         </concept-type>
                         <concept-type name="comparative-ngs-experiment-metadata">
@@ -390,7 +462,17 @@
         <concept-type name="rank" collection="primary">
             <column name="rank">
                 <description>Kind of used ranking and its value, in the form "<xhtml:tt>rank:value</xhtml:tt>". As it can hold more than one value, they are separated by semicolons</description>
-                <column-type item-type="compound" column-kind="optional" compound-seps=":" compound-template="rank:value" array-seps=";" />
+                <column-type item-type="compound" column-kind="optional" array-seps=";">
+                    <compound-type>
+                        <column name="rank">
+                            <column-type item-type="string" column-kind="required"></column-type>
+                        </column>
+                        <sep>:</sep>
+                        <column name="value">
+                            <column-type item-type="decimal" column-kind="required"></column-type>
+                        </column>
+                    </compound-type>
+                </column-type>
             </column>
         </concept-type>
 
@@ -427,12 +509,13 @@
             
             <column name="donor_id">
                 <description><xhtml:i>Unique identifier</xhtml:i> for the donor; assigned by data provider.</description>
+                <annotation key="values">It corresponds with IHEC Level 0 <xhtml:b>DONOR_ID</xhtml:b> (Primary Cell, Primary Cell Culture &amp; Primary Tissue)</annotation>
                 <column-type item-type="string" column-kind="idref" />
             </column>
             
             <column name="donor_sex">
                 <description>Donor biological sex.</description>
-                <annotation key="values">"Other" has been removed from the controlled vocabulary due to identifiability concerns.</annotation>
+                <annotation key="values">It corresponds with IHEC Level 0 <xhtml:b>SEX</xhtml:b> (Cell Line) and <xhtml:b>DONOR_SEX</xhtml:b> (Primary Cell, Primary Cell Culture &amp; Primary Tissue)</annotation>
                 <column-type item-type="string" column-kind="desirable" cv="sex" />
             </column>
             <column name="donor_region_of_residence">
@@ -440,6 +523,12 @@
                 <annotation key="values"><xhtml:a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO3166-1-alpha-2</xhtml:a> or <xhtml:a href="http://en.wikipedia.org/wiki/ISO_3166-2">ISO3166-2</xhtml:a> codes, eg: "CA" or "CA-ON"</annotation>
                 <column-type item-type="string" column-kind="required" cv="ISO3166" array-seps="," />
             </column>
+            <column name="donor_ethnicity">
+                <description>Donor ethnicity, from LOINC (<xhtml:a href="http://s.details.loinc.org/LOINC/54120-1.html">subset ethnicity</xhtml:a>)</description>
+                <annotation key="values">It corresponds with IHEC Level 0 <xhtml:b>DONOR_ETHNICITY</xhtml:b> (Primary Cell, Primary Cell Culture &amp; Primary Tissue)</annotation>
+                <column-type item-type="string" column-kind="optional" />
+            </column>
+            
             <!--
             <column name="donor_vital_status">
                 <description>Donor's last known vital status</description>
@@ -454,11 +543,6 @@
                 <description>Age at primary diagnosis</description>
                 <annotation key="values">Use "90" for patients >=90</annotation>
                 <column-type item-type="integer" column-kind="required" />
-            </column>
-            <column name="donor_diagnosis_do">
-                <description>Disease Ontology code</description>
-                <annotation key="values"><xhtml:a href="http://diseaseontology.sourceforge.net/">Disease Ontology</xhtml:a> code</annotation>
-                <column-type item-type="string" column-kind="required" />
             </column>
             -->
 
@@ -524,6 +608,7 @@
             </column>
             <column name="specimen_type">
                 <description>Controlled vocabulary description of specimen type.</description>
+                <annotation key="values">It more or less corresponds to IHEC Level 0 <xhtml:b>TISSUE_TYPE</xhtml:b> (Primary Tissue)</annotation>
                 <column-type item-type="string" column-kind="required">
                     <cv>
                         <e v="1">primary tumour</e>
@@ -543,17 +628,40 @@
             </column>
             <column name="specimen_type_other">
                 <description>Free text description of site of specimen if "normal control (other)" or "disease tissue (other)" was specified in <xhtml:b><xhtml:tt>specimen_type</xhtml:tt></xhtml:b> field.</description>
+                <annotation key="values">It more or less corresponds to IHEC Level 0 <xhtml:b>TISSUE_TYPE</xhtml:b> (Primary Tissue)</annotation>
                 <column-type item-type="string" column-kind="optional" />
+            </column>
+            <column name="specimen_source">
+                <description>Details about the anatomical location from which the specimen was collected</description>
+                <annotation key="values">It more or less corresponds to IHEC Level 0 <xhtml:b>TISSUE_DEPOT</xhtml:b> (Primary Tissue)</annotation>
+                <column-type item-type="string" column-kind="optional"></column-type>
+            </column>
+            <column name="specimen_collection_protocol">
+                <description>The protocol followed to collect the specimen</description>
+                <annotation key="values">It more or less corresponds to IHEC Level 0 <xhtml:b>COLLECTION_METHOD</xhtml:b> (Primary Tissue)</annotation>
+                <column-type item-type="text" column-kind="optional"></column-type>
             </column>
             <column name="donor_min_age_at_specimen_acquisition">
                 <description>Donor minimal age when the specimen was acquired, in <xhtml:a href="https://en.wikipedia.org/wiki/ISO_8601#Durations">ISO-8601 duration (basic format)</xhtml:a></description>
+                <annotation key="values">It corresponds with IHEC Level 0 <xhtml:b>DONOR_AGE</xhtml:b> (Primary Cell, Primary Cell Culture &amp; Primary Tissue)</annotation>
                 <column-type item-type="duration" column-kind="required" />
             </column>
             <column name="donor_max_age_at_specimen_acquisition">
-                <description>Donor max age when the specimen was acquired. If it is '<xhtml:b>#DE#</xhtml:b>', then it is the same value as "<xhtml:b><xhtml:tt>donor_min_age_at_specimen_acquisition</xhtml:tt></xhtml:b>"</description>
+                <description>Donor max age when the specimen was acquired.</description>
                 <column-type item-type="duration" column-kind="desirable" default="$$donor_min_age_at_specimen_acquisition">
                     <null>#DE#</null>
                 </column-type>
+            </column>
+            
+            <column name="donor_health_status">
+                <description>The donor health status at specimen acquisition (when available)</description>
+                <annotation key="values">It corresponds with IHEC Level 0 <xhtml:b>DONOR_HEALTH_STATUS</xhtml:b> (Primary Cell, Primary Cell Culture &amp; Primary Tissue)</annotation>
+                <column-type item-type="boolean" column-kind="desirable" />
+            </column>
+            <column name="donor_disease">
+                <description>If the donor was ill, the SNOMED-CT code of the disease at acquisition time (from <xhtml:i><xhtml:a href="http://purl.bioontology.org/ontology/SNOMEDCT/64572001">Disease branch</xhtml:a></xhtml:i></description>
+                <annotation key="values">The description of the SNOMED-CT term corresponds to IHEC Level 0 <xhtml:b>DISEASE</xhtml:b> (Cell Line, Primary Cell, Primary Cell Culture &amp; Primary Tissue)</annotation>
+                <column-type item-type="string" column-kind="desirable" />
             </column>
             
             <column name="specimen_processing">
@@ -596,6 +704,7 @@
             </column>
             <column name="specimen_biobank">
                 <description>If the specimen was obtained from a biobank, provide the biobank name here</description>
+                <annotation key="values">It corresponds with IHEC Level 0 <xhtml:b>BIOMATERIAL</xhtml:b> (Cell Line, Primary Cell, Primary Cell Culture &amp; Primary Tissue)</annotation>
                 <column-type item-type="string" column-kind="optional" />
             </column>
             <column name="specimen_biobank_id">
@@ -624,7 +733,18 @@
             </column>
             <column name="purified_cell_type">
                 <description>Purified cell type for the sample</description>
+                <annotation key="values">It corresponds more or less with IHEC Level 0 <xhtml:b>CELL_TYPE</xhtml:b> (Primary Cell &amp; Primary Cell Culture)</annotation>
                 <column-type item-type="string" column-kind="required" cv="CellOntology" />
+            </column>
+            <column name="culture_conditions">
+                <description>The conditions under which the primary cell was cultured</description>
+                <annotation key="values">It corresponds with IHEC Level 0 <xhtml:b>CULTURE_CONDITIONS</xhtml:b> (Primary Cell Culture)</annotation>
+                <column-type item-type="string" column-kind="optional"></column-type>
+            </column>
+            <column name="markers">
+                <description>Markers used to isolate and identify the cell type</description>
+                <annotation key="values">It corresponds with IHEC Level 0 <xhtml:b>MARKERS</xhtml:b> (Primary Cell &amp; Primary Cell Culture)</annotation>
+                <column-type item-type="string" column-kind="optional"></column-type>
             </column>
             <column name="analyzed_sample_type">
                 <description>Controlled vocabulary description of sample type</description>
@@ -645,7 +765,7 @@
                 </column-type>
             </column>
             <column name="analyzed_sample_type_other">
-                <description>Free text description of site of sample if "other" was specified in <xhtml:i>sample_type</xhtml:i> field</description>
+                <description>Free text description of site of sample if "other" was specified in <xhtml:i>analyzed_sample_type</xhtml:i> field</description>
                 <column-type item-type="string" column-kind="optional" />
             </column>
             
@@ -659,11 +779,30 @@
     </concept-domain>
     
     <concept-domain domain="abstract" fullname="Abstract concept domain name" filename-format="blueprint-dcc" is-abstract="true">
+        <annotation key="defaultColor"><color>rgb(255,255,255)</color></annotation>
+        
+        <concept name="AbstractExperiment" fullname="AbstractExperiment">
+            <base-concept-type name="experiment-template" />
+            
+            <related-to concept="sample" domain="sdata" prefix="analyzed_">
+                <annotation key="ordering">
+                    <ordering-hints>
+                        <block>top</block>
+                    </ordering-hints>
+                </annotation>
+            </related-to>
+        </concept>
+        
+        <concept name="AbstractExperimentExtraction" fullname="AbstractExperimentExtraction">
+            <extends concept="AbstractExperiment"/>
+            
+            <base-concept-type name="experiment-extraction-template"/>
+        </concept>
+        
         <concept name="AnalysisMetadata" fullname="AnalysisMetadata">
             <base-concept-type name="abstract-experimental-metadata"/>
             
             <annotation key="altname">AnalysisMetadata</annotation>
-            <annotation key="color"><color>#A3ED03</color></annotation>
             
             <related-to concept="sample" domain="sdata" prefix="analyzed_">
                 <annotation key="ordering">
@@ -686,14 +825,346 @@
                 </annotation>
             </related-to>
         </concept>
-	<concept name="ComparativeBasedAnalysisMetadata" fullname="ComparativeBasedAnalysisMetadata">
-            <extends concept="ComparativeAnalysisMetadata"/>
-            
-            <annotation key="altname">ComparativeBasedAnalysisMetadata</annotation>
-            
-            <related-to concept="ComparativeBasedAnalysisMetadata" prefix="base_" arity="M" partial-participation="true" inheritable="true"/>
-	</concept>
+    	<concept name="ComparativeBasedAnalysisMetadata" fullname="ComparativeBasedAnalysisMetadata">
+                <extends concept="ComparativeAnalysisMetadata"/>
+                
+                <annotation key="altname">ComparativeBasedAnalysisMetadata</annotation>
+                
+                <related-to concept="ComparativeBasedAnalysisMetadata" prefix="base_" arity="M" partial-participation="true" inheritable="true"/>
+    	</concept>
     </concept-domain>
+    
+    <concept-domain domain="lab" fullname="Laboratory Experiments" filename-format="blueprint-dcc">
+        <!-- Remember this pattern: ^([^ ]+)( ?[:–-] ?)([^ ].*)$ -->
+        <description> These concepts are based on Version 1.1 of IHEC Metadata (July 3rd, 2013)</description>
+        
+        <concept name="chro" fullname="Chromatin Accessibility">
+            <extends concept="AbstractExperimentExtraction" domain="abstract"/>
+            
+            <column name="experiment_type">
+                <description>Type of experiment: Chromatin Accessibility</description>
+                <annotation key="values">It corresponds with IHEC Level 0 <xhtml:b>EXPERIMENT_TYPE</xhtml:b> (Chromatin Accessibility)</annotation>
+                <column-type item-type="string" column-kind="required">
+                    <pattern match="Chromatin Accessibility"/>
+                </column-type>
+            </column>
+            <column name="features">
+                <description>The known features/experimental conditions about the Chromatin Accessibility experiment</description>
+                <column-type item-type="compound" column-kind="required" array-seps=";">
+                    <compound-type>
+                        <column name="feature">
+                            <column-type item-type="string" column-kind="required">
+                                <cv>
+                                    <e v="DNASE_PROTOCOL">Protocol used for DNAse treatment</e>
+                                </cv>
+                            </column-type>
+                        </column>
+                        <sep>=</sep>
+                        <column name="value">
+                            <column-type item-type="text" column-kind="required" />
+                        </column>
+                    </compound-type>
+                </column-type>
+            </column>
+        </concept>
+
+        <concept name="wgbs" fullname="WGBS">
+            <extends concept="AbstractExperimentExtraction" domain="abstract"/>
+            
+            <column name="experiment_type">
+                <description>Type of experiment: DNA Methylation</description>
+                <annotation key="values">It corresponds with IHEC Level 0 <xhtml:b>EXPERIMENT_TYPE</xhtml:b> (WGBS)</annotation>
+                <column-type item-type="string" column-kind="required">
+                    <pattern match="DNA Methylation"/>
+                </column-type>
+            </column>
+            <column name="features">
+                <description>The known features/experimental conditions about the WGBS experiment</description>
+                <column-type item-type="compound" column-kind="required" array-seps=";">
+                    <compound-type>
+                        <column name="feature">
+                            <column-type item-type="string" column-kind="required">
+                                <cv>
+                                    <e v="EXTRACTION_PROTOCOL_TYPE_OF_SONICATOR">The type of sonicator used for extraction.</e>
+                                    <e v="EXTRACTION_PROTOCOL_SONICATION_CYCLES">The number of sonication cycles used for extraction.</e>
+                                    <e v="DNA_PREPARATION_INITIAL_DNA_QNTY">The initial DNA quantity used in preparation.</e>
+                                    <e v="DNA_PREPARATION_FRAGMENT_SIZE_RANGE">The DNA fragment size range used in preparation.</e>
+                                    <e v="DNA_PREPARATION_ADAPTOR_SEQUENCE">The sequence of the adaptor used in preparation.</e>
+                                    <e v="DNA_PREPARATION_ADAPTOR_LIGATION_PROTOCOL">The protocol used for adaptor ligation.</e>
+                                    <e v="DNA_PREPARATION_POST-LIGATION_FRAGMENT_SIZE_SELECTION">The fragment size selection after adaptor ligation.</e>
+                                    <e v="BISULFITE_CONVERSION_PROTOCOL">The bisulfite conversion protocol.</e>
+                                    <e v="BISULFITE_CONVERSION_PERCENT">The bisulfite conversion percent and how it was determined.</e>
+                                    <e v="LIBRARY_GENERATION_PCR_TEMPLATE_CONC">The PCR template concentration for library generation.</e>
+                                    <e v="LIBRARY_GENERATION_PCR_POLYMERASE_TYPE">The PCR polymerase used for library generation</e>
+                                    <e v="LIBRARY_GENERATION_PCR_THERMOCYCLING_PROGRAM">The thermocycling program used for library generation.</e>
+                                    <e v="LIBRARY_GENERATION_PCR_NUMBER_CYCLES">The number of PCR cycles used for library generation.</e>
+                                    <e v="LIBRARY_GENERATION_PCR_F_PRIMER_SEQUENCE">The sequence of the PCR forward primer used for library generation.</e>
+                                    <e v="LIBRARY_GENERATION_PCR_R_PRIMER_SEQUENCE">The sequence of the PCR reverse primer used for library generation.</e>
+                                    <e v="LIBRARY_GENERATION_PCR_PRIMER_CONC">The concentration of the PCR primers used for library generation.</e>
+                                    <e v="LIBRARY_GENERATION_PCR_PRODUCT_ISOLATION_PROTOCOL">The protocol for isolating PCR products used for library generation.</e>
+                                </cv>
+                            </column-type>
+                        </column>
+                        <sep>=</sep>
+                        <column name="value">
+                            <column-type item-type="text" column-kind="required" />
+                        </column>
+                    </compound-type>
+                </column-type>
+            </column>
+        </concept>
+        
+        <concept name="medip" fullname="MeDIP-Seq">
+            <extends concept="AbstractExperimentExtraction" domain="abstract"/>
+            
+            <column name="experiment_type">
+                <description>Type of experiment: DNA Methylation</description>
+                <annotation key="values">It corresponds with IHEC Level 0 <xhtml:b>EXPERIMENT_TYPE</xhtml:b> (MeDIP-Seq)</annotation>
+                <column-type item-type="string" column-kind="required">
+                    <pattern match="DNA Methylation"/>
+                </column-type>
+            </column>
+            <column name="features">
+                <description>The known features/experimental conditions about the MeDIP-Seq experiment</description>
+                <column-type item-type="compound" column-kind="required" array-seps=";">
+                    <compound-type>
+                        <column name="feature">
+                            <column-type item-type="string" column-kind="required">
+                                <cv>
+                                    <e v="EXTRACTION_PROTOCOL_TYPE_OF_SONICATOR">The type of sonicator used for extraction.</e>
+                                    <e v="EXTRACTION_PROTOCOL_SONICATION_CYCLES">The number of sonication cycles used for extraction.</e>
+                                    <e v="MeDIP_PROTOCOL">The MeDIP protocol used.</e>
+                                    <e v="MeDIP_PROTOCOL_DNA_AMOUNT">The amount of DNA used in the MeDIP protocol.</e>
+                                    <e v="MeDIP_PROTOCOL_BEAD_TYPE">The type of bead used in the MeDIP protocol.</e>
+                                    <e v="MeDIP_PROTOCOL_BEAD_AMOUNT">The amount of beads used in the MeDIP protocol.</e>
+                                    <e v="MeDIP_PROTOCOL_ANTIBODY_AMOUNT">The amount of antibody used in the MeDIP protocol.</e>
+                                    <e v="MeDIP_ANTIBODY">The specific antibody used in the MeDIP protocol.</e>
+                                    <e v="MeDIP_ANTIBODY_PROVIDER">The name of the company, laboratory or person that provided the antibody.</e>
+                                    <e v="MeDIP_ANTIBODY_CATALOG">The catalog from which the antibody was purchased.</e>
+                                    <e v="MeDIP_ANTIBODY_LOT">The lot identifier of the antibody.</e>
+                                </cv>
+                            </column-type>
+                        </column>
+                        <sep>=</sep>
+                        <column name="value">
+                            <column-type item-type="text" column-kind="required" />
+                        </column>
+                    </compound-type>
+                </column-type>
+            </column>
+        </concept>
+        
+        <concept name="mre" fullname="MRE-Seq">
+            <extends concept="AbstractExperiment" domain="abstract"/>
+            
+            <column name="experiment_type">
+                <description>Type of experiment: DNA Methylation</description>
+                <annotation key="values">It corresponds with IHEC Level 0 <xhtml:b>EXPERIMENT_TYPE</xhtml:b> (MRE-Seq)</annotation>
+                <column-type item-type="string" column-kind="required">
+                    <pattern match="DNA Methylation"/>
+                </column-type>
+            </column>
+            <column name="features">
+                <description>The known features/experimental conditions about the MRE-Seq experiment</description>
+                <column-type item-type="compound" column-kind="required" array-seps=";">
+                    <compound-type>
+                        <column name="feature">
+                            <column-type item-type="string" column-kind="required">
+                                <cv>
+                                    <e v="MRE_PROTOCOL">The MRE protocol.</e>
+                                    <e v="MRE_PROTOCOL_CHROMATIN_AMOUNT">The amount of chromatin used in the MRE protocol.</e>
+                                    <e v="MRE_PROTOCOL_RESTRICTION_ENZYME">The restriction enzyme(s) used in the MRE protocol.</e>
+                                    <e v="MRE_PROTOCOL_SIZE_FRACTION">The size of the fragments selected in the MRE protocol.</e>
+                                </cv>
+                            </column-type>
+                        </column>
+                        <sep>=</sep>
+                        <column name="value">
+                            <column-type item-type="text" column-kind="required" />
+                        </column>
+                    </compound-type>
+                </column-type>
+            </column>
+        </concept>
+        
+        <concept name="csi" fullname="Chip-Seq Input">
+            <extends concept="AbstractExperimentExtraction" domain="abstract"/>
+            
+            <column name="experiment_type">
+                <description>Type of experiment: ChIP-Seq Input</description>
+                <annotation key="values">It corresponds with IHEC Level 0 <xhtml:b>EXPERIMENT_TYPE</xhtml:b> (Chip-Seq Input)</annotation>
+                <column-type item-type="string" column-kind="required">
+                    <pattern match="ChIP-Seq Input"/>
+                </column-type>
+            </column>
+            <column name="features">
+                <description>The known features/experimental conditions about the Chip-Seq Input experiment</description>
+                <column-type item-type="compound" column-kind="required" array-seps=";">
+                    <compound-type>
+                        <column name="feature">
+                            <column-type item-type="string" column-kind="required">
+                                <cv>
+                                    <e v="EXTRACTION_PROTOCOL_TYPE_OF_SONICATOR">The type of sonicator used for extraction.</e>
+                                    <e v="EXTRACTION_PROTOCOL_SONICATION_CYCLES">The number of sonication cycles used for extraction.</e>
+                                    <e v="CHIP_PROTOCOL">Input</e>
+                                    <e v="CHIP_PROTOCOL_CHROMATIN_AMOUNT">The amount of chromatin used in the ChIP protocol.</e>
+                                </cv>
+                            </column-type>
+                        </column>
+                        <sep>=</sep>
+                        <column name="value">
+                            <column-type item-type="text" column-kind="required" />
+                        </column>
+                    </compound-type>
+                </column-type>
+            </column>
+        </concept>
+        
+        <concept name="cs" fullname="Chip-Seq">
+            <extends concept="AbstractExperimentExtraction" domain="abstract"/>
+            
+            <column name="experiment_type">
+                <description>Type of experiment:  'Histone H3K4me1','Histone H3K4me3','Histone H3K9me3','Histone H3K9ac','Histone H3K27me3', 'Histone H3K36me3', etc...</description>
+                <annotation key="values">It corresponds with IHEC Level 0 <xhtml:b>EXPERIMENT_TYPE</xhtml:b> (Chip-Seq)</annotation>
+                <column-type item-type="string" column-kind="required"/>
+            </column>
+            <column name="features">
+                <description>The known features/experimental conditions about the Chip-Seq experiment</description>
+                <column-type item-type="compound" column-kind="required" array-seps=";">
+                    <compound-type>
+                        <column name="feature">
+                            <column-type item-type="string" column-kind="required">
+                                <cv>
+                                    <e v="EXTRACTION_PROTOCOL_TYPE_OF_SONICATOR">The type of sonicator used for extraction.</e>
+                                    <e v="EXTRACTION_PROTOCOL_SONICATION_CYCLES">The number of sonication cycles used for extraction.</e>
+                                    <e v="CHIP_PROTOCOL">The ChIP protocol used.</e>
+                                    <e v="CHIP_PROTOCOL_CHROMATIN_AMOUNT">The amount of chromatin used in the ChIP protocol.</e>
+                                    <e v="CHIP_PROTOCOL_BEAD_TYPE">The type of bead used in the ChIP protocol.</e>
+                                    <e v="CHIP_PROTOCOL_BEAD_AMOUNT">The amount of beads used in the ChIP protocol.</e>
+                                    <e v="CHIP_PROTOCOL_ANTIBODY_AMOUNT">The amount of antibody used in the ChIP protocol.</e>
+                                    <e v="CHIP_ANTIBODY">The specific antibody used in the ChIP protocol.</e>
+                                    <e v="CHIP_ANTIBODY_PROVIDER">The name of the company, laboratory or person that provided the antibody.</e>
+                                    <e v="CHIP_ANTIBODY_CATALOG">The catalog from which the antibody was purchased.</e>
+                                    <e v="CHIP_ANTIBODY_LOT">The lot identifier of the antibody.</e>
+                                    <e v="CHIP_PROTOCOL_CROSSLINK_TIME">The timespan in which the chromatin is crosslinked</e>
+                                    <e v="LIBRARY_GENERATION_FRAGMENT_SIZE_RANGE">The fragment size range of the preparation.</e>
+                                </cv>
+                            </column-type>
+                        </column>
+                        <sep>=</sep>
+                        <column name="value">
+                            <column-type item-type="text" column-kind="required" />
+                        </column>
+                    </compound-type>
+                </column-type>
+            </column>
+        </concept>
+        
+        <concept name="mrna" fullname="mRNA-seq">
+            <extends concept="AbstractExperimentExtraction" domain="abstract"/>
+            
+            <column name="experiment_type">
+                <description>Type of experiment: mRNA-seq</description>
+                <annotation key="values">It corresponds with IHEC Level 0 <xhtml:b>EXPERIMENT_TYPE</xhtml:b> (mRNA-seq)</annotation>
+                <column-type item-type="string" column-kind="required">
+                    <pattern match="mRNA-seq"/>
+                </column-type>
+            </column>
+            <column name="features">
+                <description>The known features/experimental conditions about the mRNA-seq experiment</description>
+                <column-type item-type="compound" column-kind="required" array-seps=";">
+                    <compound-type>
+                        <column name="feature">
+                            <column-type item-type="string" column-kind="required">
+                                <cv>
+                                    <e v="EXTRACTION_PROTOCOL_MRNA_ENRICHMENT">The mRNA enrichment method used in the extraction protocol.</e>
+                                    <e v="EXTRACTION_PROTOCOL_FRAGMENTATION">The fragmentation method used in the extraction protocol.</e>
+                                    <e v="MRNA_PREPARATION_INITIAL_MRNA_QNTY">The initial mRNA quantity used in preparation.</e>
+                                    <e v="MRNA_PREPARATION_FRAGMENT_SIZE_RANGE">The mRNA fragment size range of the preparation.</e>
+                                    <e v="RNA_PREPARATION_5&apos;_RNA_ADAPTER_SEQUENCE">The sequence of the 5&apos; RNA adapter used in preparation.</e>
+                                    <e v="RNA_PREPARATION_3&apos;_RNA_ADAPTER_SEQUENCE">The sequence of the 3&apos; RNA adapter used in preparation.</e>
+                                    <e v="RNA_PREPARATION_REVERSE_TRANSCRIPTION_PRIMER_SEQUENCE">The sequence of the primer for reverse transcription used in preparation.</e>
+                                    <e v="RNA_PREPARATION_5&apos;_DEPHOSPHORYLATION">The protocol for 5&apos; dephosphorylation used in preparation.</e>
+                                    <e v="RNA_PREPARATION_5&apos;_PHOSPHORYLATION">The protocol for 5&apos; phosphorylation used in preparation.</e>
+                                    <e v="RNA_PREPARATION_3&apos;_RNA_ADAPTER_LIGATION_PROTOCOL">The protocol for 3&apos; adapter ligation used in preparation.</e>
+                                    <e v="RNA_PREPARATION_5&apos;_RNA_ADAPTER_LIGATION_PROTOCOL">The protocol for 5&apos; adapter ligation used in preparation.</e>
+                                    <e v="RNA_PREPARATION_REVERSE_TRANSCRIPTION_PROTOCOL">The protocol for reverse transcription used in preparation.</e>
+                                    <e v="LIBRARY_GENERATION_PCR_TEMPLATE_CONC">The PCR template concentration for library generation.</e>
+                                    <e v="LIBRARY_GENERATION_PCR_POLYMERASE_TYPE">The PCR polymerase used for library generation</e>
+                                    <e v="LIBRARY_GENERATION_PCR_THERMOCYCLING_PROGRAM">The thermocycling program used for library generation.</e>
+                                    <e v="LIBRARY_GENERATION_PCR_NUMBER_CYCLES">The number of PCR cycles used for library generation.</e>
+                                    <e v="LIBRARY_GENERATION_PCR_F_PRIMER_SEQUENCE">The sequence of the PCR forward primer used for library generation.</e>
+                                    <e v="LIBRARY_GENERATION_PCR_R_PRIMER_SEQUENCE">The sequence of the PCR reverse primer used for library generation.</e>
+                                    <e v="LIBRARY_GENERATION_PCR_PRIMER_CONC">The concentration of the PCR primers used for library generation.</e>
+                                    <e v="LIBRARY_GENERATION_PCR_PRODUCT_ISOLATION_PROTOCOL">The protocol for isolating PCR products used for library generation.</e>
+                                    <e v="TEMPLATE_TYPE">mRNA or cDNA - The type of template.</e>
+                                    <e v="AMPLIFIED">True or False - Is the sample amplified?</e>
+                                    <e v="PREPARATION_INITIAL_MRNA_QNTY">The initial mRNA quantity used in preparation.</e>
+                                    <e v="PREPARATION_REVERSE_TRANSCRIPTION_PROTOCOL">The protocol for reverse transcription used in preparation.</e>
+                                    <e v="PREPARATION_PCR_NUMBER_CYCLES">The number of PCR cycles used to amplify.</e>
+                                    <e v="LIBRARY_GENERATION_PROTOCOL">The protocol used to generate the library.</e>
+                                    <e v="LIBRARY_GENERATION_FRAGMENTATION">The fragmentation method used in the library protocol.</e>
+                                    <e v="LIBRARY_GENERATION_FRAGMENT_SIZE_RANGE">The fragment size range of the preparation.</e>
+                                    <e v="LIBRARY_GENERATION_3&apos;_ADAPTER_SEQUENCE">The sequence of the 3&apos; adapter used for library generation.</e>
+                                    <e v="LIBRARY_GENERATION_5&apos;_ADAPTER_SEQUENCE">The sequence of the 5&apos; adapter used for library generation.</e>
+                                </cv>
+                            </column-type>
+                        </column>
+                        <sep>=</sep>
+                        <column name="value">
+                            <column-type item-type="text" column-kind="required" />
+                        </column>
+                    </compound-type>
+                </column-type>
+            </column>
+        </concept>
+        
+        <concept name="smrna" fullname="smRNA-seq">
+            <extends concept="AbstractExperimentExtraction" domain="abstract"/>
+            
+            <column name="experiment_type">
+                <description>Type of experiment: smRNA-seq</description>
+                <annotation key="values">It corresponds with IHEC Level 0 <xhtml:b>EXPERIMENT_TYPE</xhtml:b> (smRNA-Seq)</annotation>
+                <column-type item-type="string" column-kind="required">
+                    <pattern match="smRNA-seq"/>
+                </column-type>
+            </column>
+            <column name="features">
+                <description>The known features/experimental conditions about the smRNA-seq experiment</description>
+                <column-type item-type="compound" column-kind="required" array-seps=";">
+                    <compound-type>
+                        <column name="feature">
+                            <column-type item-type="string" column-kind="required">
+                                <cv>
+                                    <e v="EXTRACTION_PROTOCOL_SMRNA_ENRICHMENT">The smRNA enrichment method used in the extraction protocol.</e>
+                                    <e v="SMRNA_PREPARATION_INITIAL_SMRNA_QNTY">The initial smRNA quantity used in preparation.</e>
+                                    <e v="RNA_PREPARATION_5&apos;_RNA_ADAPTER_SEQUENCE">The sequence of the 5&apos; RNA adapter used in preparation.</e>
+                                    <e v="RNA_PREPARATION_3&apos;_RNA_ADAPTER_SEQUENCE">The sequence of the 3&apos; RNA adapter used in preparation.</e>
+                                    <e v="RNA_PREPARATION_REVERSE_TRANSCRIPTION_PRIMER_SEQUENCE">The sequence of the primer for reverse transcription used in preparation.</e>
+                                    <e v="RNA_PREPARATION_3&apos;_RNA_ADAPTER_LIGATION_PROTOCOL">The protocol for 3&apos; adapter ligation used in preparation.</e>
+                                    <e v="RNA_PREPARATION_5&apos;_RNA_ADAPTER_LIGATION_PROTOCOL">The protocol for 5&apos; adapter ligation used in preparation.</e>
+                                    <e v="RNA_PREPARATION_REVERSE_TRANSCRIPTION_PROTOCOL">The protocol for reverse transcription used in preparation.</e>
+                                    <e v="LIBRARY_GENERATION_PCR_TEMPLATE_CONC">The PCR template concentration for library generation.</e>
+                                    <e v="LIBRARY_GENERATION_PCR_POLYMERASE_TYPE">The PCR polymerase used for library generation</e>
+                                    <e v="LIBRARY_GENERATION_PCR_THERMOCYCLING_PROGRAM">The thermocycling program used for library generation.</e>
+                                    <e v="LIBRARY_GENERATION_PCR_NUMBER_CYCLES">The number of PCR cycles used for library generation.</e>
+                                    <e v="LIBRARY_GENERATION_PCR_F_PRIMER_SEQUENCE">The sequence of the PCR forward primer used for library generation.</e>
+                                    <e v="LIBRARY_GENERATION_PCR_R_PRIMER_SEQUENCE">The sequence of the PCR reverse primer used for library generation.</e>
+                                    <e v="LIBRARY_GENERATION_PCR_PRIMER_CONC">The concentration of the PCR primers used for library generation.</e>
+                                    <e v="LIBRARY_GENERATION_PCR_PRODUCT_ISOLATION_PROTOCOL">The protocol for isolating PCR products used for library generation.</e>
+                                </cv>
+                            </column-type>
+                        </column>
+                        <sep>=</sep>
+                        <column name="value">
+                            <column-type item-type="text" column-kind="required" />
+                        </column>
+                    </compound-type>
+                </column-type>
+            </column>
+        </concept>
+    </concept-domain>
+    
     
     
     <!--
@@ -1016,7 +1487,7 @@
             
             <column name="methylation_calling_algorithm">
                 <description>Name of variation calling algorithm and URL to written protocol</description>
-                <column-type item-type="compound" column-kind="optional" compound-seps=";" compound-template="name;url" />
+                <column-type item-type="compound" column-kind="optional" compound-type="name-url-ctype" />
             </column>
             
             <column name="mr_type">
