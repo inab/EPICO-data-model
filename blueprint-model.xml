@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dcc-schema
         project="BLUEPRINT"
-        schemaVer="0.2.99.6.4"
+        schemaVer="0.3"
         docsDir="model-docs"
         xmlns="http://www.blueprint-epigenome.eu/dcc/schema"
         xmlns:xhtml="http://www.w3.org/1999/xhtml"
@@ -320,6 +320,28 @@
                     </compound-type>
                 </column-type>
             </column>
+            <column name="raw_data_repository">
+                <description>Public repository where raw data is submitted (#)</description>
+                <column-type item-type="integer" column-kind="required" cv="B12" />
+            </column>
+            <column name="raw_data_accession">
+                <description>Accession and URL for referencing the raw data at the public repository</description>
+                <column-type item-type="compound" column-kind="optional">
+                    <compound-type>
+                        <column name="accession">
+                            <column-type item-type="string" column-kind="required" />
+                        </column>
+                        <sep>;</sep>
+                        <column name="url">
+                            <column-type item-type="string" column-kind="required" />
+                        </column>
+                    </compound-type>
+                </column-type>
+            </column>
+            <column name="seq_coverage">
+                <description>Sequence coverage if analyzed by sequencing platforms</description>
+                <column-type item-type="decimal" column-kind="optional" />
+            </column>
             
             <subtypes>
                 <concept-type name="experiment-extraction-template">
@@ -381,28 +403,6 @@
             <column name="other_analysis_algorithm">
                 <description>Names of other analysis algorithms. Separate multiple algorithms by commas.</description>
                 <column-type item-type="compound" column-kind="optional" compound-type="name-url-ctype" array-seps="," />
-            </column>
-            <column name="seq_coverage">
-                <description>Sequence coverage if analyzed by sequencing platforms</description>
-                <column-type item-type="decimal" column-kind="optional" />
-            </column>
-            <column name="raw_data_repository">
-                <description>Public repository where raw data is submitted (#)</description>
-                <column-type item-type="integer" column-kind="required" cv="B12" />
-            </column>
-            <column name="raw_data_accession">
-                <description>Accession and URL for referencing the raw data at the public repository</description>
-                <column-type item-type="compound" column-kind="optional">
-                    <compound-type>
-                        <column name="accession">
-                            <column-type item-type="string" column-kind="required" />
-                        </column>
-                        <sep>;</sep>
-                        <column name="url">
-                            <column-type item-type="string" column-kind="required" />
-                        </column>
-                    </compound-type>
-                </column-type>
             </column>
             <column name="notes">
                 <description>Optional field to leave notes</description>
