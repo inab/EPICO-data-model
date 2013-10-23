@@ -4,9 +4,9 @@ use strict;
 
 use XML::LibXML;
 use FindBin;
-# With this we will be able to use DCC::Model::CV::Term
+# With this we will be able to use BP::Model::CV::Term
 use lib "$FindBin::Bin/schema+tools/lib";
-use DCC::Model;
+use BP::Model;
 
 if(scalar(@ARGV)==4 || scalar(@ARGV)==1) {
 	my($cldrXMLFile,$iso3166_1_file,$iso3166_2_file) = (
@@ -18,7 +18,7 @@ if(scalar(@ARGV)==4 || scalar(@ARGV)==1) {
 	my $outputFile = shift(@ARGV);
 	($cldrXMLFile,$iso3166_1_file,$iso3166_2_file) = @ARGV  if(scalar(@ARGV)>0);
 	
-	my $ISO3166CV = DCC::Model::CV->new();
+	my $ISO3166CV = BP::Model::CV->new();
 	
 	print "Step 1: parsing $cldrXMLFile\n";
 	my $CLDR = XML::LibXML->load_xml(location => $cldrXMLFile);
@@ -59,7 +59,7 @@ if(scalar(@ARGV)==4 || scalar(@ARGV)==1) {
 						my $term = $ISO3166CV->CV->{$type};
 						push(@{$term->parents},@contains);
 					} else {
-						$ISO3166CV->addTerm(DCC::Model::CV::Term->new($type,$name,[@contains],1));
+						$ISO3166CV->addTerm(BP::Model::CV::Term->new($type,$name,[@contains],1));
 					}
 					
 					$type = undef;
@@ -74,7 +74,7 @@ if(scalar(@ARGV)==4 || scalar(@ARGV)==1) {
 	foreach my $country ($ISO1->getElementsByTagName('iso_3166_entry')) {
 		my @keys = ($country->getAttribute('alpha_2_code'),$country->getAttribute('alpha_3_code'),$country->getAttribute('numeric_code'));
 		my $name = $country->getAttribute('name');
-		$ISO3166CV->addTerm(DCC::Model::CV::Term->new(\@keys,$name));
+		$ISO3166CV->addTerm(BP::Model::CV::Term->new(\@keys,$name));
 	}
 	
 	# And at last, the provinces and so
@@ -88,7 +88,7 @@ if(scalar(@ARGV)==4 || scalar(@ARGV)==1) {
 				my $entryCode = $entry->getAttribute('code');
 				my $parentCode = $entry->hasAttribute('parent')?($code.'-'.$entry->getAttribute('parent')):$code;
 				my $name = $entry->getAttribute('name');
-				$ISO3166CV->addTerm(DCC::Model::CV::Term->new($entryCode,$name,[$parentCode]));
+				$ISO3166CV->addTerm(BP::Model::CV::Term->new($entryCode,$name,[$parentCode]));
 			}
 		}
 	}

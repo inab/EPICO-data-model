@@ -3,22 +3,22 @@
 use strict;
 
 use FindBin;
-# With this we will be able to use DCC::Model::CV::Term
+# With this we will be able to use BP::Model::CV::Term
 use lib "$FindBin::Bin/schema+tools/lib";
 use TabParser;
-use DCC::Model;
+use BP::Model;
 
 if(scalar(@ARGV)==4) {
 	my ($ENSGfile,$OBOENSGfile,$ENSTfile,$OBOENSTfile)=@ARGV;
 	
 	if(open(my $ENSG,'-|','gunzip','-c',$ENSGfile)) {
 		
-		my $ENSG_CV = DCC::Model::CV->new();
+		my $ENSG_CV = BP::Model::CV->new();
 		my %config = (
 			TabParser::TAG_CALLBACK => sub {
 				my($ensgene,$version,$desc)=@_;
 				$desc = ($desc eq '\\N')?$ensgene:$ensgene.' ('.$desc.')';
-				$ENSG_CV->addTerm(DCC::Model::CV::Term->new([$ensgene,$ensgene.'.'.$version],$desc));
+				$ENSG_CV->addTerm(BP::Model::CV::Term->new([$ensgene,$ensgene.'.'.$version],$desc));
 			},
 			TabParser::TAG_FETCH_COLS => [14,15,10],
 			TabParser::TAG_NEG_FILTER => [[1 => 'LRG_gene']],
@@ -43,12 +43,12 @@ CEOF
 	
 	if(open(my $ENST,'-|','gunzip','-c',$ENSTfile)) {
 		
-		my $ENST_CV = DCC::Model::CV->new();
+		my $ENST_CV = BP::Model::CV->new();
 		my %config = (
 			TabParser::TAG_CALLBACK => sub {
 				my($enstrans,$version,$desc)=@_;
 				$desc = ($desc eq '\\N')?$enstrans:$enstrans.' ('.$desc.')';
-				$ENST_CV->addTerm(DCC::Model::CV::Term->new([$enstrans,$enstrans.'.'.$version],$desc));
+				$ENST_CV->addTerm(BP::Model::CV::Term->new([$enstrans,$enstrans.'.'.$version],$desc));
 			},
 			TabParser::TAG_FETCH_COLS => [13,14,8],
 			TabParser::TAG_NEG_FILTER => [[8 => 'LRG_gene']],
