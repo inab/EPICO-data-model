@@ -61,6 +61,14 @@
       xmlns:cc='http://creativecommons.org/ns#'>
       <cc:attributionURL>http://www.blueprint-epigenome.eu/</cc:attributionURL>
     </rdf:Description>
+    <rdf:Description rdf:about=''
+      xmlns:cc='http://creativecommons.org/ns#'>
+      <cc:attributionURL>http://www.cnio.es/</cc:attributionURL>
+    </rdf:Description>
+    <rdf:Description rdf:about=''
+      xmlns:cc='http://creativecommons.org/ns#'>
+      <cc:attributionURL>http://www.inab.org/</cc:attributionURL>
+    </rdf:Description>
     
   </rdf:RDF>
 </x:xmpmeta>
