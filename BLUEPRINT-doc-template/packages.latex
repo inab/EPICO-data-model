@@ -1,0 +1,35 @@
+% Improved verbatim
+\usepackage{fancyvrb}
+
+% Allows having cells which span on multiple rows (instead of columns)
+\usepackage{multirow}
+
+% Setting homogeneous margins on the four borders
+\usepackage{fullpage}
+
+%\usepackage{setspace}
+
+% To have table counters per section
+\usepackage{chngcntr}
+\counterwithin{table}{section}
+
+% Setting up hyperref package
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	urlcolor=olive,
+	pdfencoding=auto,
+	breaklinks=true
+}
+
+% In order to keep compatibility along all the documentation
+\def\cvKey{\ANNOTcvKey}
+\def\cvDesc{\ANNOTcvDesc}
+\def\EnsemblVer{\ANNOTEnsemblVer}
+%\newcommand{\cvKey}{Key}
+%\newcommand{\cvDesc}{Description}
+%\newcommand{\EnsemblVer}{68}
+%\newcommand{\schemaVer}{0.1.5.1}
+
+\newcommand{\DCCdomain}[2]{\hyperref[fea:#1]{#2}}
+
