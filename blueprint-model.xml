@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dcc-schema
         project="BLUEPRINT"
-        schemaVer="0.3.0.0"
+        schemaVer="0.3.0.1"
         docsDir="model-docs"
         xmlns="http://www.blueprint-epigenome.eu/dcc/schema"
         xmlns:xhtml="http://www.w3.org/1999/xhtml"
@@ -247,6 +247,32 @@
             <e v="LIBRARY_GENERATION_PCR_PRIMER_CONC">The concentration of the PCR primers used for library generation.</e>
             <e v="LIBRARY_GENERATION_PCR_PRODUCT_ISOLATION_PROTOCOL">The protocol for isolating PCR products used for library generation.</e>
         </cv>
+        <cv name="SRALibraryStrategy">
+            <description>Sequencing technique intended for this library (borrowed from SRA XML 1.2).</description>
+            <e v="WGS">Random sequencing of the whole genome.</e>
+            <e v="WXS">Random sequencing of exonic regions selected from the genome.</e>
+            <e v="RNA-Seq">Random sequencing of whole transcriptome.</e>
+            <e v="WCS">Random sequencing of a whole chromosome or other replicon isolated from a genome.</e>
+            <e v="CLONE">Genomic clone based (hierarchical) sequencing.</e>
+            <e v="POOLCLONE">Shotgun of pooled clones (usually BACs and Fosmids).</e>
+            <e v="AMPLICON">Sequencing of overlapping or distinct PCR or RT-PCR products.</e>
+            <e v="BARCODE">DEPRECATED.  Sequencing of overlapping or distinct  products that have been
+                tagged with a short identifying sequence (barcode).  Each sequence read can
+                therefore be assigned to an individual product.</e>
+            <e v="CLONEEND">Clone end (5', 3', or both) sequencing.</e>
+            <e v="FINISHING">Sequencing intended to finish (close) gaps in existing coverage.</e>
+            <e v="ChIP-Seq">Direct sequencing of chromatin immunoprecipitates.</e>
+            <e v="MNase-Seq">Direct sequencing following MNase digestion.</e>
+            <e v="DNase-Hypersensitivity">Sequencing of hypersensitive sites, or segments of open chromatin that are more readily cleaved by DNaseI.</e>
+            <e v="Bisulfite-Seq">Sequencing following treatment of DNA with bisulfite to convert cytosine residues to uracil depending on methylation status.</e>
+            <e v="EST">Single pass sequencing of cDNA templates</e>
+            <e v="FL-cDNA">Full-length sequencing of cDNA templates</e>
+            <e v="CTS">Concatenated Tag Sequencing</e>
+            <e v="MRE-Seq">Methylation-Sensitive Restriction Enzyme Sequencing strategy.</e>
+            <e v="MeDIP-Seq">Methylated DNA Immunoprecipitation Sequencing strategy.</e>
+            <e v="MBD-Seq">Direct sequencing of methylated fractions sequencing strategy.</e>
+            <e v="OTHER">Library strategy not listed.</e>
+        </cv>
     </cv-declarations>
     
     <null-values>
@@ -294,9 +320,14 @@
                 <column-type item-type="string" column-kind="idref" />
             </column>
             <column name="experiment_type">
-                <description>The type of experiment (it is later subclassified)</description>
+                <description>The type of experiment, from the point of view of IHEC (it is later subclassified)</description>
                 <annotation key="values">It corresponds with IHEC Level 0 <xhtml:b>EXPERIMENT_TYPE</xhtml:b> (Chromatin Accessibility, WGBS, MeDIP-Seq, MRE-Seq, Chip-Seq Input, Chip-Seq, mRNA-seq, smRNA-Seq)</annotation>
                 <column-type item-type="string" column-kind="required" />
+            </column>
+            <column name="library_strategy">
+                <description>The type of experiment, from the point of view of EGA/SRA (it is later subclassified)</description>
+                <annotation key="values">It corresponds with /EXPERIMENT_SET/EXPERIMENT/DESIGN/LIBRARY_DESCRIPTOR/LIBRARY_STRATEGY , from EGA/SRA 1.2 metadata</annotation>
+                <column-type item-type="string" column-kind="required" cv="SRALibraryStrategy"/>
             </column>
             <column name="experimental_group_id">
                 <description>Identifier of the experimental group who did the experiment</description>
@@ -337,6 +368,10 @@
                         </column>
                     </compound-type>
                 </column-type>
+            </column>
+            <column name="platform">
+                <description>Platform or technology used in the detection phase</description>
+                <column-type item-type="integer" column-kind="required" cv="B5" />
             </column>
             <column name="seq_coverage">
                 <description>Sequence coverage if analyzed by sequencing platforms</description>
@@ -421,11 +456,11 @@
                         </column>
                     -->
                     
-                    <column name="platform">
+                    <!--
+                        <column name="platform">
                         <description>Platform or technology used in the detection phase</description>
                         <column-type item-type="integer" column-kind="required" cv="B5" />
-                    </column>
-                    <!--
+                        </column>
                         <column name="experimental_protocol">
                         <description>Name of experimental protocol and URL to written protocol</description>
                         <column-type item-type="compound" column-kind="optional" compound-type="name-url-ctype" />
@@ -492,6 +527,7 @@
         </concept-type>
 
         <concept-type name="abstract-experiment-primary" collection="primary">
+            <!--
             <column name="validation_status">
                 <description>Indicate if the mutation/variation has been validated</description>
                 <annotation key="ordering">
@@ -506,6 +542,7 @@
                 </annotation>
                 <column-type item-type="integer" column-kind="optional" cv="B5"></column-type>
             </column>
+            -->
             <column name="notes">
                 <description>Optional field to leave notes</description>
                 <annotation key="ordering">
@@ -821,12 +858,12 @@
                 <description>If "other" specified for specimen_storage, may indicate technique here.</description>
                 <column-type item-type="string" column-kind="optional" />
             </column>
-            <column name="specimen_biobank">
+            <column name="specimen_biomaterial_provider">
                 <description>If the specimen was obtained from a biobank, provide the biobank name here</description>
-                <annotation key="values">It corresponds with IHEC Level 0 <xhtml:b>BIOMATERIAL</xhtml:b> (Cell Line, Primary Cell, Primary Cell Culture &amp; Primary Tissue)</annotation>
+                <annotation key="values">It corresponds with IHEC Level 0 <xhtml:b>BIOMATERIAL_PROVIDER</xhtml:b> (Cell Line, Primary Cell, Primary Cell Culture &amp; Primary Tissue)</annotation>
                 <column-type item-type="string" column-kind="optional" />
             </column>
-            <column name="specimen_biobank_id">
+            <column name="specimen_biomaterial_id">
                 <description>If the specimen was obtained from a biobank, provide the biobank accession number here.</description>
                 <column-type item-type="string" column-kind="optional" />
             </column>
@@ -933,6 +970,13 @@
                     <pattern match="Chromatin Accessibility"/>
                 </column-type>
             </column>
+            <column name="library_strategy">
+                <description>The library strategy, from the point of view of EGA/SRA</description>
+                <annotation key="values">It corresponds with /EXPERIMENT_SET/EXPERIMENT/DESIGN/LIBRARY_DESCRIPTOR/LIBRARY_STRATEGY , from EGA/SRA 1.2 metadata</annotation>
+                <column-type item-type="string" column-kind="required">
+                    <pattern match="DNase-Hypersensitivity"/>
+                </column-type>
+            </column>
             <column name="features">
                 <description>The known features/experimental conditions about the Chromatin Accessibility experiment</description>
                 <column-type item-type="compound" column-kind="required" array-seps=";">
@@ -969,6 +1013,13 @@
                     <pattern match="DNA Methylation"/>
                 </column-type>
             </column>
+            <column name="library_strategy">
+                <description>The library strategy, from the point of view of EGA/SRA</description>
+                <annotation key="values">It corresponds with /EXPERIMENT_SET/EXPERIMENT/DESIGN/LIBRARY_DESCRIPTOR/LIBRARY_STRATEGY , from EGA/SRA 1.2 metadata</annotation>
+                <column-type item-type="string" column-kind="required">
+                    <pattern match="Bisulfite-Seq"/>
+                </column-type>
+            </column>
             <column name="features">
                 <description>The known features/experimental conditions about the WGBS experiment</description>
                 <column-type item-type="compound" column-kind="required" array-seps=";">
@@ -999,6 +1050,13 @@
                 <annotation key="values">It corresponds with IHEC Level 0 <xhtml:b>EXPERIMENT_TYPE</xhtml:b> (MeDIP-Seq)</annotation>
                 <column-type item-type="string" column-kind="required">
                     <pattern match="DNA Methylation"/>
+                </column-type>
+            </column>
+            <column name="library_strategy">
+                <description>The library strategy, from the point of view of EGA/SRA</description>
+                <annotation key="values">It corresponds with /EXPERIMENT_SET/EXPERIMENT/DESIGN/LIBRARY_DESCRIPTOR/LIBRARY_STRATEGY , from EGA/SRA 1.2 metadata</annotation>
+                <column-type item-type="string" column-kind="required">
+                    <pattern match="MeDIP-Seq"/>
                 </column-type>
             </column>
             <column name="features">
@@ -1033,6 +1091,13 @@
                     <pattern match="DNA Methylation"/>
                 </column-type>
             </column>
+            <column name="library_strategy">
+                <description>The library strategy, from the point of view of EGA/SRA</description>
+                <annotation key="values">It corresponds with /EXPERIMENT_SET/EXPERIMENT/DESIGN/LIBRARY_DESCRIPTOR/LIBRARY_STRATEGY , from EGA/SRA 1.2 metadata</annotation>
+                <column-type item-type="string" column-kind="required">
+                    <pattern match="MRE-Seq"/>
+                </column-type>
+            </column>
             <column name="features">
                 <description>The known features/experimental conditions about the MRE-Seq experiment</description>
                 <column-type item-type="compound" column-kind="required" array-seps=";">
@@ -1065,6 +1130,13 @@
                     <pattern match="ChIP-Seq Input"/>
                 </column-type>
             </column>
+            <column name="library_strategy">
+                <description>The library strategy, from the point of view of EGA/SRA</description>
+                <annotation key="values">It corresponds with /EXPERIMENT_SET/EXPERIMENT/DESIGN/LIBRARY_DESCRIPTOR/LIBRARY_STRATEGY , from EGA/SRA 1.2 metadata</annotation>
+                <column-type item-type="string" column-kind="required">
+                    <pattern match="ChIP-Seq"/>
+                </column-type>
+            </column>
             <column name="features">
                 <description>The known features/experimental conditions about the Chip-Seq Input experiment</description>
                 <column-type item-type="compound" column-kind="required" array-seps=";">
@@ -1094,6 +1166,13 @@
                 <description>Type of experiment:  'Histone H3K4me1','Histone H3K4me3','Histone H3K9me3','Histone H3K9ac','Histone H3K27me3', 'Histone H3K36me3', etc...</description>
                 <annotation key="values">It corresponds with IHEC Level 0 <xhtml:b>EXPERIMENT_TYPE</xhtml:b> (Chip-Seq)</annotation>
                 <column-type item-type="string" column-kind="required"/>
+            </column>
+            <column name="library_strategy">
+                <description>The library strategy, from the point of view of EGA/SRA</description>
+                <annotation key="values">It corresponds with /EXPERIMENT_SET/EXPERIMENT/DESIGN/LIBRARY_DESCRIPTOR/LIBRARY_STRATEGY , from EGA/SRA 1.2 metadata</annotation>
+                <column-type item-type="string" column-kind="required">
+                    <pattern match="ChIP-Seq"/>
+                </column-type>
             </column>
             <column name="features">
                 <description>The known features/experimental conditions about the Chip-Seq experiment</description>
@@ -1127,6 +1206,13 @@
                     <pattern match="mRNA-seq"/>
                 </column-type>
             </column>
+            <column name="library_strategy">
+                <description>The library strategy, from the point of view of EGA/SRA</description>
+                <annotation key="values">It corresponds with /EXPERIMENT_SET/EXPERIMENT/DESIGN/LIBRARY_DESCRIPTOR/LIBRARY_STRATEGY , from EGA/SRA 1.2 metadata</annotation>
+                <column-type item-type="string" column-kind="required">
+                    <pattern match="RNA-Seq"/>
+                </column-type>
+            </column>
             <column name="features">
                 <description>The known features/experimental conditions about the mRNA-seq experiment</description>
                 <column-type item-type="compound" column-kind="required" array-seps=";">
@@ -1157,6 +1243,13 @@
                 <annotation key="values">It corresponds with IHEC Level 0 <xhtml:b>EXPERIMENT_TYPE</xhtml:b> (smRNA-Seq)</annotation>
                 <column-type item-type="string" column-kind="required">
                     <pattern match="smRNA-seq"/>
+                </column-type>
+            </column>
+            <column name="library_strategy">
+                <description>The library strategy, from the point of view of EGA/SRA</description>
+                <annotation key="values">It corresponds with /EXPERIMENT_SET/EXPERIMENT/DESIGN/LIBRARY_DESCRIPTOR/LIBRARY_STRATEGY , from EGA/SRA 1.2 metadata</annotation>
+                <column-type item-type="string" column-kind="required">
+                    <pattern match="RNA-Seq"/>
                 </column-type>
             </column>
             <column name="features">
