@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dcc-schema
         project="BLUEPRINT"
-        schemaVer="0.3.0.1"
+        schemaVer="0.3.1.0"
         docsDir="model-docs"
         xmlns="http://www.blueprint-epigenome.eu/dcc/schema"
         xmlns:xhtml="http://www.w3.org/1999/xhtml"
@@ -67,6 +67,13 @@
             
             <cv-uri format="obo" doc="http://cellontology.org/">http://cell-ontology.googlecode.com/svn/releases/2013-01-31/cl.obo</cv-uri>
             <cv-file format="obo">cl.obo</cv-file>
+        </cv>
+        <cv name="BrendaTissueOntology">
+            <description>A structured controlled vocabulary for the source of an enzyme. It comprises terms for tissues, cell lines, cell types and cell cultures from uni- and multicellular organisms.</description>
+            <annotation key="file">BRENDA Tissue Ontology</annotation>
+            
+            <cv-uri format="obo" doc="http://www.obofoundry.org/cgi-bin/detail.cgi?id=brenda">http://www.brenda-enzymes.info/ontology/tissue/tree/update/update_files/BrendaTissueOBO</cv-uri>
+            <cv-file format="obo">BrendaTissueOBO</cv-file>
         </cv>
         <cv name="ISO3166">
             <description><![CDATA[ISO 3166 is the International Standard for country codes and codes for their subdivisions. The purpose of ISO 3166 is to establish internationally recognised codes for the representation of names of countries, territories or areas of geographical interest, and their subdivisions. A complementary classification, related to ISO 3166 is UN M.49 (Standard Country and Area Codes Classifications)]]></description>
