@@ -763,39 +763,24 @@
                 <description>Unique identifier for the specimen assigned by data provider.</description>
                 <column-type item-type="string" column-kind="idref" />
             </column>
-            <column name="specimen_type">
-                <description>Controlled vocabulary description of specimen type.</description>
-                <annotation key="values">It more or less corresponds to IHEC Level 0 <xhtml:b>TISSUE_TYPE</xhtml:b> (Primary Tissue)</annotation>
-                <column-type item-type="string" column-kind="required">
-                    <cv>
-                        <e v="1">primary tumour</e>
-                        <e v="2">tumour local recurrence</e>
-                        <e v="3">tumour metastasis to local lymph node</e>
-                        <e v="4">tumour metastasis to distant location</e>
-                        <e v="per_blood">peripheral blood</e>
-                        <e v="6">bone marrow</e>
-                        <e v="7">lymph node</e>
-                        <e v="c_tissue">normal control (tissue adjacent to primary)</e>
-                        <e v="c_blood">normal control (blood)</e>
-                        <e v="c_other">normal control (other)</e>
-                        <e v="d_tissue">disease tissue (other)</e>
-                        <e v="cord_blood">cord blood</e>
-                    </cv>
-                </column-type>
-            </column>
-            <column name="specimen_type_other">
-                <description>Free text description of site of specimen if "normal control (other)" or "disease tissue (other)" was specified in <xhtml:b><xhtml:tt>specimen_type</xhtml:tt></xhtml:b> field.</description>
-                <annotation key="values">It more or less corresponds to IHEC Level 0 <xhtml:b>TISSUE_TYPE</xhtml:b> (Primary Tissue)</annotation>
+            <column name="tissue_type">
+                <description>Free text description of site where the specimen was taken.</description>
+                <annotation key="values">It corresponds to IHEC Level 0 <xhtml:b>TISSUE_TYPE</xhtml:b> (Primary Tissue)</annotation>
                 <column-type item-type="string" column-kind="optional" />
             </column>
-            <column name="specimen_source">
+            <column name="tissue_depot">
                 <description>Details about the anatomical location from which the specimen was collected</description>
-                <annotation key="values">It more or less corresponds to IHEC Level 0 <xhtml:b>TISSUE_DEPOT</xhtml:b> (Primary Tissue)</annotation>
+                <annotation key="values">It corresponds to IHEC Level 0 <xhtml:b>TISSUE_DEPOT</xhtml:b> (Primary Tissue)</annotation>
                 <column-type item-type="string" column-kind="optional"></column-type>
             </column>
-            <column name="specimen_collection_protocol">
+            <column name="specimen_term">
+                <description>Term from BRENDA Tissue Ontology which identifies the tissue (or the place where the specimen was taken)</description>
+                <annotation key="values">It maps IHEC Level 0 <xhtml:b>TISSUE_TYPE</xhtml:b> and IHEC Level 0 <xhtml:b>TISSUE_DEPOT</xhtml:b> (both from Primary Tissue) to BRENDA Tissue Ontology</annotation>
+                <column-type item-type="string" column-kind="required" cv="BrendaTissueOntology" />
+            </column>
+            <column name="collection_method">
                 <description>The protocol followed to collect the specimen</description>
-                <annotation key="values">It more or less corresponds to IHEC Level 0 <xhtml:b>COLLECTION_METHOD</xhtml:b> (Primary Tissue)</annotation>
+                <annotation key="values">It corresponds to IHEC Level 0 <xhtml:b>COLLECTION_METHOD</xhtml:b> (Primary Tissue)</annotation>
                 <column-type item-type="text" column-kind="optional"></column-type>
             </column>
             <column name="donor_min_age_at_specimen_acquisition">
