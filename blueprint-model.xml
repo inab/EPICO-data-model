@@ -423,6 +423,14 @@
                 <description>Version of reference genome assembly</description>
                 <column-type item-type="integer" column-kind="required" cv="B10" />
             </column>
+            <column name="ensembl_version">
+                <description>Version of Ensembl</description>
+                <column-type item-type="integer" column-kind="optional" />
+            </column>
+            <column name="gencode_version">
+                <description>Version of Gencode</description>
+                <column-type item-type="integer" column-kind="optional" />
+            </column>
             <column name="program_versions">
                 <description>The versions of (some of) the programs used for the analysis</description>
                 <column-type item-type="compound" column-kind="desirable" array-seps=";">
