@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dcc-schema
         project="BLUEPRINT"
-        schemaVer="0.3.1.0"
+        schemaVer="0.3.1.1"
         docsDir="model-docs"
         xmlns="http://www.blueprint-epigenome.eu/dcc/schema"
         xmlns:xhtml="http://www.w3.org/1999/xhtml"
@@ -44,7 +44,7 @@
             <description>Valid Ensembl Genes identifiers</description>
             <annotation key="file">Ensembl Genes</annotation>
             
-            <annotation key="version">70</annotation>
+            <annotation key="data-version">70</annotation>
             
             <cv-uri format="EnsemblMySQLDump" doc="http://jan2013.archive.ensembl.org/Homo_sapiens/Info/Index">ftp://ftp.ensembl.org/pub/release-70/mysql/homo_sapiens_core_70_37/gene.txt.gz</cv-uri>
             <cv-file format="obo">ENSG.obo</cv-file>
@@ -53,7 +53,7 @@
             <description>Valid Ensembl Transcript identifiers</description>
             <annotation key="file">Ensembl Transcripts</annotation>
             
-            <annotation key="version">70</annotation>
+            <annotation key="data-version">70</annotation>
             
             <cv-uri format="EnsemblMySQLDump" doc="http://jan2013.archive.ensembl.org/Homo_sapiens/Info/Index">ftp://ftp.ensembl.org/pub/release-70/mysql/homo_sapiens_core_70_37/transcript.txt.gz</cv-uri>
             <cv-file format="obo">ENST.obo</cv-file>
@@ -61,20 +61,30 @@
         <cv name="CellOntology">
             <description>The Cell Ontology is designed as a structured controlled vocabulary for cell types</description>
             <annotation key="file">Cell Ontology</annotation>
+			<annotation key="data-version">2014-03-11</annotation>
             <!--
             <annotation key="showFetched">true</annotation>
             -->
             
-            <cv-uri format="obo" doc="http://cellontology.org/">http://cell-ontology.googlecode.com/svn/releases/2013-01-31/cl.obo</cv-uri>
-            <cv-file format="obo">cl.obo</cv-file>
+            <cv-uri format="obo" doc="http://cellontology.org/">https://cell-ontology.googlecode.com/svn/releases/2014-03-11/cl-basic.obo</cv-uri>
+            <cv-file format="obo">cl-basic.obo</cv-file>
         </cv>
-        <cv name="BrendaTissueOntology">
-            <description>A structured controlled vocabulary for the source of an enzyme. It comprises terms for tissues, cell lines, cell types and cell cultures from uni- and multicellular organisms.</description>
-            <annotation key="file">BRENDA Tissue Ontology</annotation>
-            
-            <cv-uri format="obo" doc="http://www.obofoundry.org/cgi-bin/detail.cgi?id=brenda">http://www.brenda-enzymes.info/ontology/tissue/tree/update/update_files/BrendaTissueOBO</cv-uri>
-            <cv-file format="obo">BrendaTissueOBO</cv-file>
-        </cv>
+		<cv name="UBERON">
+			<description>Uberon is an integrated cross-species anatomy ontology representing a variety of entities classified according to traditional anatomical criteria such as structure, function and developmental lineage.</description>
+			<annotation key="file">UBERON</annotation>
+			<annotation key="data-version">2014-05-03</annotation>
+	
+			<cv-uri format="obo" doc="http://uberon.org/">http://svn.code.sf.net/p/obo/svn/uberon/releases/2014-05-03/basic.obo</cv-uri>
+			<cv-file format="obo">uberon-basic.obo</cv-file>
+		</cv>
+		<cv name="EFO">
+			<description></description>
+			<annotation key="file">Experimental Factor</annotation>
+			<annotation key="data-version">2.44</annotation>
+	
+			<cv-uri format="obo" doc="http://www.ebi.ac.uk/efo/">http://sourceforge.net/p/efo/code/278/tree/trunk/src/efoinobo/efo.obo?format=raw</cv-uri>
+			<cv-file format="obo">efo.obo</cv-file>
+		</cv>
         <cv name="ISO3166">
             <description><![CDATA[ISO 3166 is the International Standard for country codes and codes for their subdivisions. The purpose of ISO 3166 is to establish internationally recognised codes for the representation of names of countries, territories or areas of geographical interest, and their subdivisions. A complementary classification, related to ISO 3166 is UN M.49 (Standard Country and Area Codes Classifications)]]></description>
             <annotation key="file">ISO 3166-1, ISO 3166-2 and UN M.49</annotation>
@@ -784,7 +794,10 @@
             <column name="specimen_term">
                 <description>Term from BRENDA Tissue Ontology which identifies the tissue (or the place where the specimen was taken)</description>
                 <annotation key="values">It maps IHEC Level 0 <xhtml:b>TISSUE_TYPE</xhtml:b> and IHEC Level 0 <xhtml:b>TISSUE_DEPOT</xhtml:b> (both from Primary Tissue) to BRENDA Tissue Ontology</annotation>
-                <column-type item-type="string" column-kind="required" cv="BrendaTissueOntology" />
+                <column-type item-type="string" column-kind="required">
+                	<cv-ref name="UBERON" />
+                	<cv-ref name="EFO" />
+                </column-type>
             </column>
             <column name="collection_method">
                 <description>The protocol followed to collect the specimen</description>
@@ -807,7 +820,7 @@
             <column name="donor_health_status">
                 <description>The donor health status at specimen acquisition (when available)</description>
                 <annotation key="values">It corresponds with IHEC Level 0 <xhtml:b>DONOR_HEALTH_STATUS</xhtml:b> (Primary Cell, Primary Cell Culture &amp; Primary Tissue)</annotation>
-                <column-type item-type="boolean" column-kind="desirable" />
+                <column-type item-type="string" column-kind="desirable" />
             </column>
             <column name="donor_disease">
                 <description>If the donor was ill, the EFO code (browsable <xhtml:i><xhtml:a href="http://purl.bioontology.org/ontology/EFO">here</xhtml:a></xhtml:i>) or SNOMED-CT code (from <xhtml:i><xhtml:a href="http://purl.bioontology.org/ontology/SNOMEDCT/64572001">Disease branch</xhtml:a></xhtml:i>) of the disease at acquisition time. Use code <xhtml:a href="http://www.ebi.ac.uk/efo/EFO_0000761">EFO_0000761</xhtml:a> when the donor was healthy</description>
