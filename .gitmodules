@@ -1,0 +1,4 @@
+[submodule "schema+tools"]
+	path = schema+tools
+	url = https://github.com/inab/BP-Schema-tools.git
+	branch = develop
