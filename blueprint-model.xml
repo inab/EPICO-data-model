@@ -792,8 +792,8 @@
                 <column-type item-type="string" column-kind="optional"></column-type>
             </column>
             <column name="specimen_term">
-                <description>Term from BRENDA Tissue Ontology which identifies the tissue (or the place where the specimen was taken)</description>
-                <annotation key="values">It maps IHEC Level 0 <xhtml:b>TISSUE_TYPE</xhtml:b> and IHEC Level 0 <xhtml:b>TISSUE_DEPOT</xhtml:b> (both from Primary Tissue) to BRENDA Tissue Ontology</annotation>
+                <description>Term from UBERON or EFO ontologies which identifies the tissue (or the place where the specimen was taken)</description>
+                <annotation key="values">It maps IHEC Level 0 <xhtml:b>TISSUE_TYPE</xhtml:b> and IHEC Level 0 <xhtml:b>TISSUE_DEPOT</xhtml:b> (both from Primary Tissue) to UBERON or EFO ontologies</annotation>
                 <column-type item-type="string" column-kind="required">
                 	<cv-ref name="UBERON" />
                 	<cv-ref name="EFO" />
