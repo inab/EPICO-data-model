@@ -15,8 +15,9 @@
     <annotation key="cvDesc">Description</annotation>
     <annotation key="defaultColor"><color>rgb(183,201,227)</color></annotation>
     
-    <!-- Next annotation is specific of our PDF document generator -->
+    <!-- Next annotations are specific of our PDF document generator -->
     <annotation key="overviewDoc">overview.latex</annotation>
+    <annotation key="XMPsidecarDoc">CC_Attribution_3.0_Unported.xmp</annotation>
     
     <collection-domain>
         <!-- Metadata from experiments is being stored here -->
