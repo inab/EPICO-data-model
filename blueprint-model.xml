@@ -37,10 +37,12 @@
         </collection>
         <!-- All the sample tracking data documents are stored here -->
         <collection name="sdata" path="sample-tracking-data" />
-        <collection name="CV" path="CV" />
+        <collection name="modelMetadata" path="meta-model" />
     </collection-domain>
-    
-    <cv-declarations dir="cv" collection="CV">
+	
+	<metadata collection="modelMetadata"/>
+	
+    <cv-declarations dir="cv">
         <cv name="EnsemblGenes">
             <description>Valid Ensembl Genes identifiers</description>
             <annotation key="file">Ensembl Genes</annotation>
