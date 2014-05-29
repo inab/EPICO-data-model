@@ -2,22 +2,24 @@
 <dcc-schema
         project="BLUEPRINT"
         schemaVer="0.3.1.1"
-        docsDir="model-docs"
+        
         xmlns="http://www.blueprint-epigenome.eu/dcc/schema"
         xmlns:xhtml="http://www.w3.org/1999/xhtml"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.blueprint-epigenome.eu/dcc/schema bp-schema.xsd"
 >
-    <annotation key="author">José María Fernández</annotation>
-    <annotation key="GENCODEVer">15</annotation>
-    <annotation key="EnsemblVer">70</annotation>
-    <annotation key="cvKey">Key</annotation>
-    <annotation key="cvDesc">Description</annotation>
-    <annotation key="defaultColor"><color>rgb(183,201,227)</color></annotation>
-    
-    <!-- Next annotations are specific of our PDF document generator -->
-    <annotation key="overviewDoc">overview.latex</annotation>
-    <annotation key="XMPsidecarDoc">CC_Attribution_3.0_Unported.xmp</annotation>
+	<metadata documentation-dir="model-docs" collection="modelMetadata">
+		<annotation key="author">José María Fernández</annotation>
+		<annotation key="GENCODEVer">15</annotation>
+		<annotation key="EnsemblVer">70</annotation>
+		<annotation key="cvKey">Key</annotation>
+		<annotation key="cvDesc">Description</annotation>
+		
+		<!-- Next annotations are specific of our PDF document generator -->
+		<annotation key="overviewDoc">overview.latex</annotation>
+		<annotation key="XMPsidecarDoc">CC_Attribution_3.0_Unported.xmp</annotation>
+		<annotation key="defaultColor"><color>rgb(183,201,227)</color></annotation>
+	</metadata>
     
     <collection-domain>
         <!-- Metadata from experiments is being stored here -->
@@ -40,9 +42,7 @@
         <collection name="modelMetadata" path="meta-model" />
     </collection-domain>
 	
-	<metadata collection="modelMetadata"/>
-	
-    <cv-declarations dir="cv">
+   <cv-declarations dir="cv">
         <cv name="EnsemblGenes">
             <description>Valid Ensembl Genes identifiers</description>
             <annotation key="file">Ensembl Genes</annotation>
