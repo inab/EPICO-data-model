@@ -1489,11 +1489,16 @@
                     <annotation key="color"><color>#FFF455</color></annotation>
                     
                     <column name="gene_stable_id">
-                        <description>For annotated gene, use Ensembl gene ID. Otherwise, use <xhtml:tt>assemblyBuild_chr_start_end</xhtml:tt> where <xhtml:tt>assemblyBuild</xhtml:tt> is hg19.</description>
-                        <column-type item-type="string" column-kind="idref" />
+                        <description>For annotated gene, use Ensembl gene ID.</description>
+                        <column-type item-type="string" column-kind="desirable" cv="EnsemblGenes" />
                     </column>
                     
-                    <column name="normalized_expression_level">
+                	<column name="transcript_stable_id">
+                		<description>For annotated gene, use Ensembl transcript ID.</description>
+                		<column-type item-type="string" column-kind="desirable" cv="EnsemblTranscripts" />
+                	</column>
+                	
+                	<column name="normalized_expression_level">
                         <description>Normalized value of expression level if analyzed by microarray platforms</description>
                         <column-type item-type="decimal" column-kind="optional" />
                     </column>
@@ -1510,10 +1515,6 @@
                     <column name="is_annotated">
                         <description>If it is true, it indicate if the expressed fragment is annotated in GENCODE/Ensembl (i.e. <xhtml:b><xhtml:tt>gene_stable_id</xhtml:tt></xhtml:b> contains a Ensembl Gene Identifier)</description>
                         <column-type item-type="boolean" column-kind="required"></column-type>
-                    </column>
-                    <column name="probeset_id">
-                        <description>ID of the probeset used in microarray if analyzed by microarray platform</description>
-                        <column-type item-type="string" column-kind="optional" />
                     </column>
                 </concept>
             </weak-concepts>
@@ -1546,10 +1547,12 @@
                     <annotation key="altname">Exon Junction Primary</annotation>
                     <annotation key="color"><color>#D9A152</color></annotation>
                     
+                    <!--
                     <column name="junction_id">
                         <description>For known exons, use <xhtml:tt>exonID1_exonID2</xhtml:tt> where <xhtml:tt>exonID1</xhtml:tt> and <xhtml:tt>exonID2</xhtml:tt> are Ensembl IDs of the 5' and 3' exons, respectively. For novel or putative exons, use <xhtml:tt>assemblyBuild_exon1chr_exon1end_exon2chr_exon2start</xhtml:tt> where <xhtml:tt>assemblyBuild</xhtml:tt> is hg18 or hg19; <xhtml:tt>exon1chr</xhtml:tt> and <xhtml:tt>exon2chr</xhtml:tt> are the chromosomes of the 5' and 3' exons, respectively; <xhtml:tt>exon1end</xhtml:tt> is the end position of the 5' exon; <xhtml:tt>exon2start</xhtml:tt> is the start position of the 3' exon.</description>
                         <column-type item-type="string" column-kind="idref" />
                     </column>
+                    -->
                     
                     <column name="gene1_stable_id">
                         <description>Stable ID of the gene containing the 5' exon at the junction. For GENCODE/Ensembl annotated gene, use Ensembl gene ID. For putative and novel gene, use <xhtml:tt>assemblyBuild_chr_start_end</xhtml:tt> where <xhtml:tt>assemblyBuild</xhtml:tt> can be hg18 or hg19.</description>
