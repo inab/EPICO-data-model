@@ -1,0 +1,27 @@
+digraph G {
+	d2toptions="--autosize --crop -ftikz";
+	d2tdocpreamble="\usepackage{hyperref} \usetikzlibrary{shapes,automata,backgrounds,arrows,shadows} \providecommand{\arrayrulecolor}[1] {} \usepackage{ifxetex} \usepackage{ifluatex} \ifxetex   \usepackage{fontspec}   \usepackage{xunicode}   \defaultfontfeatures{Mapping=tex-text} \else   \ifluatex     \usepackage{fontspec}     \usepackage{xunicode}   \else     \usepackage[T1]{fontenc}     \usepackage[utf8]{inputenc}   \fi \fi  \ifxetex   \setmainfont{Iwona}   \setmonofont[Scale=0.88]{Consolas} \else   \ifluatex     \setmainfont{Iwona}     \setmonofont[Scale=0.88]{Consolas}   \else     \usepackage{iwona}     \usepackage[scaled=0.8]{beramono}   \fi \fi ";
+	rankdir=LR;
+	node [shape=box];
+	edge [arrowhead=none];
+	
+exp_m [label=" ",texlbl="\graphicspath{{/home/jmfernandez/projects/BLUEPRINT/model/BLUEPRINT-doc-template/icons/}} \arrayrulecolor{Black} \begin{tabular}{ c l }  \multicolumn{2}{c}{\textbf{\hyperref[tab:exp_m]{\Large{}Expression - Metadata File}}} \\ \hline \includegraphics[height=1.6ex]{pk.pdf} & \hyperref[column:exp.m.analysis_id]{\textbf{analysis\-\_\-id}} \\ \hyperref[column:lab.mrna.experiment_id]{\includegraphics[height=1.6ex]{fk.pdf}} & \hyperref[column:exp.m.experiment_id]{\textit{experiment\-\_\-id}} \\  & \hyperref[column:exp.m.analysis_group_id]{analysis\-\_\-group\-\_\-id} \\  & \hyperref[column:exp.m.data_status]{data\-\_\-status} \\  & \hyperref[column:exp.m.assembly_version]{assembly\-\_\-version} \\  & \hyperref[column:exp.m.ensembl_version]{\textcolor{gray}{ensembl\-\_\-version}} \\  & \hyperref[column:exp.m.gencode_version]{\textcolor{gray}{gencode\-\_\-version}} \\  & \hyperref[column:exp.m.program_versions]{\textbf{\textcolor{gray}{program\-\_\-versions}}} \\  & \hyperref[column:exp.m.alignment_algorithm]{alignment\-\_\-algorithm} \\  & \hyperref[column:exp.m.other_analysis_algorithm]{\textcolor{gray}{other\-\_\-analysis\-\_\-algorithm}} \\  & \hyperref[column:exp.m.notes]{\textcolor{gray}{notes}} \end{tabular}",style="top color=exp_m,shape=rectangle,rounded corners,drop shadow",margin="0,0"];
+exp_g [label=" ",texlbl="\graphicspath{{/home/jmfernandez/projects/BLUEPRINT/model/BLUEPRINT-doc-template/icons/}} \arrayrulecolor{Black} \begin{tabular}{ c l }  \multicolumn{2}{c}{\textbf{\hyperref[tab:exp_g]{\Large{}Expression - Gene File}}} \\ \hline \hyperref[column:exp.m.analysis_id]{\includegraphics[height=1.6ex]{fk.pdf}} & \hyperref[column:exp.g.analysis_id]{\textit{analysis\-\_\-id}} \\  & \hyperref[column:exp.g.chromosome]{chromosome} \\  & \hyperref[column:exp.g.chromosome_start]{chromosome\-\_\-start} \\  & \hyperref[column:exp.g.chromosome_end]{chromosome\-\_\-end} \\  & \hyperref[column:exp.g.chromosome_strand]{\textcolor{gray}{chromosome\-\_\-strand}} \\  & \hyperref[column:exp.g.quality_score]{\textcolor{gray}{quality\-\_\-score}} \\  & \hyperref[column:exp.g.probability]{\textcolor{gray}{probability}} \\  & \hyperref[column:exp.g.normalized_read_count]{normalized\-\_\-read\-\_\-count} \\  & \hyperref[column:exp.g.raw_read_count]{raw\-\_\-read\-\_\-count} \\  & \hyperref[column:exp.g.gene_stable_id]{\textbf{\textcolor{gray}{gene\-\_\-stable\-\_\-id}}} \\  & \hyperref[column:exp.g.transcript_stable_id]{\textbf{\textcolor{gray}{transcript\-\_\-stable\-\_\-id}}} \\  & \hyperref[column:exp.g.normalized_expression_level]{\textcolor{gray}{normalized\-\_\-expression\-\_\-level}} \\  & \hyperref[column:exp.g.reference_sample]{\textcolor{gray}{reference\-\_\-sample}} \\  & \hyperref[column:exp.g.is_annotated]{is\-\_\-annotated} \\  & \hyperref[column:exp.g.notes]{\textcolor{gray}{notes}} \end{tabular}",style="top color=exp_g,shape=rectangle,rounded corners,drop shadow,double distance=2pt",margin="0,0"];
+	
+	node [shape=diamond, label=" ", texlbl="Identifies"];
+	
+	
+	ID_exp_m_1 [style="top color=exp_m,drop shadow,shape aspect=2,double distance=2pt"];
+	exp_m -> ID_exp_m_1  [label="1"];
+	ID_exp_m_1 -> exp_g [label="N",style="double distance=2pt"];
+	
+	node [shape=diamond];
+	
+	
+	exp_m_lab_mrna_2 [style="top color=lab_mrna,drop shadow,shape aspect=2",label=" ",texlbl="Relationship"];
+	lab_mrna [style="top color=lab_mrna,shape=rectangle,rounded corners,inner sep=10pt,drop shadow",label=" ",texlbl="\textbf{\hyperref[tab:lab_mrna]{\Large{}mRNA-seq}}"];
+	lab_mrna:n -> exp_m_lab_mrna_2:w [label="1"];
+	exp_m_lab_mrna_2:e -> exp_m:n [label="N",style="double distance=2pt"];
+	
+	d2tfigpreamble="\definecolor{exp_g}{HTML}{FFF455}\definecolor{lab_mrna}{RGB}{183,201,227}\definecolor{exp_m}{HTML}{FFF455}";
+}

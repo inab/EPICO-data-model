@@ -6,4 +6,5 @@
 *.lot
 fontconfig
 *.svg
-
+*.fdb_latexmk
+*.fls
