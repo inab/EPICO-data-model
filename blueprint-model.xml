@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dcc-schema
         project="BLUEPRINT"
-        schemaVer="0.3.2"
+        schemaVer="0.3.2.1"
         
         xmlns="http://www.blueprint-epigenome.eu/dcc/schema"
         xmlns:xhtml="http://www.w3.org/1999/xhtml"
@@ -72,6 +72,19 @@
             <cv-uri format="obo" doc="http://cellontology.org/">https://cell-ontology.googlecode.com/svn/releases/2014-03-11/cl-basic.obo</cv-uri>
             <cv-file format="obo">cl-basic.obo</cv-file>
         </cv>
+        <cv name="CellLineOntology">
+            <description>The Cell Line Ontology is designed as a structured controlled vocabulary for cell lines</description>
+            <annotation key="file">Cell Line Ontology</annotation>
+			<annotation key="data-version">53</annotation>
+            <!--
+            <annotation key="showFetched">true</annotation>
+            -->
+            
+            <cv-uri format="OWL" doc="http://www.clo-ontology.org/">http://clo-ontology.googlecode.com/svn/trunk/src/ontology/clo.owl</cv-uri>
+            <!--
+            <cv-file format="obo">cl-basic.obo</cv-file>
+            -->
+        </cv>
 		<cv name="UBERON">
 			<description>Uberon is an integrated cross-species anatomy ontology representing a variety of entities classified according to traditional anatomical criteria such as structure, function and developmental lineage.</description>
 			<annotation key="file">UBERON</annotation>
@@ -88,6 +101,15 @@
 			<cv-uri format="obo" doc="http://www.ebi.ac.uk/efo/">http://sourceforge.net/p/efo/code/278/tree/trunk/src/efoinobo/efo.obo?format=raw</cv-uri>
 			<cv-file format="obo">efo.obo</cv-file>
 		</cv>
+        <cv name="NCIMetathesaurus">
+            <description>NCI Metathesaurus (NCIm) is a wide-ranging biomedical terminology database that covers most terminologies used by NCI for clinical care, translational and basic research, and public information and administrative activities.</description>
+            <annotation key="file">NCI Metathesaurus</annotation>
+            <annotation key="data-version">201312E</annotation>
+            <!--
+            <annotation key="showFetched">true</annotation>
+            -->
+            <cv-uri doc="ncimeta.nci.nih.gov/ncimbrowser/"/>
+        </cv>
         <cv name="ISO3166">
             <description><![CDATA[ISO 3166 is the International Standard for country codes and codes for their subdivisions. The purpose of ISO 3166 is to establish internationally recognised codes for the representation of names of countries, territories or areas of geographical interest, and their subdivisions. A complementary classification, related to ISO 3166 is UN M.49 (Standard Country and Area Codes Classifications)]]></description>
             <annotation key="file">ISO 3166-1, ISO 3166-2 and UN M.49</annotation>
@@ -839,6 +861,7 @@
                 <column-type item-type="string" column-kind="required">
                 	<cv-ref name="UBERON" />
                 	<cv-ref name="EFO" />
+                	<cv-ref name="CellLineOntology" />
                 </column-type>
             </column>
             <column name="collection_method">
@@ -865,9 +888,12 @@
                 <column-type item-type="string" column-kind="desirable" />
             </column>
             <column name="donor_disease">
-                <description>If the donor was ill, the EFO code (browsable <xhtml:i><xhtml:a href="http://purl.bioontology.org/ontology/EFO">here</xhtml:a></xhtml:i>) or SNOMED-CT code (from <xhtml:i><xhtml:a href="http://purl.bioontology.org/ontology/SNOMEDCT/64572001">Disease branch</xhtml:a></xhtml:i>) of the disease at acquisition time. Use code <xhtml:a href="http://www.ebi.ac.uk/efo/EFO_0000761">EFO_0000761</xhtml:a> when the donor was healthy</description>
+                <description>If the donor was ill, the EFO code (browsable <xhtml:i><xhtml:a href="http://purl.bioontology.org/ontology/EFO">here</xhtml:a></xhtml:i>) or NCI Metathesaurus code (from <xhtml:i><xhtml:a href="ncimeta.nci.nih.gov/ncimbrowser/">here</xhtml:a></xhtml:i>) of the disease at acquisition time. Use code <xhtml:a href="http://www.ebi.ac.uk/efo/EFO_0000761">EFO_0000761</xhtml:a> when the donor was healthy</description>
                 <annotation key="values">This value can come from EGA <xhtml:i>Phenotype</xhtml:i> field. When this field and <xhtml:b><xhtml:tt>donor_disease_text</xhtml:tt></xhtml:b> are set, the description of the term in this field should be used</annotation>
-                <column-type item-type="string" column-kind="desirable" />
+                <column-type item-type="string" column-kind="desirable">
+                    <cv-ref name="EFO" />
+                    <cv-ref name="NCIMetathesaurus" />
+                </column-type>
             </column>
             <column name="donor_disease_text">
                 <description>If the donor was ill, the disease name at acquisition time.</description>
