@@ -971,7 +971,11 @@
             <column name="purified_cell_type">
                 <description>Purified cell type for the sample</description>
                 <annotation key="values">It corresponds more or less with IHEC Level 0 <xhtml:b>CELL_TYPE</xhtml:b> (Primary Cell &amp; Primary Cell Culture)</annotation>
-                <column-type item-type="string" column-kind="required" cv="CellOntology" />
+                <column-type item-type="string" column-kind="required">
+                    <cv-ref name="CellOntology" />
+                    <cv-ref name="CellLineOntology" />
+                    <cv-ref name="EFO" />
+                </column-type>
             </column>
             <column name="culture_conditions">
                 <description>The conditions under which the primary cell was cultured</description>
