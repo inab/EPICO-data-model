@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dcc-schema
         project="BLUEPRINT"
-        schemaVer="0.3.2.1"
+        schemaVer="0.3.2.2"
         
         xmlns="http://www.blueprint-epigenome.eu/dcc/schema"
         xmlns:xhtml="http://www.w3.org/1999/xhtml"
@@ -479,7 +479,7 @@
             </column>
             <column name="program_versions">
                 <description>The versions of (some of) the programs used for the analysis</description>
-                <column-type item-type="compound" column-kind="desirable" container-type="array" array-seps=";">
+                <column-type item-type="compound" column-kind="desirable" container-type="set" set-seps=";">
                     <compound-type>
                         <!-- TODO: Restrict program and version, so they cannot contain : or ; -->
                         <column name="program">
@@ -500,7 +500,7 @@
             </column>
             <column name="other_analysis_algorithm">
                 <description>Names of other analysis algorithms. Separate multiple algorithms by commas.</description>
-            	<column-type item-type="compound" compound-type="name-url-ctype" column-kind="optional" container-type="array" array-seps="," />
+            	<column-type item-type="compound" compound-type="name-url-ctype" column-kind="optional" container-type="set" set-seps="," />
             </column>
             <column name="notes">
                 <description>Optional field to leave notes</description>
