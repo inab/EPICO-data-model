@@ -378,8 +378,8 @@
                 <column-type item-type="string" column-kind="required" container-type="set" set-seps="," cv="B1"></column-type>
             </column>
             <column name="features">
-                <description>The known features/experimental conditions about the experiment</description>
-                <column-type item-type="compound" column-kind="required" container-type="array" array-seps=";">
+                <description>The known features/experimental conditions about the experiment (the name of the feature is the hash key)</description>
+                <column-type item-type="compound" column-kind="required" container-type="hash">
                     <compound-type>
                         <column name="feature">
                         	<description>The name of the feature</description>
@@ -1068,7 +1068,7 @@
             </column>
             <column name="features">
                 <description>The known features/experimental conditions about the Chromatin Accessibility experiment</description>
-                <column-type item-type="compound" column-kind="required" container-type="array" array-seps=";">
+                <column-type item-type="compound" column-kind="required" container-type="hash">
                     <compound-type>
                         <column name="feature">
                         	<description>The feature name</description>
@@ -1114,7 +1114,7 @@
             </column>
             <column name="features">
                 <description>The known features/experimental conditions about the WGBS experiment</description>
-            	<column-type item-type="compound" column-kind="required" container-type="array" array-seps=";">
+                <column-type item-type="compound" column-kind="required" container-type="hash">
                     <compound-type>
                         <column name="feature">
                         	<description>The feature name</description>
@@ -1156,7 +1156,7 @@
             </column>
             <column name="features">
                 <description>The known features/experimental conditions about the MeDIP-Seq experiment</description>
-            	<column-type item-type="compound" column-kind="required" container-type="array" array-seps=";">
+                <column-type item-type="compound" column-kind="required" container-type="hash">
                     <compound-type>
                         <column name="feature">
                         	<description>The feature name</description>
@@ -1198,7 +1198,7 @@
             </column>
             <column name="features">
                 <description>The known features/experimental conditions about the MRE-Seq experiment</description>
-            	<column-type item-type="compound" column-kind="required" container-type="array" array-seps=";">
+                <column-type item-type="compound" column-kind="required" container-type="hash">
                     <compound-type>
                         <column name="feature">
                         	<description>The feature name</description>
@@ -1240,7 +1240,7 @@
             </column>
             <column name="features">
                 <description>The known features/experimental conditions about the Chip-Seq Input experiment</description>
-            	<column-type item-type="compound" column-kind="required" container-type="array" array-seps=";">
+                <column-type item-type="compound" column-kind="required" container-type="hash">
                     <compound-type>
                         <column name="feature">
                         	<description>The feature name</description>
@@ -1280,7 +1280,7 @@
             </column>
             <column name="features">
                 <description>The known features/experimental conditions about the Chip-Seq experiment</description>
-            	<column-type item-type="compound" column-kind="required" container-type="array" array-seps=";">
+                <column-type item-type="compound" column-kind="required" container-type="hash">
                     <compound-type>
                         <column name="feature">
                         	<description>The feature name</description>
@@ -1322,7 +1322,7 @@
             </column>
             <column name="features">
                 <description>The known features/experimental conditions about the mRNA-seq experiment</description>
-            	<column-type item-type="compound" column-kind="required" container-type="array" array-seps=";">
+                <column-type item-type="compound" column-kind="required" container-type="hash">
                     <compound-type>
                         <column name="feature">
                         	<description>The feature name</description>
@@ -1364,7 +1364,7 @@
             </column>
             <column name="features">
                 <description>The known features/experimental conditions about the smRNA-seq experiment</description>
-            	<column-type item-type="compound" column-kind="required" container-type="array" array-seps=";">
+                <column-type item-type="compound" column-kind="required" container-type="hash">
                     <compound-type>
                         <column name="feature">
                         	<description>The feature name</description>
