@@ -108,7 +108,7 @@
             <!--
             <annotation key="showFetched">true</annotation>
             -->
-            <cv-uri doc="ncimeta.nci.nih.gov/ncimbrowser/"/>
+            <cv-uri doc="http://ncimeta.nci.nih.gov/ncimbrowser/"/>
         </cv>
         <cv name="ISO3166">
             <description><![CDATA[ISO 3166 is the International Standard for country codes and codes for their subdivisions. The purpose of ISO 3166 is to establish internationally recognised codes for the representation of names of countries, territories or areas of geographical interest, and their subdivisions. A complementary classification, related to ISO 3166 is UN M.49 (Standard Country and Area Codes Classifications)]]></description>
