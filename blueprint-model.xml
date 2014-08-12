@@ -375,7 +375,7 @@
             </column>
             <column name="experimental_group_id">
                 <description>Identifier of the experimental group who did the experiment</description>
-                <column-type item-type="string" column-kind="required" cv="B1"></column-type>
+                <column-type item-type="string" column-kind="required" container-type="set" set-seps="," cv="B1"></column-type>
             </column>
             <column name="features">
                 <description>The known features/experimental conditions about the experiment</description>
@@ -422,6 +422,10 @@
                 <description>Platform or technology used in the detection phase</description>
                 <column-type item-type="integer" column-kind="required" cv="B5" />
             </column>
+            <column name="platform_model">
+                <description>Name of the platform or technology used in the detection phase as it is in 'INSTRUMENT_MODEL' from EGA/SRA 1.2 metadata</description>
+                <column-type item-type="string" column-kind="desirable" />
+            </column>
             <column name="seq_coverage">
                 <description>Sequence coverage if analyzed by sequencing platforms</description>
                 <column-type item-type="decimal" column-kind="optional" />
@@ -448,7 +452,7 @@
             </column>
             <column name="analysis_group_id">
                 <description>Identifier of the analysis group (i.e. the one who prepared/run the pipeline)</description>
-                <column-type item-type="string" column-kind="required" cv="B1"></column-type>
+                <column-type item-type="string" column-kind="required" container-type="set" set-seps="," cv="B1"></column-type>
             </column>
             <column name="data_status">
                 <description>The status of the analysis over the associated raw data</description>
@@ -888,7 +892,7 @@
                 <column-type item-type="string" column-kind="desirable" />
             </column>
             <column name="donor_disease">
-                <description>If the donor was ill, the EFO code (browsable <xhtml:i><xhtml:a href="http://purl.bioontology.org/ontology/EFO">here</xhtml:a></xhtml:i>) or NCI Metathesaurus code (from <xhtml:i><xhtml:a href="ncimeta.nci.nih.gov/ncimbrowser/">here</xhtml:a></xhtml:i>) of the disease at acquisition time. Use code <xhtml:a href="http://www.ebi.ac.uk/efo/EFO_0000761">EFO_0000761</xhtml:a> when the donor was healthy</description>
+                <description>If the donor was ill, the EFO code (browsable <xhtml:i><xhtml:a href="http://purl.bioontology.org/ontology/EFO">here</xhtml:a></xhtml:i>) or NCI Metathesaurus code (from <xhtml:i><xhtml:a href="ncimeta.nci.nih.gov/ncimbrowser/">here</xhtml:a></xhtml:i>) of the disease at acquisition time. Use code <xhtml:a href="http://www.ebi.ac.uk/efo/EFO_0000761">EFO:0000761</xhtml:a> when the donor was healthy</description>
                 <annotation key="values">This value can come from EGA <xhtml:i>Phenotype</xhtml:i> field. When this field and <xhtml:b><xhtml:tt>donor_disease_text</xhtml:tt></xhtml:b> are set, the description of the term in this field should be used</annotation>
                 <column-type item-type="string" column-kind="desirable">
                     <cv-ref name="EFO" />
