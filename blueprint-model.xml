@@ -192,7 +192,7 @@
             <e v="m">male</e>
             <e v="f">female</e>
         </cv>
-        <cv name="wgbsFeatures">
+        <cv name="wgbsFeatures" lax="true">
             <e v="EXTRACTION_PROTOCOL_TYPE_OF_SONICATOR">The type of sonicator used for extraction.</e>
             <e v="EXTRACTION_PROTOCOL_SONICATION_CYCLES">The number of sonication cycles used for extraction.</e>
             <e v="DNA_PREPARATION_INITIAL_DNA_QNTY">The initial DNA quantity used in preparation.</e>
@@ -211,7 +211,7 @@
             <e v="LIBRARY_GENERATION_PCR_PRIMER_CONC">The concentration of the PCR primers used for library generation.</e>
             <e v="LIBRARY_GENERATION_PCR_PRODUCT_ISOLATION_PROTOCOL">The protocol for isolating PCR products used for library generation.</e>
         </cv>
-        <cv name="medipFeatures">
+   		<cv name="medipFeatures" lax="true">
             <e v="EXTRACTION_PROTOCOL_TYPE_OF_SONICATOR">The type of sonicator used for extraction.</e>
             <e v="EXTRACTION_PROTOCOL_SONICATION_CYCLES">The number of sonication cycles used for extraction.</e>
             <e v="MeDIP_PROTOCOL">The MeDIP protocol used.</e>
@@ -224,19 +224,19 @@
             <e v="MeDIP_ANTIBODY_CATALOG">The catalog from which the antibody was purchased.</e>
             <e v="MeDIP_ANTIBODY_LOT">The lot identifier of the antibody.</e>
         </cv>
-        <cv name="mreFeatures">
+        <cv name="mreFeatures" lax="true">
             <e v="MRE_PROTOCOL">The MRE protocol.</e>
             <e v="MRE_PROTOCOL_CHROMATIN_AMOUNT">The amount of chromatin used in the MRE protocol.</e>
             <e v="MRE_PROTOCOL_RESTRICTION_ENZYME">The restriction enzyme(s) used in the MRE protocol.</e>
             <e v="MRE_PROTOCOL_SIZE_FRACTION">The size of the fragments selected in the MRE protocol.</e>
         </cv>
-        <cv name="csiFeatures">
+        <cv name="csiFeatures" lax="true">
             <e v="EXTRACTION_PROTOCOL_TYPE_OF_SONICATOR">The type of sonicator used for extraction.</e>
             <e v="EXTRACTION_PROTOCOL_SONICATION_CYCLES">The number of sonication cycles used for extraction.</e>
             <e v="CHIP_PROTOCOL">Input</e>
             <e v="CHIP_PROTOCOL_CHROMATIN_AMOUNT">The amount of chromatin used in the ChIP protocol.</e>
         </cv>
-        <cv name="csFeatures">
+        <cv name="csFeatures" lax="true">
             <e v="EXTRACTION_PROTOCOL_TYPE_OF_SONICATOR">The type of sonicator used for extraction.</e>
             <e v="EXTRACTION_PROTOCOL_SONICATION_CYCLES">The number of sonication cycles used for extraction.</e>
             <e v="CHIP_PROTOCOL">The ChIP protocol used.</e>
@@ -251,7 +251,7 @@
             <e v="CHIP_PROTOCOL_CROSSLINK_TIME">The timespan in which the chromatin is crosslinked</e>
             <e v="LIBRARY_GENERATION_FRAGMENT_SIZE_RANGE">The fragment size range of the preparation.</e>
         </cv>
-        <cv name="mrnaFeatures">
+        <cv name="mrnaFeatures" lax="true">
             <e v="EXTRACTION_PROTOCOL_MRNA_ENRICHMENT">The mRNA enrichment method used in the extraction protocol.</e>
             <e v="EXTRACTION_PROTOCOL_FRAGMENTATION">The fragmentation method used in the extraction protocol.</e>
             <e v="MRNA_PREPARATION_INITIAL_MRNA_QNTY">The initial mRNA quantity used in preparation.</e>
@@ -283,7 +283,7 @@
             <e v="LIBRARY_GENERATION_3&apos;_ADAPTER_SEQUENCE">The sequence of the 3&apos; adapter used for library generation.</e>
             <e v="LIBRARY_GENERATION_5&apos;_ADAPTER_SEQUENCE">The sequence of the 5&apos; adapter used for library generation.</e>
         </cv>
-        <cv name="smrnaFeatures">
+        <cv name="smrnaFeatures" lax="true">
             <e v="EXTRACTION_PROTOCOL_SMRNA_ENRICHMENT">The smRNA enrichment method used in the extraction protocol.</e>
             <e v="SMRNA_PREPARATION_INITIAL_SMRNA_QNTY">The initial smRNA quantity used in preparation.</e>
             <e v="RNA_PREPARATION_5&apos;_RNA_ADAPTER_SEQUENCE">The sequence of the 5&apos; RNA adapter used in preparation.</e>
@@ -301,7 +301,7 @@
             <e v="LIBRARY_GENERATION_PCR_PRIMER_CONC">The concentration of the PCR primers used for library generation.</e>
             <e v="LIBRARY_GENERATION_PCR_PRODUCT_ISOLATION_PROTOCOL">The protocol for isolating PCR products used for library generation.</e>
         </cv>
-        <cv name="SRALibraryStrategy">
+        <cv name="SRALibraryStrategy" lax="true">
             <description>Sequencing technique intended for this library (borrowed from SRA XML 1.2).</description>
             <e v="WGS">Random sequencing of the whole genome.</e>
             <e v="WXS">Random sequencing of exonic regions selected from the genome.</e>
@@ -1096,7 +1096,7 @@
                         <column name="feature">
                         	<description>The feature name</description>
                             <column-type item-type="string" column-kind="required">
-                                <cv>
+                                <cv lax="true">
                                     <e v="DNASE_PROTOCOL">Protocol used for DNAse treatment</e>
                                 </cv>
                             </column-type>
