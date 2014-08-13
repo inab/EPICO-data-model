@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dcc-schema
         project="BLUEPRINT"
-        schemaVer="0.3.2.2"
+        schemaVer="0.3.2.3"
         
         xmlns="http://www.blueprint-epigenome.eu/dcc/schema"
         xmlns:xhtml="http://www.w3.org/1999/xhtml"
@@ -80,10 +80,14 @@
             <annotation key="showFetched">true</annotation>
             -->
             
-            <cv-uri format="OWL" doc="http://www.clo-ontology.org/">http://clo-ontology.googlecode.com/svn/trunk/src/ontology/clo.owl</cv-uri>
             <!--
-            <cv-file format="obo">cl-basic.obo</cv-file>
+            	<cv-uri format="OWL" doc="http://www.clo-ontology.org/">http://clo-ontology.googlecode.com/svn/trunk/src/ontology/clo.owl</cv-uri>
+            	<cv-file format="obo">cl-basic.obo</cv-file>
             -->
+        	<e v="CLO:0002767">DG-75 cell</e>
+        	<e v="CLO:0007047">JVM-2 cell</e>
+        	<e v="CLO:0007066">KARPAS-422 cell</e>
+        	<e v="CLO:0009457">U-266 cell</e>
         </cv>
 		<cv name="UBERON">
 			<description>Uberon is an integrated cross-species anatomy ontology representing a variety of entities classified according to traditional anatomical criteria such as structure, function and developmental lineage.</description>
@@ -102,13 +106,21 @@
 			<cv-file format="obo">efo.obo</cv-file>
 		</cv>
         <cv name="NCIMetathesaurus">
-            <description>NCI Metathesaurus (NCIm) is a wide-ranging biomedical terminology database that covers most terminologies used by NCI for clinical care, translational and basic research, and public information and administrative activities.</description>
+            <description>NCI Metathesaurus (NCIm) is a wide-ranging biomedical terminology database that covers most terminologies used by NCI for clinical care, translational and basic research, and public information and administrative activities.
+            	This is the subset of terms used in BLUEPRINT
+            </description>
             <annotation key="file">NCI Metathesaurus</annotation>
             <annotation key="data-version">201312E</annotation>
             <!--
             <annotation key="showFetched">true</annotation>
-            -->
             <cv-uri doc="http://ncimeta.nci.nih.gov/ncimbrowser/"/>
+            -->
+        	<e v="C0026764">Plasma Cell Myeloma</e>
+        	<e v="C0040425">Tonsillitis</e>
+        	<e v="C0334634">Malignant lymphoma, lymphocytic, intermediate differentiation, diffuse</e>
+        	<e v="C1333295">Germinal Center B-Cell-Like Diffuse Large B-Cell Lymphoma</e>
+        	<e v="C1336077">Sporadic Burkitt Lymphoma</e>
+        	<e v="C2853894">Mantle cell lymphoma, unspecified site</e>
         </cv>
         <cv name="ISO3166">
             <description><![CDATA[ISO 3166 is the International Standard for country codes and codes for their subdivisions. The purpose of ISO 3166 is to establish internationally recognised codes for the representation of names of countries, territories or areas of geographical interest, and their subdivisions. A complementary classification, related to ISO 3166 is UN M.49 (Standard Country and Area Codes Classifications)]]></description>
@@ -352,6 +364,17 @@
                     <ordering-hints><block>bottom</block></ordering-hints>
                 </annotation>
                 <column-type item-type="text" column-kind="optional" />
+            </column>
+        </concept-type>
+        
+        <concept-type name="NSC-RSC" collection="primary">
+            <column name="NSC">
+                <description>Normalized strand cross-correlation of the analysis (see <xhtml:a href="http://encodeproject.org/ENCODE/qualityMetrics.html"><xhtml:i>ENCODE quality metrics</xhtml:i></xhtml:a>)</description>
+                <column-type item-type="decimal" column-kind="optional" />
+            </column>
+            <column name="RSC">
+                <description>Relative strand cross-correlation of the analysis (see <xhtml:a href="http://encodeproject.org/ENCODE/qualityMetrics.html"><xhtml:i>ENCODE quality metrics</xhtml:i></xhtml:a>)</description>
+                <column-type item-type="decimal" column-kind="optional" />
             </column>
         </concept-type>
         
@@ -703,7 +726,7 @@
         <concept-type name="rank" collection="primary">
             <column name="rank">
                 <description>Kind of used ranking and its value, in the form "<xhtml:tt>rank:value</xhtml:tt>". As it can hold more than one value, they are separated by semicolons</description>
-                <column-type item-type="compound" column-kind="optional" container-type="array" array-seps=";">
+                <column-type item-type="compound" column-kind="optional" container-type="set" set-seps=";">
                     <compound-type>
                         <column name="rank">
                         	<description>Ranking criteria</description>
@@ -726,7 +749,7 @@
             </column>
             <column name="gene_affected">
                 <description>Gene affected. Use Ensembl gene id, separated by | when there is more than one. If no gene is affected, don't put an entry</description>
-                <column-type item-type="string" column-kind="required" container-type="array" array-seps="|" cv="EnsemblGenes"/>
+                <column-type item-type="string" column-kind="required" container-type="set" set-seps="|" cv="EnsemblGenes"/>
             </column>
             <column name="notes">
                 <description>Optional field to leave notes</description>
@@ -1665,19 +1688,11 @@
     <concept-domain domain="pdna" fullname="Protein-DNA interactions" filename-format="blueprint-dcc">
         <concept name="m" fullname="Protein-DNA interactions - Metadata File">
             <extends concept="ComparativeAnalysisMetadata" domain="abstract"/>
+            <base-concept-type name="NSC-RSC"/>
             
             <description>Protein-DNA [pdna] – Metadata File [m]</description>
             <annotation key="altname">Protein-DNA Interactions Metadata</annotation>
             <annotation key="color"><color>#63BFED</color></annotation>
-            
-            <column name="NSC">
-                <description>Normalized strand cross-correlation of the analysis (see <xhtml:a href="http://encodeproject.org/ENCODE/qualityMetrics.html"><xhtml:i>ENCODE quality metrics</xhtml:i></xhtml:a>)</description>
-                <column-type item-type="decimal" column-kind="optional" />
-            </column>
-            <column name="RSC">
-                <description>Relative strand cross-correlation of the analysis (see <xhtml:a href="http://encodeproject.org/ENCODE/qualityMetrics.html"><xhtml:i>ENCODE quality metrics</xhtml:i></xhtml:a>)</description>
-                <column-type item-type="decimal" column-kind="optional" />
-            </column>
             
             <weak-concepts>
                 <concept name="p" fullname="Protein-DNA interactions - Primary Analysis File">
@@ -1727,7 +1742,7 @@
                             
                             <column name="transcript_affected">
                                 <description>Transcript on the protein-DNA interaction area. Use Ensembl transcript id. Separate multiple transcripts with vertical bars in the form of <xhtml:tt>trasncriptA|trasncriptB|trasncriptC</xhtml:tt></description>
-                                <column-type item-type="string" column-kind="optional" container-type="array" array-seps="|" cv="EnsemblTranscripts"></column-type>
+                                <column-type item-type="string" column-kind="optional" container-type="set" set-seps="|" cv="EnsemblTranscripts"></column-type>
                             </column>
                         </concept>
                     </weak-concepts>
@@ -1747,6 +1762,7 @@
     <concept-domain domain="rreg" fullname="Regulatory Regions" filename-format="blueprint-dcc">
         <concept name="m" fullname="Regulatory regions - Metadata File">
             <extends concept="ComparativeAnalysisMetadata" domain="abstract"/>
+            <base-concept-type name="NSC-RSC"/>
             
             <description>Regulatory regions [rreg] – Metadata File [m]</description>
             <annotation key="altname">Regulatory Regions Metadata</annotation>
@@ -1761,10 +1777,6 @@
                     <annotation key="altname">Regulatory Regions Primary</annotation>
                     <annotation key="color"><color>#CCBDFF</color></annotation>
                     
-                    <column name="regulatory_region_id">
-                        <description>Unique identifier for the identified regulatory region</description>
-                        <column-type item-type="string" column-kind="idref" />
-                    </column>
                     <column name="z_score">
                         <description>Combined z-score of the 250bp window for each tag</description>
                         <column-type item-type="decimal" column-kind="required"></column-type>
@@ -1849,8 +1861,8 @@
                     <annotation key="altname">DNA *-lation MR</annotation>
                     <annotation key="color"><color>#A3ED03</color></annotation>
                     
-                    <column name="beta_value">
-                        <description>DNA *-lation beta value (or average methylation or ) for interrogated site</description>
+                    <column name="meth_level">
+                        <description>DNA *-lation methylation level, which is the average one for HMRs</description>
                         <column-type item-type="decimal" column-kind="optional" />
                     </column>
                     
