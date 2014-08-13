@@ -43,7 +43,7 @@
     </collection-domain>
 	
    <cv-declarations dir="cv">
-        <cv name="EnsemblGenes">
+        <cv name="EnsemblGenes" lax="true">
             <description>Valid Ensembl Genes identifiers</description>
             <annotation key="file">Ensembl Genes</annotation>
             
@@ -52,7 +52,7 @@
             <cv-uri format="EnsemblMySQLDump" doc="http://jan2013.archive.ensembl.org/Homo_sapiens/Info/Index">ftp://ftp.ensembl.org/pub/release-70/mysql/homo_sapiens_core_70_37/gene.txt.gz</cv-uri>
             <cv-file format="obo">ENSG.obo</cv-file>
         </cv>
-        <cv name="EnsemblTranscripts">
+        <cv name="EnsemblTranscripts" lax="true">
             <description>Valid Ensembl Transcript identifiers</description>
             <annotation key="file">Ensembl Transcripts</annotation>
             
