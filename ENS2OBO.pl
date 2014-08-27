@@ -8,6 +8,18 @@ use lib "$FindBin::Bin/schema+tools/lib";
 use TabParser;
 use BP::Model;
 
+sub parseENSG($$$$) {
+	my($ENSG_CV,$ensgene,$version,$desc)=@_;
+	$desc = ($desc eq '\\N')?$ensgene:$ensgene.' ('.$desc.')';
+	$ENSG_CV->addTerm(BP::Model::CV::Term->new([$ensgene,$ensgene.'.'.$version],$desc));
+}
+
+sub parseENST($$$$) {
+	my($ENST_CV,$enstrans,$version,$desc)=@_;
+	$desc = ($desc eq '\\N')?$enstrans:$enstrans.' ('.$desc.')';
+	$ENST_CV->addTerm(BP::Model::CV::Term->new([$enstrans,$enstrans.'.'.$version],$desc));
+}
+
 if(scalar(@ARGV)==4) {
 	my ($ENSGfile,$OBOENSGfile,$ENSTfile,$OBOENSTfile)=@ARGV;
 	
@@ -15,11 +27,8 @@ if(scalar(@ARGV)==4) {
 		
 		my $ENSG_CV = BP::Model::CV->new();
 		my %config = (
-			TabParser::TAG_CALLBACK => sub {
-				my($ensgene,$version,$desc)=@_;
-				$desc = ($desc eq '\\N')?$ensgene:$ensgene.' ('.$desc.')';
-				$ENSG_CV->addTerm(BP::Model::CV::Term->new([$ensgene,$ensgene.'.'.$version],$desc));
-			},
+			TabParser::TAG_CONTEXT	=> $ENSG_CV,
+			TabParser::TAG_CALLBACK => \&parseENSG,
 			TabParser::TAG_FETCH_COLS => [14,15,10],
 			TabParser::TAG_NEG_FILTER => [[1 => 'LRG_gene']],
 		);
@@ -45,11 +54,8 @@ CEOF
 		
 		my $ENST_CV = BP::Model::CV->new();
 		my %config = (
-			TabParser::TAG_CALLBACK => sub {
-				my($enstrans,$version,$desc)=@_;
-				$desc = ($desc eq '\\N')?$enstrans:$enstrans.' ('.$desc.')';
-				$ENST_CV->addTerm(BP::Model::CV::Term->new([$enstrans,$enstrans.'.'.$version],$desc));
-			},
+			TabParser::TAG_CONTEXT	=> $ENST_CV,
+			TabParser::TAG_CALLBACK => \&parseENST,
 			TabParser::TAG_FETCH_COLS => [13,14,8],
 			TabParser::TAG_NEG_FILTER => [[8 => 'LRG_gene']],
 		);
