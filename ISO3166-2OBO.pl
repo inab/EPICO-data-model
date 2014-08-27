@@ -114,7 +114,7 @@ CEOF
 	# http://anonscm.debian.org/gitweb/?p=iso-codes/iso-codes.git;a=blob_plain;f=iso_3166/iso_3166.xml;hb=HEAD
 	# http://anonscm.debian.org/gitweb/?p=iso-codes/iso-codes.git;a=blob_plain;f=iso_3166_2/iso_3166_2.xml;hb=HEAD
 	print STDERR <<EOF
-ERROR: This program takes three parameters:
+ERROR: This program takes one parameter (the output file) and three optional ones, which are:
 	- the integration of UN.49 and ISO-3166-1 (supra-national organizative areas)
 	- the ISO-3166-1 XML file (countries)
 	- the ISO-3166-2 XML file (provinces and so)
