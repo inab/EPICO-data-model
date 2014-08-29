@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dcc-schema
         project="BLUEPRINT"
-        schemaVer="0.3.2.3"
+        schemaVer="0.3.3"
         
         xmlns="http://www.blueprint-epigenome.eu/dcc/schema"
         xmlns:xhtml="http://www.w3.org/1999/xhtml"
@@ -61,7 +61,37 @@
             <cv-uri format="EnsemblMySQLDump" doc="http://jan2013.archive.ensembl.org/Homo_sapiens/Info/Index">ftp://ftp.ensembl.org/pub/release-70/mysql/homo_sapiens_core_70_37/transcript.txt.gz</cv-uri>
             <cv-file format="obo">ENST.obo</cv-file>
         </cv>
-        <cv name="CellOntology">
+		<cv name="GencodeGenes" lax="true">
+			<description>Valid Gencode gene identifiers</description>
+			<annotation key="file">Gencode Genes</annotation>
+			
+			<annotation key="data-version">15</annotation>
+			
+			<!-- For Gencode 16 and onwards, the information is in ftp://ftp.sanger.ac.uk/pub/gencode/Gencode_human/release_16/gencode.v16.metadata.Gene_source.gz -->
+			<!-- But for Gencode 15, it is the file gencode_release_15/gencode.v15.annotation.level_3.classes inside the archive -->
+			<cv-uri format="GencodeLevel3Classes" doc="http://www.gencodegenes.org/releases/15.html">ftp://ftp.sanger.ac.uk/pub/gencode/release_15/gencode15_GRCh37.tgz</cv-uri>
+			<cv-file format="obo">GencodeG.obo</cv-file>
+		</cv>
+	   	<cv name="GencodeTranscripts" lax="true">
+	   		<description>Valid Gencode transcript identifiers</description>
+	   		<annotation key="file">Gencode Transcripts</annotation>
+	   		
+	   		<annotation key="data-version">15</annotation>
+	   		
+	   		<!-- For Gencode 16 and onwards, the information is in ftp://ftp.sanger.ac.uk/pub/gencode/Gencode_human/release_16/gencode.v16.metadata.Transcript_source.gz -->
+	   		<!-- But for Gencode 15, it is the file gencode_release_15/gencode.v15.annotation.level_3.classes inside the archive -->
+	   		<cv-uri format="GencodeLevel3Classes" doc="http://www.gencodegenes.org/releases/15.html">ftp://ftp.sanger.ac.uk/pub/gencode/release_15/gencode15_GRCh37.tgz</cv-uri>
+	   		<cv-file format="obo">GencodeT.obo</cv-file>
+	   	</cv>
+		<meta-cv name="EnsemblGencodeGenes">
+			<cv-ref name="EnsemblGenes"/>
+			<cv-ref name="GencodeGenes"/>
+		</meta-cv>
+		<meta-cv name="EnsemblGencodeTranscripts">
+			<cv-ref name="EnsemblTranscripts"/>
+			<cv-ref name="GencodeTranscripts"/>
+		</meta-cv>
+	   	<cv name="CellOntology">
             <description>The Cell Ontology is designed as a structured controlled vocabulary for cell types</description>
             <annotation key="file">Cell Ontology</annotation>
 			<annotation key="data-version">2014-03-11</annotation>
@@ -691,15 +721,15 @@
                 
                 <concept-type name="dlat-experiment-primary">
                     <column name="total_reads">
-                        <description>Total number of reads over this position/segment, either identifying or not a cytosine, for sequencing platforms. Mean reads depth for other technologies</description>
+                    	<description>Total number of reads over this position/segment, either identifying or not a cytosine, for sequencing platforms. Mean reads depth for other cases (CpG, hyper/hypo methylated regions, other technologies, ...)</description>
                         <column-type item-type="decimal" column-kind="required" />
                     </column>
                     <column name="c_total_reads">
-                        <description>Reads which has identified this position as a cytosine</description>
+                        <description>Reads which have identified this position as a cytosine (or as a CpG)</description>
                         <column-type item-type="decimal" column-kind="required" />
                     </column>
                     <column name="d_lated_reads">
-                        <description>Reads which has identified this position as a DNA *lated cytosine</description>
+                    	<description>Reads which have identified this position as a DNA *lated (methylated, hydroxy-methylated, etc...) cytosine (or as a CpG)</description>
                         <column-type item-type="decimal" column-kind="required" />
                     </column>
                     
@@ -749,7 +779,7 @@
             </column>
             <column name="gene_affected">
                 <description>Gene affected. Use Ensembl gene id, separated by | when there is more than one. If no gene is affected, don't put an entry</description>
-                <column-type item-type="string" column-kind="required" container-type="set" set-seps="|" cv="EnsemblGenes"/>
+            	<column-type item-type="string" column-kind="required" container-type="set" set-seps="|" cv="EnsemblGencodeGenes"/>
             </column>
             <column name="notes">
                 <description>Optional field to leave notes</description>
@@ -1547,20 +1577,16 @@
                     
                     <column name="gene_stable_id">
                         <description>For annotated gene, use Ensembl gene ID.</description>
-                        <column-type item-type="string" column-kind="desirable" cv="EnsemblGenes" />
+                        <column-type item-type="string" column-kind="desirable" cv="EnsemblGencodeGenes"/>
                     </column>
                     
-                	<column name="transcript_stable_id">
-                		<description>For annotated gene, use Ensembl transcript ID.</description>
-                		<column-type item-type="string" column-kind="desirable" cv="EnsemblTranscripts" />
-                	</column>
-                	
-                	<column name="normalized_expression_level">
-                        <description>Normalized value of expression level if analyzed by microarray platforms</description>
-                        <column-type item-type="decimal" column-kind="optional" />
-                    </column>
                     <!--
-                    <column name="fold_change">
+                    <column name="normalized_expression_level">
+                    	<description>Normalized value of expression level if analyzed by microarray platforms</description>
+                    	<column-type item-type="decimal" column-kind="optional" />
+                    </column>
+                    	
+					<column name="fold_change">
                         <description>Expressed fold change if differential expression is measured</description>
                         <column-type item-type="decimal" column-kind="optional" />
                     </column>
@@ -1574,6 +1600,18 @@
                         <column-type item-type="boolean" column-kind="required"></column-type>
                     </column>
                 </concept>
+            	
+            	<concept name="t" fullname="Transcript Expression">
+            		<extends concept="g"/>
+            		
+            		<description>Expression [exp] – Transcript File [t]</description>
+            		<annotation key="altname">Transcript Expression</annotation>
+
+            		<column name="transcript_stable_id">
+            			<description>For annotated gene, use Ensembl/Gencode transcript ID.</description>
+            			<column-type item-type="string" column-kind="desirable" cv="EnsemblGencodeTranscripts"/>
+            		</column>
+            	</concept>
             </weak-concepts>
             
             <related-to concept="mrna" domain="lab" id="exp-rel">
@@ -1741,8 +1779,8 @@
                             <annotation key="color"><color>#63BFED</color></annotation>
                             
                             <column name="transcript_affected">
-                                <description>Transcript on the protein-DNA interaction area. Use Ensembl transcript id. Separate multiple transcripts with vertical bars in the form of <xhtml:tt>trasncriptA|trasncriptB|trasncriptC</xhtml:tt></description>
-                                <column-type item-type="string" column-kind="optional" container-type="set" set-seps="|" cv="EnsemblTranscripts"></column-type>
+                                <description>Transcript on the protein-DNA interaction area. Use Ensembl/Gencode transcript id. Separate multiple transcripts with vertical bars in the form of <xhtml:tt>trasncriptA|trasncriptB|trasncriptC</xhtml:tt></description>
+                            	<column-type item-type="string" column-kind="optional" container-type="set" set-seps="|" cv="EnsemblGencodeTranscripts"/>
                             </column>
                         </concept>
                     </weak-concepts>
