@@ -1859,7 +1859,6 @@
             
             <weak-concepts>
                 <concept name="n" fullname="DNA *-lation - Single Nucleotide File">
-                    <base-concept-type name="dlat-identifier"/>
                     <base-concept-type name="abstract-coordinate"/>
                     <base-concept-type name="abstract-strand"/>
                     <base-concept-type name="dlat-experiment-primary"/>
@@ -1890,17 +1889,31 @@
                     </column>
                 </concept>
                 
-                <concept name="mr" fullname="DNA *-lation - Methylated Region (CpGs, HMR) File">
+            	<concept name="cpg" fullname="DNA *-lation - CpG">
+            		<base-concept-type name="abstract-coordinate"/>
+            		<base-concept-type name="dlat-experiment-primary"/>
+            		
+            		<description>DNA *-lation [dlat] - CpG File [cpg] for CpGs</description>
+            		<annotation key="altname">DNA *-lation CpG</annotation>
+            		<annotation key="color"><color>#A3ED03</color></annotation>
+            		
+            		<column name="meth_level">
+            			<description>DNA *-lation methylation level, which is the average one for the beta values from the cytosines supporting the CpG</description>
+            			<column-type item-type="decimal" column-kind="optional" />
+            		</column>
+            	</concept>
+            	
+            	<concept name="mr" fullname="DNA *-lation - Methylated Region">
                     <base-concept-type name="dlat-identifier"/>
                     <base-concept-type name="abstract-coordinate-range"/>
                     <base-concept-type name="dlat-experiment-primary"/>
                     
-                    <description>DNA *-lation [dlat] - Methylated Region File [mr] for CpGs and hypo/hyper-methylated regions</description>
-                    <annotation key="altname">DNA *-lation MR</annotation>
+                    <description>DNA *-lation [dlat] - Methylated Region File [mr] for hypo/hyper-methylated regions</description>
+                    <annotation key="altname">DNA *-lation HMR</annotation>
                     <annotation key="color"><color>#A3ED03</color></annotation>
                     
                     <column name="meth_level">
-                        <description>DNA *-lation methylation level, which is the average one for HMRs</description>
+                        <description>DNA *-lation methylation level, which is the average one from the CpGs supporting this HMR</description>
                         <column-type item-type="decimal" column-kind="optional" />
                     </column>
                     
