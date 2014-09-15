@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dcc-schema
         project="BLUEPRINT"
-        schemaVer="0.3.3"
+        schemaVer="0.3.3.1"
         
         xmlns="http://www.blueprint-epigenome.eu/dcc/schema"
         xmlns:xhtml="http://www.w3.org/1999/xhtml"
@@ -22,7 +22,7 @@
 	</metadata>
     
     <collection-domain>
-        <!-- Metadata from experiments is being stored here -->
+        <!-- Metadata from experiments are being stored here -->
         <collection name="metadata" path="metadata">
             <index unique="true">
                 <attr name="analysys_id" />
@@ -40,6 +40,7 @@
         <!-- All the sample tracking data documents are stored here -->
         <collection name="sdata" path="sample-tracking-data" />
         <collection name="modelMetadata" path="meta-model" />
+    	<collection name="external" path="external" />
     </collection-domain>
 	
    <cv-declarations dir="cv">
@@ -790,10 +791,52 @@
             </column>
             
         </concept-type>
+    	
+    	<concept-type name="empty-external" collection="external" />
     </concept-types>
     
     <filename-format name="blueprint-dcc">$$domain-$$concept--@B1-\ISODATE--%string.txt</filename-format>
     
+    <concept-domain domain="external" fullname="External data" filename-format="blueprint-dcc">
+    	<description>This is the default place to put external data which is needed by the frontends in order to ease queries</description>
+    	<annotation key="defaultColor"><color>#f8f330</color></annotation>
+    	
+    	<concept name="gencode" fullname="Gencode and Ensembl features (genes, transcripts, UTRs, etc...)">
+    		<base-concept-type name="empty-external"/>
+    		<base-concept-type name="abstract-coordinate-range"/>
+    		
+    		<description>Features defined either in Gencode (all the features) or Ensembl (only genes and transcripts) by its chromomic coordinates and its different names</description>
+    		
+    		<column name="feature">
+    			<description>The kind of described feature</description>
+    			<column-type item-type="string" column-kind="required">
+    				<cv>
+    					<e v="gene"/>
+    					<e v="transcript"/>
+    					<e v="CDS"/>
+    					<e v="exon"/>
+    					<e v="Selenocysteine"/>
+    					<e v="start_codon"/>
+    					<e v="stop_codon"/>
+    					<e v="UTR"/>
+    				</cv>
+    			</column-type>
+    		</column>
+    		
+    		<column name="symbol">
+    			<description>Any one of the registered names/synonyms for this chromosomic area</description>
+    			<column-type item-type="text" column-kind="required" container-type="set" set-seps=";"/>
+    		</column>
+    		
+    		<index unique="false">
+    			<attr name="chromosome"/>
+    			<attr name="chromosome_start"/>
+    			<attr name="chromosome_end"/>
+    		</index>
+    	</concept>
+    </concept-domain>
+	
+	
     <concept-domain domain="sdata" fullname="Sample Tracking Submission File Specifications" filename-format="blueprint-dcc">
         <concept name="donor" fullname="Donor Data File">
             <base-concept-type name="sample-tracking-data"/>
