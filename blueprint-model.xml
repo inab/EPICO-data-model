@@ -834,6 +834,52 @@
     			<attr name="chromosome_end"/>
     		</index>
     	</concept>
+    	
+    	<concept name="loaded" fullname="The resources which have been loaded into the database">
+    		<base-concept-type name="empty-external"/>
+    		
+    		<description>The resources which have been loaded into the database should be registered under this concept, so we can keep the track on what has changed (or what has not)</description>
+    		
+    		<column name="filename">
+    			<description>The name of the file. It must contain only the basename</description>
+    			<column-type item-type="string" column-kind="idref"/>
+    		</column>
+    		
+    		<column name="content_md5">
+    			<description>The MD5 of the unencrypted and uncompressed content (in binary format)</description>
+    			<column-type item-type="string" column-kind="idref"/>
+    		</column>
+    		
+    		<column name="content_length">
+    			<description>The length, in bytes, of the unencrypted and uncompressed content</description>
+    			<column-type item-type="integer" column-kind="idref"></column-type>
+    		</column>
+    		
+    		<column name="md5">
+    			<description>The MD5 of the file, in its original format</description>
+    			<column-type item-type="string" column-kind="required"/>
+    		</column>
+    		
+    		<column name="length">
+    			<description>The length, in bytes, of the file</description>
+    			<column-type item-type="integer" column-kind="required"/>
+    		</column>
+    		
+    		<column name="uri">
+    			<description>The URI where the file was fetched from (i.e. the remote repository)</description>
+    			<column-type item-type="string" column-kind="desirable"/>
+    		</column>
+    		
+    		<column name="insertion_timestamp">
+    			<description>The insertion timestamp of the file</description>
+    			<column-type item-type="timestamp" column-kind="required"></column-type>
+    		</column>
+    		
+    		<column name="remote_timestamp">
+    			<description>The timestamp of the file in the remote repository</description>
+    			<column-type item-type="timestamp" column-kind="desirable"></column-type>
+    		</column>
+    	</concept>
     </concept-domain>
 	
 	
