@@ -807,6 +807,11 @@
     		
     		<description>Features defined either in Gencode (all the features) or Ensembl (only genes and transcripts) by its chromomic coordinates and its different names</description>
     		
+    		<column name="feature_cluster_id">
+    			<description>An id which can be used to cluster the related features</description>
+    			<column-type item-type="string" column-kind="required" />
+    		</column>
+    		
     		<column name="feature">
     			<description>The kind of described feature</description>
     			<column-type item-type="string" column-kind="required">
@@ -833,6 +838,11 @@
     			<attr name="chromosome_start"/>
     			<attr name="chromosome_end"/>
     		</index>
+    		
+    		<index unique="false">
+    			<attr name="feature_cluster_id"/>
+    		</index>
+    		
     	</concept>
     	
     	<concept name="loaded" fullname="The resources which have been loaded into the database">
