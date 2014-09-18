@@ -845,6 +845,39 @@
     		
     	</concept>
     	
+    	<concept name="reactome" fullname="Reactome pathways">
+    		<base-concept-type name="empty-external"/>
+    		
+    		<description>Pathways found in Reactome version from the same timeframe as the Ensembl and Gencode releases</description>
+    		
+    		<column name="pathway_id">
+    			<description>The Reactome pathway id</description>
+    			<column-type item-type="string" column-kind="idref"/>
+    		</column>
+    		
+    		<column name="participants">
+    			<description>Each one of the participants in one or more of the reactions and complexes related to this pathway</description>
+    			<column-type item-type="compound" column-kind="required" container-type="set" set-seps=";">
+    				<compound-type>
+    					<column name="chromosome">
+    						<description>Name of the chromosome containing the experimentally detected feature (mutation, variation, expression, ...)</description>
+    						<column-type item-type="string" column-kind="required" cv="B6" />
+    					</column>
+    					<sep>:</sep>
+    					<column name="chromosome_start">
+    						<description>Start position of the mutation/variation on the chromosome</description>
+    						<column-type item-type="integer" column-kind="required" />
+    					</column>
+    					<sep>-</sep>
+    					<column name="chromosome_end">
+    						<description>End position of the mutation/variation on the chromosome</description>
+    						<column-type item-type="integer" column-kind="required" />
+    					</column>
+    				</compound-type>
+    			</column-type>
+    		</column>
+    	</concept>
+    	
     	<concept name="loaded" fullname="The resources which have been loaded into the database">
     		<base-concept-type name="empty-external"/>
     		
