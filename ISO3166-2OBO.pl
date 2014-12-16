@@ -59,7 +59,7 @@ if(scalar(@ARGV)==4 || scalar(@ARGV)==1) {
 						my $term = $ISO3166CV->CV->{$type};
 						push(@{$term->parents},@contains);
 					} else {
-						$ISO3166CV->addTerm(BP::Model::CV::Term->new($type,$name,[@contains],1));
+						$ISO3166CV->addTerm(BP::Model::CV::Term->new($type,$name,undef,[@contains],1));
 					}
 					
 					$type = undef;
@@ -88,7 +88,7 @@ if(scalar(@ARGV)==4 || scalar(@ARGV)==1) {
 				my $entryCode = $entry->getAttribute('code');
 				my $parentCode = $entry->hasAttribute('parent')?($code.'-'.$entry->getAttribute('parent')):$code;
 				my $name = $entry->getAttribute('name');
-				$ISO3166CV->addTerm(BP::Model::CV::Term->new($entryCode,$name,[$parentCode]));
+				$ISO3166CV->addTerm(BP::Model::CV::Term->new($entryCode,$name,undef,[$parentCode]));
 			}
 		}
 	}

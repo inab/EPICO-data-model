@@ -101,6 +101,9 @@
             -->
 	   	    
 	   	    <cv-ns short-name="cell">http://purl.obolibrary.org/obo/</cv-ns>
+	   	    <cv-ns short-name="cl">http://purl.obolibrary.org/obo/</cv-ns>
+	   	    
+	   	    <default-cv-ns ns="cell"/>
 	   	    
             <cv-uri format="obo" doc="http://cellontology.org/">https://cell-ontology.googlecode.com/svn/releases/2014-03-11/cl-basic.obo</cv-uri>
             <cv-file format="obo">cl-basic.obo</cv-file>
@@ -145,8 +148,9 @@
 		    
 		    <!--
 		    <cv-ns short-name="BrendaTissueOBO">http://purl.obolibrary.org/obo/</cv-ns>
+		    <cv-ns short-name="uberon">http://purl.obolibrary.org/obo/</cv-ns>
 		    -->
-	
+		    
 			<cv-uri format="obo" doc="http://www.ebi.ac.uk/efo/">http://sourceforge.net/p/efo/code/278/tree/trunk/src/efoinobo/efo.obo?format=raw</cv-uri>
 			<cv-file format="obo">efo.obo</cv-file>
 		</cv>
