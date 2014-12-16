@@ -99,7 +99,9 @@
             <!--
             <annotation key="showFetched">true</annotation>
             -->
-            
+	   	    
+	   	    <cv-ns short-name="cell">http://purl.obolibrary.org/obo/</cv-ns>
+	   	    
             <cv-uri format="obo" doc="http://cellontology.org/">https://cell-ontology.googlecode.com/svn/releases/2014-03-11/cl-basic.obo</cv-uri>
             <cv-file format="obo">cl-basic.obo</cv-file>
         </cv>
@@ -110,6 +112,10 @@
             <!--
             <annotation key="showFetched">true</annotation>
             -->
+            
+            <cv-ns short-name="clo">http://purl.obolibrary.org/obo/</cv-ns>
+            
+            <default-cv-ns ns="clo"/>
             
             <!--
             	<cv-uri format="OWL" doc="http://www.clo-ontology.org/">http://clo-ontology.googlecode.com/svn/trunk/src/ontology/clo.owl</cv-uri>
@@ -124,7 +130,11 @@
 			<description>Uberon is an integrated cross-species anatomy ontology representing a variety of entities classified according to traditional anatomical criteria such as structure, function and developmental lineage.</description>
 			<annotation key="file">UBERON</annotation>
 			<annotation key="data-version">2014-05-03</annotation>
-	
+		    
+		    <cv-ns short-name="uberon">http://purl.obolibrary.org/obo/</cv-ns>
+		    <cv-ns short-name="none">http://purl.obolibrary.org/obo/</cv-ns>
+		    <cv-ns short-name="uberon/phenoscape-anatomy">http://purl.obolibrary.org/obo/</cv-ns>
+		    
 			<cv-uri format="obo" doc="http://uberon.org/">http://svn.code.sf.net/p/obo/svn/uberon/releases/2014-05-03/basic.obo</cv-uri>
 			<cv-file format="obo">uberon-basic.obo</cv-file>
 		</cv>
@@ -132,6 +142,10 @@
 			<description></description>
 			<annotation key="file">Experimental Factor</annotation>
 			<annotation key="data-version">2.44</annotation>
+		    
+		    <!--
+		    <cv-ns short-name="BrendaTissueOBO">http://purl.obolibrary.org/obo/</cv-ns>
+		    -->
 	
 			<cv-uri format="obo" doc="http://www.ebi.ac.uk/efo/">http://sourceforge.net/p/efo/code/278/tree/trunk/src/efoinobo/efo.obo?format=raw</cv-uri>
 			<cv-file format="obo">efo.obo</cv-file>
@@ -142,6 +156,11 @@
             </description>
             <annotation key="file">NCI Metathesaurus</annotation>
             <annotation key="data-version">201312E</annotation>
+            
+            <cv-ns short-name="cui">http://ncimeta.nci.nih.gov/ncimbrowser/ConceptReport.jsp?dictionary=NCI%20MetaThesaurus&amp;code=</cv-ns>
+            
+            <default-cv-ns ns="cui" />
+            
             <!--
             <annotation key="showFetched">true</annotation>
             <cv-uri doc="http://ncimeta.nci.nih.gov/ncimbrowser/"/>
