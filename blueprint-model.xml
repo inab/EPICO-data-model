@@ -144,14 +144,15 @@
 		<cv name="EFO">
 			<description></description>
 			<annotation key="file">Experimental Factor</annotation>
-			<annotation key="data-version">2.44</annotation>
+			<annotation key="data-version">2.56</annotation>
 		    
 		    <!--
 		    <cv-ns short-name="BrendaTissueOBO">http://purl.obolibrary.org/obo/</cv-ns>
 		    <cv-ns short-name="uberon">http://purl.obolibrary.org/obo/</cv-ns>
 		    -->
+		    <cv-ns short-name="EFO">http://www.ebi.ac.uk/efo/</cv-ns>
 		    
-			<cv-uri format="obo" doc="http://www.ebi.ac.uk/efo/">http://sourceforge.net/p/efo/code/278/tree/trunk/src/efoinobo/efo.obo?format=raw</cv-uri>
+			<cv-uri format="obo" doc="http://www.ebi.ac.uk/efo/">http://sourceforge.net/p/efo/code/322/tree/trunk/src/efoinobo/efo.obo?format=raw</cv-uri>
 			<cv-file format="obo">efo.obo</cv-file>
 		</cv>
         <cv name="NCIMetathesaurus">
