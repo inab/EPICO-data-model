@@ -1519,7 +1519,9 @@
                 <description>Type of experiment: mRNA-seq</description>
                 <annotation key="values">It corresponds with IHEC Level 0 <xhtml:b>EXPERIMENT_TYPE</xhtml:b> (mRNA-seq)</annotation>
                 <column-type item-type="string" column-kind="required">
+		<!--
                     <pattern match="mRNA-seq"/>
+		-->
                 </column-type>
             </column>
             <column name="library_strategy">
@@ -1561,7 +1563,9 @@
                 <description>Type of experiment: smRNA-seq</description>
                 <annotation key="values">It corresponds with IHEC Level 0 <xhtml:b>EXPERIMENT_TYPE</xhtml:b> (smRNA-Seq)</annotation>
                 <column-type item-type="string" column-kind="required">
+		<!--
                     <pattern match="smRNA-seq"/>
+		-->
                 </column-type>
             </column>
             <column name="library_strategy">
