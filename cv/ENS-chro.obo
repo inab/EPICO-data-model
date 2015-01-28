@@ -1,0 +1,1419 @@
+! Generated using ENSCHRO2OBO.pl from
+! 	/tmp/coord_system.txt.gz
+! 	/scratch/jmfernandez/projects/BLUEPRINT/201501/pub/release-70/mysql/homo_sapiens_core_70_37/seq_region.txt.gz
+format-version: 1.2
+date: 28:01:2015 17:59
+auto-generated-by: BP::Model $Id$
+data-version: 2015-01-28
+[Term]
+id: HSCHR13_CTG1
+name: HSCHR13_CTG1
+
+[Term]
+id: 5
+name: 5
+alt_id: chr5
+
+[Term]
+id: 19
+name: 19
+alt_id: chr19
+
+[Term]
+id: 10
+name: 10
+alt_id: chr10
+
+[Term]
+id: 4
+name: 4
+alt_id: chr4
+
+[Term]
+id: 8
+name: 8
+alt_id: chr8
+
+[Term]
+id: 20
+name: 20
+alt_id: chr20
+
+[Term]
+id: 15
+name: 15
+alt_id: chr15
+
+[Term]
+id: 14
+name: 14
+alt_id: chr14
+
+[Term]
+id: 12
+name: 12
+alt_id: chr12
+
+[Term]
+id: 9
+name: 9
+alt_id: chr9
+
+[Term]
+id: 3
+name: 3
+alt_id: chr3
+
+[Term]
+id: X
+name: X
+
+[Term]
+id: 6
+name: 6
+alt_id: chr6
+
+[Term]
+id: 16
+name: 16
+alt_id: chr16
+
+[Term]
+id: 13
+name: 13
+alt_id: chr13
+
+[Term]
+id: 18
+name: 18
+alt_id: chr18
+
+[Term]
+id: 1
+name: 1
+alt_id: chr1
+
+[Term]
+id: 22
+name: 22
+alt_id: chr22
+
+[Term]
+id: 17
+name: 17
+alt_id: chr17
+
+[Term]
+id: 2
+name: 2
+alt_id: chr2
+
+[Term]
+id: Y
+name: Y
+
+[Term]
+id: 7
+name: 7
+alt_id: chr7
+
+[Term]
+id: 21
+name: 21
+alt_id: chr21
+
+[Term]
+id: 11
+name: 11
+alt_id: chr11
+
+[Term]
+id: HSCHR10_CTG9
+name: HSCHR10_CTG9
+
+[Term]
+id: HSCHR1_CTG14
+name: HSCHR1_CTG14
+
+[Term]
+id: HSCHR17_CTG3_1
+name: HSCHR17_CTG3_1
+
+[Term]
+id: HSCHR19_CTG3
+name: HSCHR19_CTG3
+
+[Term]
+id: GL000206.1
+name: GL000206.1
+
+[Term]
+id: GL000204.1
+name: GL000204.1
+
+[Term]
+id: GL000246.1
+name: GL000246.1
+
+[Term]
+id: HSCHRY_CTG11
+name: HSCHRY_CTG11
+
+[Term]
+id: HSCHR9_CTG37
+name: HSCHR9_CTG37
+
+[Term]
+id: HSCHR9_CTG15
+name: HSCHR9_CTG15
+
+[Term]
+id: HSCHR15_CTG1
+name: HSCHR15_CTG1
+
+[Term]
+id: HSCHRY_CTG12
+name: HSCHRY_CTG12
+
+[Term]
+id: HSCHR21_CTG1045
+name: HSCHR21_CTG1045
+
+[Term]
+id: HSCHRX_CTG4
+name: HSCHRX_CTG4
+
+[Term]
+id: HSCHR4_CTG1
+name: HSCHR4_CTG1
+
+[Term]
+id: HSCHR2_CTG7_1
+name: HSCHR2_CTG7_1
+
+[Term]
+id: GL000196.1
+name: GL000196.1
+
+[Term]
+id: HSCHR1_CTG8
+name: HSCHR1_CTG8
+
+[Term]
+id: GL000222.1
+name: GL000222.1
+
+[Term]
+id: HSCHR15_CTG10
+name: HSCHR15_CTG10
+
+[Term]
+id: HSCHR9_CTG27
+name: HSCHR9_CTG27
+
+[Term]
+id: HSCHRX_CTG15
+name: HSCHRX_CTG15
+
+[Term]
+id: HSCHR9_CTG35
+name: HSCHR9_CTG35
+
+[Term]
+id: HSCHR17_CTG9
+name: HSCHR17_CTG9
+
+[Term]
+id: HSCHR2_CTG7
+name: HSCHR2_CTG7
+
+[Term]
+id: HSCHR3_CTG1
+name: HSCHR3_CTG1
+
+[Term]
+id: GL000192.1
+name: GL000192.1
+
+[Term]
+id: HSCHR22_CTG3
+name: HSCHR22_CTG3
+
+[Term]
+id: HSCHR18_CTG1
+name: HSCHR18_CTG1
+
+[Term]
+id: HSCHR10_CTG5
+name: HSCHR10_CTG5
+
+[Term]
+id: HSCHR8_CTG6
+name: HSCHR8_CTG6
+
+[Term]
+id: HSCHR4_CTG6
+name: HSCHR4_CTG6
+
+[Term]
+id: HSCHR4_1
+name: HSCHR4_1
+
+[Term]
+id: GL000198.1
+name: GL000198.1
+
+[Term]
+id: HSCHRX_CTG8
+name: HSCHRX_CTG8
+
+[Term]
+id: HSCHR21_CTG1042
+name: HSCHR21_CTG1042
+
+[Term]
+id: HSCHR8_CTG2
+name: HSCHR8_CTG2
+
+[Term]
+id: HSCHR1_CTG32
+name: HSCHR1_CTG32
+
+[Term]
+id: HSCHRX_CTG6
+name: HSCHRX_CTG6
+
+[Term]
+id: HSCHR4_CTG8
+name: HSCHR4_CTG8
+
+[Term]
+id: HSCHRX_CTG16
+name: HSCHRX_CTG16
+
+[Term]
+id: GL000229.1
+name: GL000229.1
+
+[Term]
+id: HSCHR1_CTG31
+name: HSCHR1_CTG31
+
+[Term]
+id: HSCHR1_CTG12
+name: HSCHR1_CTG12
+
+[Term]
+id: HSCHR1_CTG21
+name: HSCHR1_CTG21
+
+[Term]
+id: GL000227.1
+name: GL000227.1
+
+[Term]
+id: HSCHR7_CTG7
+name: HSCHR7_CTG7
+
+[Term]
+id: GL000207.1
+name: GL000207.1
+
+[Term]
+id: HSCHR1_CTG19
+name: HSCHR1_CTG19
+
+[Term]
+id: GL000220.1
+name: GL000220.1
+
+[Term]
+id: HSCHR7_CTG4_4
+name: HSCHR7_CTG4_4
+
+[Term]
+id: HSCHR21_CTG1044
+name: HSCHR21_CTG1044
+
+[Term]
+id: HSCHR1_CTG17
+name: HSCHR1_CTG17
+
+[Term]
+id: HSCHRX_CTG12
+name: HSCHRX_CTG12
+
+[Term]
+id: HSCHR6_MHC_SSTO
+name: HSCHR6_MHC_SSTO
+
+[Term]
+id: HSCHRX_CTG10
+name: HSCHRX_CTG10
+
+[Term]
+id: HSCHR9_CTG18
+name: HSCHR9_CTG18
+
+[Term]
+id: HSCHR9_CTG3
+name: HSCHR9_CTG3
+
+[Term]
+id: HSCHR19_CTG1
+name: HSCHR19_CTG1
+
+[Term]
+id: GL000224.1
+name: GL000224.1
+
+[Term]
+id: HSCHR7_CTG4_2
+name: HSCHR7_CTG4_2
+
+[Term]
+id: HSCHR13_CTG3
+name: HSCHR13_CTG3
+
+[Term]
+id: GL000240.1
+name: GL000240.1
+
+[Term]
+id: HSCHR11_CTG3
+name: HSCHR11_CTG3
+
+[Term]
+id: HSCHRY_CTG8
+name: HSCHRY_CTG8
+
+[Term]
+id: GL000238.1
+name: GL000238.1
+
+[Term]
+id: HSCHR12_CTG4
+name: HSCHR12_CTG4
+
+[Term]
+id: HSCHR19_CTG2
+name: HSCHR19_CTG2
+
+[Term]
+id: GL000213.1
+name: GL000213.1
+
+[Term]
+id: HSCHR12_CTG2
+name: HSCHR12_CTG2
+
+[Term]
+id: HSCHR2_CTG9
+name: HSCHR2_CTG9
+
+[Term]
+id: GL000234.1
+name: GL000234.1
+
+[Term]
+id: HSCHR2_CTG12_1
+name: HSCHR2_CTG12_1
+
+[Term]
+id: GL000225.1
+name: GL000225.1
+
+[Term]
+id: HSCHR7_CTG1
+name: HSCHR7_CTG1
+
+[Term]
+id: HSCHR8_CTG9
+name: HSCHR8_CTG9
+
+[Term]
+id: HSCHRX_CTG1
+name: HSCHRX_CTG1
+
+[Term]
+id: HSCHR5_CTG5
+name: HSCHR5_CTG5
+
+[Term]
+id: GL000247.1
+name: GL000247.1
+
+[Term]
+id: GL000235.1
+name: GL000235.1
+
+[Term]
+id: HSCHR6_CTG5
+name: HSCHR6_CTG5
+
+[Term]
+id: HSCHR5_CTG1
+name: HSCHR5_CTG1
+
+[Term]
+id: HSCHR21_CTG1043
+name: HSCHR21_CTG1043
+
+[Term]
+id: HSCHR1_CTG26
+name: HSCHR1_CTG26
+
+[Term]
+id: HSCHR10_CTG7
+name: HSCHR10_CTG7
+
+[Term]
+id: GL000194.1
+name: GL000194.1
+
+[Term]
+id: HSCHR15_CTG9
+name: HSCHR15_CTG9
+
+[Term]
+id: HSCHR9_CTG28
+name: HSCHR9_CTG28
+
+[Term]
+id: HSCHR12_CTG2_1
+name: HSCHR12_CTG2_1
+
+[Term]
+id: HSCHRY_CTG11_1
+name: HSCHRY_CTG11_1
+
+[Term]
+id: GL000218.1
+name: GL000218.1
+
+[Term]
+id: HSCHRX_CTG11_1
+name: HSCHRX_CTG11_1
+
+[Term]
+id: HSCHR22_CTG8
+name: HSCHR22_CTG8
+
+[Term]
+id: HSCHR20_CTG1_1
+name: HSCHR20_CTG1_1
+
+[Term]
+id: HSCHR17_CTG2
+name: HSCHR17_CTG2
+
+[Term]
+id: GL000223.1
+name: GL000223.1
+
+[Term]
+id: HSCHR15_CTG4
+name: HSCHR15_CTG4
+
+[Term]
+id: GL000231.1
+name: GL000231.1
+
+[Term]
+id: HSCHR2_CTG15
+name: HSCHR2_CTG15
+
+[Term]
+id: HSCHR16_CTG3
+name: HSCHR16_CTG3
+
+[Term]
+id: HSCHR8_CTG3
+name: HSCHR8_CTG3
+
+[Term]
+id: GL000221.1
+name: GL000221.1
+
+[Term]
+id: HSCHR3_CTG3
+name: HSCHR3_CTG3
+
+[Term]
+id: HSCHR9_CTG39
+name: HSCHR9_CTG39
+
+[Term]
+id: GL000209.1
+name: GL000209.1
+
+[Term]
+id: HSCHR3_CTG2_1
+name: HSCHR3_CTG2_1
+
+[Term]
+id: HSCHR21_CTG1047
+name: HSCHR21_CTG1047
+
+[Term]
+id: HSCHR9_CTG29
+name: HSCHR9_CTG29
+
+[Term]
+id: HSCHR14_CTG1
+name: HSCHR14_CTG1
+
+[Term]
+id: GL000243.1
+name: GL000243.1
+
+[Term]
+id: HSCHR10_CTG10
+name: HSCHR10_CTG10
+
+[Term]
+id: HSCHR6_MHC_QBL
+name: HSCHR6_MHC_QBL
+
+[Term]
+id: HSCHRX_CTG2
+name: HSCHRX_CTG2
+
+[Term]
+id: HSCHR12_CTG1
+name: HSCHR12_CTG1
+
+[Term]
+id: GL000216.1
+name: GL000216.1
+
+[Term]
+id: HSCHR1_CTG2
+name: HSCHR1_CTG2
+
+[Term]
+id: HSCHRX_CTG9
+name: HSCHRX_CTG9
+
+[Term]
+id: HSCHR20_CTG2
+name: HSCHR20_CTG2
+
+[Term]
+id: HSCHR1_CTG34
+name: HSCHR1_CTG34
+
+[Term]
+id: HSCHRY_CTG10
+name: HSCHRY_CTG10
+
+[Term]
+id: HSCHR6_CTG3
+name: HSCHR6_CTG3
+
+[Term]
+id: GL000199.1
+name: GL000199.1
+
+[Term]
+id: GL000249.1
+name: GL000249.1
+
+[Term]
+id: GL000205.1
+name: GL000205.1
+
+[Term]
+id: HSCHRX_CTG11
+name: HSCHRX_CTG11
+
+[Term]
+id: GL000219.1
+name: GL000219.1
+
+[Term]
+id: HSCHR21_CTG1
+name: HSCHR21_CTG1
+
+[Term]
+id: HSCHR6_MHC_MCF
+name: HSCHR6_MHC_MCF
+
+[Term]
+id: HSCHR8_CTG7
+name: HSCHR8_CTG7
+
+[Term]
+id: GL000203.1
+name: GL000203.1
+
+[Term]
+id: HSCHR21_CTG1_1
+name: HSCHR21_CTG1_1
+
+[Term]
+id: HSCHR6_CTG1
+name: HSCHR6_CTG1
+
+[Term]
+id: GL000202.1
+name: GL000202.1
+
+[Term]
+id: HSCHR10_CTG13
+name: HSCHR10_CTG13
+
+[Term]
+id: HSCHR9_CTG21
+name: HSCHR9_CTG21
+
+[Term]
+id: HSCHR9_CTG34
+name: HSCHR9_CTG34
+
+[Term]
+id: HSCHR9_CTG14
+name: HSCHR9_CTG14
+
+[Term]
+id: HSCHR13_CTG2
+name: HSCHR13_CTG2
+
+[Term]
+id: HSCHR2_CTG6
+name: HSCHR2_CTG6
+
+[Term]
+id: HSCHRX_CTG7
+name: HSCHRX_CTG7
+
+[Term]
+id: HSCHR22_CTG4
+name: HSCHR22_CTG4
+
+[Term]
+id: HSCHR9_CTG26
+name: HSCHR9_CTG26
+
+[Term]
+id: GL000245.1
+name: GL000245.1
+
+[Term]
+id: HSCHR21_CTG2
+name: HSCHR21_CTG2
+
+[Term]
+id: HSCHR1_CTG20
+name: HSCHR1_CTG20
+
+[Term]
+id: HSCHR17_CTG1
+name: HSCHR17_CTG1
+
+[Term]
+id: HSCHR10_CTG8
+name: HSCHR10_CTG8
+
+[Term]
+id: HSCHR1_CTG3
+name: HSCHR1_CTG3
+
+[Term]
+id: HSCHR3_CTG2
+name: HSCHR3_CTG2
+
+[Term]
+id: HSCHR19_CTG3_1
+name: HSCHR19_CTG3_1
+
+[Term]
+id: HSCHRX_CTG14
+name: HSCHRX_CTG14
+
+[Term]
+id: HSCHR9_CTG20
+name: HSCHR9_CTG20
+
+[Term]
+id: HSCHR17_CTG4
+name: HSCHR17_CTG4
+
+[Term]
+id: HSCHR17_CTG3
+name: HSCHR17_CTG3
+
+[Term]
+id: HSCHRX_CTG5
+name: HSCHRX_CTG5
+
+[Term]
+id: HSCHR16_CTG3_1
+name: HSCHR16_CTG3_1
+
+[Term]
+id: HSCHR6_MHC_MANN
+name: HSCHR6_MHC_MANN
+
+[Term]
+id: HSCHRX_CTG13
+name: HSCHRX_CTG13
+
+[Term]
+id: HSCHR2_CTG16
+name: HSCHR2_CTG16
+
+[Term]
+id: HSCHRX_CTG3
+name: HSCHRX_CTG3
+
+[Term]
+id: HSCHR9_CTG17
+name: HSCHR9_CTG17
+
+[Term]
+id: HSCHR1_CTG27
+name: HSCHR1_CTG27
+
+[Term]
+id: HSCHR11_CTG4
+name: HSCHR11_CTG4
+
+[Term]
+id: HSCHR1_CTG11
+name: HSCHR1_CTG11
+
+[Term]
+id: HSCHR20_CTG5
+name: HSCHR20_CTG5
+
+[Term]
+id: HSCHR22_CTG2
+name: HSCHR22_CTG2
+
+[Term]
+id: GL000233.1
+name: GL000233.1
+
+[Term]
+id: HSCHR9_CTG8
+name: HSCHR9_CTG8
+
+[Term]
+id: HSCHR10_CTG11
+name: HSCHR10_CTG11
+
+[Term]
+id: GL000226.1
+name: GL000226.1
+
+[Term]
+id: HSCHR7_CTG4_3
+name: HSCHR7_CTG4_3
+
+[Term]
+id: HSCHR9_CTG33
+name: HSCHR9_CTG33
+
+[Term]
+id: HSCHR15_CTG2
+name: HSCHR15_CTG2
+
+[Term]
+id: HSCHR1_CTG16
+name: HSCHR1_CTG16
+
+[Term]
+id: HSCHR1_CTG36
+name: HSCHR1_CTG36
+
+[Term]
+id: GL000242.1
+name: GL000242.1
+
+[Term]
+id: GL000211.1
+name: GL000211.1
+
+[Term]
+id: HSCHR8_CTG1
+name: HSCHR8_CTG1
+
+[Term]
+id: HSCHR13_CTG4
+name: HSCHR13_CTG4
+
+[Term]
+id: HSCHR2_CTG5
+name: HSCHR2_CTG5
+
+[Term]
+id: GL000244.1
+name: GL000244.1
+
+[Term]
+id: GL000212.1
+name: GL000212.1
+
+[Term]
+id: HSCHR1_CTG5
+name: HSCHR1_CTG5
+
+[Term]
+id: GL000230.1
+name: GL000230.1
+
+[Term]
+id: GL000214.1
+name: GL000214.1
+
+[Term]
+id: HSCHR2_CTG1
+name: HSCHR2_CTG1
+
+[Term]
+id: GL000193.1
+name: GL000193.1
+
+[Term]
+id: GL000236.1
+name: GL000236.1
+
+[Term]
+id: GL000239.1
+name: GL000239.1
+
+[Term]
+id: HSCHR9_CTG10
+name: HSCHR9_CTG10
+
+[Term]
+id: HSCHR9_CTG5
+name: HSCHR9_CTG5
+
+[Term]
+id: GL000200.1
+name: GL000200.1
+
+[Term]
+id: HSCHR4_CTG8_1
+name: HSCHR4_CTG8_1
+
+[Term]
+id: HSCHR4_CTG7
+name: HSCHR4_CTG7
+
+[Term]
+id: GL000232.1
+name: GL000232.1
+
+[Term]
+id: HSCHR9_CTG9
+name: HSCHR9_CTG9
+
+[Term]
+id: HSCHR15_CTG3
+name: HSCHR15_CTG3
+
+[Term]
+id: HSCHR2_CTG4
+name: HSCHR2_CTG4
+
+[Term]
+id: HSCHR6_MHC_DBB
+name: HSCHR6_MHC_DBB
+
+[Term]
+id: HSCHR5_CTG2
+name: HSCHR5_CTG2
+
+[Term]
+id: GL000215.1
+name: GL000215.1
+
+[Term]
+id: GL000241.1
+name: GL000241.1
+
+[Term]
+id: HSCHRY_CTG9
+name: HSCHRY_CTG9
+
+[Term]
+id: HSCHR16_CTG4
+name: HSCHR16_CTG4
+
+[Term]
+id: HSCHR16_CTG1
+name: HSCHR16_CTG1
+
+[Term]
+id: HSCHR9_CTG30
+name: HSCHR9_CTG30
+
+[Term]
+id: HSCHR20_CTG1
+name: HSCHR20_CTG1
+
+[Term]
+id: HSCHR4_CTG12
+name: HSCHR4_CTG12
+
+[Term]
+id: HSCHRY_CTG7
+name: HSCHRY_CTG7
+
+[Term]
+id: HSCHR4_CTG9
+name: HSCHR4_CTG9
+
+[Term]
+id: HSCHR2_CTG7_2
+name: HSCHR2_CTG7_2
+
+[Term]
+id: HSCHR5_CTG1_1
+name: HSCHR5_CTG1_1
+
+[Term]
+id: GL000248.1
+name: GL000248.1
+
+[Term]
+id: GL000201.1
+name: GL000201.1
+
+[Term]
+id: HSCHR6_MHC_COX
+name: HSCHR6_MHC_COX
+
+[Term]
+id: HSCHR9_CTG1
+name: HSCHR9_CTG1
+
+[Term]
+id: GL000237.1
+name: GL000237.1
+
+[Term]
+id: HSCHR18_CTG2
+name: HSCHR18_CTG2
+
+[Term]
+id: HSCHR11_CTG8
+name: HSCHR11_CTG8
+
+[Term]
+id: HSCHR7_CTG4
+name: HSCHR7_CTG4
+
+[Term]
+id: GL000228.1
+name: GL000228.1
+
+[Term]
+id: HSCHR12_CTG6
+name: HSCHR12_CTG6
+
+[Term]
+id: HSCHR4_CTG2
+name: HSCHR4_CTG2
+
+[Term]
+id: GL000195.1
+name: GL000195.1
+
+[Term]
+id: HSCHR15_CTG8
+name: HSCHR15_CTG8
+
+[Term]
+id: HSCHR13_CTG5
+name: HSCHR13_CTG5
+
+[Term]
+id: HSCHR10_CTG2
+name: HSCHR10_CTG2
+
+[Term]
+id: HSCHR7_CTG6
+name: HSCHR7_CTG6
+
+[Term]
+id: GL000210.1
+name: GL000210.1
+
+[Term]
+id: HSCHR11_CTG1
+name: HSCHR11_CTG1
+
+[Term]
+id: HSCHR8_CTG5_1
+name: HSCHR8_CTG5_1
+
+[Term]
+id: HSCHR12_CTG5
+name: HSCHR12_CTG5
+
+[Term]
+id: HSCHR2_CTG12
+name: HSCHR2_CTG12
+
+[Term]
+id: GL000208.1
+name: GL000208.1
+
+[Term]
+id: HSCHRY_CTG10_1
+name: HSCHRY_CTG10_1
+
+[Term]
+id: HSCHR6_MHC_APD
+name: HSCHR6_MHC_APD
+
+[Term]
+id: GL000191.1
+name: GL000191.1
+
+[Term]
+id: HSCHRY_CTG10_2
+name: HSCHRY_CTG10_2
+
+[Term]
+id: HSCHR9_CTG38
+name: HSCHR9_CTG38
+
+[Term]
+id: GL000217.1
+name: GL000217.1
+
+[Term]
+id: HSCHR4_CTG4
+name: HSCHR4_CTG4
+
+[Term]
+id: HSCHR18_CTG1_1
+name: HSCHR18_CTG1_1
+
+[Term]
+id: HSCHR9_CTG6
+name: HSCHR9_CTG6
+
+[Term]
+id: HSCHR2_CTG3
+name: HSCHR2_CTG3
+
+[Term]
+id: HSCHR5_CTG4
+name: HSCHR5_CTG4
+
+[Term]
+id: GL000197.1
+name: GL000197.1
+
+[Term]
+id: HSCHR1_CTG1
+name: HSCHR1_CTG1
+
+[Term]
+id: HSCHR4_CTG5
+name: HSCHR4_CTG5
+
+[Term]
+id: HSCHR6_MHC_MCF_CTG1
+name: HSCHR6_MHC_MCF_CTG1
+
+[Term]
+id: HSCHR4_1_CTG9
+name: HSCHR4_1_CTG9
+
+[Term]
+id: HSCHR6_MHC_QBL_CTG1
+name: HSCHR6_MHC_QBL_CTG1
+
+[Term]
+id: HSCHR6_MHC_COX_CTG1
+name: HSCHR6_MHC_COX_CTG1
+
+[Term]
+id: HSCHR6_MHC_MANN_CTG1
+name: HSCHR6_MHC_MANN_CTG1
+
+[Term]
+id: HSCHR6_MHC_APD_CTG1
+name: HSCHR6_MHC_APD_CTG1
+
+[Term]
+id: HSCHR17_1_CTG5
+name: HSCHR17_1_CTG5
+
+[Term]
+id: HSCHR6_MHC_DBB_CTG1
+name: HSCHR6_MHC_DBB_CTG1
+
+[Term]
+id: HSCHR6_MHC_SSTO_CTG1
+name: HSCHR6_MHC_SSTO_CTG1
+
+[Term]
+id: HSCHR17_1
+name: HSCHR17_1
+
+[Term]
+id: NC_012920
+name: NC_012920
+
+[Term]
+id: HSCHR17_RANDOM_CTG4
+name: HSCHR17_RANDOM_CTG4
+
+[Term]
+id: HSCHR17_RANDOM_CTG2
+name: HSCHR17_RANDOM_CTG2
+
+[Term]
+id: HSCHRUN_RANDOM_CTG39
+name: HSCHRUN_RANDOM_CTG39
+
+[Term]
+id: HSCHR8_RANDOM_CTG1
+name: HSCHR8_RANDOM_CTG1
+
+[Term]
+id: HSCHRUN_RANDOM_CTG14
+name: HSCHRUN_RANDOM_CTG14
+
+[Term]
+id: HSCHR1_RANDOM_CTG12
+name: HSCHR1_RANDOM_CTG12
+
+[Term]
+id: HSCHR9_RANDOM_CTG1
+name: HSCHR9_RANDOM_CTG1
+
+[Term]
+id: HSCHRUN_RANDOM_CTG22
+name: HSCHRUN_RANDOM_CTG22
+
+[Term]
+id: HSCHRUN_RANDOM_CTG20
+name: HSCHRUN_RANDOM_CTG20
+
+[Term]
+id: HSCHR18_RANDOM_CTG1
+name: HSCHR18_RANDOM_CTG1
+
+[Term]
+id: HSCHRUN_RANDOM_CTG11
+name: HSCHRUN_RANDOM_CTG11
+
+[Term]
+id: HSCHRUN_RANDOM_CTG16
+name: HSCHRUN_RANDOM_CTG16
+
+[Term]
+id: HSCHRUN_RANDOM_CTG33
+name: HSCHRUN_RANDOM_CTG33
+
+[Term]
+id: HSCHRUN_RANDOM_CTG31
+name: HSCHRUN_RANDOM_CTG31
+
+[Term]
+id: HSCHRUN_RANDOM_CTG3
+name: HSCHRUN_RANDOM_CTG3
+
+[Term]
+id: HSCHRUN_RANDOM_CTG27
+name: HSCHRUN_RANDOM_CTG27
+
+[Term]
+id: HSCHRUN_RANDOM_CTG17
+name: HSCHRUN_RANDOM_CTG17
+
+[Term]
+id: HSCHRUN_RANDOM_CTG40
+name: HSCHRUN_RANDOM_CTG40
+
+[Term]
+id: HSCHRUN_RANDOM_CTG28
+name: HSCHRUN_RANDOM_CTG28
+
+[Term]
+id: HSCHR4_RANDOM_CTG3
+name: HSCHR4_RANDOM_CTG3
+
+[Term]
+id: HSCHRUN_RANDOM_CTG9
+name: HSCHRUN_RANDOM_CTG9
+
+[Term]
+id: HSCHRUN_RANDOM_CTG15
+name: HSCHRUN_RANDOM_CTG15
+
+[Term]
+id: HSCHRUN_RANDOM_CTG24
+name: HSCHRUN_RANDOM_CTG24
+
+[Term]
+id: HSCHRUN_RANDOM_CTG13
+name: HSCHRUN_RANDOM_CTG13
+
+[Term]
+id: HSCHR19_RANDOM_CTG2
+name: HSCHR19_RANDOM_CTG2
+
+[Term]
+id: HSCHRUN_RANDOM_CTG36
+name: HSCHRUN_RANDOM_CTG36
+
+[Term]
+id: HSCHRUN_RANDOM_CTG6
+name: HSCHRUN_RANDOM_CTG6
+
+[Term]
+id: HSCHR9_RANDOM_CTG2
+name: HSCHR9_RANDOM_CTG2
+
+[Term]
+id: HSCHRUN_RANDOM_CTG42
+name: HSCHRUN_RANDOM_CTG42
+
+[Term]
+id: HSCHR17_RANDOM_CTG3
+name: HSCHR17_RANDOM_CTG3
+
+[Term]
+id: HSCHRUN_RANDOM_CTG10
+name: HSCHRUN_RANDOM_CTG10
+
+[Term]
+id: HSCHR17_RANDOM_CTG1
+name: HSCHR17_RANDOM_CTG1
+
+[Term]
+id: HSCHR11_RANDOM_CTG2
+name: HSCHR11_RANDOM_CTG2
+
+[Term]
+id: HSCHRUN_RANDOM_CTG38
+name: HSCHRUN_RANDOM_CTG38
+
+[Term]
+id: HSCHRUN_RANDOM_CTG26
+name: HSCHRUN_RANDOM_CTG26
+
+[Term]
+id: HSCHRUN_RANDOM_CTG19
+name: HSCHRUN_RANDOM_CTG19
+
+[Term]
+id: HSCHRUN_RANDOM_CTG35
+name: HSCHRUN_RANDOM_CTG35
+
+[Term]
+id: HSCHRUN_RANDOM_CTG1
+name: HSCHRUN_RANDOM_CTG1
+
+[Term]
+id: HSCHRUN_RANDOM_CTG37
+name: HSCHRUN_RANDOM_CTG37
+
+[Term]
+id: HSCHRUN_RANDOM_CTG2
+name: HSCHRUN_RANDOM_CTG2
+
+[Term]
+id: HSCHRUN_RANDOM_CTG23
+name: HSCHRUN_RANDOM_CTG23
+
+[Term]
+id: HSCHRUN_RANDOM_CTG4
+name: HSCHRUN_RANDOM_CTG4
+
+[Term]
+id: HSCHR4_RANDOM_CTG2
+name: HSCHR4_RANDOM_CTG2
+
+[Term]
+id: HSCHRUN_RANDOM_CTG29
+name: HSCHRUN_RANDOM_CTG29
+
+[Term]
+id: HSCHRUN_RANDOM_CTG32
+name: HSCHRUN_RANDOM_CTG32
+
+[Term]
+id: HSCHR9_RANDOM_CTG4
+name: HSCHR9_RANDOM_CTG4
+
+[Term]
+id: HSCHRUN_RANDOM_CTG25
+name: HSCHRUN_RANDOM_CTG25
+
+[Term]
+id: HSCHRUN_RANDOM_CTG5
+name: HSCHRUN_RANDOM_CTG5
+
+[Term]
+id: HSCHRUN_RANDOM_CTG34
+name: HSCHRUN_RANDOM_CTG34
+
+[Term]
+id: HSCHRUN_RANDOM_CTG41
+name: HSCHRUN_RANDOM_CTG41
+
+[Term]
+id: HSCHR9_RANDOM_CTG5
+name: HSCHR9_RANDOM_CTG5
+
+[Term]
+id: HSCHRUN_RANDOM_CTG30
+name: HSCHRUN_RANDOM_CTG30
+
+[Term]
+id: HSCHRUN_RANDOM_CTG21
+name: HSCHRUN_RANDOM_CTG21
+
+[Term]
+id: HSCHR7_RANDOM_CTG1
+name: HSCHR7_RANDOM_CTG1
+
+[Term]
+id: HSCHR21_RANDOM_CTG9
+name: HSCHR21_RANDOM_CTG9
+
+[Term]
+id: HSCHR19_RANDOM_CTG1
+name: HSCHR19_RANDOM_CTG1
+
+[Term]
+id: HSCHR1_RANDOM_CTG5
+name: HSCHR1_RANDOM_CTG5
+
+[Term]
+id: HSCHRUN_RANDOM_CTG7
+name: HSCHRUN_RANDOM_CTG7
+
+[Term]
+id: HSCHR8_RANDOM_CTG4
+name: HSCHR8_RANDOM_CTG4
+
+[Term]
+id: MT
+name: MT
+alt_id: chrM
+alt_id: M
+
+[Term]
+id: HG989_PATCH
+name: HG989_PATCH
+
+[Term]
+id: HG79_PATCH
+name: HG79_PATCH
+
+[Term]
+id: HG1032_PATCH
+name: HG1032_PATCH
+
