@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dcc-schema
         project="BLUEPRINT"
-        schemaVer="0.3.3.1"
+        schemaVer="0.3.3.2"
         
         xmlns="http://www.blueprint-epigenome.eu/dcc/schema"
         xmlns:xhtml="http://www.w3.org/1999/xhtml"
@@ -43,7 +43,18 @@
     	<collection name="external" path="external" />
     </collection-domain>
 	
-   <cv-declarations dir="cv">
+    <cv-declarations dir="cv">
+        <cv name="EnsemblChromosomes">
+	    <description>Valid chromosome and genome patch identifiers from Ensembl</description>
+	    <annotation key="file">Chromosomes and genome patches</annotation>
+	    <annotation key="header">Key&#09;Chromosome Name</annotation>
+
+            <annotation key="data-version">70</annotation>
+
+	    <cv-uri format="EnsemblMySQLDump" doc="http://jan2013.archive.ensembl.org/Homo_sapiens/Info/Index">ftp://ftp.ensembl.org/pub/release-70/mysql/homo_sapiens_core_70_37/seq_region.txt.gz</cv-uri>
+	    <cv-uri format="EnsemblMySQLDump" doc="http://jan2013.archive.ensembl.org/Homo_sapiens/Info/Index">ftp://ftp.ensembl.org/pub/release-70/mysql/homo_sapiens_core_70_37/coord_system.txt.gz</cv-uri>
+	    <cv-file format="obo">ENS-chro.obo</cv-file>
+	</cv>
         <cv name="EnsemblGenes" lax="true">
             <description>Valid Ensembl Genes identifiers</description>
             <annotation key="file">Ensembl Genes</annotation>
@@ -212,9 +223,6 @@
         </cv>
         <cv name="B5">
             <cv-file>appendix_B5.tsv</cv-file> 
-        </cv>
-        <cv name="B6">
-            <cv-file>appendix_B6.tsv</cv-file> 
         </cv>
         <cv name="B10">
             <cv-file>appendix_B10.tsv</cv-file> 
@@ -638,7 +646,7 @@
         <concept-type name="abstract-coordinate" collection="primary">
             <column name="chromosome">
                 <description>Name of the chromosome containing the experimentally detected feature (mutation, variation, expression, ...)</description>
-                <column-type item-type="string" column-kind="required" cv="B6" />
+                <column-type item-type="string" column-kind="required" cv="EnsemblChromosomes" />
             </column>
             <column name="chromosome_start">
                 <description>Start position of the mutation/variation on the chromosome</description>
@@ -883,19 +891,24 @@
     			<description>Each one of the participants in one or more of the reactions and complexes related to this pathway</description>
     			<column-type item-type="compound" column-kind="required" container-type="set" set-seps=";">
     				<compound-type>
+					<column name="participant_id">
+						<description>The participant identifier (Ensembl Gene, Transcript, UniProt AC, etc...)</description>
+						<column-type item-type="string" column-kind="required" />
+					</column>
+					<sep>|</sep>
     					<column name="chromosome">
     						<description>Name of the chromosome containing the experimentally detected feature (mutation, variation, expression, ...)</description>
-    						<column-type item-type="string" column-kind="required" cv="B6" />
+    						<column-type item-type="string" column-kind="desirable" cv="EnsemblChromosomes" />
     					</column>
     					<sep>:</sep>
     					<column name="chromosome_start">
     						<description>Start position of the mutation/variation on the chromosome</description>
-    						<column-type item-type="integer" column-kind="required" />
+    						<column-type item-type="integer" column-kind="desirable" />
     					</column>
     					<sep>-</sep>
     					<column name="chromosome_end">
     						<description>End position of the mutation/variation on the chromosome</description>
-    						<column-type item-type="integer" column-kind="required" />
+    						<column-type item-type="integer" column-kind="desirable" />
     					</column>
     				</compound-type>
     			</column-type>
@@ -1819,7 +1832,7 @@
                     </column>
                     <column name="exon1_chromosome">
                         <description>Name of the chromosome containing the 5' exon (#)</description>
-                        <column-type item-type="string" column-kind="required" cv="B6" />
+                        <column-type item-type="string" column-kind="required" cv="EnsemblChromosomes" />
                     </column>
                     <column name="exon1_number_bases">
                         <description>Number of bases from 5' exon</description>
@@ -1835,7 +1848,7 @@
                     </column>
                     <column name="exon2_chromosome">
                         <description>Name of the chromosome containing the 3' exon (#)</description>
-                        <column-type item-type="string" column-kind="required" cv="B6" />
+                        <column-type item-type="string" column-kind="required" cv="EnsemblChromosomes" />
                     </column>
                     <column name="exon2_number_bases">
                         <description>Number of bases from 3' exon</description>
