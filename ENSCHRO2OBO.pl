@@ -33,6 +33,16 @@ sub parseSeqRegions($$$) {
 	}
 }
 
+sub sortChro($$) {
+	if($_[0] =~ /^[1-9][0-9]*$/) {
+		return ($_[1] =~ /^[1-9][0-9]*$/)?$_[0] <=> $_[1]:-1;
+	} elsif($_[1] =~ /^[1-9][0-9]*$/) {
+		return 1;
+	} else {
+		return (length($_[0])==length($_[1])) ? $_[0] cmp $_[1] : length($_[0]) <=> length($_[1]);
+	}
+}
+
 if(scalar(@ARGV)==3) {
 	my ($coordSFile,$seqRegionFile,$OBOfile)=@ARGV;
 	
@@ -70,7 +80,7 @@ Generated using $0 from
 	$seqRegionFile
 CEOF
 		if(open(my $O,'>',$OBOfile)) {
-			$CHRO_CV->OBOserialize($O,$comments);
+			$CHRO_CV->OBOserialize($O,$comments,\&sortChro);
 			close($O);
 		} else {
 			Carp::croak("Unable to create output file ".$OBOfile);
