@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dcc-schema
         project="BLUEPRINT"
-        schemaVer="0.3.3.2"
+        schemaVer="0.4"
         
         xmlns="http://www.blueprint-epigenome.eu/dcc/schema"
         xmlns:xhtml="http://www.w3.org/1999/xhtml"
@@ -10,8 +10,8 @@
 >
 	<metadata documentation-dir="model-docs" collection="modelMetadata">
 		<annotation key="author">José María Fernández</annotation>
-		<annotation key="GENCODEVer">15</annotation>
-		<annotation key="EnsemblVer">70</annotation>
+		<annotation key="GENCODEVer">22</annotation>
+		<annotation key="EnsemblVer">79</annotation>
 		<annotation key="cvKey">Key</annotation>
 		<annotation key="cvDesc">Description</annotation>
 		
@@ -49,50 +49,50 @@
 	    <annotation key="file">Chromosomes and genome patches</annotation>
 	    <annotation key="header">Key&#09;Chromosome Name</annotation>
 
-            <annotation key="data-version">70</annotation>
+            <annotation key="data-version">79</annotation>
 
-	    <cv-uri format="EnsemblMySQLDump" doc="http://jan2013.archive.ensembl.org/Homo_sapiens/Info/Index">ftp://ftp.ensembl.org/pub/release-70/mysql/homo_sapiens_core_70_37/seq_region.txt.gz</cv-uri>
-	    <cv-uri format="EnsemblMySQLDump" doc="http://jan2013.archive.ensembl.org/Homo_sapiens/Info/Index">ftp://ftp.ensembl.org/pub/release-70/mysql/homo_sapiens_core_70_37/coord_system.txt.gz</cv-uri>
+	    <cv-uri format="EnsemblMySQLDump" doc="http://mar2015.archive.ensembl.org/Homo_sapiens/Info/Index">ftp://ftp.ensembl.org/pub/release-79/mysql/homo_sapiens_core_79_38/seq_region.txt.gz</cv-uri>
+	    <cv-uri format="EnsemblMySQLDump" doc="http://mar2015.archive.ensembl.org/Homo_sapiens/Info/Index">ftp://ftp.ensembl.org/pub/release-79/mysql/homo_sapiens_core_79_38/coord_system.txt.gz</cv-uri>
 	    <cv-file format="obo">ENS-chro.obo</cv-file>
 	</cv>
         <cv name="EnsemblGenes" lax="true">
             <description>Valid Ensembl Genes identifiers</description>
             <annotation key="file">Ensembl Genes</annotation>
             
-            <annotation key="data-version">70</annotation>
+            <annotation key="data-version">79</annotation>
             
-            <cv-uri format="EnsemblMySQLDump" doc="http://jan2013.archive.ensembl.org/Homo_sapiens/Info/Index">ftp://ftp.ensembl.org/pub/release-70/mysql/homo_sapiens_core_70_37/gene.txt.gz</cv-uri>
+            <cv-uri format="EnsemblMySQLDump" doc="http://mar2015.archive.ensembl.org/Homo_sapiens/Info/Index">ftp://ftp.ensembl.org/pub/release-79/mysql/homo_sapiens_core_79_38/gene.txt.gz</cv-uri>
             <cv-file format="obo">ENSG.obo</cv-file>
         </cv>
         <cv name="EnsemblTranscripts" lax="true">
             <description>Valid Ensembl Transcript identifiers</description>
             <annotation key="file">Ensembl Transcripts</annotation>
             
-            <annotation key="data-version">70</annotation>
+            <annotation key="data-version">79</annotation>
             
-            <cv-uri format="EnsemblMySQLDump" doc="http://jan2013.archive.ensembl.org/Homo_sapiens/Info/Index">ftp://ftp.ensembl.org/pub/release-70/mysql/homo_sapiens_core_70_37/transcript.txt.gz</cv-uri>
+            <cv-uri format="EnsemblMySQLDump" doc="http://mar2015.archive.ensembl.org/Homo_sapiens/Info/Index">ftp://ftp.ensembl.org/pub/release-79/mysql/homo_sapiens_core_79_38/transcript.txt.gz</cv-uri>
             <cv-file format="obo">ENST.obo</cv-file>
         </cv>
 		<cv name="GencodeGenes" lax="true">
 			<description>Valid Gencode gene identifiers</description>
 			<annotation key="file">Gencode Genes</annotation>
 			
-			<annotation key="data-version">15</annotation>
+			<annotation key="data-version">22</annotation>
 			
-			<!-- For Gencode 16 and onwards, the information is in ftp://ftp.sanger.ac.uk/pub/gencode/Gencode_human/release_16/gencode.v16.metadata.Gene_source.gz -->
-			<!-- But for Gencode 15, it is the file gencode_release_15/gencode.v15.annotation.level_3.classes inside the archive -->
-			<cv-uri format="GencodeLevel3Classes" doc="http://www.gencodegenes.org/releases/15.html">ftp://ftp.sanger.ac.uk/pub/gencode/release_15/gencode15_GRCh37.tgz</cv-uri>
+			<!-- For Gencode 16 and onwards, the information is in ftp://ftp.sanger.ac.uk/pub/gencode/Gencode_human/release_16/gencode.v16.metadata.Gene_source.gz (GencodeDump) -->
+			<!-- But for Gencode 15, it is the file gencode_release_15/gencode.v15.annotation.level_3.classes (GencodeLevel3Classes) inside the archive -->
+			<cv-uri format="GencodeDump" doc="http://www.gencodegenes.org/releases/22.html">ftp://ftp.sanger.ac.uk/pub/gencode/Gencode_human/release_22/gencode.v22.metadata.Gene_source.gz</cv-uri>
 			<cv-file format="obo">GencodeG.obo</cv-file>
 		</cv>
 	   	<cv name="GencodeTranscripts" lax="true">
 	   		<description>Valid Gencode transcript identifiers</description>
 	   		<annotation key="file">Gencode Transcripts</annotation>
 	   		
-	   		<annotation key="data-version">15</annotation>
+	   		<annotation key="data-version">22</annotation>
 	   		
-	   		<!-- For Gencode 16 and onwards, the information is in ftp://ftp.sanger.ac.uk/pub/gencode/Gencode_human/release_16/gencode.v16.metadata.Transcript_source.gz -->
-	   		<!-- But for Gencode 15, it is the file gencode_release_15/gencode.v15.annotation.level_3.classes inside the archive -->
-	   		<cv-uri format="GencodeLevel3Classes" doc="http://www.gencodegenes.org/releases/15.html">ftp://ftp.sanger.ac.uk/pub/gencode/release_15/gencode15_GRCh37.tgz</cv-uri>
+	   		<!-- For Gencode 16 and onwards, the information is in ftp://ftp.sanger.ac.uk/pub/gencode/Gencode_human/release_16/gencode.v16.metadata.Transcript_source.gz (GencodeDump) -->
+	   		<!-- But for Gencode 15, it is the file gencode_release_15/gencode.v15.annotation.level_3.classes (GencodeLevel3Classes) inside the archive -->
+	   		<cv-uri format="GencodeDump" doc="http://www.gencodegenes.org/releases/22.html">ftp://ftp.sanger.ac.uk/pub/gencode/Gencode_human/release_22/gencode.v22.metadata.Transcript_source.gz</cv-uri>
 	   		<cv-file format="obo">GencodeT.obo</cv-file>
 	   	</cv>
 		<meta-cv name="EnsemblGencodeGenes">
