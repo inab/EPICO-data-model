@@ -9,6 +9,12 @@ use TabParser;
 use BP::Model;
 use BP::Loader::Tools;
 
+use Carp;
+use File::Basename qw();
+use File::Copy qw();
+use File::Spec;
+use File::Temp qw();
+
 sub parseClass3(\@$$$) {
 	my($pCV,$ensGene,$ensTranscript,$descEnsGene,$descEnsTranscript)=@_;
 	
@@ -30,22 +36,69 @@ sub parseGencodeDump($$$$) {
 	$Gencode_CV->addTerm(BP::Model::CV::Term->new([$ensId,$ens],"$ensId ($desc)"));
 }
 
-if(scalar(@ARGV)>=3) {
-	my $class3File = undef;
-	my $GencodeGfile = undef;
-	my $GencodeTfile = undef;
-	my $OBOGencodeGfile = undef;
-	my $OBOGencodeTfile = undef;
+# Class3 parser is needed for Gencode versions below 16
+if(scalar(@ARGV)==3) {
+	my($modelFile,$GencodeGname,$GencodeTname)=@ARGV;
 	
-	if(scalar(@ARGV)==3) {
-		($class3File,$OBOGencodeGfile,$OBOGencodeTfile) = @ARGV;
-		$GencodeGfile = $GencodeTfile = $class3File;
-	} else {
-		($GencodeGfile,$GencodeTfile,$OBOGencodeGfile,$OBOGencodeTfile) = @ARGV;
+	my $model = undef;
+	eval {
+		$model = BP::Model->new($modelFile,undef,1);
+	};
+	
+	if($@) {
+		Carp::croak("ERROR: Model loading and validation failed. Reason: ".$@);
 	}
 	
+	# Genes
+	my $GencodeG_mCV = $model->getNamedCV($GencodeGname);
+	Carp::croak("ERROR: CV $GencodeGname not declared in $modelFile")  unless(defined($GencodeG_mCV));
+	
+	# Let's get the URIs where the files needed to rebuild the CV are available
+	my $GencodeG_fetchURIs = $GencodeG_mCV->uri;
+	Carp::croak("ERROR: No available URI for CV $GencodeGname")  unless(ref($GencodeG_fetchURIs) eq 'ARRAY' && scalar(@{$GencodeG_fetchURIs})>0);
+	
+	# And let's get the output CV file
+	my $OBOGencodeGfile = $GencodeG_mCV->localFilename;
+	Carp::croak("ERROR: Unable to find path for CV $GencodeGname")  unless(defined($OBOGencodeGfile));
+	
+	# Data source version
+	my $gVer = exists($GencodeG_mCV->annotations->hash->{'data-version'})?$GencodeG_mCV->annotations->hash->{'data-version'}:undef;
+	
+	# Transcripts
+	my $GencodeT_mCV = $model->getNamedCV($GencodeTname);
+	Carp::croak("ERROR: CV $GencodeTname not declared in $modelFile")  unless(defined($GencodeT_mCV));
+	
+	# Let's get the URIs where the files needed to rebuild the CV are available
+	my $GencodeT_fetchURIs = $GencodeT_mCV->uri;
+	Carp::croak("ERROR: No available URI for CV $GencodeTname")  unless(ref($GencodeT_fetchURIs) eq 'ARRAY' && scalar(@{$GencodeT_fetchURIs})>0);
+	
+	# And let's get the output CV file
+	my $OBOGencodeTfile = $GencodeT_mCV->localFilename;
+	Carp::croak("ERROR: Unable to find path for CV $GencodeTname")  unless(defined($OBOGencodeTfile));
+	
+	
+	# Now, let's create a temp directory where to fetch the files needed to rebuild the CVs
+	my $tmpworkdir = File::Temp->newdir();
+	my $tmpworkdirname = $tmpworkdir->dirname;
+	
+	# and, indeed, fetch the associated files to the Gencode Genes
+	my $p_G_uriFiles = $GencodeG_mCV->mirrorURIs($tmpworkdirname);
+	
+	# We are expecting a single external resource
+	my $GencodeGfile = $p_G_uriFiles->[0][1];
+	my $class3File = ($p_G_uriFiles->[0][0]->format eq 'GencodeLevel3Classes') ? $GencodeGfile : undef;
+	
+	# For the comments
+	my $genGencodeGfile = File::Basename::basename($GencodeGfile);
+	my $genGencodeTfile = defined($class3File) ? $genGencodeGfile : undef;
+
+	# Data source version
+	my $tVer = defined($class3File)? $gVer : (exists($GencodeG_mCV->annotations->hash->{'data-version'})?$GencodeG_mCV->annotations->hash->{'data-version'}:undef);
+	
 	my $GencodeG_CV = BP::Model::CV->new();
+	$GencodeG_CV->annotations->addAnnotation('data-version',$gVer)  if(defined($gVer));
 	my $GencodeT_CV = BP::Model::CV->new();
+	$GencodeT_CV->annotations->addAnnotation('data-version',$tVer)  if(defined($tVer));
 	
 	my $openMode = undef;
 	my @command = ();
@@ -95,6 +148,12 @@ if(scalar(@ARGV)>=3) {
 			print STDERR "ERROR: Unable to open Gencode genes file ".$GencodeGfile." due $!\n";
 		}
 		
+		# Fetch the associated files to the Gencode Transcripts
+		my $p_T_uriFiles = $GencodeT_mCV->mirrorURIs($tmpworkdirname);
+		
+		# We are expecting a single external resource
+		my $GencodeTfile = $p_T_uriFiles->[0][1];
+		$genGencodeTfile = File::Basename::basename($GencodeTfile);
 		if($GencodeTfile =~ /\.gz$/) {
 			$openMode = '-|';
 			@command = (BP::Loader::Tools::GUNZIP,'-c',$GencodeTfile);
@@ -116,39 +175,35 @@ if(scalar(@ARGV)>=3) {
 		}
 	}
 	
-	if(open(my $O,'>',$OBOGencodeGfile)) {
+	my $tmpOBOGencodeGfile = File::Spec->catfile($tmpworkdirname,File::Basename::basename($OBOGencodeGfile));
+	if(open(my $O,'>',$tmpOBOGencodeGfile)) {
 		my $comments = <<CEOF;
 Generated using $0 from
-	$GencodeGfile
+	$genGencodeGfile
 CEOF
 		$GencodeG_CV->OBOserialize($O,$comments);
 		close($O);
+		File::Copy::move($tmpOBOGencodeGfile,$OBOGencodeGfile);
 	} else {
 		Carp::croak("Unable to create output file ".$OBOGencodeGfile." due $!");
 	}
-	if(open(my $O,'>',$OBOGencodeTfile)) {
+	my $tmpOBOGencodeTfile = File::Spec->catfile($tmpworkdirname,File::Basename::basename($OBOGencodeTfile));
+	if(open(my $O,'>',$tmpOBOGencodeTfile)) {
 		my $comments = <<CEOF;
 Generated using $0 from
-	$GencodeTfile
+	$genGencodeTfile
 CEOF
 		$GencodeT_CV->OBOserialize($O,$comments);
 		close($O);
+		File::Copy::move($tmpOBOGencodeTfile,$OBOGencodeTfile);
 	} else {
 		Carp::croak("Unable to create output file ".$OBOGencodeTfile." due $!");
 	}
 } else {
 	print STDERR <<EOF;
-ERROR: This program takes as input either 3 or 4 files:
-	- The Gencode genes and transcripts class3 file (Gencode15 and below)
-	
-	or
-	
-	- The Gencode genes file (Gencode16 and above)
-	- The Gencode transcripts file (Gencode16 and above)
-	
-	and
-	
-	- The output OBO ontology with the Gencode genes
-	- The output OBO ontology with the Gencode transcripts
+ERROR: This program takes as input 3 parameters:
+	- The BP model (either in XML or BP format)
+	- The Gencode genes ontology name
+	- The Gencode transcripts ontology name
 EOF
 }
