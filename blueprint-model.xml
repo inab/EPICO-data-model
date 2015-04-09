@@ -51,8 +51,8 @@
 
             <annotation key="data-version">79</annotation>
 
-	    <cv-uri format="EnsemblMySQLDump" doc="http://mar2015.archive.ensembl.org/Homo_sapiens/Info/Index">ftp://ftp.ensembl.org/pub/release-79/mysql/homo_sapiens_core_79_38/seq_region.txt.gz</cv-uri>
-	    <cv-uri format="EnsemblMySQLDump" doc="http://mar2015.archive.ensembl.org/Homo_sapiens/Info/Index">ftp://ftp.ensembl.org/pub/release-79/mysql/homo_sapiens_core_79_38/coord_system.txt.gz</cv-uri>
+	    <cv-uri name="regions" format="EnsemblMySQLDump" doc="http://mar2015.archive.ensembl.org/Homo_sapiens/Info/Index">ftp://ftp.ensembl.org/pub/release-79/mysql/homo_sapiens_core_79_38/seq_region.txt.gz</cv-uri>
+	    <cv-uri name="coords" format="EnsemblMySQLDump" doc="http://mar2015.archive.ensembl.org/Homo_sapiens/Info/Index">ftp://ftp.ensembl.org/pub/release-79/mysql/homo_sapiens_core_79_38/coord_system.txt.gz</cv-uri>
 	    <cv-file format="obo">ENS-chro.obo</cv-file>
 	</cv>
         <cv name="EnsemblGenes" lax="true">
@@ -61,7 +61,7 @@
             
             <annotation key="data-version">79</annotation>
             
-            <cv-uri format="EnsemblMySQLDump" doc="http://mar2015.archive.ensembl.org/Homo_sapiens/Info/Index">ftp://ftp.ensembl.org/pub/release-79/mysql/homo_sapiens_core_79_38/gene.txt.gz</cv-uri>
+            <cv-uri name="genes" format="EnsemblMySQLDump" doc="http://mar2015.archive.ensembl.org/Homo_sapiens/Info/Index">ftp://ftp.ensembl.org/pub/release-79/mysql/homo_sapiens_core_79_38/gene.txt.gz</cv-uri>
             <cv-file format="obo">ENSG.obo</cv-file>
         </cv>
         <cv name="EnsemblTranscripts" lax="true">
@@ -70,7 +70,7 @@
             
             <annotation key="data-version">79</annotation>
             
-            <cv-uri format="EnsemblMySQLDump" doc="http://mar2015.archive.ensembl.org/Homo_sapiens/Info/Index">ftp://ftp.ensembl.org/pub/release-79/mysql/homo_sapiens_core_79_38/transcript.txt.gz</cv-uri>
+            <cv-uri name="transcripts" format="EnsemblMySQLDump" doc="http://mar2015.archive.ensembl.org/Homo_sapiens/Info/Index">ftp://ftp.ensembl.org/pub/release-79/mysql/homo_sapiens_core_79_38/transcript.txt.gz</cv-uri>
             <cv-file format="obo">ENST.obo</cv-file>
         </cv>
 		<cv name="GencodeGenes" lax="true">
@@ -81,7 +81,7 @@
 			
 			<!-- For Gencode 16 and onwards, the information is in ftp://ftp.sanger.ac.uk/pub/gencode/Gencode_human/release_16/gencode.v16.metadata.Gene_source.gz (GencodeDump) -->
 			<!-- But for Gencode 15, it is the file gencode_release_15/gencode.v15.annotation.level_3.classes (GencodeLevel3Classes) inside the archive -->
-			<cv-uri format="GencodeDump" doc="http://www.gencodegenes.org/releases/22.html">ftp://ftp.sanger.ac.uk/pub/gencode/Gencode_human/release_22/gencode.v22.metadata.Gene_source.gz</cv-uri>
+			<cv-uri name="genes" format="GencodeDump" doc="http://www.gencodegenes.org/releases/22.html">ftp://ftp.sanger.ac.uk/pub/gencode/Gencode_human/release_22/gencode.v22.metadata.Gene_source.gz</cv-uri>
 			<cv-file format="obo">GencodeG.obo</cv-file>
 		</cv>
 	   	<cv name="GencodeTranscripts" lax="true">
@@ -92,7 +92,7 @@
 	   		
 	   		<!-- For Gencode 16 and onwards, the information is in ftp://ftp.sanger.ac.uk/pub/gencode/Gencode_human/release_16/gencode.v16.metadata.Transcript_source.gz (GencodeDump) -->
 	   		<!-- But for Gencode 15, it is the file gencode_release_15/gencode.v15.annotation.level_3.classes (GencodeLevel3Classes) inside the archive -->
-	   		<cv-uri format="GencodeDump" doc="http://www.gencodegenes.org/releases/22.html">ftp://ftp.sanger.ac.uk/pub/gencode/Gencode_human/release_22/gencode.v22.metadata.Transcript_source.gz</cv-uri>
+	   		<cv-uri name="transcripts" format="GencodeDump" doc="http://www.gencodegenes.org/releases/22.html">ftp://ftp.sanger.ac.uk/pub/gencode/Gencode_human/release_22/gencode.v22.metadata.Transcript_source.gz</cv-uri>
 	   		<cv-file format="obo">GencodeT.obo</cv-file>
 	   	</cv>
 		<meta-cv name="EnsemblGencodeGenes">
