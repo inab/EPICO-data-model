@@ -151,7 +151,7 @@ CEOF
 	# ftp://ftp.ensembl.org/pub/release-70/mysql/homo_sapiens_core_70_37/coord_system.txt.gz
 	# ftp://ftp.ensembl.org/pub/release-70/mysql/homo_sapiens_core_70_37/seq_region.txt.gz
 	print STDERR <<EOF;
-ERROR: This program takes as input 2 files:
+ERROR: This program takes as input 2 parameters:
 	- The BP model (either in XML or BP format)
 	- The Ensembl chromosomes ontology name
 EOF
