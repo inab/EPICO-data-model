@@ -7,6 +7,7 @@ use FindBin;
 use lib "$FindBin::Bin/schema+tools/lib";
 use TabParser;
 use BP::Model;
+use BP::Loader::Tools;
 
 sub parseClass3(\@$$$) {
 	my($pCV,$ensGene,$ensTranscript,$descEnsGene,$descEnsTranscript)=@_;
@@ -52,7 +53,7 @@ if(scalar(@ARGV)>=3) {
 	if(defined($class3File)) {
 		if($class3File =~ /\.gz$/) {
 			$openMode = '-|';
-			@command = ('gunzip','-c',$class3File);
+			@command = (BP::Loader::Tools::GUNZIP,'-c',$class3File);
 		} else {
 			$openMode = '<';
 			@command = ($class3File);
@@ -76,7 +77,7 @@ if(scalar(@ARGV)>=3) {
 	} else {
 		if($GencodeGfile =~ /\.gz$/) {
 			$openMode = '-|';
-			@command = ('gunzip','-c',$GencodeGfile);
+			@command = (BP::Loader::Tools::GUNZIP,'-c',$GencodeGfile);
 		} else {
 			$openMode = '<';
 			@command = ($GencodeGfile);
@@ -96,7 +97,7 @@ if(scalar(@ARGV)>=3) {
 		
 		if($GencodeTfile =~ /\.gz$/) {
 			$openMode = '-|';
-			@command = ('gunzip','-c',$GencodeTfile);
+			@command = (BP::Loader::Tools::GUNZIP,'-c',$GencodeTfile);
 		} else {
 			$openMode = '<';
 			@command = ($GencodeTfile);
