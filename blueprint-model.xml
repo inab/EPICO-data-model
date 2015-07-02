@@ -14,6 +14,7 @@
 		<annotation key="ReactomeVer">52</annotation>
 		<annotation key="GENCODEVer">22</annotation>
 		<annotation key="EnsemblVer">79</annotation>
+		<annotation key="EnsemblArchive">mar2015</annotation>
 		<annotation key="GRChVer">38</annotation>
 		
 		<annotation key="cvKey">Key</annotation>
@@ -53,50 +54,56 @@
 	    <annotation key="file">Chromosomes and genome patches</annotation>
 	    <annotation key="header">Key&#09;Chromosome Name</annotation>
 
-            <annotation key="data-version">79</annotation>
-
-	    <cv-uri name="regions" format="EnsemblMySQLDump" doc="http://mar2015.archive.ensembl.org/Homo_sapiens/Info/Index">ftp://ftp.ensembl.org/pub/release-79/mysql/homo_sapiens_core_79_38/seq_region.txt.gz</cv-uri>
-	    <cv-uri name="coords" format="EnsemblMySQLDump" doc="http://mar2015.archive.ensembl.org/Homo_sapiens/Info/Index">ftp://ftp.ensembl.org/pub/release-79/mysql/homo_sapiens_core_79_38/coord_system.txt.gz</cv-uri>
+            <annotation key="data-version" global-key-ref="EnsemblVer" />
+        	<annotation key="GRChVer" global-key-ref="GRChVer" />
+        	<annotation key="EnsemblArchive" global-key-ref="EnsemblArchive" />
+        	
+        	<cv-uri name="regions" format="EnsemblMySQLDump" doc="http://{EnsemblArchive}.archive.ensembl.org/Homo_sapiens/Info/Index">ftp://ftp.ensembl.org/pub/release-{data-version}/mysql/homo_sapiens_core_{data-version}_38/seq_region.txt.gz</cv-uri>
+        	<cv-uri name="coords" format="EnsemblMySQLDump" doc="http://{EnsemblArchive}.archive.ensembl.org/Homo_sapiens/Info/Index">ftp://ftp.ensembl.org/pub/release-{data-version}/mysql/homo_sapiens_core_{data-version}_38/coord_system.txt.gz</cv-uri>
 	    <cv-file format="obo">ENS-chro.obo</cv-file>
 	</cv>
         <cv name="EnsemblGenes" lax="true">
             <description>Valid Ensembl Genes identifiers</description>
             <annotation key="file">Ensembl Genes</annotation>
             
-            <annotation key="data-version">79</annotation>
-            
-            <cv-uri name="genes" format="EnsemblMySQLDump" doc="http://mar2015.archive.ensembl.org/Homo_sapiens/Info/Index">ftp://ftp.ensembl.org/pub/release-79/mysql/homo_sapiens_core_79_38/gene.txt.gz</cv-uri>
+            <annotation key="data-version" global-key-ref="EnsemblVer" />
+        	<annotation key="GRChVer" global-key-ref="GRChVer" />
+        	<annotation key="EnsemblArchive" global-key-ref="EnsemblArchive" />
+        	
+        	<cv-uri name="genes" format="EnsemblMySQLDump" doc="http://{EnsemblArchive}.archive.ensembl.org/Homo_sapiens/Info/Index">ftp://ftp.ensembl.org/pub/release-{data-version}/mysql/homo_sapiens_core_{data-version}_38/gene.txt.gz</cv-uri>
             <cv-file format="obo">ENSG.obo</cv-file>
         </cv>
         <cv name="EnsemblTranscripts" lax="true">
             <description>Valid Ensembl Transcript identifiers</description>
             <annotation key="file">Ensembl Transcripts</annotation>
             
-            <annotation key="data-version">79</annotation>
-            
-            <cv-uri name="transcripts" format="EnsemblMySQLDump" doc="http://mar2015.archive.ensembl.org/Homo_sapiens/Info/Index">ftp://ftp.ensembl.org/pub/release-79/mysql/homo_sapiens_core_79_38/transcript.txt.gz</cv-uri>
+        	<annotation key="data-version" global-key-ref="EnsemblVer" />
+        	<annotation key="GRChVer" global-key-ref="GRChVer" />
+        	<annotation key="EnsemblArchive" global-key-ref="EnsemblArchive" />
+        	
+        	<cv-uri name="transcripts" format="EnsemblMySQLDump" doc="http://{EnsemblArchive}.archive.ensembl.org/Homo_sapiens/Info/Index">ftp://ftp.ensembl.org/pub/release-{data-version}/mysql/homo_sapiens_core_{data-version}_38/transcript.txt.gz</cv-uri>
             <cv-file format="obo">ENST.obo</cv-file>
         </cv>
 		<cv name="GencodeGenes" lax="true">
 			<description>Valid Gencode gene identifiers</description>
 			<annotation key="file">Gencode Genes</annotation>
 			
-			<annotation key="data-version">22</annotation>
+			<annotation key="data-version" global-key-ref="GENCODEVer" />
 			
 			<!-- For Gencode 16 and onwards, the information is in ftp://ftp.sanger.ac.uk/pub/gencode/Gencode_human/release_16/gencode.v16.metadata.Gene_source.gz (GencodeDump) -->
 			<!-- But for Gencode 15, it is the file gencode_release_15/gencode.v15.annotation.level_3.classes (GencodeLevel3Classes) inside the archive -->
-			<cv-uri name="genes" format="GencodeDump" doc="http://www.gencodegenes.org/releases/22.html">ftp://ftp.sanger.ac.uk/pub/gencode/Gencode_human/release_22/gencode.v22.metadata.Gene_source.gz</cv-uri>
+			<cv-uri name="genes" format="GencodeDump" doc="http://www.gencodegenes.org/releases/{data-version}.html">ftp://ftp.sanger.ac.uk/pub/gencode/Gencode_human/release_{data-version}/gencode.v{data-version}.metadata.Gene_source.gz</cv-uri>
 			<cv-file format="obo">GencodeG.obo</cv-file>
 		</cv>
 	   	<cv name="GencodeTranscripts" lax="true">
 	   		<description>Valid Gencode transcript identifiers</description>
 	   		<annotation key="file">Gencode Transcripts</annotation>
 	   		
-	   		<annotation key="data-version">22</annotation>
+	   		<annotation key="data-version" global-key-ref="GENCODEVer" />
 	   		
 	   		<!-- For Gencode 16 and onwards, the information is in ftp://ftp.sanger.ac.uk/pub/gencode/Gencode_human/release_16/gencode.v16.metadata.Transcript_source.gz (GencodeDump) -->
 	   		<!-- But for Gencode 15, it is the file gencode_release_15/gencode.v15.annotation.level_3.classes (GencodeLevel3Classes) inside the archive -->
-	   		<cv-uri name="transcripts" format="GencodeDump" doc="http://www.gencodegenes.org/releases/22.html">ftp://ftp.sanger.ac.uk/pub/gencode/Gencode_human/release_22/gencode.v22.metadata.Transcript_source.gz</cv-uri>
+	   		<cv-uri name="transcripts" format="GencodeDump" doc="http://www.gencodegenes.org/releases/{data-version}.html">ftp://ftp.sanger.ac.uk/pub/gencode/Gencode_human/release_{data-version}/gencode.v{data-version}.metadata.Transcript_source.gz</cv-uri>
 	   		<cv-file format="obo">GencodeT.obo</cv-file>
 	   	</cv>
 		<meta-cv name="EnsemblGencodeGenes">
@@ -110,7 +117,7 @@
 	   	<cv name="CellOntology">
             <description>The Cell Ontology is designed as a structured controlled vocabulary for cell types</description>
             <annotation key="file">Cell Ontology</annotation>
-			<annotation key="data-version">2014-03-11</annotation>
+			<annotation key="data-version">2015-05-12</annotation>
             <!--
             <annotation key="showFetched">true</annotation>
             -->
@@ -120,13 +127,13 @@
 	   	    
 	   	    <default-cv-ns ns="cell"/>
 	   	    
-            <cv-uri format="obo" doc="http://cellontology.org/">https://cell-ontology.googlecode.com/svn/releases/2014-03-11/cl-basic.obo</cv-uri>
+	   		<cv-uri format="obo" doc="http://cellontology.org/">https://raw.githubusercontent.com/obophenotype/cell-ontology/c02b0a6cbd2eaad2cbca3c402ec6086b8a1f7783/src/ontology/cl-basic.obo</cv-uri>
             <cv-file format="obo">cl-basic.obo</cv-file>
         </cv>
-        <cv name="CellLineOntology">
+        <cv name="CellLineOntology" lax="true">
             <description>The Cell Line Ontology is designed as a structured controlled vocabulary for cell lines</description>
             <annotation key="file">Cell Line Ontology</annotation>
-			<annotation key="data-version">53</annotation>
+			<annotation key="data-version">62</annotation>
             <!--
             <annotation key="showFetched">true</annotation>
             -->
@@ -135,31 +142,31 @@
             
             <default-cv-ns ns="clo"/>
             
+        	<cv-uri format="OWL" doc="http://www.clo-ontology.org/">https://clo-ontology.googlecode.com/svn-history/r{data-version}/trunk/src/ontology/clo.owl</cv-uri>
+            <cv-file format="OWL">clo.owl</cv-file>
             <!--
-            	<cv-uri format="OWL" doc="http://www.clo-ontology.org/">http://clo-ontology.googlecode.com/svn/trunk/src/ontology/clo.owl</cv-uri>
-            	<cv-file format="obo">cl-basic.obo</cv-file>
-            -->
         	<e v="CLO:0002767">DG-75 cell</e>
         	<e v="CLO:0007047">JVM-2 cell</e>
         	<e v="CLO:0007066">KARPAS-422 cell</e>
         	<e v="CLO:0009457">U-266 cell</e>
+        	-->
         </cv>
 		<cv name="UBERON">
 			<description>Uberon is an integrated cross-species anatomy ontology representing a variety of entities classified according to traditional anatomical criteria such as structure, function and developmental lineage.</description>
 			<annotation key="file">UBERON</annotation>
-			<annotation key="data-version">2014-05-03</annotation>
+			<annotation key="data-version">2015-05-25</annotation>
 		    
 		    <cv-ns short-name="uberon">http://purl.obolibrary.org/obo/</cv-ns>
 		    <cv-ns short-name="none">http://purl.obolibrary.org/obo/</cv-ns>
 		    <cv-ns short-name="uberon/phenoscape-anatomy">http://purl.obolibrary.org/obo/</cv-ns>
 		    
-			<cv-uri format="obo" doc="http://uberon.org/">http://svn.code.sf.net/p/obo/svn/uberon/releases/2014-05-03/basic.obo</cv-uri>
+			<cv-uri format="obo" doc="http://uberon.org/">https://github.com/obophenotype/uberon/raw/7229dc9f261da992c42685fb193465f9f544bd79/basic.obo</cv-uri>
 			<cv-file format="obo">uberon-basic.obo</cv-file>
 		</cv>
 		<cv name="EFO">
 			<description></description>
 			<annotation key="file">Experimental Factor</annotation>
-			<annotation key="data-version">2.56</annotation>
+			<annotation key="data-version">2.61</annotation>
 		    
 		    <!--
 		    <cv-ns short-name="BrendaTissueOBO">http://purl.obolibrary.org/obo/</cv-ns>
@@ -167,7 +174,7 @@
 		    -->
 		    <cv-ns short-name="EFO">http://www.ebi.ac.uk/efo/</cv-ns>
 		    
-			<cv-uri format="obo" doc="http://www.ebi.ac.uk/efo/">http://sourceforge.net/p/efo/code/322/tree/trunk/src/efoinobo/efo.obo?format=raw</cv-uri>
+			<cv-uri format="obo" doc="http://www.ebi.ac.uk/efo/">http://sourceforge.net/p/efo/code/355/tree/trunk/src/efoinobo/efo.obo?format=raw</cv-uri>
 			<cv-file format="obo">efo.obo</cv-file>
 		</cv>
         <cv name="NCIMetathesaurus">
@@ -175,22 +182,25 @@
             	This is the subset of terms used in BLUEPRINT
             </description>
             <annotation key="file">NCI Metathesaurus</annotation>
-            <annotation key="data-version">201312E</annotation>
+            <annotation key="data-version">201412</annotation>
             
             <cv-ns short-name="cui">http://ncimeta.nci.nih.gov/ncimbrowser/ConceptReport.jsp?dictionary=NCI%20MetaThesaurus&amp;code=</cv-ns>
             
             <default-cv-ns ns="cui" />
             
+        	<cv-uri doc="http://ncimeta.nci.nih.gov/ncimbrowser/" format="NCICUIDump">ftp://ftp1.nci.nih.gov/pub/cacore/EVS/NCI_Thesaurus/archive/nci_code_cui_map/nci_code_cui_map_{data-version}.dat</cv-uri>
+        	<cv-file format="obo">NCIm.obo</cv-file>
             <!--
             <annotation key="showFetched">true</annotation>
-            <cv-uri doc="http://ncimeta.nci.nih.gov/ncimbrowser/"/>
             -->
+        	<!--
         	<e v="C0026764">Plasma Cell Myeloma</e>
         	<e v="C0040425">Tonsillitis</e>
-        	<e v="C0334634">Malignant lymphoma, lymphocytic, intermediate differentiation, diffuse</e>
+        		<e v="C0334634">Malignant lymphoma, lymphocytic, intermediate differentiation, diffuse</e>
         	<e v="C1333295">Germinal Center B-Cell-Like Diffuse Large B-Cell Lymphoma</e>
         	<e v="C1336077">Sporadic Burkitt Lymphoma</e>
         	<e v="C2853894">Mantle cell lymphoma, unspecified site</e>
+        	-->
         </cv>
         <cv name="ISO3166">
             <description><![CDATA[ISO 3166 is the International Standard for country codes and codes for their subdivisions. The purpose of ISO 3166 is to establish internationally recognised codes for the representation of names of countries, territories or areas of geographical interest, and their subdivisions. A complementary classification, related to ISO 3166 is UN M.49 (Standard Country and Area Codes Classifications)]]></description>
