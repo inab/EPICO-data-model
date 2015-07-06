@@ -1,10 +1,11 @@
 ! Generated using ISO3166-2OBO.pl from
-! 	http://unicode.org/repos/cldr/trunk/common/supplemental/supplementalData.xml
-! 	http://anonscm.debian.org/gitweb/?p=iso-codes/iso-codes.git;a=blob_plain;f=iso_3166/iso_3166.xml;hb=HEAD
-! 	http://anonscm.debian.org/gitweb/?p=iso-codes/iso-codes.git;a=blob_plain;f=iso_3166_2/iso_3166_2.xml;hb=HEAD
+! 	http://unicode.org/repos/cldr/tags/release-27-0-1/common/supplemental/supplementalData.xml
+! 	https://anonscm.debian.org/cgit/pkg-isocodes/iso-codes.git/plain/iso_3166/iso_3166.xml?h=iso-codes-3.59
+! 	https://anonscm.debian.org/cgit/pkg-isocodes/iso-codes.git/plain/iso_3166_2/iso_3166_2.xml?h=iso-codes-3.59
 format-version: 1.2
-date: 18:06:2013 19:12
-auto-generated-by: DCC::Model $Id$
+date: 06:07:2015 17:46
+auto-generated-by: BP::Model $Id$
+data-version: iso-codes-3.59
 [Term]
 id: AF
 name: Afghanistan
@@ -4110,7 +4111,7 @@ name: Distrito Federal
 is_a: BR
 
 [Term]
-id: BS-AC
+id: BS-AK
 name: Acklins
 is_a: BS
 
@@ -20740,17 +20741,17 @@ name: South West
 is_a: SG
 
 [Term]
-id: SG-AC
+id: SH-AC
 name: Ascension
 is_a: SH
 
 [Term]
-id: SG-HL
+id: SH-HL
 name: Saint Helena
 is_a: SH
 
 [Term]
-id: SG-TA
+id: SH-TA
 name: Tristan da Cunha
 is_a: SH
 
@@ -22120,52 +22121,52 @@ name: Wanica
 is_a: SR
 
 [Term]
-id: SD-EC
+id: SS-EC
 name: Central Equatoria
 is_a: SS
 
 [Term]
-id: SD-EE8
+id: SS-EE8
 name: Eastern Equatoria
 is_a: SS
 
 [Term]
-id: SD-JG
+id: SS-JG
 name: Jonglei
 is_a: SS
 
 [Term]
-id: SD-LK
+id: SS-LK
 name: Lakes
 is_a: SS
 
 [Term]
-id: SD-BN
+id: SS-BN
 name: Northern Bahr el-Ghazal
 is_a: SS
 
 [Term]
-id: SD-UY
+id: SS-UY
 name: Unity
 is_a: SS
 
 [Term]
-id: SD-NU
+id: SS-NU
 name: Upper Nile
 is_a: SS
 
 [Term]
-id: SD-WR
+id: SS-WR
 name: Warrap
 is_a: SS
 
 [Term]
-id: SD-BW
+id: SS-BW
 name: Western Bahr el-Ghazal
 is_a: SS
 
 [Term]
-id: SD-EW
+id: SS-EW
 name: Western Equatoria
 is_a: SS
 
@@ -26159,6 +26160,7 @@ union_of: FI
 union_of: FR
 union_of: GB
 union_of: GR
+union_of: HR
 union_of: HU
 union_of: IE
 union_of: IT

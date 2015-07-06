@@ -58,8 +58,8 @@
         	<annotation key="GRChVer" global-key-ref="GRChVer" />
         	<annotation key="EnsemblArchive" global-key-ref="EnsemblArchive" />
         	
-        	<cv-uri name="regions" format="EnsemblMySQLDump" doc="http://{EnsemblArchive}.archive.ensembl.org/Homo_sapiens/Info/Index">ftp://ftp.ensembl.org/pub/release-{data-version}/mysql/homo_sapiens_core_{data-version}_38/seq_region.txt.gz</cv-uri>
-        	<cv-uri name="coords" format="EnsemblMySQLDump" doc="http://{EnsemblArchive}.archive.ensembl.org/Homo_sapiens/Info/Index">ftp://ftp.ensembl.org/pub/release-{data-version}/mysql/homo_sapiens_core_{data-version}_38/coord_system.txt.gz</cv-uri>
+        	<cv-uri name="regions" format="EnsemblMySQLDump" doc="http://{EnsemblArchive}.archive.ensembl.org/Homo_sapiens/Info/Index">ftp://ftp.ensembl.org/pub/release-{data-version}/mysql/homo_sapiens_core_{data-version}_{GRChVer}/seq_region.txt.gz</cv-uri>
+        	<cv-uri name="coords" format="EnsemblMySQLDump" doc="http://{EnsemblArchive}.archive.ensembl.org/Homo_sapiens/Info/Index">ftp://ftp.ensembl.org/pub/release-{data-version}/mysql/homo_sapiens_core_{data-version}_{GRChVer}/coord_system.txt.gz</cv-uri>
 	    <cv-file format="obo">ENS-chro.obo</cv-file>
 	</cv>
         <cv name="EnsemblGenes" lax="true">
@@ -70,7 +70,7 @@
         	<annotation key="GRChVer" global-key-ref="GRChVer" />
         	<annotation key="EnsemblArchive" global-key-ref="EnsemblArchive" />
         	
-        	<cv-uri name="genes" format="EnsemblMySQLDump" doc="http://{EnsemblArchive}.archive.ensembl.org/Homo_sapiens/Info/Index">ftp://ftp.ensembl.org/pub/release-{data-version}/mysql/homo_sapiens_core_{data-version}_38/gene.txt.gz</cv-uri>
+        	<cv-uri name="genes" format="EnsemblMySQLDump" doc="http://{EnsemblArchive}.archive.ensembl.org/Homo_sapiens/Info/Index">ftp://ftp.ensembl.org/pub/release-{data-version}/mysql/homo_sapiens_core_{data-version}_{GRChVer}/gene.txt.gz</cv-uri>
             <cv-file format="obo">ENSG.obo</cv-file>
         </cv>
         <cv name="EnsemblTranscripts" lax="true">
@@ -81,7 +81,7 @@
         	<annotation key="GRChVer" global-key-ref="GRChVer" />
         	<annotation key="EnsemblArchive" global-key-ref="EnsemblArchive" />
         	
-        	<cv-uri name="transcripts" format="EnsemblMySQLDump" doc="http://{EnsemblArchive}.archive.ensembl.org/Homo_sapiens/Info/Index">ftp://ftp.ensembl.org/pub/release-{data-version}/mysql/homo_sapiens_core_{data-version}_38/transcript.txt.gz</cv-uri>
+        	<cv-uri name="transcripts" format="EnsemblMySQLDump" doc="http://{EnsemblArchive}.archive.ensembl.org/Homo_sapiens/Info/Index">ftp://ftp.ensembl.org/pub/release-{data-version}/mysql/homo_sapiens_core_{data-version}_{GRChVer}/transcript.txt.gz</cv-uri>
             <cv-file format="obo">ENST.obo</cv-file>
         </cv>
 		<cv name="GencodeGenes" lax="true">
@@ -205,11 +205,13 @@
         <cv name="ISO3166">
             <description><![CDATA[ISO 3166 is the International Standard for country codes and codes for their subdivisions. The purpose of ISO 3166 is to establish internationally recognised codes for the representation of names of countries, territories or areas of geographical interest, and their subdivisions. A complementary classification, related to ISO 3166 is UN M.49 (Standard Country and Area Codes Classifications)]]></description>
             <annotation key="file">ISO 3166-1, ISO 3166-2 and UN M.49</annotation>
+        	<annotation key="data-version">iso-codes-3.59</annotation>
+        	<annotation key="cldr-data-version">release-27-0-1</annotation>
+        	
+        	<cv-uri format="ISO_3166-1" name="iso_3166.xml" doc="http://www.iso.org/iso/country_codes.htm">https://anonscm.debian.org/cgit/pkg-isocodes/iso-codes.git/plain/iso_3166/iso_3166.xml?h={data-version}</cv-uri>
+        	<cv-uri format="ISO_3166-2" name="iso_3166_2.xml" doc="http://en.wikipedia.org/wiki/ISO_3166-2">https://anonscm.debian.org/cgit/pkg-isocodes/iso-codes.git/plain/iso_3166_2/iso_3166_2.xml?h={data-version}</cv-uri>
             
-            <cv-uri format="ISO_3166-1" doc="http://www.iso.org/iso/country_codes.htm">http://www.iso.org/iso/home/standards/country_codes/country_names_and_code_elements_txt.htm</cv-uri>
-            <cv-uri doc="http://en.wikipedia.org/wiki/ISO_3166-2"/>
-            
-            <cv-uri doc="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
+        	<cv-uri format="LDML" name="supplementalData.xml" doc="http://unstats.un.org/unsd/methods/m49/m49.htm">http://unicode.org/repos/cldr/tags/{cldr-data-version}/common/supplemental/supplementalData.xml</cv-uri>
             <cv-uri doc="http://unstats.un.org/unsd/methods/m49/m49regin.htm"/>
             <cv-uri doc="http://unstats.un.org/unsd/methods/m49/m49alpha.htm"/>
 
