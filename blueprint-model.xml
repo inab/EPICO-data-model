@@ -11,11 +11,10 @@
 	<metadata documentation-dir="model-docs" collection="modelMetadata">
 		<annotation key="author">José María Fernández</annotation>
 		
-		<annotation key="ReactomeVer">52</annotation>
-		<annotation key="GENCODEVer">22</annotation>
-		<annotation key="EnsemblVer">79</annotation>
-		<annotation key="GRChVer">38</annotation>
-		
+		<annotation key="ReactomeVer">44</annotation>
+		<annotation key="GENCODEVer">15</annotation>
+		<annotation key="EnsemblVer">70</annotation>
+		<annotation key="GRChVer">37</annotation>
 		<annotation key="cvKey">Key</annotation>
 		<annotation key="cvDesc">Description</annotation>
 		
