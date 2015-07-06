@@ -5,6 +5,7 @@ use strict;
 use Carp;
 use File::Basename;
 use File::Copy;
+use File::Spec;
 use File::Temp qw();
 use LWP::UserAgent;
 use URI;
