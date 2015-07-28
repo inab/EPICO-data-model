@@ -270,6 +270,7 @@
             <annotation key="disposition">inline</annotation>
             <e v="m">male</e>
             <e v="f">female</e>
+        	<e v="b">mixed (both)</e>
         </cv>
         <cv name="wgbsFeatures" lax="true">
             <e v="EXTRACTION_PROTOCOL_TYPE_OF_SONICATOR">The type of sonicator used for extraction.</e>
@@ -994,6 +995,24 @@
                 <column-type item-type="string" column-kind="idref" />
             </column>
             
+            <column name="donor_kind">
+            	<description>Kind of donor. Sometimes cell lines are used as "donors", as well as pooled donors</description>
+            	<annotation key="values">An enumeration of d(onor), c(ell-line) and p(ooled donors)</annotation>
+            	<column-type item-type="string" column-kind="required">
+            		<cv>
+            			<e v="d">Donor</e>
+            			<e v="c">Cell-line</e>
+            			<e v="p">Pooled donors</e>
+            		</cv>
+            	</column-type>
+            </column>
+        	
+        	<column name="pooled_donor_ids">
+        		<description>When donor_kind is 'p', then this attribute contains the pooled donor_ids</description>
+        		<column-type item-type="string" column-kind="optional" container-type="array" array-seps=","></column-type>
+        	</column>
+        	
+        	
             <column name="donor_sex">
                 <description>Donor biological sex.</description>
                 <annotation key="values">It corresponds with IHEC Level 0 <xhtml:b>SEX</xhtml:b> (Cell Line) and <xhtml:b>DONOR_SEX</xhtml:b> (Primary Cell, Primary Cell Culture &amp; Primary Tissue)</annotation>
@@ -1142,6 +1161,10 @@
                 <annotation key="values">It corresponds to IHEC Level 0 <xhtml:b>DISEASE</xhtml:b> (Cell Line, Primary Cell, Primary Cell Culture &amp; Primary Tissue). When it is possible, use <xhtml:b><xhtml:tt>donor_disease</xhtml:tt></xhtml:b> field</annotation>
                 <column-type item-type="string" column-kind="desirable" />
             </column>
+        	<column name="donor_treatment">
+        		<description>If the donor was under treatment, the treatment itself</description>
+        		<column-type item-type="string" column-kind="optional" />
+        	</column>
             
             <column name="specimen_processing">
                 <description>Description of technique used to process specimen</description>
