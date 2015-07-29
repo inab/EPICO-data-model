@@ -759,12 +759,39 @@
                         <concept-type name="gene-expression-experiment-primary">
                             <column name="normalized_read_count">
                                 <description>Normalized count of sequencing reads if analyzed by sequencing platforms</description>
-                                <column-type item-type="decimal" column-kind="required" />
+                                <column-type item-type="decimal" column-kind="desirable" />
                             </column>
                             <column name="raw_read_count">
                                 <description>Raw count of sequencing reads if analyzed by sequencing platforms</description>
-                                <column-type item-type="integer" column-kind="required" />
+                                <column-type item-type="integer" column-kind="desirable" />
                             </column>
+                        	
+                        	<column name="length">
+                        		<column-type item-type="decimal" column-kind="desirable"></column-type>
+                        	</column>
+                        	
+                        	<column name="effective_length">
+                        		<column-type item-type="decimal" column-kind="desirable"></column-type>
+                        	</column>
+                        	
+                        	<column name="expected_count">
+                        		<column-type item-type="decimal" column-kind="desirable"></column-type>
+                        	</column>
+                        	
+                        	<column name="TPM">
+                        		<column-type item-type="decimal" column-kind="desirable"></column-type>
+                        	</column>
+                        	
+                        	<column name="FPKM">
+                        		<column-type item-type="decimal" column-kind="desirable"></column-type>
+                        	</column>
+                        	
+                        	
+                        	<column name="metrics">
+                        		<description>Additional metrics not covered by the model, but otherwise interesting</description>
+                        		<column-type item-type="decimal" column-kind="desirable" container-type="hash"></column-type>
+                        	</column>
+                        	
                         </concept-type>
                     </subtypes>
                 </concept-type>
