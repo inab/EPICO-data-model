@@ -31,6 +31,8 @@ sub parseSeqRegions($$$) {
 		my @chroNames = ( $chroName );
 		if($chroName eq 'MT') {
 			push(@chroNames,'chrM','M');
+		} elsif($chroName eq 'X' || $chroName eq 'Y') {
+			push(@chroNames,'chr'.$chroName);
 		} elsif($chroName =~ /^[1-9][0-9]*$/) {
 			push(@chroNames,'chr'.$chroName);
 		}
