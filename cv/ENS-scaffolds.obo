@@ -1,0 +1,2362 @@
+! Generated using ENSCHRO2OBO.pl from
+! 	coord_system.txt.gz
+! 	seq_region.txt.gz
+! 	GCA_000001405.15_GRCh38_top-level.acc2name
+format-version: 1.2
+date: 02:08:2015 17:16
+auto-generated-by: BP::Model $Id$
+data-version: 79
+[Term]
+id: KI270510.1
+name: KI270510.1
+alt_id: chrUn_KI270510v1
+alt_id: HSCHRUN_RANDOM_131
+
+[Term]
+id: KI270539.1
+name: KI270539.1
+alt_id: chrUn_KI270539v1
+alt_id: HSCHRUN_RANDOM_146
+
+[Term]
+id: KI270395.1
+name: KI270395.1
+alt_id: chrUn_KI270395v1
+alt_id: HSCHRUN_RANDOM_184
+
+[Term]
+id: KI270752.1
+name: KI270752.1
+alt_id: chrUn_KI270752v1
+alt_id: HSCHRUN_RANDOM_CTG29
+
+[Term]
+id: KI270388.1
+name: KI270388.1
+alt_id: chrUn_KI270388v1
+alt_id: HSCHRUN_RANDOM_186
+
+[Term]
+id: KI270316.1
+name: KI270316.1
+alt_id: chrUn_KI270316v1
+alt_id: HSCHRUN_RANDOM_107
+
+[Term]
+id: KI270303.1
+name: KI270303.1
+alt_id: chrUn_KI270303v1
+alt_id: HSCHRUN_RANDOM_102
+
+[Term]
+id: KI270744.1
+name: KI270744.1
+alt_id: chrUn_KI270744v1
+alt_id: HSCHRUN_RANDOM_CTG21
+
+[Term]
+id: KI270392.1
+name: KI270392.1
+alt_id: chrUn_KI270392v1
+alt_id: HSCHRUN_RANDOM_193
+
+[Term]
+id: KI270593.1
+name: KI270593.1
+alt_id: chrUn_KI270593v1
+alt_id: HSCHRUN_RANDOM_164
+
+[Term]
+id: KI270412.1
+name: KI270412.1
+alt_id: chrUn_KI270412v1
+alt_id: HSCHRUN_RANDOM_112
+
+[Term]
+id: KI270383.1
+name: KI270383.1
+alt_id: chrUn_KI270383v1
+alt_id: HSCHRUN_RANDOM_190
+
+[Term]
+id: KI270529.1
+name: KI270529.1
+alt_id: chrUn_KI270529v1
+alt_id: HSCHRUN_RANDOM_143
+
+[Term]
+id: KI270340.1
+name: KI270340.1
+alt_id: chrUn_KI270340v1
+alt_id: HSCHRUN_RANDOM_172
+
+[Term]
+id: KI270522.1
+name: KI270522.1
+alt_id: chrUn_KI270522v1
+alt_id: HSCHRUN_RANDOM_138
+
+[Term]
+id: KI270582.1
+name: KI270582.1
+alt_id: chrUn_KI270582v1
+alt_id: HSCHRUN_RANDOM_162
+
+[Term]
+id: GL000220.1
+name: GL000220.1
+alt_id: chrUn_GL000220v1
+alt_id: HSCHRUN_RANDOM_CTG11
+
+[Term]
+id: KI270302.1
+name: KI270302.1
+alt_id: chrUn_KI270302v1
+alt_id: HSCHRUN_RANDOM_100
+
+[Term]
+id: KI270538.1
+name: KI270538.1
+alt_id: chrUn_KI270538v1
+alt_id: HSCHRUN_RANDOM_147
+
+[Term]
+id: KI270312.1
+name: KI270312.1
+alt_id: chrUn_KI270312v1
+alt_id: HSCHRUN_RANDOM_109
+
+[Term]
+id: KI270384.1
+name: KI270384.1
+alt_id: chrUn_KI270384v1
+alt_id: HSCHRUN_RANDOM_192
+
+[Term]
+id: KI270548.1
+name: KI270548.1
+alt_id: chrUn_KI270548v1
+alt_id: HSCHRUN_RANDOM_149
+
+[Term]
+id: KI270754.1
+name: KI270754.1
+alt_id: chrUn_KI270754v1
+alt_id: HSCHRUN_RANDOM_CTG33
+
+[Term]
+id: KI270748.1
+name: KI270748.1
+alt_id: chrUn_KI270748v1
+alt_id: HSCHRUN_RANDOM_CTG25
+
+[Term]
+id: KI270418.1
+name: KI270418.1
+alt_id: chrUn_KI270418v1
+alt_id: HSCHRUN_RANDOM_116
+
+[Term]
+id: KI270394.1
+name: KI270394.1
+alt_id: chrUn_KI270394v1
+alt_id: HSCHRUN_RANDOM_187
+
+[Term]
+id: KI270414.1
+name: KI270414.1
+alt_id: chrUn_KI270414v1
+alt_id: HSCHRUN_RANDOM_114
+
+[Term]
+id: KI270747.1
+name: KI270747.1
+alt_id: chrUn_KI270747v1
+alt_id: HSCHRUN_RANDOM_CTG24
+
+[Term]
+id: KI270337.1
+name: KI270337.1
+alt_id: chrUn_KI270337v1
+alt_id: HSCHRUN_RANDOM_174
+
+[Term]
+id: KI270363.1
+name: KI270363.1
+alt_id: chrUn_KI270363v1
+alt_id: HSCHRUN_RANDOM_175
+
+[Term]
+id: KI270376.1
+name: KI270376.1
+alt_id: chrUn_KI270376v1
+alt_id: HSCHRUN_RANDOM_197
+
+[Term]
+id: KI270333.1
+name: KI270333.1
+alt_id: chrUn_KI270333v1
+alt_id: HSCHRUN_RANDOM_169
+
+[Term]
+id: KI270589.1
+name: KI270589.1
+alt_id: chrUn_KI270589v1
+alt_id: HSCHRUN_RANDOM_159
+
+[Term]
+id: KI270587.1
+name: KI270587.1
+alt_id: chrUn_KI270587v1
+alt_id: HSCHRUN_RANDOM_155
+
+[Term]
+id: GL000213.1
+name: GL000213.1
+alt_id: chrUn_GL000213v1
+alt_id: HSCHRUN_RANDOM_CTG2
+
+[Term]
+id: KI270509.1
+name: KI270509.1
+alt_id: chrUn_KI270509v1
+alt_id: HSCHRUN_RANDOM_132
+
+[Term]
+id: KI270745.1
+name: KI270745.1
+alt_id: chrUn_KI270745v1
+alt_id: HSCHRUN_RANDOM_CTG22
+
+[Term]
+id: KI270371.1
+name: KI270371.1
+alt_id: chrUn_KI270371v1
+alt_id: HSCHRUN_RANDOM_202
+
+[Term]
+id: KI270515.1
+name: KI270515.1
+alt_id: chrUn_KI270515v1
+alt_id: HSCHRUN_RANDOM_140
+
+[Term]
+id: KI270468.1
+name: KI270468.1
+alt_id: chrUn_KI270468v1
+alt_id: HSCHRUN_RANDOM_130
+
+[Term]
+id: KI270583.1
+name: KI270583.1
+alt_id: chrUn_KI270583v1
+alt_id: HSCHRUN_RANDOM_154
+
+[Term]
+id: KI270373.1
+name: KI270373.1
+alt_id: chrUn_KI270373v1
+alt_id: HSCHRUN_RANDOM_200
+
+[Term]
+id: KI270580.1
+name: KI270580.1
+alt_id: chrUn_KI270580v1
+alt_id: HSCHRUN_RANDOM_156
+
+[Term]
+id: KI270315.1
+name: KI270315.1
+alt_id: chrUn_KI270315v1
+alt_id: HSCHRUN_RANDOM_108
+
+[Term]
+id: GL000224.1
+name: GL000224.1
+alt_id: chrUn_GL000224v1
+alt_id: HSCHRUN_RANDOM_CTG16
+
+[Term]
+id: KI270588.1
+name: KI270588.1
+alt_id: chrUn_KI270588v1
+alt_id: HSCHRUN_RANDOM_163
+
+[Term]
+id: KI270518.1
+name: KI270518.1
+alt_id: chrUn_KI270518v1
+alt_id: HSCHRUN_RANDOM_133
+
+[Term]
+id: KI270755.1
+name: KI270755.1
+alt_id: chrUn_KI270755v1
+alt_id: HSCHRUN_RANDOM_CTG34
+
+[Term]
+id: KI270429.1
+name: KI270429.1
+alt_id: chrUn_KI270429v1
+alt_id: HSCHRUN_RANDOM_123
+
+[Term]
+id: KI270530.1
+name: KI270530.1
+alt_id: chrUn_KI270530v1
+alt_id: HSCHRUN_RANDOM_145
+
+[Term]
+id: GL000195.1
+name: GL000195.1
+alt_id: chrUn_GL000195v1
+alt_id: HSCHRUN_RANDOM_CTG1
+
+[Term]
+id: KI270393.1
+name: KI270393.1
+alt_id: chrUn_KI270393v1
+alt_id: HSCHRUN_RANDOM_191
+
+[Term]
+id: KI270338.1
+name: KI270338.1
+alt_id: chrUn_KI270338v1
+alt_id: HSCHRUN_RANDOM_171
+
+[Term]
+id: KI270512.1
+name: KI270512.1
+alt_id: chrUn_KI270512v1
+alt_id: HSCHRUN_RANDOM_136
+
+[Term]
+id: KI270746.1
+name: KI270746.1
+alt_id: chrUn_KI270746v1
+alt_id: HSCHRUN_RANDOM_CTG23
+
+[Term]
+id: KI270375.1
+name: KI270375.1
+alt_id: chrUn_KI270375v1
+alt_id: HSCHRUN_RANDOM_201
+
+[Term]
+id: KI270372.1
+name: KI270372.1
+alt_id: chrUn_KI270372v1
+alt_id: HSCHRUN_RANDOM_199
+
+[Term]
+id: KI270335.1
+name: KI270335.1
+alt_id: chrUn_KI270335v1
+alt_id: HSCHRUN_RANDOM_170
+
+[Term]
+id: KI270581.1
+name: KI270581.1
+alt_id: chrUn_KI270581v1
+alt_id: HSCHRUN_RANDOM_157
+
+[Term]
+id: KI270420.1
+name: KI270420.1
+alt_id: chrUn_KI270420v1
+alt_id: HSCHRUN_RANDOM_117
+
+[Term]
+id: KI270749.1
+name: KI270749.1
+alt_id: chrUn_KI270749v1
+alt_id: HSCHRUN_RANDOM_CTG26
+
+[Term]
+id: KI270756.1
+name: KI270756.1
+alt_id: chrUn_KI270756v1
+alt_id: HSCHRUN_RANDOM_CTG35
+
+[Term]
+id: KI270750.1
+name: KI270750.1
+alt_id: chrUn_KI270750v1
+alt_id: HSCHRUN_RANDOM_CTG27
+
+[Term]
+id: GL000219.1
+name: GL000219.1
+alt_id: chrUn_GL000219v1
+alt_id: HSCHRUN_RANDOM_CTG10
+
+[Term]
+id: KI270396.1
+name: KI270396.1
+alt_id: chrUn_KI270396v1
+alt_id: HSCHRUN_RANDOM_185
+
+[Term]
+id: KI270378.1
+name: KI270378.1
+alt_id: chrUn_KI270378v1
+alt_id: HSCHRUN_RANDOM_179
+
+[Term]
+id: KI270417.1
+name: KI270417.1
+alt_id: chrUn_KI270417v1
+alt_id: HSCHRUN_RANDOM_119
+
+[Term]
+id: KI270381.1
+name: KI270381.1
+alt_id: chrUn_KI270381v1
+alt_id: HSCHRUN_RANDOM_194
+
+[Term]
+id: KI270389.1
+name: KI270389.1
+alt_id: chrUn_KI270389v1
+alt_id: HSCHRUN_RANDOM_181
+
+[Term]
+id: KI270322.1
+name: KI270322.1
+alt_id: chrUn_KI270322v1
+alt_id: HSCHRUN_RANDOM_104
+
+[Term]
+id: KI270753.1
+name: KI270753.1
+alt_id: chrUn_KI270753v1
+alt_id: HSCHRUN_RANDOM_CTG30
+
+[Term]
+id: KI270465.1
+name: KI270465.1
+alt_id: chrUn_KI270465v1
+alt_id: HSCHRUN_RANDOM_126
+
+[Term]
+id: KI270334.1
+name: KI270334.1
+alt_id: chrUn_KI270334v1
+alt_id: HSCHRUN_RANDOM_168
+
+[Term]
+id: KI270419.1
+name: KI270419.1
+alt_id: chrUn_KI270419v1
+alt_id: HSCHRUN_RANDOM_115
+
+[Term]
+id: KI270442.1
+name: KI270442.1
+alt_id: chrUn_KI270442v1
+alt_id: HSCHRUN_RANDOM_124
+
+[Term]
+id: KI270438.1
+name: KI270438.1
+alt_id: chrUn_KI270438v1
+alt_id: HSCHRUN_RANDOM_129
+
+[Term]
+id: KI270390.1
+name: KI270390.1
+alt_id: chrUn_KI270390v1
+alt_id: HSCHRUN_RANDOM_182
+
+[Term]
+id: KI270448.1
+name: KI270448.1
+alt_id: chrUn_KI270448v1
+alt_id: HSCHRUN_RANDOM_203
+
+[Term]
+id: KI270374.1
+name: KI270374.1
+alt_id: chrUn_KI270374v1
+alt_id: HSCHRUN_RANDOM_198
+
+[Term]
+id: KI270385.1
+name: KI270385.1
+alt_id: chrUn_KI270385v1
+alt_id: HSCHRUN_RANDOM_195
+
+[Term]
+id: KI270467.1
+name: KI270467.1
+alt_id: chrUn_KI270467v1
+alt_id: HSCHRUN_RANDOM_127
+
+[Term]
+id: KI270387.1
+name: KI270387.1
+alt_id: chrUn_KI270387v1
+alt_id: HSCHRUN_RANDOM_183
+
+[Term]
+id: KI270757.1
+name: KI270757.1
+alt_id: chrUn_KI270757v1
+alt_id: HSCHRUN_RANDOM_CTG36
+
+[Term]
+id: KI270364.1
+name: KI270364.1
+alt_id: chrUn_KI270364v1
+alt_id: HSCHRUN_RANDOM_176
+
+[Term]
+id: GL000216.2
+name: GL000216.2
+alt_id: chrUn_GL000216v2
+alt_id: HSCHRUN_RANDOM_CTG6
+
+[Term]
+id: KI270366.1
+name: KI270366.1
+alt_id: chrUn_KI270366v1
+alt_id: HSCHRUN_RANDOM_178
+
+[Term]
+id: KI270320.1
+name: KI270320.1
+alt_id: chrUn_KI270320v1
+alt_id: HSCHRUN_RANDOM_105
+
+[Term]
+id: KI270305.1
+name: KI270305.1
+alt_id: chrUn_KI270305v1
+alt_id: HSCHRUN_RANDOM_103
+
+[Term]
+id: KI270591.1
+name: KI270591.1
+alt_id: chrUn_KI270591v1
+alt_id: HSCHRUN_RANDOM_165
+
+[Term]
+id: KI270304.1
+name: KI270304.1
+alt_id: chrUn_KI270304v1
+alt_id: HSCHRUN_RANDOM_101
+
+[Term]
+id: KI270528.1
+name: KI270528.1
+alt_id: chrUn_KI270528v1
+alt_id: HSCHRUN_RANDOM_144
+
+[Term]
+id: KI270435.1
+name: KI270435.1
+alt_id: chrUn_KI270435v1
+alt_id: HSCHRUN_RANDOM_128
+
+[Term]
+id: KI270411.1
+name: KI270411.1
+alt_id: chrUn_KI270411v1
+alt_id: HSCHRUN_RANDOM_113
+
+[Term]
+id: KI270424.1
+name: KI270424.1
+alt_id: chrUn_KI270424v1
+alt_id: HSCHRUN_RANDOM_118
+
+[Term]
+id: KI270751.1
+name: KI270751.1
+alt_id: chrUn_KI270751v1
+alt_id: HSCHRUN_RANDOM_CTG28
+
+[Term]
+id: KI270336.1
+name: KI270336.1
+alt_id: chrUn_KI270336v1
+alt_id: HSCHRUN_RANDOM_173
+
+[Term]
+id: KI270423.1
+name: KI270423.1
+alt_id: chrUn_KI270423v1
+alt_id: HSCHRUN_RANDOM_121
+
+[Term]
+id: KI270507.1
+name: KI270507.1
+alt_id: chrUn_KI270507v1
+alt_id: HSCHRUN_RANDOM_141
+
+[Term]
+id: KI270742.1
+name: KI270742.1
+alt_id: chrUn_KI270742v1
+alt_id: HSCHRUN_RANDOM_CTG42
+
+[Term]
+id: KI270422.1
+name: KI270422.1
+alt_id: chrUn_KI270422v1
+alt_id: HSCHRUN_RANDOM_120
+
+[Term]
+id: KI270519.1
+name: KI270519.1
+alt_id: chrUn_KI270519v1
+alt_id: HSCHRUN_RANDOM_137
+
+[Term]
+id: KI270391.1
+name: KI270391.1
+alt_id: chrUn_KI270391v1
+alt_id: HSCHRUN_RANDOM_189
+
+[Term]
+id: KI270584.1
+name: KI270584.1
+alt_id: chrUn_KI270584v1
+alt_id: HSCHRUN_RANDOM_161
+
+[Term]
+id: KI270362.1
+name: KI270362.1
+alt_id: chrUn_KI270362v1
+alt_id: HSCHRUN_RANDOM_177
+
+[Term]
+id: KI270590.1
+name: KI270590.1
+alt_id: chrUn_KI270590v1
+alt_id: HSCHRUN_RANDOM_160
+
+[Term]
+id: GL000226.1
+name: GL000226.1
+alt_id: chrUn_GL000226v1
+alt_id: HSCHRUN_RANDOM_CTG19
+
+[Term]
+id: KI270425.1
+name: KI270425.1
+alt_id: chrUn_KI270425v1
+alt_id: HSCHRUN_RANDOM_122
+
+[Term]
+id: KI270311.1
+name: KI270311.1
+alt_id: chrUn_KI270311v1
+alt_id: HSCHRUN_RANDOM_110
+
+[Term]
+id: KI270508.1
+name: KI270508.1
+alt_id: chrUn_KI270508v1
+alt_id: HSCHRUN_RANDOM_134
+
+[Term]
+id: GL000218.1
+name: GL000218.1
+alt_id: chrUn_GL000218v1
+alt_id: HSCHRUN_RANDOM_CTG9
+
+[Term]
+id: KI270579.1
+name: KI270579.1
+alt_id: chrUn_KI270579v1
+alt_id: HSCHRUN_RANDOM_158
+
+[Term]
+id: KI270330.1
+name: KI270330.1
+alt_id: chrUn_KI270330v1
+alt_id: HSCHRUN_RANDOM_166
+
+[Term]
+id: KI270521.1
+name: KI270521.1
+alt_id: chrUn_KI270521v1
+alt_id: HSCHRUN_RANDOM_204
+
+[Term]
+id: KI270317.1
+name: KI270317.1
+alt_id: chrUn_KI270317v1
+alt_id: HSCHRUN_RANDOM_111
+
+[Term]
+id: KI270310.1
+name: KI270310.1
+alt_id: chrUn_KI270310v1
+alt_id: HSCHRUN_RANDOM_106
+
+[Term]
+id: KI270386.1
+name: KI270386.1
+alt_id: chrUn_KI270386v1
+alt_id: HSCHRUN_RANDOM_188
+
+[Term]
+id: KI270511.1
+name: KI270511.1
+alt_id: chrUn_KI270511v1
+alt_id: HSCHRUN_RANDOM_139
+
+[Term]
+id: KI270741.1
+name: KI270741.1
+alt_id: chrUn_KI270741v1
+alt_id: HSCHRUN_RANDOM_CTG17
+
+[Term]
+id: KI270544.1
+name: KI270544.1
+alt_id: chrUn_KI270544v1
+alt_id: HSCHRUN_RANDOM_148
+
+[Term]
+id: KI270379.1
+name: KI270379.1
+alt_id: chrUn_KI270379v1
+alt_id: HSCHRUN_RANDOM_180
+
+[Term]
+id: GL000214.1
+name: GL000214.1
+alt_id: chrUn_GL000214v1
+alt_id: HSCHRUN_RANDOM_CTG4
+
+[Term]
+id: KI270466.1
+name: KI270466.1
+alt_id: chrUn_KI270466v1
+alt_id: HSCHRUN_RANDOM_125
+
+[Term]
+id: KI270382.1
+name: KI270382.1
+alt_id: chrUn_KI270382v1
+alt_id: HSCHRUN_RANDOM_196
+
+[Term]
+id: KI270517.1
+name: KI270517.1
+alt_id: chrUn_KI270517v1
+alt_id: HSCHRUN_RANDOM_142
+
+[Term]
+id: KI270516.1
+name: KI270516.1
+alt_id: chrUn_KI270516v1
+alt_id: HSCHRUN_RANDOM_135
+
+[Term]
+id: KI270329.1
+name: KI270329.1
+alt_id: chrUn_KI270329v1
+alt_id: HSCHRUN_RANDOM_167
+
+[Term]
+id: KI270743.1
+name: KI270743.1
+alt_id: chrUn_KI270743v1
+alt_id: HSCHRUN_RANDOM_CTG20
+
+[Term]
+id: GL000205.2
+name: GL000205.2
+alt_id: chr17_GL000205v2_random
+alt_id: HSCHR17_RANDOM_CTG3
+
+[Term]
+id: KI270712.1
+name: KI270712.1
+alt_id: chr1_KI270712v1_random
+alt_id: HSCHR1_CTG7_UNLOCALIZED
+
+[Term]
+id: KI270723.1
+name: KI270723.1
+alt_id: chr14_KI270723v1_random
+alt_id: HSCHR14_CTG5_UNLOCALIZED
+
+[Term]
+id: GL000208.1
+name: GL000208.1
+alt_id: chr5_GL000208v1_random
+alt_id: HSCHR5_RANDOM_CTG1
+
+[Term]
+id: KI270718.1
+name: KI270718.1
+alt_id: chr9_KI270718v1_random
+alt_id: HSCHR9_UNLOCALIZED_CTG2
+
+[Term]
+id: KI270734.1
+name: KI270734.1
+alt_id: chr22_KI270734v1_random
+alt_id: HSCHR22_UNLOCALIZED_CTG4
+
+[Term]
+id: KI270720.1
+name: KI270720.1
+alt_id: chr9_KI270720v1_random
+alt_id: HSCHR9_UNLOCALIZED_CTG4
+
+[Term]
+id: KI270726.1
+name: KI270726.1
+alt_id: chr14_KI270726v1_random
+alt_id: HSCHR14_CTG8_UNLOCALIZED
+
+[Term]
+id: KI270740.1
+name: KI270740.1
+alt_id: chrY_KI270740v1_random
+alt_id: HSCHRY_RANDOM_CTG1
+
+[Term]
+id: KI270708.1
+name: KI270708.1
+alt_id: chr1_KI270708v1_random
+alt_id: HSCHR1_CTG3_UNLOCALIZED
+
+[Term]
+id: KI270730.1
+name: KI270730.1
+alt_id: chr17_KI270730v1_random
+alt_id: HSCHR17_RANDOM_CTG5
+
+[Term]
+id: GL000225.1
+name: GL000225.1
+alt_id: chr14_GL000225v1_random
+alt_id: HSCHR14_CTG2_UNLOCALIZED
+
+[Term]
+id: KI270732.1
+name: KI270732.1
+alt_id: chr22_KI270732v1_random
+alt_id: HSCHR22_UNLOCALIZED_CTG2
+
+[Term]
+id: KI270725.1
+name: KI270725.1
+alt_id: chr14_KI270725v1_random
+alt_id: HSCHR14_CTG7_UNLOCALIZED
+
+[Term]
+id: KI270739.1
+name: KI270739.1
+alt_id: chr22_KI270739v1_random
+alt_id: HSCHR22_UNLOCALIZED_CTG9
+
+[Term]
+id: KI270707.1
+name: KI270707.1
+alt_id: chr1_KI270707v1_random
+alt_id: HSCHR1_CTG2_UNLOCALIZED
+
+[Term]
+id: KI270736.1
+name: KI270736.1
+alt_id: chr22_KI270736v1_random
+alt_id: HSCHR22_UNLOCALIZED_CTG6
+
+[Term]
+id: KI270717.1
+name: KI270717.1
+alt_id: chr9_KI270717v1_random
+alt_id: HSCHR9_UNLOCALIZED_CTG1
+
+[Term]
+id: KI270709.1
+name: KI270709.1
+alt_id: chr1_KI270709v1_random
+alt_id: HSCHR1_CTG4_UNLOCALIZED
+
+[Term]
+id: KI270737.1
+name: KI270737.1
+alt_id: chr22_KI270737v1_random
+alt_id: HSCHR22_UNLOCALIZED_CTG7
+
+[Term]
+id: KI270713.1
+name: KI270713.1
+alt_id: chr1_KI270713v1_random
+alt_id: HSCHR1_CTG8_UNLOCALIZED
+
+[Term]
+id: KI270722.1
+name: KI270722.1
+alt_id: chr14_KI270722v1_random
+alt_id: HSCHR14_CTG3_UNLOCALIZED
+
+[Term]
+id: KI270728.1
+name: KI270728.1
+alt_id: chr16_KI270728v1_random
+alt_id: HSCHR16_RANDOM_CTG1
+
+[Term]
+id: KI270733.1
+name: KI270733.1
+alt_id: chr22_KI270733v1_random
+alt_id: HSCHR22_UNLOCALIZED_CTG3
+
+[Term]
+id: GL000009.2
+name: GL000009.2
+alt_id: chr14_GL000009v2_random
+alt_id: HSCHR14_CTG1_UNLOCALIZED
+
+[Term]
+id: KI270721.1
+name: KI270721.1
+alt_id: chr11_KI270721v1_random
+alt_id: HSCHR11_CTG1_UNLOCALIZED
+
+[Term]
+id: KI270729.1
+name: KI270729.1
+alt_id: chr17_KI270729v1_random
+alt_id: HSCHR17_RANDOM_CTG4
+
+[Term]
+id: KI270711.1
+name: KI270711.1
+alt_id: chr1_KI270711v1_random
+alt_id: HSCHR1_CTG6_UNLOCALIZED
+
+[Term]
+id: KI270715.1
+name: KI270715.1
+alt_id: chr2_KI270715v1_random
+alt_id: HSCHR2_RANDOM_CTG1
+
+[Term]
+id: KI270731.1
+name: KI270731.1
+alt_id: chr22_KI270731v1_random
+alt_id: HSCHR22_UNLOCALIZED_CTG1
+
+[Term]
+id: KI270719.1
+name: KI270719.1
+alt_id: chr9_KI270719v1_random
+alt_id: HSCHR9_UNLOCALIZED_CTG3
+
+[Term]
+id: KI270724.1
+name: KI270724.1
+alt_id: chr14_KI270724v1_random
+alt_id: HSCHR14_CTG6_UNLOCALIZED
+
+[Term]
+id: KI270706.1
+name: KI270706.1
+alt_id: chr1_KI270706v1_random
+alt_id: HSCHR1_CTG1_UNLOCALIZED
+
+[Term]
+id: GL000008.2
+name: GL000008.2
+alt_id: chr4_GL000008v2_random
+alt_id: HSCHR4_RANDOM_CTG4
+
+[Term]
+id: KI270727.1
+name: KI270727.1
+alt_id: chr15_KI270727v1_random
+alt_id: HSCHR15_RANDOM_CTG1
+
+[Term]
+id: GL000194.1
+name: GL000194.1
+alt_id: chr14_GL000194v1_random
+alt_id: HSCHR14_CTG4_UNLOCALIZED
+
+[Term]
+id: GL000221.1
+name: GL000221.1
+alt_id: chr3_GL000221v1_random
+alt_id: HSCHR3UN_CTG2
+
+[Term]
+id: KI270710.1
+name: KI270710.1
+alt_id: chr1_KI270710v1_random
+alt_id: HSCHR1_CTG5_UNLOCALIZED
+
+[Term]
+id: KI270714.1
+name: KI270714.1
+alt_id: chr1_KI270714v1_random
+alt_id: HSCHR1_CTG9_UNLOCALIZED
+
+[Term]
+id: KI270738.1
+name: KI270738.1
+alt_id: chr22_KI270738v1_random
+alt_id: HSCHR22_UNLOCALIZED_CTG8
+
+[Term]
+id: KI270735.1
+name: KI270735.1
+alt_id: chr22_KI270735v1_random
+alt_id: HSCHR22_UNLOCALIZED_CTG5
+
+[Term]
+id: KI270716.1
+name: KI270716.1
+alt_id: chr2_KI270716v1_random
+alt_id: HSCHR2_RANDOM_CTG2
+
+[Term]
+id: KI270443.1
+name: KI270443.1
+
+[Term]
+id: KI270620.1
+name: KI270620.1
+
+[Term]
+id: KI270546.1
+name: KI270546.1
+
+[Term]
+id: KI270326.1
+name: KI270326.1
+
+[Term]
+id: KI270543.1
+name: KI270543.1
+
+[Term]
+id: GL000240.1
+name: GL000240.1
+
+[Term]
+id: KI270700.1
+name: KI270700.1
+
+[Term]
+id: KI270575.1
+name: KI270575.1
+
+[Term]
+id: KI270599.1
+name: KI270599.1
+
+[Term]
+id: KI270434.1
+name: KI270434.1
+
+[Term]
+id: KI270557.1
+name: KI270557.1
+
+[Term]
+id: KI270409.1
+name: KI270409.1
+
+[Term]
+id: KI270602.1
+name: KI270602.1
+
+[Term]
+id: KI270603.1
+name: KI270603.1
+
+[Term]
+id: KI270526.1
+name: KI270526.1
+
+[Term]
+id: GL000169.2
+name: GL000169.2
+
+[Term]
+id: KI270619.1
+name: KI270619.1
+
+[Term]
+id: GL000064.2
+name: GL000064.2
+
+[Term]
+id: GL000062.2
+name: GL000062.2
+
+[Term]
+id: KI270604.1
+name: KI270604.1
+
+[Term]
+id: KI270701.1
+name: KI270701.1
+
+[Term]
+id: GL000121.2
+name: GL000121.2
+
+[Term]
+id: KI270406.1
+name: KI270406.1
+
+[Term]
+id: GL000140.2
+name: GL000140.2
+
+[Term]
+id: GL000141.2
+name: GL000141.2
+
+[Term]
+id: KI270484.1
+name: KI270484.1
+
+[Term]
+id: GL000106.2
+name: GL000106.2
+
+[Term]
+id: KI270524.1
+name: KI270524.1
+
+[Term]
+id: KI270514.1
+name: KI270514.1
+
+[Term]
+id: KI270328.1
+name: KI270328.1
+
+[Term]
+id: KI270675.1
+name: KI270675.1
+
+[Term]
+id: KI866542.1
+name: KI866542.1
+
+[Term]
+id: GL000084.1
+name: GL000084.1
+
+[Term]
+id: KI270399.1
+name: KI270399.1
+
+[Term]
+id: KI270426.1
+name: KI270426.1
+
+[Term]
+id: KI270427.1
+name: KI270427.1
+
+[Term]
+id: KI270656.1
+name: KI270656.1
+
+[Term]
+id: KI270428.1
+name: KI270428.1
+
+[Term]
+id: GL000211.2
+name: GL000211.2
+
+[Term]
+id: KI270449.1
+name: KI270449.1
+
+[Term]
+id: KI270606.1
+name: KI270606.1
+
+[Term]
+id: KI270470.1
+name: KI270470.1
+
+[Term]
+id: KI270657.1
+name: KI270657.1
+
+[Term]
+id: GL000052.2
+name: GL000052.2
+
+[Term]
+id: KI270617.1
+name: KI270617.1
+
+[Term]
+id: GL000040.2
+name: GL000040.2
+
+[Term]
+id: KI270574.1
+name: KI270574.1
+
+[Term]
+id: KI270380.1
+name: KI270380.1
+
+[Term]
+id: GL000080.2
+name: GL000080.2
+
+[Term]
+id: GL000059.2
+name: GL000059.2
+
+[Term]
+id: KI270534.1
+name: KI270534.1
+
+[Term]
+id: GL000018.2
+name: GL000018.2
+
+[Term]
+id: KI270611.1
+name: KI270611.1
+
+[Term]
+id: KI270430.1
+name: KI270430.1
+
+[Term]
+id: GL000164.2
+name: GL000164.2
+
+[Term]
+id: KI270586.1
+name: KI270586.1
+
+[Term]
+id: KI270323.1
+name: KI270323.1
+
+[Term]
+id: KI270439.1
+name: KI270439.1
+
+[Term]
+id: KI270480.1
+name: KI270480.1
+
+[Term]
+id: KI270633.1
+name: KI270633.1
+
+[Term]
+id: GL000237.2
+name: GL000237.2
+
+[Term]
+id: KI270405.1
+name: KI270405.1
+
+[Term]
+id: GL000099.2
+name: GL000099.2
+
+[Term]
+id: KI270527.1
+name: KI270527.1
+
+[Term]
+id: KI270540.1
+name: KI270540.1
+
+[Term]
+id: KI270613.1
+name: KI270613.1
+
+[Term]
+id: KI270433.1
+name: KI270433.1
+
+[Term]
+id: KI270401.1
+name: KI270401.1
+
+[Term]
+id: KI270478.1
+name: KI270478.1
+
+[Term]
+id: KI270407.1
+name: KI270407.1
+
+[Term]
+id: KI270332.1
+name: KI270332.1
+
+[Term]
+id: GL000217.2
+name: GL000217.2
+
+[Term]
+id: KI270413.1
+name: KI270413.1
+
+[Term]
+id: GL000135.2
+name: GL000135.2
+
+[Term]
+id: KI270348.1
+name: KI270348.1
+
+[Term]
+id: KI270464.1
+name: KI270464.1
+
+[Term]
+id: GL000146.1
+name: GL000146.1
+
+[Term]
+id: KI270541.1
+name: KI270541.1
+
+[Term]
+id: KI270410.1
+name: KI270410.1
+
+[Term]
+id: KI270605.1
+name: KI270605.1
+
+[Term]
+id: GL000115.2
+name: GL000115.2
+
+[Term]
+id: KI270573.1
+name: KI270573.1
+
+[Term]
+id: KI270607.1
+name: KI270607.1
+
+[Term]
+id: KI270523.1
+name: KI270523.1
+
+[Term]
+id: KI270680.1
+name: KI270680.1
+
+[Term]
+id: KI270450.1
+name: KI270450.1
+
+[Term]
+id: KI270535.1
+name: KI270535.1
+
+[Term]
+id: KI866537.1
+name: KI866537.1
+
+[Term]
+id: KI270431.1
+name: KI270431.1
+
+[Term]
+id: GL000110.2
+name: GL000110.2
+
+[Term]
+id: GL000022.2
+name: GL000022.2
+
+[Term]
+id: KI270614.1
+name: KI270614.1
+
+[Term]
+id: GL000171.2
+name: GL000171.2
+
+[Term]
+id: KI270346.1
+name: KI270346.1
+
+[Term]
+id: KI866539.1
+name: KI866539.1
+
+[Term]
+id: KI270532.1
+name: KI270532.1
+
+[Term]
+id: GL000142.2
+name: GL000142.2
+
+[Term]
+id: GL000180.2
+name: GL000180.2
+
+[Term]
+id: GL000089.2
+name: GL000089.2
+
+[Term]
+id: KI270676.1
+name: KI270676.1
+
+[Term]
+id: KI270537.1
+name: KI270537.1
+
+[Term]
+id: KI270704.1
+name: KI270704.1
+
+[Term]
+id: GL000212.1
+name: GL000212.1
+
+[Term]
+id: KI270598.1
+name: KI270598.1
+
+[Term]
+id: KI270618.1
+name: KI270618.1
+
+[Term]
+id: GL000063.2
+name: GL000063.2
+
+[Term]
+id: KI270482.1
+name: KI270482.1
+
+[Term]
+id: KI270400.1
+name: KI270400.1
+
+[Term]
+id: KI270314.1
+name: KI270314.1
+
+[Term]
+id: KI270547.1
+name: KI270547.1
+
+[Term]
+id: KI866538.1
+name: KI866538.1
+
+[Term]
+id: GL000044.2
+name: GL000044.2
+
+[Term]
+id: GL000170.2
+name: GL000170.2
+
+[Term]
+id: GL000026.2
+name: GL000026.2
+
+[Term]
+id: KI270669.1
+name: KI270669.1
+
+[Term]
+id: KI270445.1
+name: KI270445.1
+
+[Term]
+id: KI270307.1
+name: KI270307.1
+
+[Term]
+id: GL000184.2
+name: GL000184.2
+
+[Term]
+id: GL000176.2
+name: GL000176.2
+
+[Term]
+id: GL000186.2
+name: GL000186.2
+
+[Term]
+id: KI270436.1
+name: KI270436.1
+
+[Term]
+id: KI270506.1
+name: KI270506.1
+
+[Term]
+id: KI270610.1
+name: KI270610.1
+
+[Term]
+id: GL000104.2
+name: GL000104.2
+
+[Term]
+id: KI270601.1
+name: KI270601.1
+
+[Term]
+id: KI270447.1
+name: KI270447.1
+
+[Term]
+id: KI270370.1
+name: KI270370.1
+
+[Term]
+id: GL000043.1
+name: GL000043.1
+
+[Term]
+id: KI866533.1
+name: KI866533.1
+
+[Term]
+id: KI270345.1
+name: KI270345.1
+
+[Term]
+id: GL000235.1
+name: GL000235.1
+
+[Term]
+id: KI270469.1
+name: KI270469.1
+
+[Term]
+id: KI270551.1
+name: KI270551.1
+
+[Term]
+id: GL000107.2
+name: GL000107.2
+
+[Term]
+id: GL000199.1
+name: GL000199.1
+
+[Term]
+id: GL000038.2
+name: GL000038.2
+
+[Term]
+id: KI270536.1
+name: KI270536.1
+
+[Term]
+id: GL000145.1
+name: GL000145.1
+
+[Term]
+id: GL000046.2
+name: GL000046.2
+
+[Term]
+id: KI270531.1
+name: KI270531.1
+
+[Term]
+id: KI270542.1
+name: KI270542.1
+
+[Term]
+id: KI270520.1
+name: KI270520.1
+
+[Term]
+id: GL000112.2
+name: GL000112.2
+
+[Term]
+id: GL000189.1
+name: GL000189.1
+
+[Term]
+id: GL000116.2
+name: GL000116.2
+
+[Term]
+id: KI270612.1
+name: KI270612.1
+
+[Term]
+id: GL000033.2
+name: GL000033.2
+
+[Term]
+id: KI270486.1
+name: KI270486.1
+
+[Term]
+id: KI270440.1
+name: KI270440.1
+
+[Term]
+id: GL000047.2
+name: GL000047.2
+
+[Term]
+id: KI270661.1
+name: KI270661.1
+
+[Term]
+id: GL000190.2
+name: GL000190.2
+
+[Term]
+id: GL000185.2
+name: GL000185.2
+
+[Term]
+id: GL000057.2
+name: GL000057.2
+
+[Term]
+id: KI270308.1
+name: KI270308.1
+
+[Term]
+id: KI270347.1
+name: KI270347.1
+
+[Term]
+id: KI270343.1
+name: KI270343.1
+
+[Term]
+id: KI270301.1
+name: KI270301.1
+
+[Term]
+id: GL000050.2
+name: GL000050.2
+
+[Term]
+id: KI270608.1
+name: KI270608.1
+
+[Term]
+id: KI270632.1
+name: KI270632.1
+
+[Term]
+id: GL000132.2
+name: GL000132.2
+
+[Term]
+id: GL000143.2
+name: GL000143.2
+
+[Term]
+id: GL000066.2
+name: GL000066.2
+
+[Term]
+id: KI270300.1
+name: KI270300.1
+
+[Term]
+id: GL000245.1
+name: GL000245.1
+
+[Term]
+id: KI270402.1
+name: KI270402.1
+
+[Term]
+id: GL000101.2
+name: GL000101.2
+
+[Term]
+id: KI270702.1
+name: KI270702.1
+
+[Term]
+id: KI270404.1
+name: KI270404.1
+
+[Term]
+id: KI270571.1
+name: KI270571.1
+
+[Term]
+id: GL000125.2
+name: GL000125.2
+
+[Term]
+id: GL000035.2
+name: GL000035.2
+
+[Term]
+id: KI270694.1
+name: KI270694.1
+
+[Term]
+id: GL000243.1
+name: GL000243.1
+
+[Term]
+id: GL000069.2
+name: GL000069.2
+
+[Term]
+id: GL000067.2
+name: GL000067.2
+
+[Term]
+id: KI270600.1
+name: KI270600.1
+
+[Term]
+id: GL000086.2
+name: GL000086.2
+
+[Term]
+id: KI270651.1
+name: KI270651.1
+
+[Term]
+id: GL000139.2
+name: GL000139.2
+
+[Term]
+id: KI270432.1
+name: KI270432.1
+
+[Term]
+id: KI270627.1
+name: KI270627.1
+
+[Term]
+id: GL000155.2
+name: GL000155.2
+
+[Term]
+id: KI270408.1
+name: KI270408.1
+
+[Term]
+id: GL000049.2
+name: GL000049.2
+
+[Term]
+id: GL000183.1
+name: GL000183.1
+
+[Term]
+id: KI270592.1
+name: KI270592.1
+
+[Term]
+id: GL000147.1
+name: GL000147.1
+
+[Term]
+id: KI270313.1
+name: KI270313.1
+
+[Term]
+id: GL000148.1
+name: GL000148.1
+
+[Term]
+id: KI270368.1
+name: KI270368.1
+
+[Term]
+id: GL000055.2
+name: GL000055.2
+
+[Term]
+id: KI866534.1
+name: KI866534.1
+
+[Term]
+id: KI270344.1
+name: KI270344.1
+
+[Term]
+id: KI270703.1
+name: KI270703.1
+
+[Term]
+id: KI270699.1
+name: KI270699.1
+
+[Term]
+id: KI270299.1
+name: KI270299.1
+
+[Term]
+id: GL000111.2
+name: GL000111.2
+
+[Term]
+id: GL000244.1
+name: GL000244.1
+
+[Term]
+id: KI270487.1
+name: KI270487.1
+
+[Term]
+id: KI866535.1
+name: KI866535.1
+
+[Term]
+id: KI866536.1
+name: KI866536.1
+
+[Term]
+id: GL000124.2
+name: GL000124.2
+
+[Term]
+id: GL000051.2
+name: GL000051.2
+
+[Term]
+id: GL000006.2
+name: GL000006.2
+
+[Term]
+id: KI270630.1
+name: KI270630.1
+
+[Term]
+id: KI270659.1
+name: KI270659.1
+
+[Term]
+id: KI270596.1
+name: KI270596.1
+
+[Term]
+id: KI270441.1
+name: KI270441.1
+
+[Term]
+id: GL000002.2
+name: GL000002.2
+
+[Term]
+id: GL000117.2
+name: GL000117.2
+
+[Term]
+id: GL000181.2
+name: GL000181.2
+
+[Term]
+id: GL000119.2
+name: GL000119.2
+
+[Term]
+id: KI270319.1
+name: KI270319.1
+
+[Term]
+id: KI270446.1
+name: KI270446.1
+
+[Term]
+id: GL000133.2
+name: GL000133.2
+
+[Term]
+id: KI270476.1
+name: KI270476.1
+
+[Term]
+id: KI270595.1
+name: KI270595.1
+
+[Term]
+id: KI270318.1
+name: KI270318.1
+
+[Term]
+id: KI270365.1
+name: KI270365.1
+
+[Term]
+id: KI866540.1
+name: KI866540.1
+
+[Term]
+id: KI270325.1
+name: KI270325.1
+
+[Term]
+id: GL000001.2
+name: GL000001.2
+
+[Term]
+id: GL000074.2
+name: GL000074.2
+
+[Term]
+id: GL000016.2
+name: GL000016.2
+
+[Term]
+id: KI270634.1
+name: KI270634.1
+
+[Term]
+id: KI270342.1
+name: KI270342.1
+
+[Term]
+id: KI270321.1
+name: KI270321.1
+
+[Term]
+id: KI270398.1
+name: KI270398.1
+
+[Term]
+id: GL000029.2
+name: GL000029.2
+
+[Term]
+id: GL000236.1
+name: GL000236.1
+
+[Term]
+id: KI866541.1
+name: KI866541.1
+
+[Term]
+id: GL000054.2
+name: GL000054.2
+
+[Term]
+id: KI270501.1
+name: KI270501.1
+
+[Term]
+id: KI270477.1
+name: KI270477.1
+
+[Term]
+id: GL000103.2
+name: GL000103.2
+
+[Term]
+id: GL000130.2
+name: GL000130.2
+
+[Term]
+id: GL000156.2
+name: GL000156.2
+
+[Term]
+id: KI270549.1
+name: KI270549.1
+
+[Term]
+id: KI270660.1
+name: KI270660.1
+
+[Term]
+id: KI270309.1
+name: KI270309.1
+
+[Term]
+id: KI270525.1
+name: KI270525.1
+
+[Term]
+id: KI270670.1
+name: KI270670.1
+
+[Term]
+id: KI270550.1
+name: KI270550.1
+
+[Term]
+id: GL000039.2
+name: GL000039.2
+
+[Term]
+id: GL000172.2
+name: GL000172.2
+
+[Term]
+id: GL000134.2
+name: GL000134.2
+
+[Term]
+id: KI270616.1
+name: KI270616.1
+
+[Term]
+id: KI270705.1
+name: KI270705.1
+
+[Term]
+id: KI866532.1
+name: KI866532.1
+
+[Term]
+id: GL000105.2
+name: GL000105.2
+
+[Term]
+id: KI270578.1
+name: KI270578.1
+
+[Term]
+id: KI270483.1
+name: KI270483.1
+
+[Term]
+id: KI270662.1
+name: KI270662.1
+
+[Term]
+id: KI270609.1
+name: KI270609.1
+
+[Term]
+id: KI270397.1
+name: KI270397.1
+
+[Term]
+id: GL000093.2
+name: GL000093.2
+
+[Term]
+id: KI270628.1
+name: KI270628.1
+
+[Term]
+id: KI270626.1
+name: KI270626.1
+
+[Term]
+id: KI270369.1
+name: KI270369.1
+
+[Term]
+id: KI270597.1
+name: KI270597.1
+
+[Term]
+id: KI270416.1
+name: KI270416.1
+
+[Term]
+id: GL000167.2
+name: GL000167.2
+
+[Term]
+id: KI270403.1
+name: KI270403.1
+
+[Term]
+id: GL000129.2
+name: GL000129.2
+
+[Term]
+id: KI270637.1
+name: KI270637.1
+
+[Term]
+id: GL000078.1
+name: GL000078.1
+
+[Term]
+id: KI270658.1
+name: KI270658.1
+
+[Term]
+id: KI270421.1
+name: KI270421.1
+
+[Term]
+id: KI270585.1
+name: KI270585.1
+
+[Term]
+id: GL000188.2
+name: GL000188.2
+
+[Term]
+id: KI270552.1
+name: KI270552.1
+
+[Term]
+id: GL000198.2
+name: GL000198.2
+
+[Term]
+id: GL000126.2
+name: GL000126.2
+
+[Term]
+id: KI270367.1
+name: KI270367.1
+
+[Term]
+id: GL000233.2
+name: GL000233.2
+
+[Term]
+id: KI270513.1
+name: KI270513.1
+
+[Term]
+id: GL000058.2
+name: GL000058.2
+
+[Term]
+id: KI270533.1
+name: KI270533.1
+
+[Term]
+id: KI270339.1
+name: KI270339.1
+
+[Term]
+id: GL000151.2
+name: GL000151.2
+
+[Term]
+id: KI270673.1
+name: KI270673.1
+
+[Term]
+id: GL000042.2
+name: GL000042.2
+
+[Term]
+id: KI270377.1
+name: KI270377.1
+
+[Term]
+id: KI270324.1
+name: KI270324.1
+
+[Term]
+id: GL000163.2
+name: GL000163.2
+
+[Term]
+id: KI270572.1
+name: KI270572.1
+
+[Term]
+id: KI270545.1
+name: KI270545.1
+
+[Term]
+id: GL000241.1
+name: GL000241.1
+
+[Term]
+id: GL000182.2
+name: GL000182.2
+
+[Term]
+id: KI270615.1
+name: KI270615.1
+
+[Term]
+id: KI270327.1
+name: KI270327.1
+
+[Term]
+id: KI270473.1
+name: KI270473.1
+
+[Term]
+id: GL000113.2
+name: GL000113.2
+
+[Term]
+id: GL000187.1
+name: GL000187.1
+
+[Term]
+id: KI270663.1
+name: KI270663.1
+
+[Term]
+id: GL000024.2
+name: GL000024.2
+
+[Term]
+id: KI270331.1
+name: KI270331.1
+
+[Term]
+id: KI270577.1
+name: KI270577.1
+
+[Term]
+id: GL000128.2
+name: GL000128.2
+
+[Term]
+id: KI270671.1
+name: KI270671.1
+
+[Term]
+id: GL000150.2
+name: GL000150.2
+
+[Term]
+id: KI270677.1
+name: KI270677.1
+
+[Term]
+id: NC_012920
+name: NC_012920
+
+[Term]
+id: HG2095_PATCH
+name: HG2095_PATCH
+
+[Term]
+id: HG2058_PATCH
+name: HG2058_PATCH
+
+[Term]
+id: HG986_PATCH
+name: HG986_PATCH
+
+[Term]
+id: HG2104_PATCH
+name: HG2104_PATCH
+
+[Term]
+id: HG1832_PATCH
+name: HG1832_PATCH
+
+[Term]
+id: HG2232_PATCH
+name: HG2232_PATCH
+
+[Term]
+id: HG2233_PATCH
+name: HG2233_PATCH
+
+[Term]
+id: HG2066_PATCH
+name: HG2066_PATCH
+
+[Term]
+id: HG126_PATCH
+name: HG126_PATCH
+
+[Term]
+id: HG2022_PATCH
+name: HG2022_PATCH
+
+[Term]
+id: HSCHR5_7_CTG1
+name: HSCHR5_7_CTG1
+
+[Term]
+id: HG2128_PATCH
+name: HG2128_PATCH
+
+[Term]
+id: HG2030_PATCH
+name: HG2030_PATCH
+
+[Term]
+id: HG2244_HG2245_PATCH
+name: HG2244_HG2245_PATCH
+
+[Term]
+id: HG2191_PATCH
+name: HG2191_PATCH
+
+[Term]
+id: HG2242_HG2243_PATCH
+name: HG2242_HG2243_PATCH
+
+[Term]
+id: HG2241_PATCH
+name: HG2241_PATCH
+
+[Term]
+id: HSCHR11_1_CTG1_2
+name: HSCHR11_1_CTG1_2
+
+[Term]
+id: HG2217_PATCH
+name: HG2217_PATCH
+
+[Term]
+id: HG1362_PATCH
+name: HG1362_PATCH
+
+[Term]
+id: HG23_PATCH
+name: HG23_PATCH
+
+[Term]
+id: HG2247_PATCH
+name: HG2247_PATCH
+
+[Term]
+id: HG2291_PATCH
+name: HG2291_PATCH
+
+[Term]
+id: HG2216_PATCH
+name: HG2216_PATCH
+
+[Term]
+id: HG2249_PATCH
+name: HG2249_PATCH
+
+[Term]
+id: HG2288_HG2289_PATCH
+name: HG2288_HG2289_PATCH
+
+[Term]
+id: HG2021_PATCH
+name: HG2021_PATCH
+
+[Term]
+id: HSCHR22_4_CTG1
+name: HSCHR22_4_CTG1
+
+[Term]
+id: HSCHR22_5_CTG1
+name: HSCHR22_5_CTG1
+
+[Term]
+id: HG2062_PATCH
+name: HG2062_PATCH
+
