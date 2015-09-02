@@ -1291,7 +1291,11 @@
                 <description><xhtml:i>Unique identifier</xhtml:i> for the sample assigned by data provider</description>
                 <column-type item-type="string" column-kind="idref"></column-type>
             </column>
-            <column name="purified_cell_type">
+        	<column name="sample_name">
+        		<description><xhtml:i>Alternate unique identifier</xhtml:i> for the sample assigned by data provider</description>
+        		<column-type item-type="string" column-kind="required"></column-type>
+        	</column>
+        	<column name="purified_cell_type">
                 <description>Purified cell type for the sample</description>
                 <annotation key="values">It corresponds more or less with IHEC Level 0 <xhtml:b>CELL_TYPE</xhtml:b> (Primary Cell &amp; Primary Cell Culture)</annotation>
                 <column-type item-type="string" column-kind="required">
