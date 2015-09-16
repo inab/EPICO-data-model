@@ -11,10 +11,13 @@
 	<metadata documentation-dir="model-docs" collection="modelMetadata">
 		<annotation key="author">José María Fernández</annotation>
 		
-		<annotation key="ReactomeVer">44</annotation>
-		<annotation key="GENCODEVer">15</annotation>
-		<annotation key="EnsemblVer">70</annotation>
-		<annotation key="GRChVer">37</annotation>
+		<annotation key="ReactomeVer">52</annotation>
+		<annotation key="GENCODEVer">22</annotation>
+		<annotation key="EnsemblVer">79</annotation>
+		<annotation key="EnsemblArchive">mar2015</annotation>
+		<annotation key="GRChVer">38</annotation>
+		<annotation key="GCAVer">GCA_000001405.15</annotation>
+		
 		<annotation key="cvKey">Key</annotation>
 		<annotation key="cvDesc">Description</annotation>
 		
@@ -48,54 +51,83 @@
 	
     <cv-declarations dir="cv">
         <cv name="EnsemblChromosomes">
-	    <description>Valid chromosome and genome patch identifiers from Ensembl</description>
-	    <annotation key="file">Chromosomes and genome patches</annotation>
-	    <annotation key="header">Key&#09;Chromosome Name</annotation>
+            <description>Valid chromosome and genome patch identifiers from Ensembl</description>
+            <annotation key="file">Chromosomes and genome patches</annotation>
+            <annotation key="header">Key&#09;Chromosome Name</annotation>
 
-            <annotation key="data-version">79</annotation>
-
-	    <cv-uri name="regions" format="EnsemblMySQLDump" doc="http://mar2015.archive.ensembl.org/Homo_sapiens/Info/Index">ftp://ftp.ensembl.org/pub/release-79/mysql/homo_sapiens_core_79_38/seq_region.txt.gz</cv-uri>
-	    <cv-uri name="coords" format="EnsemblMySQLDump" doc="http://mar2015.archive.ensembl.org/Homo_sapiens/Info/Index">ftp://ftp.ensembl.org/pub/release-79/mysql/homo_sapiens_core_79_38/coord_system.txt.gz</cv-uri>
-	    <cv-file format="obo">ENS-chro.obo</cv-file>
-	</cv>
+            <annotation key="data-version" global-key-ref="EnsemblVer" />
+            <annotation key="GRChVer" global-key-ref="GRChVer" />
+            <annotation key="EnsemblArchive" global-key-ref="EnsemblArchive" />
+            <annotation key="GCAVer" global-key-ref="GCAVer" />
+        	
+            <cv-uri name="regions" format="EnsemblMySQLDump" doc="http://{EnsemblArchive}.archive.ensembl.org/Homo_sapiens/Info/Index">ftp://ftp.ensembl.org/pub/release-{data-version}/mysql/homo_sapiens_core_{data-version}_{GRChVer}/seq_region.txt.gz</cv-uri>
+            <cv-uri name="coords" format="EnsemblMySQLDump" doc="http://{EnsemblArchive}.archive.ensembl.org/Homo_sapiens/Info/Index">ftp://ftp.ensembl.org/pub/release-{data-version}/mysql/homo_sapiens_core_{data-version}_{GRChVer}/coord_system.txt.gz</cv-uri>
+            <cv-uri name="GRC_acc2name" format="tabular" doc="ftp://ftp.ncbi.nlm.nih.gov/genbank/genomes/Eukaryotes/vertebrates_mammals/Homo_sapiens/GRCh{GRChVer}/README_ASSEMBLIES">ftp://ftp.ncbi.nlm.nih.gov/genbank/genomes/Eukaryotes/vertebrates_mammals/Homo_sapiens/GRCh{GRChVer}/{GCAVer}_GRCh{GRChVer}_top-level.acc2name</cv-uri>
+            
+            <cv-file format="obo">ENS-chro.obo</cv-file>
+        </cv>
+        <cv name="EnsemblScaffolds">
+            <description>Valid scaffolds from Ensembl</description>
+            <annotation key="file">Scaffolds</annotation>
+            <annotation key="header">Key&#09;Scaffold Name</annotation>
+            
+            <annotation key="data-version" global-key-ref="EnsemblVer" />
+            <annotation key="GRChVer" global-key-ref="GRChVer" />
+            <annotation key="EnsemblArchive" global-key-ref="EnsemblArchive" />
+            <annotation key="GCAVer" global-key-ref="GCAVer" />
+            
+            <cv-uri name="regions" format="EnsemblMySQLDump" doc="http://{EnsemblArchive}.archive.ensembl.org/Homo_sapiens/Info/Index">ftp://ftp.ensembl.org/pub/release-{data-version}/mysql/homo_sapiens_core_{data-version}_{GRChVer}/seq_region.txt.gz</cv-uri>
+            <cv-uri name="coords" format="EnsemblMySQLDump" doc="http://{EnsemblArchive}.archive.ensembl.org/Homo_sapiens/Info/Index">ftp://ftp.ensembl.org/pub/release-{data-version}/mysql/homo_sapiens_core_{data-version}_{GRChVer}/coord_system.txt.gz</cv-uri>
+            <cv-uri name="GRC_acc2name" format="tabular" doc="ftp://ftp.ncbi.nlm.nih.gov/genbank/genomes/Eukaryotes/vertebrates_mammals/Homo_sapiens/GRCh{GRChVer}/README_ASSEMBLIES">ftp://ftp.ncbi.nlm.nih.gov/genbank/genomes/Eukaryotes/vertebrates_mammals/Homo_sapiens/GRCh{GRChVer}/{GCAVer}_GRCh{GRChVer}_top-level.acc2name</cv-uri>
+            
+            <cv-file format="obo">ENS-scaffolds.obo</cv-file>
+        </cv>
+        <meta-cv name="ChromosomesAndScaffolds">
+            <cv-ref name="EnsemblChromosomes"/>
+            <cv-ref name="EnsemblScaffolds"/>
+        </meta-cv>
         <cv name="EnsemblGenes" lax="true">
             <description>Valid Ensembl Genes identifiers</description>
             <annotation key="file">Ensembl Genes</annotation>
             
-            <annotation key="data-version">79</annotation>
-            
-            <cv-uri name="genes" format="EnsemblMySQLDump" doc="http://mar2015.archive.ensembl.org/Homo_sapiens/Info/Index">ftp://ftp.ensembl.org/pub/release-79/mysql/homo_sapiens_core_79_38/gene.txt.gz</cv-uri>
+            <annotation key="data-version" global-key-ref="EnsemblVer" />
+        	<annotation key="GRChVer" global-key-ref="GRChVer" />
+        	<annotation key="EnsemblArchive" global-key-ref="EnsemblArchive" />
+        	
+        	<cv-uri name="genes" format="EnsemblMySQLDump" doc="http://{EnsemblArchive}.archive.ensembl.org/Homo_sapiens/Info/Index">ftp://ftp.ensembl.org/pub/release-{data-version}/mysql/homo_sapiens_core_{data-version}_{GRChVer}/gene.txt.gz</cv-uri>
             <cv-file format="obo">ENSG.obo</cv-file>
         </cv>
         <cv name="EnsemblTranscripts" lax="true">
             <description>Valid Ensembl Transcript identifiers</description>
             <annotation key="file">Ensembl Transcripts</annotation>
             
-            <annotation key="data-version">79</annotation>
-            
-            <cv-uri name="transcripts" format="EnsemblMySQLDump" doc="http://mar2015.archive.ensembl.org/Homo_sapiens/Info/Index">ftp://ftp.ensembl.org/pub/release-79/mysql/homo_sapiens_core_79_38/transcript.txt.gz</cv-uri>
+        	<annotation key="data-version" global-key-ref="EnsemblVer" />
+        	<annotation key="GRChVer" global-key-ref="GRChVer" />
+        	<annotation key="EnsemblArchive" global-key-ref="EnsemblArchive" />
+        	
+        	<cv-uri name="transcripts" format="EnsemblMySQLDump" doc="http://{EnsemblArchive}.archive.ensembl.org/Homo_sapiens/Info/Index">ftp://ftp.ensembl.org/pub/release-{data-version}/mysql/homo_sapiens_core_{data-version}_{GRChVer}/transcript.txt.gz</cv-uri>
             <cv-file format="obo">ENST.obo</cv-file>
         </cv>
 		<cv name="GencodeGenes" lax="true">
 			<description>Valid Gencode gene identifiers</description>
 			<annotation key="file">Gencode Genes</annotation>
 			
-			<annotation key="data-version">22</annotation>
+			<annotation key="data-version" global-key-ref="GENCODEVer" />
 			
 			<!-- For Gencode 16 and onwards, the information is in ftp://ftp.sanger.ac.uk/pub/gencode/Gencode_human/release_16/gencode.v16.metadata.Gene_source.gz (GencodeDump) -->
 			<!-- But for Gencode 15, it is the file gencode_release_15/gencode.v15.annotation.level_3.classes (GencodeLevel3Classes) inside the archive -->
-			<cv-uri name="genes" format="GencodeDump" doc="http://www.gencodegenes.org/releases/22.html">ftp://ftp.sanger.ac.uk/pub/gencode/Gencode_human/release_22/gencode.v22.metadata.Gene_source.gz</cv-uri>
+			<cv-uri name="genes" format="GencodeDump" doc="http://www.gencodegenes.org/releases/{data-version}.html">ftp://ftp.sanger.ac.uk/pub/gencode/Gencode_human/release_{data-version}/gencode.v{data-version}.metadata.Gene_source.gz</cv-uri>
 			<cv-file format="obo">GencodeG.obo</cv-file>
 		</cv>
 	   	<cv name="GencodeTranscripts" lax="true">
 	   		<description>Valid Gencode transcript identifiers</description>
 	   		<annotation key="file">Gencode Transcripts</annotation>
 	   		
-	   		<annotation key="data-version">22</annotation>
+	   		<annotation key="data-version" global-key-ref="GENCODEVer" />
 	   		
 	   		<!-- For Gencode 16 and onwards, the information is in ftp://ftp.sanger.ac.uk/pub/gencode/Gencode_human/release_16/gencode.v16.metadata.Transcript_source.gz (GencodeDump) -->
 	   		<!-- But for Gencode 15, it is the file gencode_release_15/gencode.v15.annotation.level_3.classes (GencodeLevel3Classes) inside the archive -->
-	   		<cv-uri name="transcripts" format="GencodeDump" doc="http://www.gencodegenes.org/releases/22.html">ftp://ftp.sanger.ac.uk/pub/gencode/Gencode_human/release_22/gencode.v22.metadata.Transcript_source.gz</cv-uri>
+	   		<cv-uri name="transcripts" format="GencodeDump" doc="http://www.gencodegenes.org/releases/{data-version}.html">ftp://ftp.sanger.ac.uk/pub/gencode/Gencode_human/release_{data-version}/gencode.v{data-version}.metadata.Transcript_source.gz</cv-uri>
 	   		<cv-file format="obo">GencodeT.obo</cv-file>
 	   	</cv>
 		<meta-cv name="EnsemblGencodeGenes">
@@ -109,7 +141,7 @@
 	   	<cv name="CellOntology">
             <description>The Cell Ontology is designed as a structured controlled vocabulary for cell types</description>
             <annotation key="file">Cell Ontology</annotation>
-			<annotation key="data-version">2014-03-11</annotation>
+			<annotation key="data-version">2015-05-12</annotation>
             <!--
             <annotation key="showFetched">true</annotation>
             -->
@@ -119,13 +151,13 @@
 	   	    
 	   	    <default-cv-ns ns="cell"/>
 	   	    
-            <cv-uri format="obo" doc="http://cellontology.org/">https://cell-ontology.googlecode.com/svn/releases/2014-03-11/cl-basic.obo</cv-uri>
+	   		<cv-uri format="obo" doc="http://cellontology.org/">https://raw.githubusercontent.com/obophenotype/cell-ontology/c02b0a6cbd2eaad2cbca3c402ec6086b8a1f7783/src/ontology/cl-basic.obo</cv-uri>
             <cv-file format="obo">cl-basic.obo</cv-file>
         </cv>
-        <cv name="CellLineOntology">
+        <cv name="CellLineOntology" lax="true">
             <description>The Cell Line Ontology is designed as a structured controlled vocabulary for cell lines</description>
             <annotation key="file">Cell Line Ontology</annotation>
-			<annotation key="data-version">53</annotation>
+			<annotation key="data-version">62</annotation>
             <!--
             <annotation key="showFetched">true</annotation>
             -->
@@ -134,31 +166,43 @@
             
             <default-cv-ns ns="clo"/>
             
+        	<cv-uri format="OWL" doc="http://www.clo-ontology.org/">https://clo-ontology.googlecode.com/svn-history/r{data-version}/trunk/src/ontology/clo.owl</cv-uri>
+            <cv-file format="OWL">clo.owl</cv-file>
             <!--
-            	<cv-uri format="OWL" doc="http://www.clo-ontology.org/">http://clo-ontology.googlecode.com/svn/trunk/src/ontology/clo.owl</cv-uri>
-            	<cv-file format="obo">cl-basic.obo</cv-file>
-            -->
         	<e v="CLO:0002767">DG-75 cell</e>
         	<e v="CLO:0007047">JVM-2 cell</e>
         	<e v="CLO:0007066">KARPAS-422 cell</e>
         	<e v="CLO:0009457">U-266 cell</e>
+        	-->
         </cv>
 		<cv name="UBERON">
 			<description>Uberon is an integrated cross-species anatomy ontology representing a variety of entities classified according to traditional anatomical criteria such as structure, function and developmental lineage.</description>
 			<annotation key="file">UBERON</annotation>
-			<annotation key="data-version">2014-05-03</annotation>
+			<annotation key="data-version">2015-05-25</annotation>
 		    
 		    <cv-ns short-name="uberon">http://purl.obolibrary.org/obo/</cv-ns>
 		    <cv-ns short-name="none">http://purl.obolibrary.org/obo/</cv-ns>
 		    <cv-ns short-name="uberon/phenoscape-anatomy">http://purl.obolibrary.org/obo/</cv-ns>
 		    
-			<cv-uri format="obo" doc="http://uberon.org/">http://svn.code.sf.net/p/obo/svn/uberon/releases/2014-05-03/basic.obo</cv-uri>
+			<cv-uri format="obo" doc="http://uberon.org/">https://github.com/obophenotype/uberon/raw/7229dc9f261da992c42685fb193465f9f544bd79/basic.obo</cv-uri>
 			<cv-file format="obo">uberon-basic.obo</cv-file>
 		</cv>
+    	<cv name="PATO">
+    		<description>Phenotypic qualities (properties). This ontology can be used in conjunction with other ontologies such as GO or anatomical ontologies to refer to phenotypes. Examples of qualities are red, ectopic, high temperature, fused, small, edematous and arrested.</description>
+    		<annotation key="file">Phenotypic qualities (properties)</annotation>
+    		<annotation key="data-version">91</annotation>
+    		
+    		<cv-ns short-name="pato">http://purl.obolibrary.org/obo/</cv-ns>
+    		
+    		<default-cv-ns ns="pato"/>
+    		
+    		<cv-uri format="obo" doc="http://wiki.obofoundry.org/wiki/index.php/PATO:Main_Page">https://pato.googlecode.com/svn-history/r{data-version}/trunk/quality.obo</cv-uri>
+    		<cv-file format="obo">quality.obo</cv-file>
+    	</cv>
 		<cv name="EFO">
 			<description></description>
 			<annotation key="file">Experimental Factor</annotation>
-			<annotation key="data-version">2.56</annotation>
+			<annotation key="data-version">2.61</annotation>
 		    
 		    <!--
 		    <cv-ns short-name="BrendaTissueOBO">http://purl.obolibrary.org/obo/</cv-ns>
@@ -166,7 +210,7 @@
 		    -->
 		    <cv-ns short-name="EFO">http://www.ebi.ac.uk/efo/</cv-ns>
 		    
-			<cv-uri format="obo" doc="http://www.ebi.ac.uk/efo/">http://sourceforge.net/p/efo/code/322/tree/trunk/src/efoinobo/efo.obo?format=raw</cv-uri>
+			<cv-uri format="obo" doc="http://www.ebi.ac.uk/efo/">http://sourceforge.net/p/efo/code/355/tree/trunk/src/efoinobo/efo.obo?format=raw</cv-uri>
 			<cv-file format="obo">efo.obo</cv-file>
 		</cv>
         <cv name="NCIMetathesaurus">
@@ -174,31 +218,36 @@
             	This is the subset of terms used in BLUEPRINT
             </description>
             <annotation key="file">NCI Metathesaurus</annotation>
-            <annotation key="data-version">201312E</annotation>
+            <annotation key="data-version">201412</annotation>
             
             <cv-ns short-name="cui">http://ncimeta.nci.nih.gov/ncimbrowser/ConceptReport.jsp?dictionary=NCI%20MetaThesaurus&amp;code=</cv-ns>
             
             <default-cv-ns ns="cui" />
             
+        	<cv-uri doc="http://ncimeta.nci.nih.gov/ncimbrowser/" format="NCICUIDump">ftp://ftp1.nci.nih.gov/pub/cacore/EVS/NCI_Thesaurus/archive/nci_code_cui_map/nci_code_cui_map_{data-version}.dat</cv-uri>
+        	<cv-file format="obo">NCIm.obo</cv-file>
             <!--
             <annotation key="showFetched">true</annotation>
-            <cv-uri doc="http://ncimeta.nci.nih.gov/ncimbrowser/"/>
             -->
+        	<!--
         	<e v="C0026764">Plasma Cell Myeloma</e>
         	<e v="C0040425">Tonsillitis</e>
-        	<e v="C0334634">Malignant lymphoma, lymphocytic, intermediate differentiation, diffuse</e>
+        		<e v="C0334634">Malignant lymphoma, lymphocytic, intermediate differentiation, diffuse</e>
         	<e v="C1333295">Germinal Center B-Cell-Like Diffuse Large B-Cell Lymphoma</e>
         	<e v="C1336077">Sporadic Burkitt Lymphoma</e>
         	<e v="C2853894">Mantle cell lymphoma, unspecified site</e>
+        	-->
         </cv>
         <cv name="ISO3166">
             <description><![CDATA[ISO 3166 is the International Standard for country codes and codes for their subdivisions. The purpose of ISO 3166 is to establish internationally recognised codes for the representation of names of countries, territories or areas of geographical interest, and their subdivisions. A complementary classification, related to ISO 3166 is UN M.49 (Standard Country and Area Codes Classifications)]]></description>
             <annotation key="file">ISO 3166-1, ISO 3166-2 and UN M.49</annotation>
+        	<annotation key="data-version">iso-codes-3.59</annotation>
+        	<annotation key="cldr-data-version">release-27-0-1</annotation>
+        	
+        	<cv-uri format="ISO_3166-1" name="iso_3166.xml" doc="http://www.iso.org/iso/country_codes.htm">https://anonscm.debian.org/cgit/pkg-isocodes/iso-codes.git/plain/iso_3166/iso_3166.xml?h={data-version}</cv-uri>
+        	<cv-uri format="ISO_3166-2" name="iso_3166_2.xml" doc="http://en.wikipedia.org/wiki/ISO_3166-2">https://anonscm.debian.org/cgit/pkg-isocodes/iso-codes.git/plain/iso_3166_2/iso_3166_2.xml?h={data-version}</cv-uri>
             
-            <cv-uri format="ISO_3166-1" doc="http://www.iso.org/iso/country_codes.htm">http://www.iso.org/iso/home/standards/country_codes/country_names_and_code_elements_txt.htm</cv-uri>
-            <cv-uri doc="http://en.wikipedia.org/wiki/ISO_3166-2"/>
-            
-            <cv-uri doc="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
+        	<cv-uri format="LDML" name="supplementalData.xml" doc="http://unstats.un.org/unsd/methods/m49/m49.htm">http://unicode.org/repos/cldr/tags/{cldr-data-version}/common/supplemental/supplementalData.xml</cv-uri>
             <cv-uri doc="http://unstats.un.org/unsd/methods/m49/m49regin.htm"/>
             <cv-uri doc="http://unstats.un.org/unsd/methods/m49/m49alpha.htm"/>
 
@@ -257,6 +306,7 @@
             <annotation key="disposition">inline</annotation>
             <e v="m">male</e>
             <e v="f">female</e>
+        	<e v="b">mixed (both)</e>
         </cv>
         <cv name="wgbsFeatures" lax="true">
             <e v="EXTRACTION_PROTOCOL_TYPE_OF_SONICATOR">The type of sonicator used for extraction.</e>
@@ -649,7 +699,7 @@
         <concept-type name="abstract-coordinate" collection="primary">
             <column name="chromosome">
                 <description>Name of the chromosome containing the experimentally detected feature (mutation, variation, expression, ...)</description>
-                <column-type item-type="string" column-kind="required" cv="EnsemblChromosomes" />
+                <column-type item-type="string" column-kind="required" cv="ChromosomesAndScaffolds" />
             </column>
             <column name="chromosome_start">
                 <description>Start position of the mutation/variation on the chromosome</description>
@@ -745,12 +795,39 @@
                         <concept-type name="gene-expression-experiment-primary">
                             <column name="normalized_read_count">
                                 <description>Normalized count of sequencing reads if analyzed by sequencing platforms</description>
-                                <column-type item-type="decimal" column-kind="required" />
+                                <column-type item-type="decimal" column-kind="desirable" />
                             </column>
                             <column name="raw_read_count">
                                 <description>Raw count of sequencing reads if analyzed by sequencing platforms</description>
-                                <column-type item-type="integer" column-kind="required" />
+                                <column-type item-type="integer" column-kind="desirable" />
                             </column>
+                        	
+                        	<column name="length">
+                        		<column-type item-type="decimal" column-kind="desirable"></column-type>
+                        	</column>
+                        	
+                        	<column name="effective_length">
+                        		<column-type item-type="decimal" column-kind="desirable"></column-type>
+                        	</column>
+                        	
+                        	<column name="expected_count">
+                        		<column-type item-type="decimal" column-kind="desirable"></column-type>
+                        	</column>
+                        	
+                        	<column name="TPM">
+                        		<column-type item-type="decimal" column-kind="desirable"></column-type>
+                        	</column>
+                        	
+                        	<column name="FPKM">
+                        		<column-type item-type="decimal" column-kind="desirable"></column-type>
+                        	</column>
+                        	
+                        	
+                        	<column name="metrics">
+                        		<description>Additional metrics not covered by the model, but otherwise interesting</description>
+                        		<column-type item-type="decimal" column-kind="desirable" container-type="hash"></column-type>
+                        	</column>
+                        	
                         </concept-type>
                     </subtypes>
                 </concept-type>
@@ -836,11 +913,11 @@
     	<description>This is the default place to put external data which is needed by the frontends in order to ease queries</description>
     	<annotation key="defaultColor"><color>#f8f330</color></annotation>
     	
-    	<concept name="gencode" fullname="Gencode and Ensembl features (genes, transcripts, UTRs, etc...)">
+    	<concept name="features" fullname="Gencode, Ensembl and Reactome features (genes, transcripts, UTRs, etc...)">
     		<base-concept-type name="empty-external"/>
-    		<base-concept-type name="abstract-coordinate-range"/>
     		
-    		<description>Features defined either in Gencode (all the features) or Ensembl (only genes and transcripts) by its chromomic coordinates and its different names</description>
+    		<description>Features defined either in Gencode (all the features), Ensembl (only genes and transcripts) by their set of chromosomic coordinates and  different names.</description>
+    		<description>Pathways found in Reactome version from the same timeframe as the Ensembl and Gencode releases</description>
     		
     		<column name="feature_cluster_id">
     			<description>An id which can be used to cluster the related features</description>
@@ -859,6 +936,8 @@
     					<e v="start_codon"/>
     					<e v="stop_codon"/>
     					<e v="UTR"/>
+    					<e v="reaction"/>
+    					<e v="pathway"/>
     				</cv>
     			</column-type>
     		</column>
@@ -868,40 +947,18 @@
     			<column-type item-type="text" column-kind="required" container-type="set" set-seps=";"/>
     		</column>
     		
-    		<index unique="false">
-    			<attr name="chromosome"/>
-    			<attr name="chromosome_start"/>
-    			<attr name="chromosome_end"/>
-    		</index>
-    		
-    		<index unique="false">
-    			<attr name="feature_cluster_id"/>
-    		</index>
-    		
-    	</concept>
-    	
-    	<concept name="reactome" fullname="Reactome pathways">
-    		<base-concept-type name="empty-external"/>
-    		
-    		<description>Pathways found in Reactome version from the same timeframe as the Ensembl and Gencode releases</description>
-    		
-    		<column name="pathway_id">
-    			<description>The Reactome pathway id</description>
-    			<column-type item-type="string" column-kind="idref"/>
-    		</column>
-    		
-    		<column name="participants">
-    			<description>Each one of the participants in one or more of the reactions and complexes related to this pathway</description>
+    		<column name="coordinates">
+			<description>The list of coordinates of the feature. In the case of pathways, the participants in one or more of the reactions and complexes related to this pathway</description>
     			<column-type item-type="compound" column-kind="required" container-type="set" set-seps=";">
     				<compound-type>
-					<column name="participant_id">
+					<column name="feature_id">
 						<description>The participant identifier (Ensembl Gene, Transcript, UniProt AC, etc...)</description>
 						<column-type item-type="string" column-kind="required" />
 					</column>
 					<sep>|</sep>
     					<column name="chromosome">
     						<description>Name of the chromosome containing the experimentally detected feature (mutation, variation, expression, ...)</description>
-    						<column-type item-type="string" column-kind="desirable" cv="EnsemblChromosomes" />
+    					    <column-type item-type="string" column-kind="desirable" cv="ChromosomesAndScaffolds" />
     					</column>
     					<sep>:</sep>
     					<column name="chromosome_start">
@@ -913,9 +970,23 @@
     						<description>End position of the mutation/variation on the chromosome</description>
     						<column-type item-type="integer" column-kind="desirable" />
     					</column>
+					
+					<index unique="false">
+						<attr name="feature_id"/>
+					</index>
+    					
+					<index unique="false">
+						<attr name="chromosome"/>
+						<attr name="chromosome_start"/>
+						<attr name="chromosome_end"/>
+					</index>
     				</compound-type>
     			</column-type>
     		</column>
+    		
+    		<index unique="false">
+    			<attr name="feature_cluster_id"/>
+    		</index>
     	</concept>
     	
     	<concept name="loaded" fullname="The resources which have been loaded into the database">
@@ -981,6 +1052,24 @@
                 <column-type item-type="string" column-kind="idref" />
             </column>
             
+            <column name="donor_kind">
+            	<description>Kind of donor. Sometimes cell lines are used as "donors", as well as pooled donors</description>
+            	<annotation key="values">An enumeration of d(onor), c(ell-line) and p(ooled donors)</annotation>
+            	<column-type item-type="string" column-kind="required">
+            		<cv>
+            			<e v="d">Donor</e>
+            			<e v="c">Cell-line</e>
+            			<e v="p">Pooled donors</e>
+            		</cv>
+            	</column-type>
+            </column>
+        	
+        	<column name="pooled_donor_ids">
+        		<description>When donor_kind is 'p', then this attribute contains the pooled donor_ids</description>
+        		<column-type item-type="string" column-kind="optional" container-type="array" array-seps=","></column-type>
+        	</column>
+        	
+        	
             <column name="donor_sex">
                 <description>Donor biological sex.</description>
                 <annotation key="values">It corresponds with IHEC Level 0 <xhtml:b>SEX</xhtml:b> (Cell Line) and <xhtml:b>DONOR_SEX</xhtml:b> (Primary Cell, Primary Cell Culture &amp; Primary Tissue)</annotation>
@@ -1117,11 +1206,12 @@
                 <column-type item-type="string" column-kind="desirable" />
             </column>
             <column name="donor_disease">
-                <description>If the donor was ill, the EFO code (browsable <xhtml:i><xhtml:a href="http://purl.bioontology.org/ontology/EFO">here</xhtml:a></xhtml:i>) or NCI Metathesaurus code (from <xhtml:i><xhtml:a href="ncimeta.nci.nih.gov/ncimbrowser/">here</xhtml:a></xhtml:i>) of the disease at acquisition time. Use code <xhtml:a href="http://www.ebi.ac.uk/efo/EFO_0000761">EFO:0000761</xhtml:a> when the donor was healthy</description>
+            	<description>If the donor was ill, the EFO code (browsable <xhtml:i><xhtml:a href="http://purl.bioontology.org/ontology/EFO">here</xhtml:a></xhtml:i>) or NCI Metathesaurus code (from <xhtml:i><xhtml:a href="ncimeta.nci.nih.gov/ncimbrowser/">here</xhtml:a></xhtml:i>) of the disease at acquisition time. Use code <xhtml:a href="http://purl.obolibrary.org/obo/PATO_0000461">PATO:0000461</xhtml:a> when the donor was healthy</description>
                 <annotation key="values">This value can come from EGA <xhtml:i>Phenotype</xhtml:i> field. When this field and <xhtml:b><xhtml:tt>donor_disease_text</xhtml:tt></xhtml:b> are set, the description of the term in this field should be used</annotation>
                 <column-type item-type="string" column-kind="desirable">
                     <cv-ref name="EFO" />
-                    <cv-ref name="NCIMetathesaurus" />
+                	<cv-ref name="PATO" />
+                	<cv-ref name="NCIMetathesaurus" />
                 </column-type>
             </column>
             <column name="donor_disease_text">
@@ -1129,6 +1219,10 @@
                 <annotation key="values">It corresponds to IHEC Level 0 <xhtml:b>DISEASE</xhtml:b> (Cell Line, Primary Cell, Primary Cell Culture &amp; Primary Tissue). When it is possible, use <xhtml:b><xhtml:tt>donor_disease</xhtml:tt></xhtml:b> field</annotation>
                 <column-type item-type="string" column-kind="desirable" />
             </column>
+        	<column name="donor_treatment">
+        		<description>If the donor was under treatment, the treatment itself</description>
+        		<column-type item-type="string" column-kind="optional" />
+        	</column>
             
             <column name="specimen_processing">
                 <description>Description of technique used to process specimen</description>
@@ -1197,7 +1291,11 @@
                 <description><xhtml:i>Unique identifier</xhtml:i> for the sample assigned by data provider</description>
                 <column-type item-type="string" column-kind="idref"></column-type>
             </column>
-            <column name="purified_cell_type">
+        	<column name="sample_name">
+        		<description><xhtml:i>Alternate unique identifier</xhtml:i> for the sample assigned by data provider</description>
+        		<column-type item-type="string" column-kind="required"></column-type>
+        	</column>
+        	<column name="purified_cell_type">
                 <description>Purified cell type for the sample</description>
                 <annotation key="values">It corresponds more or less with IHEC Level 0 <xhtml:b>CELL_TYPE</xhtml:b> (Primary Cell &amp; Primary Cell Culture)</annotation>
                 <column-type item-type="string" column-kind="required">
@@ -1835,7 +1933,7 @@
                     </column>
                     <column name="exon1_chromosome">
                         <description>Name of the chromosome containing the 5' exon (#)</description>
-                        <column-type item-type="string" column-kind="required" cv="EnsemblChromosomes" />
+                        <column-type item-type="string" column-kind="required" cv="ChromosomesAndScaffolds" />
                     </column>
                     <column name="exon1_number_bases">
                         <description>Number of bases from 5' exon</description>
@@ -1851,7 +1949,7 @@
                     </column>
                     <column name="exon2_chromosome">
                         <description>Name of the chromosome containing the 3' exon (#)</description>
-                        <column-type item-type="string" column-kind="required" cv="EnsemblChromosomes" />
+                        <column-type item-type="string" column-kind="required" cv="ChromosomesAndScaffolds" />
                     </column>
                     <column name="exon2_number_bases">
                         <description>Number of bases from 3' exon</description>

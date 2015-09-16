@@ -1,132 +1,160 @@
 ! Generated using ENSCHRO2OBO.pl from
 ! 	coord_system.txt.gz
 ! 	seq_region.txt.gz
+! 	GCA_000001405.15_GRCh38_top-level.acc2name
 format-version: 1.2
-date: 09:04:2015 21:10
+date: 02:08:2015 17:16
 auto-generated-by: BP::Model $Id$
 data-version: 79
 [Term]
 id: 1
 name: 1
 alt_id: chr1
+alt_id: CM000663.2
 
 [Term]
 id: 2
 name: 2
 alt_id: chr2
+alt_id: CM000664.2
 
 [Term]
 id: 3
 name: 3
 alt_id: chr3
+alt_id: CM000665.2
 
 [Term]
 id: 4
 name: 4
 alt_id: chr4
+alt_id: CM000666.2
 
 [Term]
 id: 5
 name: 5
 alt_id: chr5
+alt_id: CM000667.2
 
 [Term]
 id: 6
 name: 6
 alt_id: chr6
+alt_id: CM000668.2
 
 [Term]
 id: 7
 name: 7
 alt_id: chr7
+alt_id: CM000669.2
 
 [Term]
 id: 8
 name: 8
 alt_id: chr8
+alt_id: CM000670.2
 
 [Term]
 id: 9
 name: 9
 alt_id: chr9
+alt_id: CM000671.2
 
 [Term]
 id: 10
 name: 10
 alt_id: chr10
+alt_id: CM000672.2
 
 [Term]
 id: 11
 name: 11
 alt_id: chr11
+alt_id: CM000673.2
 
 [Term]
 id: 12
 name: 12
 alt_id: chr12
+alt_id: CM000674.2
 
 [Term]
 id: 13
 name: 13
 alt_id: chr13
+alt_id: CM000675.2
 
 [Term]
 id: 14
 name: 14
 alt_id: chr14
+alt_id: CM000676.2
 
 [Term]
 id: 15
 name: 15
 alt_id: chr15
+alt_id: CM000677.2
 
 [Term]
 id: 16
 name: 16
 alt_id: chr16
+alt_id: CM000678.2
 
 [Term]
 id: 17
 name: 17
 alt_id: chr17
+alt_id: CM000679.2
 
 [Term]
 id: 18
 name: 18
 alt_id: chr18
+alt_id: CM000680.2
 
 [Term]
 id: 19
 name: 19
 alt_id: chr19
+alt_id: CM000681.2
 
 [Term]
 id: 20
 name: 20
 alt_id: chr20
+alt_id: CM000682.2
 
 [Term]
 id: 21
 name: 21
 alt_id: chr21
+alt_id: CM000683.2
 
 [Term]
 id: 22
 name: 22
 alt_id: chr22
+alt_id: CM000684.2
 
 [Term]
 id: X
 name: X
+alt_id: chrX
+alt_id: CM000685.2
 
 [Term]
 id: Y
 name: Y
+alt_id: chrY
+alt_id: CM000686.2
 
 [Term]
 id: MT
 name: MT
 alt_id: chrM
+alt_id: J01415.2
 alt_id: M
 
 [Term]
@@ -224,134 +252,233 @@ name: CHR_HG2291_PATCH
 [Term]
 id: CHR_HSCHR16_CTG2
 name: CHR_HSCHR16_CTG2
+alt_id: HSCHR16_CTG2
+alt_id: chr16_KI270854v1_alt
+alt_id: KI270854.1
 
 [Term]
 id: CHR_HSCHR1_1_CTG3
 name: CHR_HSCHR1_1_CTG3
+alt_id: HSCHR1_1_CTG3
+alt_id: chr1_KI270762v1_alt
+alt_id: KI270762.1
 
 [Term]
 id: CHR_HSCHR1_2_CTG3
 name: CHR_HSCHR1_2_CTG3
+alt_id: HSCHR1_2_CTG3
+alt_id: chr1_KI270766v1_alt
+alt_id: KI270766.1
 
 [Term]
 id: CHR_HSCHR2_1_CTG1
 name: CHR_HSCHR2_1_CTG1
+alt_id: HSCHR2_1_CTG1
+alt_id: chr2_KI270769v1_alt
+alt_id: KI270769.1
 
 [Term]
 id: CHR_HSCHR2_1_CTG5
 name: CHR_HSCHR2_1_CTG5
+alt_id: HSCHR2_1_CTG5
+alt_id: chr2_GL383521v1_alt
+alt_id: GL383521.1
 
 [Term]
 id: CHR_HSCHR2_1_CTG7
 name: CHR_HSCHR2_1_CTG7
+alt_id: HSCHR2_1_CTG7
+alt_id: chr2_KI270772v1_alt
+alt_id: KI270772.1
 
 [Term]
 id: CHR_HSCHR2_2_CTG1
 name: CHR_HSCHR2_2_CTG1
+alt_id: HSCHR2_2_CTG1
+alt_id: chr2_KI270770v1_alt
+alt_id: KI270770.1
 
 [Term]
 id: CHR_HSCHR2_2_CTG7
 name: CHR_HSCHR2_2_CTG7
+alt_id: HSCHR2_2_CTG7
+alt_id: chr2_KI270894v1_alt
+alt_id: KI270894.1
 
 [Term]
 id: CHR_HSCHR2_3_CTG1
 name: CHR_HSCHR2_3_CTG1
+alt_id: HSCHR2_3_CTG1
+alt_id: chr2_KI270773v1_alt
+alt_id: KI270773.1
 
 [Term]
 id: CHR_HSCHR2_4_CTG1
 name: CHR_HSCHR2_4_CTG1
+alt_id: HSCHR2_4_CTG1
+alt_id: chr2_KI270774v1_alt
+alt_id: KI270774.1
 
 [Term]
 id: CHR_HSCHR3_1_CTG1
 name: CHR_HSCHR3_1_CTG1
+alt_id: HSCHR3_1_CTG1
+alt_id: chr3_JH636055v2_alt
+alt_id: JH636055.2
 
 [Term]
 id: CHR_HSCHR3_1_CTG3
 name: CHR_HSCHR3_1_CTG3
+alt_id: HSCHR3_1_CTG3
+alt_id: chr3_KI270779v1_alt
+alt_id: KI270779.1
 
 [Term]
 id: CHR_HSCHR3_2_CTG3
 name: CHR_HSCHR3_2_CTG3
+alt_id: HSCHR3_2_CTG3
+alt_id: chr3_KI270782v1_alt
+alt_id: KI270782.1
 
 [Term]
 id: CHR_HSCHR3_3_CTG1
 name: CHR_HSCHR3_3_CTG1
+alt_id: HSCHR3_3_CTG1
+alt_id: chr3_KI270783v1_alt
+alt_id: KI270783.1
 
 [Term]
 id: CHR_HSCHR3_3_CTG3
 name: CHR_HSCHR3_3_CTG3
+alt_id: HSCHR3_3_CTG3
+alt_id: chr3_KI270895v1_alt
+alt_id: KI270895.1
 
 [Term]
 id: CHR_HSCHR3_4_CTG3
 name: CHR_HSCHR3_4_CTG3
+alt_id: HSCHR3_4_CTG3
+alt_id: chr3_KI270924v1_alt
+alt_id: KI270924.1
 
 [Term]
 id: CHR_HSCHR3_5_CTG3
 name: CHR_HSCHR3_5_CTG3
+alt_id: HSCHR3_5_CTG3
+alt_id: chr3_KI270934v1_alt
+alt_id: KI270934.1
 
 [Term]
 id: CHR_HSCHR3_6_CTG3
 name: CHR_HSCHR3_6_CTG3
+alt_id: HSCHR3_6_CTG3
+alt_id: chr3_KI270935v1_alt
+alt_id: KI270935.1
 
 [Term]
 id: CHR_HSCHR3_7_CTG3
 name: CHR_HSCHR3_7_CTG3
+alt_id: HSCHR3_7_CTG3
+alt_id: chr3_KI270936v1_alt
+alt_id: KI270936.1
 
 [Term]
 id: CHR_HSCHR3_8_CTG3
 name: CHR_HSCHR3_8_CTG3
+alt_id: HSCHR3_8_CTG3
+alt_id: chr3_KI270937v1_alt
+alt_id: KI270937.1
 
 [Term]
 id: CHR_HSCHR3_9_CTG3
 name: CHR_HSCHR3_9_CTG3
+alt_id: HSCHR3_9_CTG3
+alt_id: chr3_KI270784v1_alt
+alt_id: KI270784.1
 
 [Term]
 id: CHR_HSCHR4_1_CTG4
 name: CHR_HSCHR4_1_CTG4
+alt_id: HSCHR4_1_CTG4
+alt_id: chr4_KI270790v1_alt
+alt_id: KI270790.1
 
 [Term]
 id: CHR_HSCHR4_1_CTG6
 name: CHR_HSCHR4_1_CTG6
+alt_id: HSCHR4_1_CTG6
+alt_id: chr4_GL383528v1_alt
+alt_id: GL383528.1
 
 [Term]
 id: CHR_HSCHR4_1_CTG9
 name: CHR_HSCHR4_1_CTG9
+alt_id: HSCHR4_1_CTG9
+alt_id: chr4_GL000257v2_alt
+alt_id: GL000257.2
 
 [Term]
 id: CHR_HSCHR5_1_CTG1
 name: CHR_HSCHR5_1_CTG1
+alt_id: HSCHR5_1_CTG1
+alt_id: chr5_GL383532v1_alt
+alt_id: GL383532.1
 
 [Term]
 id: CHR_HSCHR5_1_CTG5
 name: CHR_HSCHR5_1_CTG5
+alt_id: HSCHR5_1_CTG5
+alt_id: chr5_GL383531v1_alt
+alt_id: GL383531.1
 
 [Term]
 id: CHR_HSCHR5_2_CTG1
 name: CHR_HSCHR5_2_CTG1
+alt_id: HSCHR5_2_CTG1
+alt_id: chr5_GL949742v1_alt
+alt_id: GL949742.1
 
 [Term]
 id: CHR_HSCHR5_2_CTG5
 name: CHR_HSCHR5_2_CTG5
+alt_id: HSCHR5_2_CTG5
+alt_id: chr5_KI270795v1_alt
+alt_id: KI270795.1
 
 [Term]
 id: CHR_HSCHR5_3_CTG1
 name: CHR_HSCHR5_3_CTG1
+alt_id: HSCHR5_3_CTG1
+alt_id: chr5_KI270791v1_alt
+alt_id: KI270791.1
 
 [Term]
 id: CHR_HSCHR5_3_CTG5
 name: CHR_HSCHR5_3_CTG5
+alt_id: HSCHR5_3_CTG5
+alt_id: chr5_KI270898v1_alt
+alt_id: KI270898.1
 
 [Term]
 id: CHR_HSCHR5_4_CTG1
 name: CHR_HSCHR5_4_CTG1
+alt_id: HSCHR5_4_CTG1
+alt_id: chr5_KI270792v1_alt
+alt_id: KI270792.1
 
 [Term]
 id: CHR_HSCHR5_5_CTG1
 name: CHR_HSCHR5_5_CTG1
+alt_id: HSCHR5_5_CTG1
+alt_id: chr5_KI270793v1_alt
+alt_id: KI270793.1
 
 [Term]
 id: CHR_HSCHR5_6_CTG1
 name: CHR_HSCHR5_6_CTG1
+alt_id: HSCHR5_6_CTG1
+alt_id: chr5_KI270794v1_alt
+alt_id: KI270794.1
 
 [Term]
 id: CHR_HSCHR5_7_CTG1
@@ -360,490 +487,856 @@ name: CHR_HSCHR5_7_CTG1
 [Term]
 id: CHR_HSCHR6_1_CTG2
 name: CHR_HSCHR6_1_CTG2
+alt_id: HSCHR6_1_CTG2
+alt_id: chr6_GL383533v1_alt
+alt_id: GL383533.1
 
 [Term]
 id: CHR_HSCHR6_1_CTG3
 name: CHR_HSCHR6_1_CTG3
+alt_id: HSCHR6_1_CTG3
+alt_id: chr6_KB021644v2_alt
+alt_id: KB021644.2
 
 [Term]
 id: CHR_HSCHR6_1_CTG4
 name: CHR_HSCHR6_1_CTG4
+alt_id: HSCHR6_1_CTG4
+alt_id: chr6_KI270797v1_alt
+alt_id: KI270797.1
 
 [Term]
 id: CHR_HSCHR6_1_CTG5
 name: CHR_HSCHR6_1_CTG5
+alt_id: HSCHR6_1_CTG5
+alt_id: chr6_KI270798v1_alt
+alt_id: KI270798.1
 
 [Term]
 id: CHR_HSCHR6_1_CTG6
 name: CHR_HSCHR6_1_CTG6
+alt_id: HSCHR6_1_CTG6
+alt_id: chr6_KI270799v1_alt
+alt_id: KI270799.1
 
 [Term]
 id: CHR_HSCHR6_1_CTG7
 name: CHR_HSCHR6_1_CTG7
+alt_id: HSCHR6_1_CTG7
+alt_id: chr6_KI270800v1_alt
+alt_id: KI270800.1
 
 [Term]
 id: CHR_HSCHR6_1_CTG8
 name: CHR_HSCHR6_1_CTG8
+alt_id: HSCHR6_1_CTG8
+alt_id: chr6_KI270801v1_alt
+alt_id: KI270801.1
 
 [Term]
 id: CHR_HSCHR6_1_CTG9
 name: CHR_HSCHR6_1_CTG9
+alt_id: HSCHR6_1_CTG9
+alt_id: chr6_KI270802v1_alt
+alt_id: KI270802.1
 
 [Term]
 id: CHR_HSCHR6_8_CTG1
 name: CHR_HSCHR6_8_CTG1
+alt_id: HSCHR6_8_CTG1
+alt_id: chr6_KI270758v1_alt
+alt_id: KI270758.1
 
 [Term]
 id: CHR_HSCHR7_1_CTG1
 name: CHR_HSCHR7_1_CTG1
+alt_id: HSCHR7_1_CTG1
+alt_id: chr7_KI270804v1_alt
+alt_id: KI270804.1
 
 [Term]
 id: CHR_HSCHR7_1_CTG6
 name: CHR_HSCHR7_1_CTG6
+alt_id: HSCHR7_1_CTG6
+alt_id: chr7_GL383534v2_alt
+alt_id: GL383534.2
 
 [Term]
 id: CHR_HSCHR7_1_CTG7
 name: CHR_HSCHR7_1_CTG7
+alt_id: HSCHR7_1_CTG7
+alt_id: chr7_KI270805v1_alt
+alt_id: KI270805.1
 
 [Term]
 id: CHR_HSCHR7_2_CTG1
 name: CHR_HSCHR7_2_CTG1
+alt_id: HSCHR7_2_CTG1
+alt_id: chr7_KI270899v1_alt
+alt_id: KI270899.1
 
 [Term]
 id: CHR_HSCHR7_2_CTG6
 name: CHR_HSCHR7_2_CTG6
+alt_id: HSCHR7_2_CTG6
+alt_id: chr7_KI270803v1_alt
+alt_id: KI270803.1
 
 [Term]
 id: CHR_HSCHR7_2_CTG7
 name: CHR_HSCHR7_2_CTG7
+alt_id: HSCHR7_2_CTG7
+alt_id: chr7_KI270807v1_alt
+alt_id: KI270807.1
 
 [Term]
 id: CHR_HSCHR7_3_CTG6
 name: CHR_HSCHR7_3_CTG6
+alt_id: HSCHR7_3_CTG6
+alt_id: chr7_KI270808v1_alt
+alt_id: KI270808.1
 
 [Term]
 id: CHR_HSCHR8_1_CTG1
 name: CHR_HSCHR8_1_CTG1
+alt_id: HSCHR8_1_CTG1
+alt_id: chr8_KI270811v1_alt
+alt_id: KI270811.1
 
 [Term]
 id: CHR_HSCHR8_1_CTG6
 name: CHR_HSCHR8_1_CTG6
+alt_id: HSCHR8_1_CTG6
+alt_id: chr8_KI270814v1_alt
+alt_id: KI270814.1
 
 [Term]
 id: CHR_HSCHR8_1_CTG7
 name: CHR_HSCHR8_1_CTG7
+alt_id: HSCHR8_1_CTG7
+alt_id: chr8_KI270810v1_alt
+alt_id: KI270810.1
 
 [Term]
 id: CHR_HSCHR8_2_CTG1
 name: CHR_HSCHR8_2_CTG1
+alt_id: HSCHR8_2_CTG1
+alt_id: chr8_KI270812v1_alt
+alt_id: KI270812.1
 
 [Term]
 id: CHR_HSCHR8_2_CTG7
 name: CHR_HSCHR8_2_CTG7
+alt_id: HSCHR8_2_CTG7
+alt_id: chr8_KI270815v1_alt
+alt_id: KI270815.1
 
 [Term]
 id: CHR_HSCHR8_3_CTG1
 name: CHR_HSCHR8_3_CTG1
+alt_id: HSCHR8_3_CTG1
+alt_id: chr8_KI270813v1_alt
+alt_id: KI270813.1
 
 [Term]
 id: CHR_HSCHR8_3_CTG7
 name: CHR_HSCHR8_3_CTG7
+alt_id: HSCHR8_3_CTG7
+alt_id: chr8_KI270816v1_alt
+alt_id: KI270816.1
 
 [Term]
 id: CHR_HSCHR8_4_CTG1
 name: CHR_HSCHR8_4_CTG1
+alt_id: HSCHR8_4_CTG1
+alt_id: chr8_KI270818v1_alt
+alt_id: KI270818.1
 
 [Term]
 id: CHR_HSCHR8_4_CTG7
 name: CHR_HSCHR8_4_CTG7
+alt_id: HSCHR8_4_CTG7
+alt_id: chr8_KI270817v1_alt
+alt_id: KI270817.1
 
 [Term]
 id: CHR_HSCHR8_5_CTG1
 name: CHR_HSCHR8_5_CTG1
+alt_id: HSCHR8_5_CTG1
+alt_id: chr8_KI270900v1_alt
+alt_id: KI270900.1
 
 [Term]
 id: CHR_HSCHR8_5_CTG7
 name: CHR_HSCHR8_5_CTG7
+alt_id: HSCHR8_5_CTG7
+alt_id: chr8_KI270819v1_alt
+alt_id: KI270819.1
 
 [Term]
 id: CHR_HSCHR8_6_CTG1
 name: CHR_HSCHR8_6_CTG1
+alt_id: HSCHR8_6_CTG1
+alt_id: chr8_KI270901v1_alt
+alt_id: KI270901.1
 
 [Term]
 id: CHR_HSCHR8_6_CTG7
 name: CHR_HSCHR8_6_CTG7
+alt_id: HSCHR8_6_CTG7
+alt_id: chr8_KI270820v1_alt
+alt_id: KI270820.1
 
 [Term]
 id: CHR_HSCHR8_7_CTG1
 name: CHR_HSCHR8_7_CTG1
+alt_id: HSCHR8_7_CTG1
+alt_id: chr8_KI270926v1_alt
+alt_id: KI270926.1
 
 [Term]
 id: CHR_HSCHR8_8_CTG1
 name: CHR_HSCHR8_8_CTG1
+alt_id: HSCHR8_8_CTG1
+alt_id: chr8_KI270821v1_alt
+alt_id: KI270821.1
 
 [Term]
 id: CHR_HSCHR8_9_CTG1
 name: CHR_HSCHR8_9_CTG1
+alt_id: HSCHR8_9_CTG1
+alt_id: chr8_KI270822v1_alt
+alt_id: KI270822.1
 
 [Term]
 id: CHR_HSCHR9_1_CTG1
 name: CHR_HSCHR9_1_CTG1
+alt_id: HSCHR9_1_CTG1
+alt_id: chr9_GL383539v1_alt
+alt_id: GL383539.1
 
 [Term]
 id: CHR_HSCHR9_1_CTG2
 name: CHR_HSCHR9_1_CTG2
+alt_id: HSCHR9_1_CTG2
+alt_id: chr9_GL383540v1_alt
+alt_id: GL383540.1
 
 [Term]
 id: CHR_HSCHR9_1_CTG3
 name: CHR_HSCHR9_1_CTG3
+alt_id: HSCHR9_1_CTG3
+alt_id: chr9_GL383541v1_alt
+alt_id: GL383541.1
 
 [Term]
 id: CHR_HSCHR9_1_CTG4
 name: CHR_HSCHR9_1_CTG4
+alt_id: HSCHR9_1_CTG4
+alt_id: chr9_GL383542v1_alt
+alt_id: GL383542.1
 
 [Term]
 id: CHR_HSCHR9_1_CTG5
 name: CHR_HSCHR9_1_CTG5
+alt_id: HSCHR9_1_CTG5
+alt_id: chr9_KI270823v1_alt
+alt_id: KI270823.1
 
 [Term]
 id: CHR_HSCHRX_1_CTG3
 name: CHR_HSCHRX_1_CTG3
+alt_id: HSCHRX_1_CTG3
+alt_id: chrX_KI270880v1_alt
+alt_id: KI270880.1
 
 [Term]
 id: CHR_HSCHRX_2_CTG3
 name: CHR_HSCHRX_2_CTG3
+alt_id: HSCHRX_2_CTG3
+alt_id: chrX_KI270913v1_alt
+alt_id: KI270913.1
 
 [Term]
 id: CHR_HSCHR10_1_CTG1
 name: CHR_HSCHR10_1_CTG1
+alt_id: HSCHR10_1_CTG1
+alt_id: chr10_GL383545v1_alt
+alt_id: GL383545.1
 
 [Term]
 id: CHR_HSCHR10_1_CTG2
 name: CHR_HSCHR10_1_CTG2
+alt_id: HSCHR10_1_CTG2
+alt_id: chr10_GL383546v1_alt
+alt_id: GL383546.1
 
 [Term]
 id: CHR_HSCHR10_1_CTG3
 name: CHR_HSCHR10_1_CTG3
+alt_id: HSCHR10_1_CTG3
+alt_id: chr10_KI270824v1_alt
+alt_id: KI270824.1
 
 [Term]
 id: CHR_HSCHR10_1_CTG4
 name: CHR_HSCHR10_1_CTG4
+alt_id: HSCHR10_1_CTG4
+alt_id: chr10_KI270825v1_alt
+alt_id: KI270825.1
 
 [Term]
 id: CHR_HSCHR11_1_CTG2
 name: CHR_HSCHR11_1_CTG2
+alt_id: HSCHR11_1_CTG2
+alt_id: chr11_KI270826v1_alt
+alt_id: KI270826.1
 
 [Term]
 id: CHR_HSCHR11_1_CTG3
 name: CHR_HSCHR11_1_CTG3
+alt_id: HSCHR11_1_CTG3
+alt_id: chr11_KI270827v1_alt
+alt_id: KI270827.1
 
 [Term]
 id: CHR_HSCHR11_1_CTG5
 name: CHR_HSCHR11_1_CTG5
+alt_id: HSCHR11_1_CTG5
+alt_id: chr11_KI270829v1_alt
+alt_id: KI270829.1
 
 [Term]
 id: CHR_HSCHR11_1_CTG6
 name: CHR_HSCHR11_1_CTG6
+alt_id: HSCHR11_1_CTG6
+alt_id: chr11_KI270830v1_alt
+alt_id: KI270830.1
 
 [Term]
 id: CHR_HSCHR11_1_CTG7
 name: CHR_HSCHR11_1_CTG7
+alt_id: HSCHR11_1_CTG7
+alt_id: chr11_KI270831v1_alt
+alt_id: KI270831.1
 
 [Term]
 id: CHR_HSCHR11_1_CTG8
 name: CHR_HSCHR11_1_CTG8
+alt_id: HSCHR11_1_CTG8
+alt_id: chr11_KI270832v1_alt
+alt_id: KI270832.1
 
 [Term]
 id: CHR_HSCHR11_2_CTG1
 name: CHR_HSCHR11_2_CTG1
+alt_id: HSCHR11_2_CTG1
+alt_id: chr11_KI270902v1_alt
+alt_id: KI270902.1
 
 [Term]
 id: CHR_HSCHR11_3_CTG1
 name: CHR_HSCHR11_3_CTG1
+alt_id: HSCHR11_3_CTG1
+alt_id: chr11_KI270927v1_alt
+alt_id: KI270927.1
 
 [Term]
 id: CHR_HSCHR12_1_CTG1
 name: CHR_HSCHR12_1_CTG1
+alt_id: HSCHR12_1_CTG1
+alt_id: chr12_GL877875v1_alt
+alt_id: GL877875.1
 
 [Term]
 id: CHR_HSCHR12_1_CTG2
 name: CHR_HSCHR12_1_CTG2
+alt_id: HSCHR12_1_CTG2
+alt_id: chr12_GL383549v1_alt
+alt_id: GL383549.1
 
 [Term]
 id: CHR_HSCHR12_2_CTG2
 name: CHR_HSCHR12_2_CTG2
+alt_id: HSCHR12_2_CTG2
+alt_id: chr12_GL877876v1_alt
+alt_id: GL877876.1
 
 [Term]
 id: CHR_HSCHR12_3_CTG2
 name: CHR_HSCHR12_3_CTG2
+alt_id: HSCHR12_3_CTG2
+alt_id: chr12_KI270904v1_alt
+alt_id: KI270904.1
 
 [Term]
 id: CHR_HSCHR12_4_CTG2
 name: CHR_HSCHR12_4_CTG2
+alt_id: HSCHR12_4_CTG2
+alt_id: chr12_KI270835v1_alt
+alt_id: KI270835.1
 
 [Term]
 id: CHR_HSCHR12_5_CTG2
 name: CHR_HSCHR12_5_CTG2
+alt_id: HSCHR12_5_CTG2
+alt_id: chr12_KI270837v1_alt
+alt_id: KI270837.1
 
 [Term]
 id: CHR_HSCHR13_1_CTG1
 name: CHR_HSCHR13_1_CTG1
+alt_id: HSCHR13_1_CTG1
+alt_id: chr13_KI270838v1_alt
+alt_id: KI270838.1
 
 [Term]
 id: CHR_HSCHR13_1_CTG2
 name: CHR_HSCHR13_1_CTG2
+alt_id: HSCHR13_1_CTG2
+alt_id: chr13_KI270839v1_alt
+alt_id: KI270839.1
 
 [Term]
 id: CHR_HSCHR13_1_CTG3
 name: CHR_HSCHR13_1_CTG3
+alt_id: HSCHR13_1_CTG3
+alt_id: chr13_KI270840v1_alt
+alt_id: KI270840.1
 
 [Term]
 id: CHR_HSCHR13_1_CTG4
 name: CHR_HSCHR13_1_CTG4
+alt_id: HSCHR13_1_CTG4
+alt_id: chr13_KI270841v1_alt
+alt_id: KI270841.1
 
 [Term]
 id: CHR_HSCHR13_1_CTG5
 name: CHR_HSCHR13_1_CTG5
+alt_id: HSCHR13_1_CTG5
+alt_id: chr13_KI270842v1_alt
+alt_id: KI270842.1
 
 [Term]
 id: CHR_HSCHR13_1_CTG6
 name: CHR_HSCHR13_1_CTG6
+alt_id: HSCHR13_1_CTG6
+alt_id: chr13_KI270843v1_alt
+alt_id: KI270843.1
 
 [Term]
 id: CHR_HSCHR14_1_CTG1
 name: CHR_HSCHR14_1_CTG1
+alt_id: HSCHR14_1_CTG1
+alt_id: chr14_KI270844v1_alt
+alt_id: KI270844.1
 
 [Term]
 id: CHR_HSCHR14_2_CTG1
 name: CHR_HSCHR14_2_CTG1
+alt_id: HSCHR14_2_CTG1
+alt_id: chr14_KI270845v1_alt
+alt_id: KI270845.1
 
 [Term]
 id: CHR_HSCHR14_3_CTG1
 name: CHR_HSCHR14_3_CTG1
+alt_id: HSCHR14_3_CTG1
+alt_id: chr14_KI270846v1_alt
+alt_id: KI270846.1
 
 [Term]
 id: CHR_HSCHR14_7_CTG1
 name: CHR_HSCHR14_7_CTG1
+alt_id: HSCHR14_7_CTG1
+alt_id: chr14_KI270847v1_alt
+alt_id: KI270847.1
 
 [Term]
 id: CHR_HSCHR15_1_CTG1
 name: CHR_HSCHR15_1_CTG1
+alt_id: HSCHR15_1_CTG1
+alt_id: chr15_KI270852v1_alt
+alt_id: KI270852.1
 
 [Term]
 id: CHR_HSCHR15_1_CTG3
 name: CHR_HSCHR15_1_CTG3
+alt_id: HSCHR15_1_CTG3
+alt_id: chr15_KI270848v1_alt
+alt_id: KI270848.1
 
 [Term]
 id: CHR_HSCHR15_1_CTG8
 name: CHR_HSCHR15_1_CTG8
+alt_id: HSCHR15_1_CTG8
+alt_id: chr15_GL383554v1_alt
+alt_id: GL383554.1
 
 [Term]
 id: CHR_HSCHR15_2_CTG3
 name: CHR_HSCHR15_2_CTG3
+alt_id: HSCHR15_2_CTG3
+alt_id: chr15_KI270906v1_alt
+alt_id: KI270906.1
 
 [Term]
 id: CHR_HSCHR15_2_CTG8
 name: CHR_HSCHR15_2_CTG8
+alt_id: HSCHR15_2_CTG8
+alt_id: chr15_GL383555v2_alt
+alt_id: GL383555.2
 
 [Term]
 id: CHR_HSCHR15_3_CTG3
 name: CHR_HSCHR15_3_CTG3
+alt_id: HSCHR15_3_CTG3
+alt_id: chr15_KI270851v1_alt
+alt_id: KI270851.1
 
 [Term]
 id: CHR_HSCHR15_3_CTG8
 name: CHR_HSCHR15_3_CTG8
+alt_id: HSCHR15_3_CTG8
+alt_id: chr15_KI270849v1_alt
+alt_id: KI270849.1
 
 [Term]
 id: CHR_HSCHR15_4_CTG8
 name: CHR_HSCHR15_4_CTG8
+alt_id: HSCHR15_4_CTG8
+alt_id: chr15_KI270905v1_alt
+alt_id: KI270905.1
 
 [Term]
 id: CHR_HSCHR15_5_CTG8
 name: CHR_HSCHR15_5_CTG8
+alt_id: HSCHR15_5_CTG8
+alt_id: chr15_KI270850v1_alt
+alt_id: KI270850.1
 
 [Term]
 id: CHR_HSCHR16_1_CTG1
 name: CHR_HSCHR16_1_CTG1
+alt_id: HSCHR16_1_CTG1
+alt_id: chr16_KI270853v1_alt
+alt_id: KI270853.1
 
 [Term]
 id: CHR_HSCHR16_3_CTG1
 name: CHR_HSCHR16_3_CTG1
+alt_id: HSCHR16_3_CTG1
+alt_id: chr16_KI270855v1_alt
+alt_id: KI270855.1
 
 [Term]
 id: CHR_HSCHR16_4_CTG1
 name: CHR_HSCHR16_4_CTG1
+alt_id: HSCHR16_4_CTG1
+alt_id: chr16_KI270856v1_alt
+alt_id: KI270856.1
 
 [Term]
 id: CHR_HSCHR17_1_CTG1
 name: CHR_HSCHR17_1_CTG1
+alt_id: HSCHR17_1_CTG1
+alt_id: chr17_GL383563v3_alt
+alt_id: GL383563.3
 
 [Term]
 id: CHR_HSCHR17_1_CTG2
 name: CHR_HSCHR17_1_CTG2
+alt_id: HSCHR17_1_CTG2
+alt_id: chr17_KI270861v1_alt
+alt_id: KI270861.1
 
 [Term]
 id: CHR_HSCHR17_1_CTG4
 name: CHR_HSCHR17_1_CTG4
+alt_id: HSCHR17_1_CTG4
+alt_id: chr17_GL383564v2_alt
+alt_id: GL383564.2
 
 [Term]
 id: CHR_HSCHR17_1_CTG5
 name: CHR_HSCHR17_1_CTG5
+alt_id: HSCHR17_1_CTG5
+alt_id: chr17_GL000258v2_alt
+alt_id: GL000258.2
 
 [Term]
 id: CHR_HSCHR17_1_CTG9
 name: CHR_HSCHR17_1_CTG9
+alt_id: HSCHR17_1_CTG9
+alt_id: chr17_KI270860v1_alt
+alt_id: KI270860.1
 
 [Term]
 id: CHR_HSCHR17_2_CTG1
 name: CHR_HSCHR17_2_CTG1
+alt_id: HSCHR17_2_CTG1
+alt_id: chr17_KI270907v1_alt
+alt_id: KI270907.1
 
 [Term]
 id: CHR_HSCHR17_2_CTG2
 name: CHR_HSCHR17_2_CTG2
+alt_id: HSCHR17_2_CTG2
+alt_id: chr17_KI270862v1_alt
+alt_id: KI270862.1
 
 [Term]
 id: CHR_HSCHR17_2_CTG4
 name: CHR_HSCHR17_2_CTG4
+alt_id: HSCHR17_2_CTG4
+alt_id: chr17_GL383565v1_alt
+alt_id: GL383565.1
 
 [Term]
 id: CHR_HSCHR17_2_CTG5
 name: CHR_HSCHR17_2_CTG5
+alt_id: HSCHR17_2_CTG5
+alt_id: chr17_KI270908v1_alt
+alt_id: KI270908.1
 
 [Term]
 id: CHR_HSCHR17_3_CTG2
 name: CHR_HSCHR17_3_CTG2
+alt_id: HSCHR17_3_CTG2
+alt_id: chr17_KI270910v1_alt
+alt_id: KI270910.1
 
 [Term]
 id: CHR_HSCHR17_3_CTG4
 name: CHR_HSCHR17_3_CTG4
+alt_id: HSCHR17_3_CTG4
+alt_id: chr17_GL383566v1_alt
+alt_id: GL383566.1
 
 [Term]
 id: CHR_HSCHR17_4_CTG4
 name: CHR_HSCHR17_4_CTG4
+alt_id: HSCHR17_4_CTG4
+alt_id: chr17_JH159146v1_alt
+alt_id: JH159146.1
 
 [Term]
 id: CHR_HSCHR17_5_CTG4
 name: CHR_HSCHR17_5_CTG4
+alt_id: HSCHR17_5_CTG4
+alt_id: chr17_JH159147v1_alt
+alt_id: JH159147.1
 
 [Term]
 id: CHR_HSCHR17_6_CTG4
 name: CHR_HSCHR17_6_CTG4
+alt_id: HSCHR17_6_CTG4
+alt_id: chr17_JH159148v1_alt
+alt_id: JH159148.1
 
 [Term]
 id: CHR_HSCHR17_7_CTG4
 name: CHR_HSCHR17_7_CTG4
+alt_id: HSCHR17_7_CTG4
+alt_id: chr17_KI270857v1_alt
+alt_id: KI270857.1
 
 [Term]
 id: CHR_HSCHR17_8_CTG4
 name: CHR_HSCHR17_8_CTG4
+alt_id: HSCHR17_8_CTG4
+alt_id: chr17_KI270858v1_alt
+alt_id: KI270858.1
 
 [Term]
 id: CHR_HSCHR17_9_CTG4
 name: CHR_HSCHR17_9_CTG4
+alt_id: HSCHR17_9_CTG4
+alt_id: chr17_KI270859v1_alt
+alt_id: KI270859.1
 
 [Term]
 id: CHR_HSCHR18_1_CTG2
 name: CHR_HSCHR18_1_CTG2
+alt_id: HSCHR18_1_CTG2
+alt_id: chr18_GL383568v1_alt
+alt_id: GL383568.1
 
 [Term]
 id: CHR_HSCHR18_2_CTG2
 name: CHR_HSCHR18_2_CTG2
+alt_id: HSCHR18_2_CTG2
+alt_id: chr18_GL383571v1_alt
+alt_id: GL383571.1
 
 [Term]
 id: CHR_HSCHR19_1_CTG2
 name: CHR_HSCHR19_1_CTG2
+alt_id: HSCHR19_1_CTG2
+alt_id: chr19_GL383573v1_alt
+alt_id: GL383573.1
 
 [Term]
 id: CHR_HSCHR19_2_CTG2
 name: CHR_HSCHR19_2_CTG2
+alt_id: HSCHR19_2_CTG2
+alt_id: chr19_GL383575v2_alt
+alt_id: GL383575.2
 
 [Term]
 id: CHR_HSCHR19_3_CTG2
 name: CHR_HSCHR19_3_CTG2
+alt_id: HSCHR19_3_CTG2
+alt_id: chr19_GL383576v1_alt
+alt_id: GL383576.1
 
 [Term]
 id: CHR_HSCHR19_4_CTG2
 name: CHR_HSCHR19_4_CTG2
+alt_id: HSCHR19_4_CTG2
+alt_id: chr19_KI270865v1_alt
+alt_id: KI270865.1
 
 [Term]
 id: CHR_HSCHR19_5_CTG2
 name: CHR_HSCHR19_5_CTG2
+alt_id: HSCHR19_5_CTG2
+alt_id: chr19_KI270868v1_alt
+alt_id: KI270868.1
 
 [Term]
 id: CHR_HSCHR1_1_CTG11
 name: CHR_HSCHR1_1_CTG11
+alt_id: HSCHR1_1_CTG11
+alt_id: chr1_KI270760v1_alt
+alt_id: KI270760.1
 
 [Term]
 id: CHR_HSCHR1_1_CTG31
 name: CHR_HSCHR1_1_CTG31
+alt_id: HSCHR1_1_CTG31
+alt_id: chr1_GL383518v1_alt
+alt_id: GL383518.1
 
 [Term]
 id: CHR_HSCHR1_2_CTG31
 name: CHR_HSCHR1_2_CTG31
+alt_id: HSCHR1_2_CTG31
+alt_id: chr1_GL383519v1_alt
+alt_id: GL383519.1
 
 [Term]
 id: CHR_HSCHR1_3_CTG31
 name: CHR_HSCHR1_3_CTG31
+alt_id: HSCHR1_3_CTG31
+alt_id: chr1_GL383520v2_alt
+alt_id: GL383520.2
 
 [Term]
 id: CHR_HSCHR1_4_CTG31
 name: CHR_HSCHR1_4_CTG31
+alt_id: HSCHR1_4_CTG31
+alt_id: chr1_KI270765v1_alt
+alt_id: KI270765.1
 
 [Term]
 id: CHR_HSCHR20_1_CTG1
 name: CHR_HSCHR20_1_CTG1
+alt_id: HSCHR20_1_CTG1
+alt_id: chr20_GL383577v2_alt
+alt_id: GL383577.2
 
 [Term]
 id: CHR_HSCHR20_1_CTG2
 name: CHR_HSCHR20_1_CTG2
+alt_id: HSCHR20_1_CTG2
+alt_id: chr20_KI270869v1_alt
+alt_id: KI270869.1
 
 [Term]
 id: CHR_HSCHR20_1_CTG3
 name: CHR_HSCHR20_1_CTG3
+alt_id: HSCHR20_1_CTG3
+alt_id: chr20_KI270870v1_alt
+alt_id: KI270870.1
 
 [Term]
 id: CHR_HSCHR20_1_CTG4
 name: CHR_HSCHR20_1_CTG4
+alt_id: HSCHR20_1_CTG4
+alt_id: chr20_KI270871v1_alt
+alt_id: KI270871.1
 
 [Term]
 id: CHR_HSCHR21_5_CTG2
 name: CHR_HSCHR21_5_CTG2
+alt_id: HSCHR21_5_CTG2
+alt_id: chr21_KI270872v1_alt
+alt_id: KI270872.1
 
 [Term]
 id: CHR_HSCHR22_1_CTG1
 name: CHR_HSCHR22_1_CTG1
+alt_id: HSCHR22_1_CTG1
+alt_id: chr22_GL383582v2_alt
+alt_id: GL383582.2
 
 [Term]
 id: CHR_HSCHR22_1_CTG2
 name: CHR_HSCHR22_1_CTG2
+alt_id: HSCHR22_1_CTG2
+alt_id: chr22_GL383583v2_alt
+alt_id: GL383583.2
 
 [Term]
 id: CHR_HSCHR22_1_CTG3
 name: CHR_HSCHR22_1_CTG3
+alt_id: HSCHR22_1_CTG3
+alt_id: chr22_KI270875v1_alt
+alt_id: KI270875.1
 
 [Term]
 id: CHR_HSCHR22_1_CTG4
 name: CHR_HSCHR22_1_CTG4
+alt_id: HSCHR22_1_CTG4
+alt_id: chr22_KI270876v1_alt
+alt_id: KI270876.1
 
 [Term]
 id: CHR_HSCHR22_1_CTG5
 name: CHR_HSCHR22_1_CTG5
+alt_id: HSCHR22_1_CTG5
+alt_id: chr22_KI270877v1_alt
+alt_id: KI270877.1
 
 [Term]
 id: CHR_HSCHR22_1_CTG6
 name: CHR_HSCHR22_1_CTG6
+alt_id: HSCHR22_1_CTG6
+alt_id: chr22_KI270878v1_alt
+alt_id: KI270878.1
 
 [Term]
 id: CHR_HSCHR22_1_CTG7
 name: CHR_HSCHR22_1_CTG7
+alt_id: HSCHR22_1_CTG7
+alt_id: chr22_KI270879v1_alt
+alt_id: KI270879.1
 
 [Term]
 id: CHR_HSCHR22_2_CTG1
 name: CHR_HSCHR22_2_CTG1
+alt_id: HSCHR22_2_CTG1
+alt_id: chr22_KB663609v1_alt
+alt_id: KB663609.1
 
 [Term]
 id: CHR_HSCHR22_3_CTG1
 name: CHR_HSCHR22_3_CTG1
+alt_id: HSCHR22_3_CTG1
+alt_id: chr22_KI270928v1_alt
+alt_id: KI270928.1
 
 [Term]
 id: CHR_HSCHR22_4_CTG1
@@ -856,126 +1349,219 @@ name: CHR_HSCHR22_5_CTG1
 [Term]
 id: CHR_HSCHR2_1_CTG15
 name: CHR_HSCHR2_1_CTG15
+alt_id: HSCHR2_1_CTG15
+alt_id: chr2_KI270767v1_alt
+alt_id: KI270767.1
 
 [Term]
 id: CHR_HSCHR2_2_CTG15
 name: CHR_HSCHR2_2_CTG15
+alt_id: HSCHR2_2_CTG15
+alt_id: chr2_KI270893v1_alt
+alt_id: KI270893.1
 
 [Term]
 id: CHR_HSCHR2_3_CTG15
 name: CHR_HSCHR2_3_CTG15
+alt_id: HSCHR2_3_CTG15
+alt_id: chr2_KI270776v1_alt
+alt_id: KI270776.1
 
 [Term]
 id: CHR_HSCHR4_1_CTG12
 name: CHR_HSCHR4_1_CTG12
+alt_id: HSCHR4_1_CTG12
+alt_id: chr4_GL383527v1_alt
+alt_id: GL383527.1
 
 [Term]
 id: CHR_HSCHR4_2_CTG12
 name: CHR_HSCHR4_2_CTG12
+alt_id: HSCHR4_2_CTG12
+alt_id: chr4_KI270785v1_alt
+alt_id: KI270785.1
 
 [Term]
 id: CHR_HSCHR4_3_CTG12
 name: CHR_HSCHR4_3_CTG12
+alt_id: HSCHR4_3_CTG12
+alt_id: chr4_KI270786v1_alt
+alt_id: KI270786.1
 
 [Term]
 id: CHR_HSCHR4_4_CTG12
 name: CHR_HSCHR4_4_CTG12
+alt_id: HSCHR4_4_CTG12
+alt_id: chr4_KI270788v1_alt
+alt_id: KI270788.1
 
 [Term]
 id: CHR_HSCHR4_5_CTG12
 name: CHR_HSCHR4_5_CTG12
+alt_id: HSCHR4_5_CTG12
+alt_id: chr4_KI270789v1_alt
+alt_id: KI270789.1
 
 [Term]
 id: CHR_HSCHR4_6_CTG12
 name: CHR_HSCHR4_6_CTG12
+alt_id: HSCHR4_6_CTG12
+alt_id: chr4_KI270896v1_alt
+alt_id: KI270896.1
 
 [Term]
 id: CHR_HSCHR4_7_CTG12
 name: CHR_HSCHR4_7_CTG12
+alt_id: HSCHR4_7_CTG12
+alt_id: chr4_KI270925v1_alt
+alt_id: KI270925.1
 
 [Term]
 id: CHR_HSCHRX_2_CTG12
 name: CHR_HSCHRX_2_CTG12
+alt_id: HSCHRX_2_CTG12
+alt_id: chrX_KI270881v1_alt
+alt_id: KI270881.1
 
 [Term]
 id: CHR_HSCHR17_10_CTG4
 name: CHR_HSCHR17_10_CTG4
+alt_id: HSCHR17_10_CTG4
+alt_id: chr17_KI270909v1_alt
+alt_id: KI270909.1
 
 [Term]
 id: CHR_HSCHR2_1_CTG7_2
 name: CHR_HSCHR2_1_CTG7_2
+alt_id: HSCHR2_1_CTG7_2
+alt_id: chr2_GL383522v1_alt
+alt_id: GL383522.1
 
 [Term]
 id: CHR_HSCHR2_2_CTG7_2
 name: CHR_HSCHR2_2_CTG7_2
+alt_id: HSCHR2_2_CTG7_2
+alt_id: chr2_GL582966v2_alt
+alt_id: GL582966.2
 
 [Term]
 id: CHR_HSCHR2_3_CTG7_2
 name: CHR_HSCHR2_3_CTG7_2
+alt_id: HSCHR2_3_CTG7_2
+alt_id: chr2_KI270768v1_alt
+alt_id: KI270768.1
 
 [Term]
 id: CHR_HSCHR2_4_CTG7_2
 name: CHR_HSCHR2_4_CTG7_2
+alt_id: HSCHR2_4_CTG7_2
+alt_id: chr2_KI270771v1_alt
+alt_id: KI270771.1
 
 [Term]
 id: CHR_HSCHR2_5_CTG7_2
 name: CHR_HSCHR2_5_CTG7_2
+alt_id: HSCHR2_5_CTG7_2
+alt_id: chr2_KI270775v1_alt
+alt_id: KI270775.1
 
 [Term]
 id: CHR_HSCHR3_1_CTG2_1
 name: CHR_HSCHR3_1_CTG2_1
+alt_id: HSCHR3_1_CTG2_1
+alt_id: chr3_GL383526v1_alt
+alt_id: GL383526.1
 
 [Term]
 id: CHR_HSCHR3_2_CTG2_1
 name: CHR_HSCHR3_2_CTG2_1
+alt_id: HSCHR3_2_CTG2_1
+alt_id: chr3_KI270777v1_alt
+alt_id: KI270777.1
 
 [Term]
 id: CHR_HSCHR3_3_CTG2_1
 name: CHR_HSCHR3_3_CTG2_1
+alt_id: HSCHR3_3_CTG2_1
+alt_id: chr3_KI270778v1_alt
+alt_id: KI270778.1
 
 [Term]
 id: CHR_HSCHR3_4_CTG2_1
 name: CHR_HSCHR3_4_CTG2_1
+alt_id: HSCHR3_4_CTG2_1
+alt_id: chr3_KI270780v1_alt
+alt_id: KI270780.1
 
 [Term]
 id: CHR_HSCHR3_5_CTG2_1
 name: CHR_HSCHR3_5_CTG2_1
+alt_id: HSCHR3_5_CTG2_1
+alt_id: chr3_KI270781v1_alt
+alt_id: KI270781.1
 
 [Term]
 id: CHR_HSCHR4_1_CTG8_1
 name: CHR_HSCHR4_1_CTG8_1
+alt_id: HSCHR4_1_CTG8_1
+alt_id: chr4_KI270787v1_alt
+alt_id: KI270787.1
 
 [Term]
 id: CHR_HSCHR5_1_CTG1_1
 name: CHR_HSCHR5_1_CTG1_1
+alt_id: HSCHR5_1_CTG1_1
+alt_id: chr5_KI270897v1_alt
+alt_id: KI270897.1
 
 [Term]
 id: CHR_HSCHR5_2_CTG1_1
 name: CHR_HSCHR5_2_CTG1_1
+alt_id: HSCHR5_2_CTG1_1
+alt_id: chr5_GL339449v2_alt
+alt_id: GL339449.2
 
 [Term]
 id: CHR_HSCHR5_3_CTG1_1
 name: CHR_HSCHR5_3_CTG1_1
+alt_id: HSCHR5_3_CTG1_1
+alt_id: chr5_GL383530v1_alt
+alt_id: GL383530.1
 
 [Term]
 id: CHR_HSCHR5_4_CTG1_1
 name: CHR_HSCHR5_4_CTG1_1
+alt_id: HSCHR5_4_CTG1_1
+alt_id: chr5_KI270796v1_alt
+alt_id: KI270796.1
 
 [Term]
 id: CHR_HSCHR7_1_CTG4_4
 name: CHR_HSCHR7_1_CTG4_4
+alt_id: HSCHR7_1_CTG4_4
+alt_id: chr7_KI270806v1_alt
+alt_id: KI270806.1
 
 [Term]
 id: CHR_HSCHR7_2_CTG4_4
 name: CHR_HSCHR7_2_CTG4_4
+alt_id: HSCHR7_2_CTG4_4
+alt_id: chr7_KI270809v1_alt
+alt_id: KI270809.1
 
 [Term]
 id: CHR_HG151_NOVEL_TEST
 name: CHR_HG151_NOVEL_TEST
+alt_id: HG151_NOVEL_TEST
+alt_id: chr11_JH159137v1_alt
+alt_id: JH159137.1
 
 [Term]
 id: CHR_HSCHR11_1_CTG1_1
 name: CHR_HSCHR11_1_CTG1_1
+alt_id: HSCHR11_1_CTG1_1
+alt_id: chr11_GL383547v1_alt
+alt_id: GL383547.1
 
 [Term]
 id: CHR_HSCHR11_1_CTG1_2
@@ -984,122 +1570,212 @@ name: CHR_HSCHR11_1_CTG1_2
 [Term]
 id: CHR_HSCHR11_2_CTG1_1
 name: CHR_HSCHR11_2_CTG1_1
+alt_id: HSCHR11_2_CTG1_1
+alt_id: chr11_KI270903v1_alt
+alt_id: KI270903.1
 
 [Term]
 id: CHR_HSCHR12_1_CTG2_1
 name: CHR_HSCHR12_1_CTG2_1
+alt_id: HSCHR12_1_CTG2_1
+alt_id: chr12_GL383550v2_alt
+alt_id: GL383550.2
 
 [Term]
 id: CHR_HSCHR12_2_CTG2_1
 name: CHR_HSCHR12_2_CTG2_1
+alt_id: HSCHR12_2_CTG2_1
+alt_id: chr12_GL383552v1_alt
+alt_id: GL383552.1
 
 [Term]
 id: CHR_HSCHR12_3_CTG2_1
 name: CHR_HSCHR12_3_CTG2_1
+alt_id: HSCHR12_3_CTG2_1
+alt_id: chr12_GL383553v2_alt
+alt_id: GL383553.2
 
 [Term]
 id: CHR_HSCHR12_4_CTG2_1
 name: CHR_HSCHR12_4_CTG2_1
+alt_id: HSCHR12_4_CTG2_1
+alt_id: chr12_GL383551v1_alt
+alt_id: GL383551.1
 
 [Term]
 id: CHR_HSCHR12_5_CTG2_1
 name: CHR_HSCHR12_5_CTG2_1
+alt_id: HSCHR12_5_CTG2_1
+alt_id: chr12_KI270833v1_alt
+alt_id: KI270833.1
 
 [Term]
 id: CHR_HSCHR12_6_CTG2_1
 name: CHR_HSCHR12_6_CTG2_1
+alt_id: HSCHR12_6_CTG2_1
+alt_id: chr12_KI270834v1_alt
+alt_id: KI270834.1
 
 [Term]
 id: CHR_HSCHR12_7_CTG2_1
 name: CHR_HSCHR12_7_CTG2_1
+alt_id: HSCHR12_7_CTG2_1
+alt_id: chr12_KI270836v1_alt
+alt_id: KI270836.1
 
 [Term]
 id: CHR_HSCHR16_1_CTG3_1
 name: CHR_HSCHR16_1_CTG3_1
+alt_id: HSCHR16_1_CTG3_1
+alt_id: chr16_GL383556v1_alt
+alt_id: GL383556.1
 
 [Term]
 id: CHR_HSCHR16_2_CTG3_1
 name: CHR_HSCHR16_2_CTG3_1
+alt_id: HSCHR16_2_CTG3_1
+alt_id: chr16_GL383557v1_alt
+alt_id: GL383557.1
 
 [Term]
 id: CHR_HSCHR18_1_CTG1_1
 name: CHR_HSCHR18_1_CTG1_1
+alt_id: HSCHR18_1_CTG1_1
+alt_id: chr18_GL383567v1_alt
+alt_id: GL383567.1
 
 [Term]
 id: CHR_HSCHR18_1_CTG2_1
 name: CHR_HSCHR18_1_CTG2_1
+alt_id: HSCHR18_1_CTG2_1
+alt_id: chr18_GL383569v1_alt
+alt_id: GL383569.1
 
 [Term]
 id: CHR_HSCHR18_2_CTG1_1
 name: CHR_HSCHR18_2_CTG1_1
+alt_id: HSCHR18_2_CTG1_1
+alt_id: chr18_GL383570v1_alt
+alt_id: GL383570.1
 
 [Term]
 id: CHR_HSCHR18_2_CTG2_1
 name: CHR_HSCHR18_2_CTG2_1
+alt_id: HSCHR18_2_CTG2_1
+alt_id: chr18_GL383572v1_alt
+alt_id: GL383572.1
 
 [Term]
 id: CHR_HSCHR18_3_CTG2_1
 name: CHR_HSCHR18_3_CTG2_1
+alt_id: HSCHR18_3_CTG2_1
+alt_id: chr18_KI270863v1_alt
+alt_id: KI270863.1
 
 [Term]
 id: CHR_HSCHR18_4_CTG1_1
 name: CHR_HSCHR18_4_CTG1_1
+alt_id: HSCHR18_4_CTG1_1
+alt_id: chr18_KI270864v1_alt
+alt_id: KI270864.1
 
 [Term]
 id: CHR_HSCHR19_1_CTG3_1
 name: CHR_HSCHR19_1_CTG3_1
+alt_id: HSCHR19_1_CTG3_1
+alt_id: chr19_GL383574v1_alt
+alt_id: GL383574.1
 
 [Term]
 id: CHR_HSCHR19_2_CTG3_1
 name: CHR_HSCHR19_2_CTG3_1
+alt_id: HSCHR19_2_CTG3_1
+alt_id: chr19_KI270866v1_alt
+alt_id: KI270866.1
 
 [Term]
 id: CHR_HSCHR19_3_CTG3_1
 name: CHR_HSCHR19_3_CTG3_1
+alt_id: HSCHR19_3_CTG3_1
+alt_id: chr19_KI270867v1_alt
+alt_id: KI270867.1
 
 [Term]
 id: CHR_HSCHR19_4_CTG3_1
 name: CHR_HSCHR19_4_CTG3_1
+alt_id: HSCHR19_4_CTG3_1
+alt_id: chr19_KI270938v1_alt
+alt_id: KI270938.1
 
 [Term]
 id: CHR_HSCHR1_1_CTG32_1
 name: CHR_HSCHR1_1_CTG32_1
+alt_id: HSCHR1_1_CTG32_1
+alt_id: chr1_KI270759v1_alt
+alt_id: KI270759.1
 
 [Term]
 id: CHR_HSCHR1_2_CTG32_1
 name: CHR_HSCHR1_2_CTG32_1
+alt_id: HSCHR1_2_CTG32_1
+alt_id: chr1_KI270761v1_alt
+alt_id: KI270761.1
 
 [Term]
 id: CHR_HSCHR1_3_CTG32_1
 name: CHR_HSCHR1_3_CTG32_1
+alt_id: HSCHR1_3_CTG32_1
+alt_id: chr1_KI270763v1_alt
+alt_id: KI270763.1
 
 [Term]
 id: CHR_HSCHR1_4_CTG32_1
 name: CHR_HSCHR1_4_CTG32_1
+alt_id: HSCHR1_4_CTG32_1
+alt_id: chr1_KI270764v1_alt
+alt_id: KI270764.1
 
 [Term]
 id: CHR_HSCHR21_1_CTG1_1
 name: CHR_HSCHR21_1_CTG1_1
+alt_id: HSCHR21_1_CTG1_1
+alt_id: chr21_GL383578v2_alt
+alt_id: GL383578.2
 
 [Term]
 id: CHR_HSCHR21_2_CTG1_1
 name: CHR_HSCHR21_2_CTG1_1
+alt_id: HSCHR21_2_CTG1_1
+alt_id: chr21_GL383579v2_alt
+alt_id: GL383579.2
 
 [Term]
 id: CHR_HSCHR21_3_CTG1_1
 name: CHR_HSCHR21_3_CTG1_1
+alt_id: HSCHR21_3_CTG1_1
+alt_id: chr21_GL383580v2_alt
+alt_id: GL383580.2
 
 [Term]
 id: CHR_HSCHR21_4_CTG1_1
 name: CHR_HSCHR21_4_CTG1_1
+alt_id: HSCHR21_4_CTG1_1
+alt_id: chr21_GL383581v2_alt
+alt_id: GL383581.2
 
 [Term]
 id: CHR_HSCHR21_6_CTG1_1
 name: CHR_HSCHR21_6_CTG1_1
+alt_id: HSCHR21_6_CTG1_1
+alt_id: chr21_KI270873v1_alt
+alt_id: KI270873.1
 
 [Term]
 id: CHR_HSCHR21_8_CTG1_1
 name: CHR_HSCHR21_8_CTG1_1
+alt_id: HSCHR21_8_CTG1_1
+alt_id: chr21_KI270874v1_alt
+alt_id: KI270874.1
 
 [Term]
 id: CHR_HG2242_HG2243_PATCH
@@ -1116,180 +1792,315 @@ name: CHR_HG2288_HG2289_PATCH
 [Term]
 id: CHR_HSCHR18_ALT2_CTG2_1
 name: CHR_HSCHR18_ALT2_CTG2_1
+alt_id: HSCHR18_ALT2_CTG2_1
+alt_id: chr18_KI270911v1_alt
+alt_id: KI270911.1
 
 [Term]
 id: CHR_HSCHR6_MHC_APD_CTG1
 name: CHR_HSCHR6_MHC_APD_CTG1
+alt_id: HSCHR6_MHC_APD_CTG1
+alt_id: chr6_GL000250v2_alt
+alt_id: GL000250.2
 
 [Term]
 id: CHR_HSCHR6_MHC_COX_CTG1
 name: CHR_HSCHR6_MHC_COX_CTG1
+alt_id: HSCHR6_MHC_COX_CTG1
+alt_id: chr6_GL000251v2_alt
+alt_id: GL000251.2
 
 [Term]
 id: CHR_HSCHR6_MHC_DBB_CTG1
 name: CHR_HSCHR6_MHC_DBB_CTG1
+alt_id: HSCHR6_MHC_DBB_CTG1
+alt_id: chr6_GL000252v2_alt
+alt_id: GL000252.2
 
 [Term]
 id: CHR_HSCHR6_MHC_MCF_CTG1
 name: CHR_HSCHR6_MHC_MCF_CTG1
+alt_id: HSCHR6_MHC_MCF_CTG1
+alt_id: chr6_GL000254v2_alt
+alt_id: GL000254.2
 
 [Term]
 id: CHR_HSCHR6_MHC_QBL_CTG1
 name: CHR_HSCHR6_MHC_QBL_CTG1
+alt_id: HSCHR6_MHC_QBL_CTG1
+alt_id: chr6_GL000255v2_alt
+alt_id: GL000255.2
 
 [Term]
 id: CHR_HSCHR18_ALT21_CTG2_1
 name: CHR_HSCHR18_ALT21_CTG2_1
+alt_id: HSCHR18_ALT21_CTG2_1
+alt_id: chr18_KI270912v1_alt
+alt_id: KI270912.1
 
 [Term]
 id: CHR_HSCHR6_MHC_MANN_CTG1
 name: CHR_HSCHR6_MHC_MANN_CTG1
+alt_id: HSCHR6_MHC_MANN_CTG1
+alt_id: chr6_GL000253v2_alt
+alt_id: GL000253.2
 
 [Term]
 id: CHR_HSCHR6_MHC_SSTO_CTG1
 name: CHR_HSCHR6_MHC_SSTO_CTG1
+alt_id: HSCHR6_MHC_SSTO_CTG1
+alt_id: chr6_GL000256v2_alt
+alt_id: GL000256.2
 
 [Term]
 id: CHR_HSCHR1_ALT2_1_CTG32_1
 name: CHR_HSCHR1_ALT2_1_CTG32_1
+alt_id: HSCHR1_ALT2_1_CTG32_1
+alt_id: chr1_KI270892v1_alt
+alt_id: KI270892.1
 
 [Term]
 id: CHR_HG142_HG150_NOVEL_TEST
 name: CHR_HG142_HG150_NOVEL_TEST
+alt_id: HG142_HG150_NOVEL_TEST
+alt_id: chr11_JH159136v1_alt
+alt_id: JH159136.1
 
 [Term]
 id: CHR_HSCHR19LRC_COX1_CTG3_1
 name: CHR_HSCHR19LRC_COX1_CTG3_1
+alt_id: HSCHR19LRC_COX1_CTG3_1
+alt_id: chr19_GL949746v1_alt
+alt_id: GL949746.1
 
 [Term]
 id: CHR_HSCHR19LRC_COX2_CTG3_1
 name: CHR_HSCHR19LRC_COX2_CTG3_1
+alt_id: HSCHR19LRC_COX2_CTG3_1
+alt_id: chr19_GL949747v2_alt
+alt_id: GL949747.2
 
 [Term]
 id: CHR_HSCHR19LRC_PGF1_CTG3_1
 name: CHR_HSCHR19LRC_PGF1_CTG3_1
+alt_id: HSCHR19LRC_PGF1_CTG3_1
+alt_id: chr19_GL949752v1_alt
+alt_id: GL949752.1
 
 [Term]
 id: CHR_HSCHR19LRC_PGF2_CTG3_1
 name: CHR_HSCHR19LRC_PGF2_CTG3_1
+alt_id: HSCHR19LRC_PGF2_CTG3_1
+alt_id: chr19_GL949753v2_alt
+alt_id: GL949753.2
 
 [Term]
 id: CHR_HSCHR19LRC_LRC_I_CTG3_1
 name: CHR_HSCHR19LRC_LRC_I_CTG3_1
+alt_id: HSCHR19LRC_LRC_I_CTG3_1
+alt_id: chr19_GL949748v2_alt
+alt_id: GL949748.2
 
 [Term]
 id: CHR_HSCHR19LRC_LRC_J_CTG3_1
 name: CHR_HSCHR19LRC_LRC_J_CTG3_1
+alt_id: HSCHR19LRC_LRC_J_CTG3_1
+alt_id: chr19_GL949749v2_alt
+alt_id: GL949749.2
 
 [Term]
 id: CHR_HSCHR19LRC_LRC_S_CTG3_1
 name: CHR_HSCHR19LRC_LRC_S_CTG3_1
+alt_id: HSCHR19LRC_LRC_S_CTG3_1
+alt_id: chr19_GL949750v2_alt
+alt_id: GL949750.2
 
 [Term]
 id: CHR_HSCHR19LRC_LRC_T_CTG3_1
 name: CHR_HSCHR19LRC_LRC_T_CTG3_1
+alt_id: HSCHR19LRC_LRC_T_CTG3_1
+alt_id: chr19_GL949751v2_alt
+alt_id: GL949751.2
 
 [Term]
 id: CHR_HSCHR19KIR_RP5_B_HAP_CTG3_1
 name: CHR_HSCHR19KIR_RP5_B_HAP_CTG3_1
+alt_id: HSCHR19KIR_RP5_B_HAP_CTG3_1
+alt_id: chr19_GL000209v2_alt
+alt_id: GL000209.2
 
 [Term]
 id: CHR_HSCHR19KIR_RSH_A_HAP_CTG3_1
 name: CHR_HSCHR19KIR_RSH_A_HAP_CTG3_1
+alt_id: HSCHR19KIR_RSH_A_HAP_CTG3_1
+alt_id: chr19_KI270891v1_alt
+alt_id: KI270891.1
 
 [Term]
 id: CHR_HSCHR19KIR_FH05_A_HAP_CTG3_1
 name: CHR_HSCHR19KIR_FH05_A_HAP_CTG3_1
+alt_id: HSCHR19KIR_FH05_A_HAP_CTG3_1
+alt_id: chr19_KI270920v1_alt
+alt_id: KI270920.1
 
 [Term]
 id: CHR_HSCHR19KIR_FH05_B_HAP_CTG3_1
 name: CHR_HSCHR19KIR_FH05_B_HAP_CTG3_1
+alt_id: HSCHR19KIR_FH05_B_HAP_CTG3_1
+alt_id: chr19_KI270921v1_alt
+alt_id: KI270921.1
 
 [Term]
 id: CHR_HSCHR19KIR_FH06_A_HAP_CTG3_1
 name: CHR_HSCHR19KIR_FH06_A_HAP_CTG3_1
+alt_id: HSCHR19KIR_FH06_A_HAP_CTG3_1
+alt_id: chr19_KI270922v1_alt
+alt_id: KI270922.1
 
 [Term]
 id: CHR_HSCHR19KIR_FH08_A_HAP_CTG3_1
 name: CHR_HSCHR19KIR_FH08_A_HAP_CTG3_1
+alt_id: HSCHR19KIR_FH08_A_HAP_CTG3_1
+alt_id: chr19_KI270929v1_alt
+alt_id: KI270929.1
 
 [Term]
 id: CHR_HSCHR19KIR_FH13_A_HAP_CTG3_1
 name: CHR_HSCHR19KIR_FH13_A_HAP_CTG3_1
+alt_id: HSCHR19KIR_FH13_A_HAP_CTG3_1
+alt_id: chr19_KI270931v1_alt
+alt_id: KI270931.1
 
 [Term]
 id: CHR_HSCHR19KIR_FH15_A_HAP_CTG3_1
 name: CHR_HSCHR19KIR_FH15_A_HAP_CTG3_1
+alt_id: HSCHR19KIR_FH15_A_HAP_CTG3_1
+alt_id: chr19_KI270933v1_alt
+alt_id: KI270933.1
 
 [Term]
 id: CHR_HSCHR19KIR_FH15_B_HAP_CTG3_1
 name: CHR_HSCHR19KIR_FH15_B_HAP_CTG3_1
+alt_id: HSCHR19KIR_FH15_B_HAP_CTG3_1
+alt_id: chr19_KI270882v1_alt
+alt_id: KI270882.1
 
 [Term]
 id: CHR_HSCHR19KIR_G085_A_HAP_CTG3_1
 name: CHR_HSCHR19KIR_G085_A_HAP_CTG3_1
+alt_id: HSCHR19KIR_G085_A_HAP_CTG3_1
+alt_id: chr19_KI270883v1_alt
+alt_id: KI270883.1
 
 [Term]
 id: CHR_HSCHR19KIR_G248_A_HAP_CTG3_1
 name: CHR_HSCHR19KIR_G248_A_HAP_CTG3_1
+alt_id: HSCHR19KIR_G248_A_HAP_CTG3_1
+alt_id: chr19_KI270885v1_alt
+alt_id: KI270885.1
 
 [Term]
 id: CHR_HSCHR19KIR_LUCE_A_HAP_CTG3_1
 name: CHR_HSCHR19KIR_LUCE_A_HAP_CTG3_1
+alt_id: HSCHR19KIR_LUCE_A_HAP_CTG3_1
+alt_id: chr19_KI270889v1_alt
+alt_id: KI270889.1
 
 [Term]
 id: CHR_HSCHR19KIR_RSH_BA2_HAP_CTG3_1
 name: CHR_HSCHR19KIR_RSH_BA2_HAP_CTG3_1
+alt_id: HSCHR19KIR_RSH_BA2_HAP_CTG3_1
+alt_id: chr19_KI270914v1_alt
+alt_id: KI270914.1
 
 [Term]
 id: CHR_HSCHR19KIR_T7526_A_HAP_CTG3_1
 name: CHR_HSCHR19KIR_T7526_A_HAP_CTG3_1
+alt_id: HSCHR19KIR_T7526_A_HAP_CTG3_1
+alt_id: chr19_KI270915v1_alt
+alt_id: KI270915.1
 
 [Term]
 id: CHR_HSCHR19KIR_ABC08_A1_HAP_CTG3_1
 name: CHR_HSCHR19KIR_ABC08_A1_HAP_CTG3_1
+alt_id: HSCHR19KIR_ABC08_A1_HAP_CTG3_1
+alt_id: chr19_KI270917v1_alt
+alt_id: KI270917.1
 
 [Term]
 id: CHR_HSCHR19KIR_FH06_BA1_HAP_CTG3_1
 name: CHR_HSCHR19KIR_FH06_BA1_HAP_CTG3_1
+alt_id: HSCHR19KIR_FH06_BA1_HAP_CTG3_1
+alt_id: chr19_KI270923v1_alt
+alt_id: KI270923.1
 
 [Term]
 id: CHR_HSCHR19KIR_FH08_BAX_HAP_CTG3_1
 name: CHR_HSCHR19KIR_FH08_BAX_HAP_CTG3_1
+alt_id: HSCHR19KIR_FH08_BAX_HAP_CTG3_1
+alt_id: chr19_KI270930v1_alt
+alt_id: KI270930.1
 
 [Term]
 id: CHR_HSCHR19KIR_FH13_BA2_HAP_CTG3_1
 name: CHR_HSCHR19KIR_FH13_BA2_HAP_CTG3_1
+alt_id: HSCHR19KIR_FH13_BA2_HAP_CTG3_1
+alt_id: chr19_KI270932v1_alt
+alt_id: KI270932.1
 
 [Term]
 id: CHR_HSCHR19KIR_G085_BA1_HAP_CTG3_1
 name: CHR_HSCHR19KIR_G085_BA1_HAP_CTG3_1
+alt_id: HSCHR19KIR_G085_BA1_HAP_CTG3_1
+alt_id: chr19_KI270884v1_alt
+alt_id: KI270884.1
 
 [Term]
 id: CHR_HSCHR19KIR_G248_BA2_HAP_CTG3_1
 name: CHR_HSCHR19KIR_G248_BA2_HAP_CTG3_1
+alt_id: HSCHR19KIR_G248_BA2_HAP_CTG3_1
+alt_id: chr19_KI270886v1_alt
+alt_id: KI270886.1
 
 [Term]
 id: CHR_HSCHR19KIR_GRC212_AB_HAP_CTG3_1
 name: CHR_HSCHR19KIR_GRC212_AB_HAP_CTG3_1
+alt_id: HSCHR19KIR_GRC212_AB_HAP_CTG3_1
+alt_id: chr19_KI270887v1_alt
+alt_id: KI270887.1
 
 [Term]
 id: CHR_HSCHR19KIR_LUCE_BDEL_HAP_CTG3_1
 name: CHR_HSCHR19KIR_LUCE_BDEL_HAP_CTG3_1
+alt_id: HSCHR19KIR_LUCE_BDEL_HAP_CTG3_1
+alt_id: chr19_KI270890v1_alt
+alt_id: KI270890.1
 
 [Term]
 id: CHR_HSCHR19KIR_GRC212_BA1_HAP_CTG3_1
 name: CHR_HSCHR19KIR_GRC212_BA1_HAP_CTG3_1
+alt_id: HSCHR19KIR_GRC212_BA1_HAP_CTG3_1
+alt_id: chr19_KI270888v1_alt
+alt_id: KI270888.1
 
 [Term]
 id: CHR_HSCHR19KIR_T7526_BDEL_HAP_CTG3_1
 name: CHR_HSCHR19KIR_T7526_BDEL_HAP_CTG3_1
+alt_id: HSCHR19KIR_T7526_BDEL_HAP_CTG3_1
+alt_id: chr19_KI270916v1_alt
+alt_id: KI270916.1
 
 [Term]
 id: CHR_HSCHR19KIR_ABC08_AB_HAP_C_P_CTG3_1
 name: CHR_HSCHR19KIR_ABC08_AB_HAP_C_P_CTG3_1
+alt_id: HSCHR19KIR_ABC08_AB_HAP_C_P_CTG3_1
+alt_id: chr19_KI270918v1_alt
+alt_id: KI270918.1
 
 [Term]
 id: CHR_HSCHR19KIR_ABC08_AB_HAP_T_P_CTG3_1
 name: CHR_HSCHR19KIR_ABC08_AB_HAP_T_P_CTG3_1
+alt_id: HSCHR19KIR_ABC08_AB_HAP_T_P_CTG3_1
+alt_id: chr19_KI270919v1_alt
+alt_id: KI270919.1
 

@@ -2,26 +2,76 @@
 
 use strict;
 
+use File::Basename;
+use File::Copy;
+use File::Spec;
+use File::Temp qw();
 use XML::LibXML;
 use FindBin;
 # With this we will be able to use BP::Model::CV::Term
 use lib "$FindBin::Bin/schema+tools/lib";
 use BP::Model;
 
-if(scalar(@ARGV)==4 || scalar(@ARGV)==1) {
-	my($cldrXMLFile,$iso3166_1_file,$iso3166_2_file) = (
-		'http://unicode.org/repos/cldr/trunk/common/supplemental/supplementalData.xml',
-		'http://anonscm.debian.org/gitweb/?p=iso-codes/iso-codes.git;a=blob_plain;f=iso_3166/iso_3166.xml;hb=HEAD',
-		'http://anonscm.debian.org/gitweb/?p=iso-codes/iso-codes.git;a=blob_plain;f=iso_3166_2/iso_3166_2.xml;hb=HEAD',
-	);
+if(scalar(@ARGV)==2) {
+	my($modelFile,$ISO3166Name)=@ARGV;
 	
-	my $outputFile = shift(@ARGV);
-	($cldrXMLFile,$iso3166_1_file,$iso3166_2_file) = @ARGV  if(scalar(@ARGV)>0);
+	my $model = undef;
+	eval {
+		$model = BP::Model->new($modelFile,undef,1);
+	};
+	
+	if($@) {
+		Carp::croak("ERROR: Model loading and validation failed. Reason: ".$@);
+	}
+	
+	my $ISO3166_mCV = $model->getNamedCV($ISO3166Name);
+	Carp::croak("ERROR: CV $ISO3166Name not declared in $modelFile")  unless(defined($ISO3166_mCV));
+	
+	# Let's get the URIs where the files needed to rebuild the CV are available
+	my $ISO3166_fetchURIs = $ISO3166_mCV->uri;
+	Carp::croak("ERROR: Not enough URIs for CV $ISO3166Name")  unless(ref($ISO3166_fetchURIs) eq 'ARRAY' && scalar(@{$ISO3166_fetchURIs})>=3);
+	
+	# And let's get the output CV file
+	my $outputFile = $ISO3166_mCV->localFilename;
+	Carp::croak("ERROR: Unable to find path for CV $ISO3166Name")  unless(defined($outputFile));
+
+	my $cldrXMLFile;
+	my $iso3166_1_file;
+	my $iso3166_2_file;
+	
+	my $cldrXMLlocalFile;
+	my $iso3166_1_localfile;
+	my $iso3166_2_localfile;
+	
+	# Now, let's create a temp directory where to fetch the files needed to rebuild the CVs
+	my $tmpworkdir = File::Temp->newdir();
+	my $tmpworkdirname = $tmpworkdir->dirname;
+	
+	foreach my $fetchURI (@{$ISO3166_fetchURIs}) {
+		if(defined($fetchURI->format)) {
+			if($fetchURI->format eq 'ISO_3166-1') {
+				$iso3166_1_localfile = $fetchURI->mirrorURI($tmpworkdirname);
+				$iso3166_1_file = $fetchURI->uri;
+			} elsif($fetchURI->format eq 'ISO_3166-2') {
+				$iso3166_2_localfile = $fetchURI->mirrorURI($tmpworkdirname);
+				$iso3166_2_file = $fetchURI->uri;
+			} elsif($fetchURI->format eq 'LDML') {
+				$cldrXMLlocalFile = $fetchURI->mirrorURI($tmpworkdirname);
+				$cldrXMLFile = $fetchURI->uri;
+			}
+		}
+	}
+	
+	Carp::croak("ERROR: CLDR supplemental data URI unavailable for CV $ISO3166Name")  unless(defined($cldrXMLFile));
+	Carp::croak("ERROR: ISO-3166-1 data URI unavailable for CV $ISO3166Name")  unless(defined($iso3166_1_file));
+	Carp::croak("ERROR: ISO-3166-2 data URI unavailable for CV $ISO3166Name")  unless(defined($iso3166_2_file));
 	
 	my $ISO3166CV = BP::Model::CV->new();
+	my $ver = exists($ISO3166_mCV->annotations->hash->{'data-version'})?$ISO3166_mCV->annotations->hash->{'data-version'}:undef;
+	$ISO3166CV->annotations->addAnnotation('data-version',$ver)  if(defined($ver));
 	
 	print "Step 1: parsing $cldrXMLFile\n";
-	my $CLDR = XML::LibXML->load_xml(location => $cldrXMLFile);
+	my $CLDR = XML::LibXML->load_xml(location => $cldrXMLlocalFile);
 	
 	# Let's record what we are not interested in, so we can filter it out later
 	my %filt=();
@@ -70,7 +120,7 @@ if(scalar(@ARGV)==4 || scalar(@ARGV)==1) {
 	
 	# Now, let's go for the countries!
 	print "Step 2: parsing $iso3166_1_file\n";
-	my $ISO1 = XML::LibXML->load_xml(location => $iso3166_1_file);
+	my $ISO1 = XML::LibXML->load_xml(location => $iso3166_1_localfile);
 	foreach my $country ($ISO1->getElementsByTagName('iso_3166_entry')) {
 		my @keys = ($country->getAttribute('alpha_2_code'),$country->getAttribute('alpha_3_code'),$country->getAttribute('numeric_code'));
 		my $name = $country->getAttribute('name');
@@ -79,7 +129,7 @@ if(scalar(@ARGV)==4 || scalar(@ARGV)==1) {
 	
 	# And at last, the provinces and so
 	print "Step 3: parsing $iso3166_2_file\n";
-	my $ISO2 = XML::LibXML->load_xml(location => $iso3166_2_file);
+	my $ISO2 = XML::LibXML->load_xml(location => $iso3166_2_localfile);
 	foreach my $country ($ISO2->getElementsByTagName('iso_3166_country')) {
 		my $code = $country->getAttribute('code');
 		
@@ -102,9 +152,14 @@ Generated using $0 from
 	$iso3166_1_file
 	$iso3166_2_file
 CEOF
-	if(open(my $O,'>',$outputFile)) {
+	
+	my $tmpOBOISO3166file = File::Spec->catfile($tmpworkdirname,File::Basename::basename($outputFile));
+	if(open(my $O,'>:encoding(UTF-8)',$tmpOBOISO3166file)) {
 		$ISO3166CV->OBOserialize($O,$comments);
 		close($O);
+		File::Copy::move($tmpOBOISO3166file,$outputFile);
+	} else {
+		Carp::croak("Unable to create output file ".$outputFile);
 	}
 } else {
 	# http://unicode.org/repos/cldr/trunk/common/supplemental/supplementalData.xml
@@ -113,10 +168,11 @@ CEOF
 	# in paths iso_3166/iso_3166.xml and iso_3166_2/iso_3166_2.xml
 	# http://anonscm.debian.org/gitweb/?p=iso-codes/iso-codes.git;a=blob_plain;f=iso_3166/iso_3166.xml;hb=HEAD
 	# http://anonscm.debian.org/gitweb/?p=iso-codes/iso-codes.git;a=blob_plain;f=iso_3166_2/iso_3166_2.xml;hb=HEAD
+	# https://anonscm.debian.org/cgit/pkg-isocodes/iso-codes.git/plain/iso_3166/iso_3166.xml
+	# https://anonscm.debian.org/cgit/pkg-isocodes/iso-codes.git/plain/iso_3166_2/iso_3166_2.xml
 	print STDERR <<EOF
-ERROR: This program takes one parameter (the output file) and three optional ones, which are:
-	- the integration of UN.49 and ISO-3166-1 (supra-national organizative areas)
-	- the ISO-3166-1 XML file (countries)
-	- the ISO-3166-2 XML file (provinces and so)
+ERROR: This program takes two parameters:
+	- The BP model (either in XML or BP format)
+	- The ISO-3166 CV name in the model
 EOF
 }
