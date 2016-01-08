@@ -62,7 +62,7 @@
         	
             <cv-uri name="regions" format="EnsemblMySQLDump" doc="http://{EnsemblArchive}.archive.ensembl.org/Homo_sapiens/Info/Index">ftp://ftp.ensembl.org/pub/release-{data-version}/mysql/homo_sapiens_core_{data-version}_{GRChVer}/seq_region.txt.gz</cv-uri>
             <cv-uri name="coords" format="EnsemblMySQLDump" doc="http://{EnsemblArchive}.archive.ensembl.org/Homo_sapiens/Info/Index">ftp://ftp.ensembl.org/pub/release-{data-version}/mysql/homo_sapiens_core_{data-version}_{GRChVer}/coord_system.txt.gz</cv-uri>
-            <cv-uri name="GRC_acc2name" format="tabular" doc="ftp://ftp.ncbi.nlm.nih.gov/genbank/genomes/Eukaryotes/vertebrates_mammals/Homo_sapiens/GRCh{GRChVer}/README_ASSEMBLIES">ftp://ftp.ncbi.nlm.nih.gov/genbank/genomes/Eukaryotes/vertebrates_mammals/Homo_sapiens/GRCh{GRChVer}/{GCAVer}_GRCh{GRChVer}_top-level.acc2name</cv-uri>
+            <cv-uri name="GRC_acc2name" format="tabular" doc="ftp://ftp.ncbi.nlm.nih.gov/genomes/genbank/vertebrate_mammalian/Homo_sapiens/all_assembly_versions/{GCAVer}_GRCh{GRChVer}/README.txt">ftp://ftp.ncbi.nlm.nih.gov/genomes/genbank/vertebrate_mammalian/Homo_sapiens/all_assembly_versions/{GCAVer}_GRCh{GRChVer}/{GCAVer}_GRCh{GRChVer}_assembly_report+ucsc_names.txt</cv-uri>
             
             <cv-file format="obo">ENS-chro.obo</cv-file>
         </cv>
@@ -78,7 +78,7 @@
             
             <cv-uri name="regions" format="EnsemblMySQLDump" doc="http://{EnsemblArchive}.archive.ensembl.org/Homo_sapiens/Info/Index">ftp://ftp.ensembl.org/pub/release-{data-version}/mysql/homo_sapiens_core_{data-version}_{GRChVer}/seq_region.txt.gz</cv-uri>
             <cv-uri name="coords" format="EnsemblMySQLDump" doc="http://{EnsemblArchive}.archive.ensembl.org/Homo_sapiens/Info/Index">ftp://ftp.ensembl.org/pub/release-{data-version}/mysql/homo_sapiens_core_{data-version}_{GRChVer}/coord_system.txt.gz</cv-uri>
-            <cv-uri name="GRC_acc2name" format="tabular" doc="ftp://ftp.ncbi.nlm.nih.gov/genbank/genomes/Eukaryotes/vertebrates_mammals/Homo_sapiens/GRCh{GRChVer}/README_ASSEMBLIES">ftp://ftp.ncbi.nlm.nih.gov/genbank/genomes/Eukaryotes/vertebrates_mammals/Homo_sapiens/GRCh{GRChVer}/{GCAVer}_GRCh{GRChVer}_top-level.acc2name</cv-uri>
+            <cv-uri name="GRC_acc2name" format="tabular" doc="ftp://ftp.ncbi.nlm.nih.gov/genomes/genbank/vertebrate_mammalian/Homo_sapiens/all_assembly_versions/{GCAVer}_GRCh{GRChVer}/README.txt">ftp://ftp.ncbi.nlm.nih.gov/genomes/genbank/vertebrate_mammalian/Homo_sapiens/all_assembly_versions/{GCAVer}_GRCh{GRChVer}/{GCAVer}_GRCh{GRChVer}_assembly_report+ucsc_names.txt</cv-uri>
             
             <cv-file format="obo">ENS-scaffolds.obo</cv-file>
         </cv>
