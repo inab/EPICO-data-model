@@ -50,7 +50,7 @@
     	<collection name="external" path="wp10-external" />
     </collection-domain>
 	
-    <cv-declarations dir="cv">
+    <cv-declarations dir="cv-wp10">
         <cv name="EnsemblChromosomes">
             <description>Valid chromosome and genome patch identifiers from Ensembl</description>
             <annotation key="file">Chromosomes and genome patches</annotation>
