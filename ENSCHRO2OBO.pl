@@ -16,9 +16,20 @@ use File::Spec;
 use File::Temp qw();
 
 sub parseAccession2chrUCSC($$$$) {
-	my($payload,$acc,$chro_scaffold_name,$UCSCname)=@_;
+	# Sequence-Name
+	# Sequence-Role
+	# Assigned-Molecule
+	# Assigned-Molecule-Location/Type
+	# GenBank-Accn
+	# Relationship
+	# RefSeq-Accn
+	# Assembly-Unit
+	# UCSC-style-name
+	my($payload,$chro_scaffold_name,$chro_scaffold_role,undef,$type,$acc,undef,undef,undef,$UCSCname)=@_;
 	
 	my($p_scaffold2chrUCSC,$p_scaffold2chr) = @{$payload};
+	
+	$UCSCname = 'chr'.$chro_scaffold_name  if(!defined($UCSCname) && $chro_scaffold_role eq 'assembled-molecule' && $type eq 'Chromosome');
 	
 	my $val = [$acc,$UCSCname,$chro_scaffold_name];
 	$p_scaffold2chrUCSC->{$acc} = $val;
@@ -69,6 +80,13 @@ sub parseSeqRegions($$$) {
 					$p_Names->[2] = $tmp;
 				}
 				
+				# Now, regenerate removing undefs
+				my @cleansedNames = ();
+				foreach my $cName (@{$p_Names}) {
+					push(@cleansedNames,$cName)  if(defined($cName));
+				}
+				$p_Names = \@cleansedNames;
+				
 				unshift(@{$p_Names},$name)  if($doAddName);
 				push(@{$p_Names},'M')  if($name eq 'MT');
 			} else {
@@ -82,6 +100,7 @@ sub parseSeqRegions($$$) {
 				}
 				$p_Names = \@Names;
 			}
+			
 			
 			$CV->addTerm(BP::Model::CV::Term->new($p_Names,$name));
 		}
