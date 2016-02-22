@@ -31,7 +31,7 @@
         <!-- Metadata from experiments are being stored here -->
         <collection name="metadata" path="metadata">
             <index unique="true">
-                <attr name="analysys_id" />
+                <attr name="analysis_id" />
                 <attr name="analyzed_sample_id" />
                 <attr name="control_sample_id" />
             </index>
@@ -39,7 +39,7 @@
         <!-- Primary and secondary data from experiments is being stored here -->
         <collection name="primary" path="primary">
             <index unique="false">
-                <attr name="analysys_id" />
+                <attr name="analysis_id" />
                 <attr name="analyzed_sample_id" />
             </index>
         </collection>
