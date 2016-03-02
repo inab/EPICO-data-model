@@ -290,6 +290,12 @@
             <e v="-1">Reverse strand</e>
             <e v="1">Forward strand</e>
         </cv>
+        <cv name="frame">
+            <annotation key="disposition">inline</annotation>
+            <e v="0">'0' indicates that the first base of the feature is the first base of a codon</e>
+            <e v="1">'1' indicates that the second base of the feature is the first base of a codon</e>
+            <e v="2">'2' indicates that the third base of the feature is the first base of a codon</e>
+        </cv>
         <cv name="validationStatus">
             <annotation key="disposition">inline</annotation>
             <e v="-1">Not valid</e>
@@ -921,7 +927,7 @@
     		
     		<column name="feature_cluster_id">
     			<description>An id which can be used to cluster the related features</description>
-    			<column-type item-type="string" column-kind="required" />
+    			<column-type item-type="string" column-kind="required" container-type="set" set-seps=";" />
     		</column>
     		
     		<column name="feature">
@@ -936,21 +942,51 @@
     					<e v="start_codon"/>
     					<e v="stop_codon"/>
     					<e v="UTR"/>
+    					<e v="direct_complex"/>
+    					<e v="indirect_complex"/>
+    					<e v="neighbouring_reaction"/>
     					<e v="reaction"/>
     					<e v="pathway"/>
     				</cv>
     			</column-type>
     		</column>
     		
+		<column name="feature_ns">
+			<description>The namespace of the feature_id</description>
+			<column-type item-type="string" column-kind="desirable" />
+		</column>
+    		
+		<column name="feature_id">
+			<description>The feature identifier (Ensembl Gene, Transcript, UniProt AC, etc...)</description>
+			<column-type item-type="string" column-kind="required" />
+		</column>
+    		
     		<column name="symbol">
     			<description>Any one of the registered names/synonyms for this chromosomic area</description>
-    			<column-type item-type="text" column-kind="required" container-type="set" set-seps=";"/>
+    			<column-type item-type="compound" column-kind="required" container-type="set" set-seps=";">
+				<compound-type>
+					<column name="ns">
+						<description>The namespace of this symbol</description>
+						<column-type item-type="string" column-kind="desirable" />
+					</column>
+					<sep>:</sep>
+					<column name="name">
+						<description>The symbol itself</description>
+						<column-type item-type="string" column-kind="required" container-type="set" set-seps=";"/>
+					</column>
+				</compound-type>
+			</column-type>
     		</column>
     		
     		<column name="coordinates">
 			<description>The list of coordinates of the feature. In the case of pathways, the participants in one or more of the reactions and complexes related to this pathway</description>
     			<column-type item-type="compound" column-kind="required" container-type="set" set-seps=";">
     				<compound-type>
+					<column name="feature_ns">
+						<description>The namespace of the participant identifier</description>
+						<column-type item-type="string" column-kind="desirable" />
+					</column>
+					<sep>:</sep>
 					<column name="feature_id">
 						<description>The participant identifier (Ensembl Gene, Transcript, UniProt AC, etc...)</description>
 						<column-type item-type="string" column-kind="required" />
@@ -970,6 +1006,16 @@
     						<description>End position of the mutation/variation on the chromosome</description>
     						<column-type item-type="integer" column-kind="desirable" />
     					</column>
+    					<sep>:</sep>
+					<column name="chromosome_strand">
+						<description>Strand where it was detected the mutation/variation on the chromosome</description>
+						<column-type item-type="integer" column-kind="optional" cv="strand" />
+					</column>
+    					<sep>:</sep>
+					<column name="frame">
+						<description>One of '0', '1' or '2'. '0' indicates that the first base of the feature is the first base of a codon, '1' that the second base is the first base of a codon, and so on.</description>
+						<column-type item-type="integer" column-kind="optional" cv="frame" />
+					</column>
 					
 					<index unique="false">
 						<attr name="feature_id"/>
