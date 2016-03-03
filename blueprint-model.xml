@@ -17,6 +17,7 @@
 		<annotation key="EnsemblArchive">mar2015</annotation>
 		<annotation key="GRChVer">38</annotation>
 		<annotation key="GCAVer">GCA_000001405.15</annotation>
+		<annotation key="APPRISRel">v8.2Apr2015</annotation>
 		
 		<annotation key="cvKey">Key</annotation>
 		<annotation key="cvDesc">Description</annotation>
@@ -965,12 +966,29 @@
     			<description>Any one of the registered names/synonyms for this chromosomic area</description>
     			<column-type item-type="compound" column-kind="required" container-type="set" set-seps=";">
 				<compound-type>
-					<column name="ns">
+					<column name="domain">
 						<description>The namespace of this symbol</description>
 						<column-type item-type="string" column-kind="desirable" />
 					</column>
 					<sep>:</sep>
-					<column name="name">
+					<column name="value">
+						<description>The symbol itself</description>
+						<column-type item-type="string" column-kind="required" container-type="set" set-seps=";"/>
+					</column>
+				</compound-type>
+			</column-type>
+    		</column>
+    		
+    		<column name="attribute">
+    			<description>Any one of the attributes for this chromosomic area</description>
+    			<column-type item-type="compound" column-kind="desirable" container-type="set" set-seps=";">
+				<compound-type>
+					<column name="domain">
+						<description>The namespace of this attribute</description>
+						<column-type item-type="string" column-kind="desirable" />
+					</column>
+					<sep>:</sep>
+					<column name="value">
 						<description>The symbol itself</description>
 						<column-type item-type="string" column-kind="required" container-type="set" set-seps=";"/>
 					</column>
