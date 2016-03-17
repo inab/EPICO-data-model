@@ -979,6 +979,11 @@
 			</column-type>
     		</column>
     		
+		<column name="keyword">
+			<description>Keywords (synonyms, ids, descriptions) of this feature (used for searches)</description>
+			<column-type item-type="text" column-kind="optional" container-type="set" set-seps=";"/>
+		</column>
+    		
     		<column name="attribute">
     			<description>Any one of the attributes for this chromosomic area</description>
     			<column-type item-type="compound" column-kind="desirable" container-type="set" set-seps=";">
@@ -1079,7 +1084,7 @@
     		</column>
     		
     		<column name="length">
-    			<description>The length, in bytes, of the file</description>
+    			<description>The length, in bytes, of the file in its original format</description>
     			<column-type item-type="integer" column-kind="required"/>
     		</column>
     		
@@ -1089,13 +1094,40 @@
     		</column>
     		
     		<column name="insertion_timestamp">
-    			<description>The insertion timestamp of the file</description>
+    			<description>The insertion timestamp of the file contents</description>
     			<column-type item-type="timestamp" column-kind="required"></column-type>
     		</column>
     		
     		<column name="remote_timestamp">
     			<description>The timestamp of the file in the remote repository</description>
     			<column-type item-type="timestamp" column-kind="desirable"></column-type>
+    		</column>
+    		
+    		<column name="identifiers">
+			<description>The list of identifiers whose content was extracted from this file</description>
+    			<column-type item-type="compound" column-kind="required" container-type="set" set-seps=";">
+				<compound-type>
+					<column name="concept_domain_name">
+						<description>The name of the concept domain with the concept</description>
+						<column-type item-type="string" column-kind="required" />
+					</column>
+					<sep>:</sep>
+					<column name="concept_name">
+						<description>The name of the concept holding the content</description>
+						<column-type item-type="string" column-kind="required" />
+					</column>
+					<sep>.</sep>
+					<column name="feature_attr">
+						<description>The name of the attribute where this identifier is stored</description>
+						<column-type item-type="string" column-kind="required" />
+					</column>
+					<sep>=</sep>
+					<column name="feature_ids">
+						<description>The participant identifiers (Ensembl Gene, Transcript, UniProt AC, etc...)</description>
+						<column-type item-type="string" column-kind="required" container-type="set" set-seps=","/>
+					</column>
+				</compound-type>
+			</column-type>
     		</column>
     	</concept>
     </concept-domain>
