@@ -477,6 +477,23 @@
             	<column-type item-type="string" column-kind="required"/>
             </column>
         </compound-type>
+        
+        <compound-type name="ihec-feature-ctype">
+            <column name="feature">
+            	<description>The name of the feature</description>
+                <column-type item-type="string" column-kind="required" />
+            </column>
+            <sep>=</sep>
+            <column name="value">
+            	<description>The measure associated to the feature</description>
+                <column-type item-type="text" column-kind="required" />
+            </column>
+            <sep>*</sep>
+            <column name="units">
+            	<description>The units of the measure</description>
+                <column-type item-type="string" column-kind="desirable" />
+            </column>
+        </compound-type>
     </compound-types>
     
     <concept-types>
@@ -525,24 +542,7 @@
             </column>
             <column name="features">
                 <description>The known features/experimental conditions about the experiment (the name of the feature is the hash key)</description>
-                <column-type item-type="compound" column-kind="required" container-type="hash">
-                    <compound-type>
-                        <column name="feature">
-                        	<description>The name of the feature</description>
-                            <column-type item-type="string" column-kind="required" />
-                        </column>
-                        <sep>=</sep>
-                        <column name="value">
-                        	<description>The measure associated to the feature</description>
-                            <column-type item-type="text" column-kind="required" />
-                        </column>
-                        <sep>*</sep>
-                        <column name="units">
-                        	<description>The units of the measure</description>
-                            <column-type item-type="string" column-kind="desirable" />
-                        </column>
-                    </compound-type>
-                </column-type>
+                <column-type item-type="compound" column-kind="required" container-type="hash" compound-type="ihec-feature-ctype" />
             </column>
             <column name="raw_data_repository">
                 <description>Public repository where raw data is submitted (#)</description>
@@ -1436,6 +1436,11 @@
             <column name="analyzed_sample_interval">
                 <description>Interval from specimen acquisition to sample use in an analytic procedure (e.g. DNA extraction), in days</description>
                 <column-type item-type="integer" column-kind="optional" />
+            </column>
+            
+            <column name="features">
+                <description>The known features/adcquisition conditions about the sample (the name of the feature is the hash key)</description>
+                <column-type item-type="compound" column-kind="required" container-type="hash" compound-type="ihec-feature-ctype" />
             </column>
             
             <related-to concept="specimen"/>
