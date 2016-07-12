@@ -518,6 +518,20 @@
             </column>
         </concept-type>
         
+        <concept-type name="study-template" collection="sdata">
+            <column name="study_id">
+                <description>Unique identifier for a study where experiments belong</description>
+                <annotation key="ordering">
+                    <ordering-hints><block>top</block></ordering-hints>
+                </annotation>
+                <column-type item-type="string" column-kind="idref" />
+            </column>
+            <column name="study_name">
+                <description>The name of the study</description>
+                <column-type item-type="string" column-kind="required" />
+            </column>
+        </concept-type>
+        
         <concept-type name="experiment-template" collection="sdata">
             <column name="experiment_id">
                 <description>Unique identifier for the experiment performed on a sample</description>
@@ -1451,6 +1465,12 @@
         <!-- Remember this pattern: ^([^ ]+)( ?[:–-] ?)([^ ].*)$ -->
         <description> These concepts are based on Version 1.1 of IHEC Metadata (July 3rd, 2013)</description>
         
+        <concept name="study" fullname="Experimental Study">
+		<base-concept-type name="study-template" />
+		
+		<annotation key="color"><color>rgb(12,67,255)</color></annotation>
+        </concept>
+        
         <concept name="AbstractExperiment" fullname="AbstractExperiment">
             <base-concept-type name="experiment-template" />
             
@@ -1463,6 +1483,8 @@
                     </ordering-hints>
                 </annotation>
             </related-to>
+            
+            <related-to concept="study" />
         </concept>
         
         <concept name="AbstractExperimentExtraction" fullname="AbstractExperimentExtraction">
