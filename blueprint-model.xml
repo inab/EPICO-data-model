@@ -219,9 +219,14 @@
             	This is the subset of terms used in BLUEPRINT
             </description>
             <annotation key="file">NCI Metathesaurus</annotation>
-            <annotation key="data-version">201412</annotation>
+            <annotation key="data-version">201604</annotation>
             
-            <cv-ns short-name="cui">http://ncimeta.nci.nih.gov/ncimbrowser/ConceptReport.jsp?dictionary=NCI%20MetaThesaurus&amp;code=</cv-ns>
+            <cv-ns short-name="cui">
+                <cv-uri>https://ncimeta.nci.nih.gov/ncimbrowser/ConceptReport.jsp?dictionary=NCI%20MetaThesaurus&amp;code=</cv-uri>
+                <cv-uri>https://ncimeta.nci.nih.gov/ncimbrowser/pages/concept_details.jsf?dictionary=NCI%20Metathesaurus&amp;code=</cv-uri>
+                <cv-uri>http://ncimeta.nci.nih.gov/ncimbrowser/ConceptReport.jsp?dictionary=NCI%20MetaThesaurus&amp;code=</cv-uri>
+                <cv-uri>http://ncimeta.nci.nih.gov/ncimbrowser/pages/concept_details.jsf?dictionary=NCI%20Metathesaurus&amp;code=</cv-uri>
+            </cv-ns>
             
             <default-cv-ns ns="cui" />
             
@@ -230,14 +235,8 @@
             <!--
             <annotation key="showFetched">true</annotation>
             -->
-        	<!--
-        	<e v="C0026764">Plasma Cell Myeloma</e>
-        	<e v="C0040425">Tonsillitis</e>
-        		<e v="C0334634">Malignant lymphoma, lymphocytic, intermediate differentiation, diffuse</e>
-        	<e v="C1333295">Germinal Center B-Cell-Like Diffuse Large B-Cell Lymphoma</e>
-        	<e v="C1336077">Sporadic Burkitt Lymphoma</e>
-        	<e v="C2853894">Mantle cell lymphoma, unspecified site</e>
-        	-->
+        	<!-- This term was not in the source -->
+		<e v="C2853894">Mantle cell lymphoma, unspecified site</e>
         </cv>
         <cv name="ISO3166">
             <description><![CDATA[ISO 3166 is the International Standard for country codes and codes for their subdivisions. The purpose of ISO 3166 is to establish internationally recognised codes for the representation of names of countries, territories or areas of geographical interest, and their subdivisions. A complementary classification, related to ISO 3166 is UN M.49 (Standard Country and Area Codes Classifications)]]></description>
