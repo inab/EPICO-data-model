@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dcc-schema
         project="BLUEPRINT"
-        schemaVer="0.4"
+        schemaVer="0.4.1"
         
         xmlns="http://www.blueprint-epigenome.eu/dcc/schema"
         xmlns:xhtml="http://www.w3.org/1999/xhtml"
@@ -1953,7 +1953,7 @@
     </concept-domain>
     -->
     
-    <concept-domain domain="exp" fullname="Gene Expression" filename-format="blueprint-dcc">
+    <concept-domain domain="exp" fullname="Expression (Gene, Transcript, etc...)" filename-format="blueprint-dcc">
         <concept name="m" fullname="Expression - Metadata File">
             <extends concept="AnalysisMetadata" domain="abstract"/>
             
@@ -2018,6 +2018,113 @@
                 </annotation>
             </related-to>
         </concept>
+    </concept-domain>
+    
+    <concept-domain domain="cosi" fullname="Completeness of Splicing Indices (CoSI)" filename-format="blueprint-dcc">
+	<concept name="m" fullname="CoSI - Metadata File">
+		<extends concept="AnalysisMetadata" domain="abstract"/>
+		
+		<description>CoSI [cosi] – Metadata File [m]</description>
+		<annotation key="altname">CoSI Metadata</annotation>
+		<annotation key="color"><color>#FFF455</color></annotation>
+		
+		<weak-concepts>
+			<concept name="spr" fullname="Splicing ratios">
+				<base-concept-type name="abstract-coordinate-range"/>
+				<base-concept-type name="abstract-strand"/>
+				
+				<description>CoSI Splicing ratios</description>
+				
+				<column name="cosi">
+					<description>Completeness of splicing indices. When it is the splicing ratio of an intron, it is computed as the mean from cosi3 and cosi5 (stored in metrics). Can be NaN (not a number)</description>
+					
+					<column-type item-type="decimal" column-kind="desirable"/>
+				</column>
+				
+				<column name="psi">
+					<description>Percent-splice-in. When it is the splicing ratio of an intron, it is computed as the mean from psi3 and psi5 (stored in metrics). Can be NaN (not a number)</description>
+					
+					<column-type item-type="decimal" column-kind="desirable"/>
+				</column>
+				
+				<column name="is_exon">
+					<description>Is an exon or an intron?</description>
+					
+					<column-type item-type="boolean" column-kind="required"/>
+				</column>
+                        	
+				<column name="metrics">
+					<description>Additional metrics not covered by the model, but otherwise interesting</description>
+					
+					<column-type item-type="decimal" column-kind="desirable" container-type="hash"/>
+				</column>
+			</concept>
+			
+			<concept name="jnc" fullname="Junctions">
+				<base-concept-type name="abstract-coordinate-range"/>
+				<base-concept-type name="abstract-strand"/>
+				
+				<description>CoSI computed IPSA junctions</description>
+				
+				<column name="idr">
+					<description>Irreproducible discovery rate</description>
+					
+					<column-type item-type="decimal" column-kind="required"/>
+				</column>
+				
+				<column name="total_reads">
+					<description>Total number of reads supporting the junction</description>
+					
+					<column-type item-type="integer" column-kind="required"/>
+				</column>
+				
+				<column name="stagg_reads">
+					<description>Number of staggered reads (i.e., the number of different offsets with non-zero counts)</description>
+					
+					<column-type item-type="integer" column-kind="required"/>
+				</column>
+				
+				<column name="entropy">
+					<description>Entropy of the distribution of the reads</description>
+					
+					<column-type item-type="decimal" column-kind="required"/>
+				</column>
+				
+				<column name="annot_status">
+					<description>Junction annotation status</description>
+					
+					<column-type item-type="integer" column-kind="required">
+						<cv>
+							<e v="0">None of the splice sites of the given SJ is annotated</e>
+							<e v="1">One of the splice sites of the given SJ is annotated, and the other is not</e>
+							<e v="2">Both splice sites of the given SJ are annotated but the intron between them is not</e>
+							<e v="3">Both splice sites of the given SJ are annotated, and so is the intron between them</e>
+						</cv>
+					</column-type>
+				</column>
+				
+				<column name="splice_site_nucleotides">
+					<description>Splice site nucleotides (4 intronic nucleotides, two flanking ones from each end)</description>
+					
+					<column-type item-type="string" column-kind="required"/>
+				</column>
+				
+				<column name="score">
+					<description>Score computed from entropy, total reads and staggered reads</description>
+					
+					<column-type item-type="decimal" column-kind="required"/>
+				</column>
+			</concept>
+		</weak-concepts>
+		
+		<related-to concept="mrna" domain="lab" id="exp-rel">
+			<annotation key="ordering">
+				<ordering-hints>
+					<block>top</block>
+				</ordering-hints>
+			</annotation>
+		</related-to>
+	</concept>
     </concept-domain>
     
     <concept-domain domain="jcn" fullname="Exon Junction" filename-format="blueprint-dcc">
