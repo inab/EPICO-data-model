@@ -1,6 +1,7 @@
 ##file Value Codes for Platform or Validation Platform
 ##header Key	Platform or Validation Platform
 ## Please contact the DCC if your platform/technology is not listed here.
+-1	Unspecified
 1	PCR
 2	qPCR
 3	capillary sequencing
