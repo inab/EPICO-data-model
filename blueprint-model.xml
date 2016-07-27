@@ -2193,6 +2193,98 @@
         </concept>
     </concept-domain>
     
+    <concept-domain domain="nucleosome" fullname="Nucleosomes detection and histones annotation" filename-format="blueprint-dcc">
+	    <concept name="m" fullname="Nucleosomes detection - Metadata File">
+		    <extends concept="ComparativeAnalysisMetadata" domain="abstract" />
+		    
+		    <description>Nucleosomes detection [nucleosome] – Metadata File [m]</description>
+		    <annotation key="color"><color>#5c4fbf</color></annotation>
+		    
+		    <weak-concepts>
+			    <concept name="c" fullname="Nucleosomes detection - Comparative Analysis File">
+				    <base-concept-type name="abstract-experiment-primary"/>
+				    <base-concept-type name="abstract-coordinate-range"/>
+				    
+				    <description>Nucleosomes detection [nucleosome] - Comparative Analysis File [c]</description>
+				    <annotation key="color"><color>#5c4fbf</color></annotation>
+				    
+				    <column name="nucleosome_id">
+					    <description>Unique identifier for the nucleosome in this analysis</description>
+					    <column-type item-type="string" column-kind="idref"/>
+				    </column>
+				    
+				    <column name="z_score">
+					    <description>The z-score is a confidence score about the nucleosome prediction</description>
+					    <column-type item-type="decimal" column-kind="required"/>
+				    </column>
+				    
+				    <column name="total_reads">
+					    <description>Total number of reads, from all the ChIP-Seq experiments over this segment, supporting the nucleosome prediction</description>
+					    <column-type item-type="integer" column-kind="required"/>
+				    </column>
+				    
+				    <column name="noise">
+					    <description>Noise signal from the (preprocessed) control experiment</description>
+					    <column-type item-type="decimal" column-kind="required"/>
+				    </column>
+				    
+				    <column name="p_value">
+					    <description>p-value obtained from the comparison between the total reads supporting this nucleosome and the noise signal from the control experiment</description>
+					    <column-type item-type="decimal" column-kind="required"/>
+				    </column>
+				    
+				    <column name="fuzziness">
+					    <description>Fuzziness score (a secondary score)</description>
+					    <column-type item-type="decimal" column-kind="required"/>
+				    </column>
+				    
+				    <column name="reads_by_experiment">
+					    <description>The number of reads supporting the nucleosome prediction by experiment, and whether it is active</description>
+					    
+					    <column-type item-type="compound" column-kind="required" container-type="set" set-seps=";">
+						    <compound-type>
+							    <column name="experiment_id">
+								    <description>The id of the experiment</description>
+								    <column-type item-type="string" column-kind="required"/>
+							    </column>
+							    
+							    <sep>:</sep>
+							    
+							    <column name="num_reads">
+								    <description>Number of reads from this experiment supporting the nucleosome prediction</description>
+								    <column-type item-type="integer" column-kind="required"/>
+							    </column>
+							    
+							    <sep>:</sep>
+							    
+							    <column name="is_active">
+								    <description>Is the nucleosome active in this ChIP-Seq experiment?</description>
+								    <column-type item-type="boolean" column-kind="required"/>
+							    </column>
+						    </compound-type>
+					    </column-type>
+				    </column>
+			    </concept>
+		    </weak-concepts>
+		    
+		    <related-to concept="cs" domain="lab" id="exp-rel" arity="M">
+			    <annotation key="ordering">
+				    <ordering-hints>
+					    <block>top</block>
+				    </ordering-hints>
+			    </annotation>
+		    </related-to>
+		    
+		    <related-to concept="sample" domain="sdata" prefix="analyzed_">
+			    <annotation key="ordering">
+				    <ordering-hints>
+					    <block>top</block>
+				    </ordering-hints>
+			    </annotation>
+		    </related-to>
+	    </concept>
+    </concept-domain>
+    
     <concept-domain domain="rreg" fullname="Regulatory Regions" filename-format="blueprint-dcc">
         <concept name="m" fullname="Regulatory regions - Metadata File">
             <extends concept="ComparativeAnalysisMetadata" domain="abstract"/>
