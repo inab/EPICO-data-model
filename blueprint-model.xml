@@ -1317,7 +1317,7 @@
             <column name="donor_disease">
             	<description>If the donor was ill, the EFO code (browsable <xhtml:i><xhtml:a href="http://purl.bioontology.org/ontology/EFO">here</xhtml:a></xhtml:i>) or NCI Metathesaurus code (from <xhtml:i><xhtml:a href="ncimeta.nci.nih.gov/ncimbrowser/">here</xhtml:a></xhtml:i>) of the disease at acquisition time. Use code <xhtml:a href="http://purl.obolibrary.org/obo/PATO_0000461">PATO:0000461</xhtml:a> when the donor was healthy</description>
                 <annotation key="values">This value can come from EGA <xhtml:i>Phenotype</xhtml:i> field. When this field and <xhtml:b><xhtml:tt>donor_disease_text</xhtml:tt></xhtml:b> are set, the description of the term in this field should be used</annotation>
-                <column-type item-type="string" column-kind="desirable">
+                <column-type item-type="string" column-kind="desirable" normalize="true">
                     <cv-ref name="EFO" />
                 	<cv-ref name="PATO" />
                 	<cv-ref name="NCIMetathesaurus" />
