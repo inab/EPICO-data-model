@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dcc-schema
         project="BLUEPRINT"
-        schemaVer="0.4.1"
+        schemaVer="0.4.2"
         
         xmlns="http://www.blueprint-epigenome.eu/dcc/schema"
         xmlns:xhtml="http://www.w3.org/1999/xhtml"
@@ -505,6 +505,17 @@
                 <column-type item-type="text" column-kind="optional" />
             </column>
         </concept-type>
+        
+	<concept-type name="chromatin-state" collection="metadata">
+		<column name="state">
+			<description>The state id</description>
+			<column-type item-type="integer" column-kind="idref"/>
+		</column>
+		<column name="annotation">
+			<description>The annotation of the state</description>
+			<column-type item-type="string" column-kind="desirable"/>
+		</column>
+	</concept-type>
         
         <concept-type name="NSC-RSC" collection="primary">
             <column name="NSC">
@@ -2371,6 +2382,49 @@
 						    </compound-type>
 					    </column-type>
 				    </column>
+			    </concept>
+		    </weak-concepts>
+		    
+		    <related-to concept="cs" domain="lab" id="exp-rel" arity="M">
+			    <annotation key="ordering">
+				    <ordering-hints>
+					    <block>top</block>
+				    </ordering-hints>
+			    </annotation>
+		    </related-to>
+		    
+		    <related-to concept="sample" domain="sdata" prefix="analyzed_">
+			    <annotation key="ordering">
+				    <ordering-hints>
+					    <block>top</block>
+				    </ordering-hints>
+			    </annotation>
+		    </related-to>
+	    </concept>
+    </concept-domain>
+    
+    <concept-domain domain="chromseg" fullname="Chromatin segmentation" filename-format="blueprint-dcc">
+	    <concept name="state" fullname="Chromatin segmentation - defined states">
+		    <base-concept-type name="chromatin-state"/>
+		    
+		    <description>The defined states used in the chromatin segmentation</description>
+	    </concept>
+	    
+	    <concept name="m" fullname="Chromatin segmentation - Metadata File">
+		    <extends concept="ComparativeAnalysisMetadata" domain="abstract" />
+		    
+		    <description>Chromatin segmentation [chromseg] – Metadata File [m]</description>
+		    <annotation key="color"><color>#cdec31</color></annotation>
+		    
+		    <weak-concepts>
+			    <concept name="c" fullname="Chromatin segmentation - Comparative Analysis File">
+				    <base-concept-type name="abstract-experiment-primary"/>
+				    <base-concept-type name="abstract-coordinate-range"/>
+				    
+				    <description>Chromatin segmentation [chromseg] - Comparative Analysis File [c]</description>
+				    <annotation key="color"><color>#cdec31</color></annotation>
+				    
+				    <related-to concept="state"/>
 			    </concept>
 		    </weak-concepts>
 		    
