@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dcc-schema
         project="BLUEPRINT"
-        schemaVer="0.4.2"
+        schemaVer="0.4.2.1"
         
         xmlns="http://www.blueprint-epigenome.eu/dcc/schema"
         xmlns:xhtml="http://www.w3.org/1999/xhtml"
@@ -2329,6 +2329,11 @@
 				    <column name="nucleosome_id">
 					    <description>Unique identifier for the nucleosome in this analysis</description>
 					    <column-type item-type="string" column-kind="idref"/>
+				    </column>
+				    
+				    <column name="position">
+					    <description>Position</description>
+					    <column-type item-type="integer" column-kind="required"/>
 				    </column>
 				    
 				    <column name="z_score">
