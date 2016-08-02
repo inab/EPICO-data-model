@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dcc-schema
         project="BLUEPRINT"
-        schemaVer="0.4.2.1"
+        schemaVer="0.4.2.2"
         
         xmlns="http://www.blueprint-epigenome.eu/dcc/schema"
         xmlns:xhtml="http://www.w3.org/1999/xhtml"
@@ -2067,7 +2067,7 @@
 				<column name="metrics">
 					<description>Additional metrics not covered by the model, but otherwise interesting</description>
 					
-					<column-type item-type="decimal" column-kind="desirable" container-type="hash"/>
+					<column-type item-type="decimal" item-kind="desirable" column-kind="desirable" container-type="hash"/>
 				</column>
 			</concept>
 			
@@ -2102,16 +2102,15 @@
 				</column>
 				
 				<column name="annot_status">
-					<description>Junction annotation status</description>
+					<description><![CDATA[Junction annotation status (between 0 and 3)
+
+* 0 => None of the splice sites of the given SJ is annotated
+* 1 => One of the splice sites of the given SJ is annotated, and the other is not
+* 2 => Both splice sites of the given SJ are annotated but the intron between them is not
+* 3 => Both splice sites of the given SJ are annotated, and so is the intron between them
+					]]></description>
 					
-					<column-type item-type="integer" column-kind="required">
-						<cv>
-							<e v="0">None of the splice sites of the given SJ is annotated</e>
-							<e v="1">One of the splice sites of the given SJ is annotated, and the other is not</e>
-							<e v="2">Both splice sites of the given SJ are annotated but the intron between them is not</e>
-							<e v="3">Both splice sites of the given SJ are annotated, and so is the intron between them</e>
-						</cv>
-					</column-type>
+					<column-type item-type="decimal" column-kind="required" />
 				</column>
 				
 				<column name="splice_site_nucleotides">
