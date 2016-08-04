@@ -2083,7 +2083,7 @@
 					<column-type item-type="decimal" column-kind="required"/>
 				</column>
 				
-				<column name="total_reads">
+				<column name="total_supporting_reads">
 					<description>Total number of reads supporting the junction</description>
 					
 					<column-type item-type="integer" column-kind="required"/>
@@ -2340,7 +2340,7 @@
 					    <column-type item-type="decimal" column-kind="required"/>
 				    </column>
 				    
-				    <column name="total_reads">
+				    <column name="total_supporting_reads">
 					    <description>Total number of reads, from all the ChIP-Seq experiments over this segment, supporting the nucleosome prediction</description>
 					    <column-type item-type="integer" column-kind="required"/>
 				    </column>
