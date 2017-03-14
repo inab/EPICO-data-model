@@ -18,8 +18,9 @@
 		<annotation key="GRChVer">37</annotation>
 		<annotation key="GRChVerPatch">13</annotation>
 		<annotation key="GCAVer">GCA_000001405.14</annotation>
-		<annotation key="dbSNPVer">b147</annotation>
-		<annotation key="dbSNPVerDate">20160408</annotation>
+		<annotation key="dbSNPVer">b149</annotation>
+		<annotation key="dbSNPVerDate">20161121</annotation>
+		<annotation key="dbSNPMergeVerPatch">38p7</annotation>
 		
 		<annotation key="cvKey">Key</annotation>
 		<annotation key="cvDesc">Description</annotation>
