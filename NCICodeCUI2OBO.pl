@@ -1,6 +1,11 @@
-#!/usr/bin/perl -W
+#!/usr/bin/perl
 
 use strict;
+use warnings 'all';
+use File::Spec;
+use FindBin;
+# With this we will be able to use BP::Model::CV::Term and others
+use lib File::Spec->catdir($FindBin::Bin,'local','lib','perl5');
 
 use Carp;
 use File::Basename;
@@ -9,9 +14,7 @@ use File::Spec;
 use File::Temp qw();
 use LWP::UserAgent;
 use URI;
-use FindBin;
-# With this we will be able to use BP::Model::CV::Term
-use lib "$FindBin::Bin/schema+tools/lib";
+
 use BP::Model;
 use TabParser;
 
