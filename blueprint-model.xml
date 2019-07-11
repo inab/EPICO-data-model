@@ -117,7 +117,7 @@
 			
 			<!-- For Gencode 16 and onwards, the information is in ftp://ftp.sanger.ac.uk/pub/gencode/Gencode_human/release_16/gencode.v16.metadata.Gene_source.gz (GencodeDump) -->
 			<!-- But for Gencode 15, it is the file gencode_release_15/gencode.v15.annotation.level_3.classes (GencodeLevel3Classes) inside the archive -->
-			<cv-uri name="genes" format="GencodeDump" doc="http://www.gencodegenes.org/releases/{data-version}.html">ftp://ftp.sanger.ac.uk/pub/gencode/Gencode_human/release_{data-version}/gencode.v{data-version}.metadata.Gene_source.gz</cv-uri>
+			<cv-uri name="genes" format="GencodeDump" doc="http://www.gencodegenes.org/releases/{data-version}.html">ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_{data-version}/gencode.v{data-version}.metadata.Gene_source.gz</cv-uri>
 			<cv-file format="obo">GencodeG.obo</cv-file>
 		</cv>
 	   	<cv name="GencodeTranscripts" lax="true">
@@ -128,7 +128,7 @@
 	   		
 	   		<!-- For Gencode 16 and onwards, the information is in ftp://ftp.sanger.ac.uk/pub/gencode/Gencode_human/release_16/gencode.v16.metadata.Transcript_source.gz (GencodeDump) -->
 	   		<!-- But for Gencode 15, it is the file gencode_release_15/gencode.v15.annotation.level_3.classes (GencodeLevel3Classes) inside the archive -->
-	   		<cv-uri name="transcripts" format="GencodeDump" doc="http://www.gencodegenes.org/releases/{data-version}.html">ftp://ftp.sanger.ac.uk/pub/gencode/Gencode_human/release_{data-version}/gencode.v{data-version}.metadata.Transcript_source.gz</cv-uri>
+	   		<cv-uri name="transcripts" format="GencodeDump" doc="http://www.gencodegenes.org/releases/{data-version}.html">ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_{data-version}/gencode.v{data-version}.metadata.Transcript_source.gz</cv-uri>
 	   		<cv-file format="obo">GencodeT.obo</cv-file>
 	   	</cv>
 		<meta-cv name="EnsemblGencodeGenes">
